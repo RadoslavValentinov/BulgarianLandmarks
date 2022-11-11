@@ -8,5 +8,12 @@ namespace My_Web_Project_LandMarks_.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> All()
+        {
+            return View();
+        }
+
+
     }
 }
