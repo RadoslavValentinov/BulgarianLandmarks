@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWebProject.Infrastructure.Data.Models
 {
@@ -20,7 +17,7 @@ namespace MyWebProject.Infrastructure.Data.Models
         [Required]
         [ForeignKey(nameof(LandMark))]
         public int LandMarkId { get; set; }
-        public LandMark LandMark { get; set; } = null!;
+        public LandMark? LandMark { get; set; } = null!;
 
         [Required]
         [ForeignKey(nameof(Town))]

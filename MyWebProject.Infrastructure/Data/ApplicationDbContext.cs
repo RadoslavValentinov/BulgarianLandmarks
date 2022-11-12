@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using My_Web_Project_LandMarks_.Infrastructure.Data.Models;
+using MyWebProject.Infrastructure.Data.Configoration;
 using MyWebProject.Infrastructure.Data.Models;
 
 namespace My_Web_Project_LandMarks_.Infrastructure.Data
@@ -24,7 +25,7 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data
         public DbSet<Journeys> Journeys { get; set; } = null!;
 
         public DbSet<Pictures> Pictures { get; set; } = null!;
-        //
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<LandMark>()
@@ -38,7 +39,7 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data
             //builder.ApplyConfiguration(new LandMarkConfiguration());
             //builder.ApplyConfiguration(new JourneyConfiguration());
             //builder.ApplyConfiguration(new CultureEventConfiguration());
-            //builder.ApplyConfiguration(new CategoryConfiguration());
+           // builder.ApplyConfiguration(new CategoryConfiguration());
 
 
             base.OnModelCreating(builder);

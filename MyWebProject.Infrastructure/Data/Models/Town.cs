@@ -15,7 +15,7 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
         [MaxLength(5000)]
         public string Description { get; set; } = null!;
 
-       public List<Pictures> Towns { get; set; } 
+       public List<Pictures> Picture { get; set; } 
             = new List<Pictures>();
 
         public List<LandMark> Landmarks { get; set; }

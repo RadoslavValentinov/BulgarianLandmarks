@@ -508,7 +508,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("My_Web_Project_LandMarks_.Infrastructure.Data.Models.Town", "Town")
-                        .WithMany("Towns")
+                        .WithMany("Picture")
                         .HasForeignKey("TownId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -527,7 +527,7 @@ namespace MyWebProject.Infrastructure.Migrations
                 {
                     b.Navigation("Landmarks");
 
-                    b.Navigation("Towns");
+                    b.Navigation("Picture");
 
                     b.Navigation("cultural_Events");
                 });
