@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace MyWebProject.Controllers
+namespace My_Web_Project_LandMarks_.Controllers
 {
     public class LandMarkController : Controller
     {

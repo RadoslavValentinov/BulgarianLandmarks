@@ -14,15 +14,15 @@ namespace MyWebProject.Infrastructure.Data.Models
         [MaxLength(300)]
         public string UrlImgAddres { get; set; } = null!;
 
-        [Required]
+        
         [ForeignKey(nameof(LandMark))]
-        public int LandMarkId { get; set; }
-        public LandMark? LandMark { get; set; } = null!;
+        public int? LandMarkId { get; set; }
+        public LandMark? LandMark { get; set; }
 
-        [Required]
+       
         [ForeignKey(nameof(Town))]
-        public int TownId { get; set; }
-        public Town Town { get; set; } = null!;
+        public int? TownId { get; set; }
+        public Town? Town { get; set; }
 
 
     }

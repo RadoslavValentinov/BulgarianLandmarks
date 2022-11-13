@@ -20,9 +20,9 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
         [Required]
         public decimal Rating { get; set; }
 
-        [Required]
+        
         [ForeignKey(nameof(Town))]
-        public int TownId { get; set; }
+        public int? TownId { get; set; }
         public Town? Town { get; set; }
 
         [Required]
