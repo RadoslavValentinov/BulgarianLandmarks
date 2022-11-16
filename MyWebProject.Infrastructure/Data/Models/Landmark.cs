@@ -28,7 +28,7 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
         [Required]
         [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
-        public Category Category { get; set; }=null!;
+        public Category Category { get; set; } = null!;
 
         public List<Pictures> Pictures { get; set; }
             = new List<Pictures>();

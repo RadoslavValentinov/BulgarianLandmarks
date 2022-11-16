@@ -391,3 +391,6 @@ FodyWeavers.xsd
 /MyWebProject.Infrastructure/Data/ApplicationDbContext.cs
 /MyWebProject.Infrastructure/Data/Models/Users.cs
 /MyWebProject.Infrastructure/MyWebProject.Infrastructure.csproj
+/MyWebProject.Infrastructure/Data/Models/Pictures.cs
+/MyWebProject.Infrastructure/Data/Configoration/PictureConfiguration.cs
+/MyWebProject.Infrastructure/Data/Configoration/PictureConfiguration.cs

@@ -10,5 +10,6 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
         [Required]
         [MaxLength(50)]
         public string Name { get; set; } = null!;
+
     }
 }

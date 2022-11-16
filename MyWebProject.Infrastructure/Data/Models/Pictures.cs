@@ -1,6 +1,4 @@
 ﻿using My_Web_Project_LandMarks_.Infrastructure.Data.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
