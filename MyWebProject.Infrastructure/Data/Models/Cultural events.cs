@@ -16,16 +16,18 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
         public string Description { get; set; } = null!;
 
         [Required]
-        public DateTime Date { get; set; }
+        public string Date { get; set; } = null!;
 
         [Required]
-        public DateTime Hour { get; set; }
+        public string Hour { get; set; } = null!;
 
 
         [ForeignKey(nameof(Town))]
         public int TownId { get; set; }
         public Town Town { get; set; } = null!;
 
+        [Required]
+        public string ImageURL { get; set; } = null!;
 
     }
 }

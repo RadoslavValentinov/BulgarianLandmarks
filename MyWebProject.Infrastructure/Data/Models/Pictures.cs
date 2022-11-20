@@ -22,6 +22,8 @@ namespace MyWebProject.Infrastructure.Data.Models
         public int? TownId { get; set; }
         public Town? Town { get; set; }
 
-
+        [ForeignKey(nameof(Journey))]
+        public int? JourneyId { get; set; }
+        public Journeys? Journey { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MyWebProject.Infrastructure.Data.Models;
+using static System.Net.WebRequestMethods;
 
 namespace MyWebProject.Infrastructure.Data.Configoration
 {
@@ -688,6 +689,429 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     LandMarkId = 16,
                     TownId = 4
                 },
+                new Pictures()
+                {
+                    Id = 101,
+                    UrlImgAddres = "https://www.chasingthedonkey.com/wp-content/uploads/2018/03/VARNA_CATHEDTRAL_shutterstock_511415530.jpg",
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 102,
+                    UrlImgAddres = "https://www.varna.bg/upload/2785/_DSC0201.jpghttps://rossiwrites.com/wp-content/uploads/2015/08/A-bird-eyes-view-of-Varna-Bulgaria-known-as-the-Pearl-of-the-Black-Sea-www.rossiwrites.com_.jpg.webp",
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 103,
+                    UrlImgAddres = "https://kongres-magazine.eu/wp-content/uploads/2020/03/varna-bulgaria_1054165976-1.jpg",
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 104,
+                    UrlImgAddres = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/4d/45/a5/varna.jpg?w=700&h=500&s=1",
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 105,
+                    UrlImgAddres = "https://rossiwrites.com/wp-content/uploads/2020/12/Varna-Bulgaria-43-Reasons-to-Visit-the-Pearl-of-the-Black-Sea-rossiwrites.com_.jpg",
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 106,
+                    UrlImgAddres = "https://c8.alamy.com/comp/2B3NG62/aerial-view-by-drone-of-state-opera-house-varna-bulgaria-europe-2B3NG62.jpg",
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 107,
+                    UrlImgAddres = "https://beaches.bg/wp-content/uploads/2015/07/chernomorec-south-beach-11.jpg",
+                    LandMarkId = 17,
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 108,
+                    UrlImgAddres = "https://visit.varna.bg/media/cache/c9/21/thumb2_Chernomorec_2.jpg",
+                    LandMarkId = 17,
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 109,
+                    UrlImgAddres = "https://vila.bg/blog/wp-content/uploads/2021/03/chernomorets-1104.jpg",
+                    LandMarkId = 17,
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 110,
+                    UrlImgAddres = "https://visit.varna.bg/media/cache/f8/3d/thumb7_Chernomorec_8.jpg",
+                    LandMarkId = 17,
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 111,
+                    UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/02/2733/5a4ba72b5dbe9.jpg",
+                    LandMarkId = 17,
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 112,
+                    UrlImgAddres = "https://imgrabo.com/pics/guide/900x600/20150820120824_46242.jpeg",
+                    LandMarkId = 18,
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 113,
+                    UrlImgAddres = "http://live.varna.bg/media/images/85/8c/images_scluptures46-2.jpg",
+                    LandMarkId = 18,
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 114,
+                    UrlImgAddres = "https://sever.bg/pictures/544940_651_367_16x9.jpg",
+                    LandMarkId = 18,
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 115,
+                    UrlImgAddres = "https://cache2.24chasa.bg/Images/Cache/232/Image_7012232_126_0.jpg",
+                    LandMarkId = 18,
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 116,
+                    UrlImgAddres = "https://laval.blog.bg/photos/98387/original/radio-varna4.jpg",
+                    LandMarkId = 19,
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 117,
+                    UrlImgAddres = "https://laval.blog.bg/photos/98387/radio-varna5.jpg",
+                    LandMarkId = 19,
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 118,
+                    UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXsGeCydRCOzXaCaltcUJ8qqw1lg43qfHmFIpwbPbJm-qW1_BDBPpk3-0QbgVTPsbltWg&usqp=CAU",
+                    LandMarkId = 19,
+                    TownId = 5
+                },
+                new Pictures()
+                {
+                    Id = 119,
+                    UrlImgAddres = "https://different-journey.com/wp-content/uploads/2018/03/belintash-20546d2-1.jpg",
+                    LandMarkId = 20,
+                },
+                new Pictures()
+                {
+                    Id = 120,
+                    UrlImgAddres = "https://www.panacomp.net/wp-content/uploads/2015/09/jesen-470x353.jpg",
+                    LandMarkId = 20,
+                },
+                new Pictures()
+                {
+                    Id = 121,
+                    UrlImgAddres = "https://www.andrey-andreev.com/wp-content/uploads/2016/10/IMGP6871.jpg",
+                    LandMarkId = 20,
+                },
+                new Pictures()
+                {
+                    Id = 122,
+                    UrlImgAddres = "https://i.ytimg.com/vi/mPQk6RbIn5U/maxresdefault.jpg",
+                    LandMarkId = 20,
+                },
+                new Pictures()
+                {
+                    Id = 123,
+                    UrlImgAddres = "https://www.andrey-andreev.com/wp-content/uploads/2016/10/IMGP7125.jpg",
+                    LandMarkId = 20,
+                },
+                new Pictures()
+                {
+                    Id = 124,
+                    UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR58FrJ9lNPdoslMywhV3SFM5bWQB0NBnGzLA&usqp=CAU",
+                    LandMarkId = 20,
+                },
+                new Pictures()
+                {
+                    Id = 125,
+                    UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/01/1476/547c2828109cc.jpg",
+                    LandMarkId = 21,
+                },
+                new Pictures()
+                {
+                    Id = 126,
+                    UrlImgAddres = "https://static.bnr.bg/gallery/cr/70f38109927b95857ff02eea7a88940f.jpg",
+                    LandMarkId = 21,
+                },
+                new Pictures()
+                {
+                    Id = 127,
+                    UrlImgAddres = "https://plovdivnow.bg/news/2019/05/03/krastova-gora-pazi-drevni-sakrovishta-342.jpg",
+                    LandMarkId = 21,
+                },
+                new Pictures()
+                {
+                    Id = 128,
+                    UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIXVpZjOfWK7EA6x6dSojQ-53oY4TLtfTSgg&usqp=CAU",
+                    LandMarkId = 21,
+                },
+                new Pictures()
+                {
+                    Id = 129,
+                    UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiKPVdP0WvcKdvs8bKrz4CE9izP_9LGxJUxg&usqp=CAU",
+                    LandMarkId = 21,
+                },
+                new Pictures()
+                {
+                    Id = 130,
+                    UrlImgAddres = "https://upload.wikimedia.org/wikipedia/commons/c/ca/Karadzhov_kamik.jpg",
+                    LandMarkId = 22,
+                },
+                new Pictures()
+                {
+                    Id = 131,
+                    UrlImgAddres = "https://mayaeye.com/thumbs/7/karadjov-kamak-prolet.jpg",
+                    LandMarkId = 22,
+                },
+                new Pictures()
+                {
+                    Id = 132,
+                    UrlImgAddres = "https://kilometri.bg/images_upload/location_uploads/img_1606_karadzhov_kamak_th.jpg",
+                    LandMarkId = 22,
+                },
+                new Pictures()
+                {
+                    Id = 133,
+                    UrlImgAddres = " https://bulgariatravel.org/wp-content/uploads/2016/248_005_Skalen_kompleks_Karadjov_Kamyk.jpg",
+                    LandMarkId = 22,
+                },
+                new Pictures()
+                {
+                    Id = 134,
+                    UrlImgAddres = "https://i1.wp.com/time2travel.bg/wp-content/uploads/2015/10/1445788558DSC_0096-min-e1445805086310.jpg",
+                    LandMarkId = 23,
+                },
+                new Pictures()
+                {
+                    Id = 135,
+                    UrlImgAddres = "https://bookvila.bg/img/210216042456-1.jpg",
+                    LandMarkId = 23,
+                },
+                new Pictures()
+                {
+                    Id = 136,
+                    UrlImgAddres = "https://imgrabo.com/pics/guide/900x600/20160121173502_44587.jpeg",
+                    LandMarkId = 23,
+                },
+                new Pictures()
+                {
+                    Id = 137,
+                    UrlImgAddres = "https://bookvila.bg/img/210216042456-1.jpg",
+                    LandMarkId = 23,
+                },
+                new Pictures()
+                {
+                    Id = 138,
+                    UrlImgAddres = "https://static.bnr.bg/gallery/cr/269d267c9371608fe1bcd4fe8509fbc9.jpg",
+                    LandMarkId = 23,
+                },
+                new Pictures()
+                {
+                    Id = 139,
+                    UrlImgAddres = "https://sunrisinglife.com/wp-content/uploads/2020/02/DSC00520.jpg",
+                    LandMarkId = 23,
+                },
+                new Pictures()
+                {
+                    Id = 140,
+                    UrlImgAddres = "https://cqlo.info/dqvolskoto-gurlo/03.jpg",
+                    LandMarkId = 23,
+                },
+                new Pictures()
+                {
+                    Id = 141,
+                    UrlImgAddres = "https://cdn.theculturetrip.com/wp-content/uploads/2017/03/scenic-2014114_1920.jpg",
+                },
+                new Pictures()
+                {
+                    Id = 142,
+                    UrlImgAddres = "https://www.fodors.com/assets/destinations/711600/cityscape-amasra-black-sea-coast-turkey_980x650.jpg",
+                },
+                new Pictures()
+                {
+                    Id = 143,
+                    UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt688Mal0ciMujR0G9dCT-p6Q-Zhi-VLCUpg&usqp=CAU",
+                },
+                new Pictures()
+                {
+                    Id = 144,
+                    UrlImgAddres = "https://lh3.googleusercontent.com/xoW89NgIGGCxSNXqFpqinQ0SH8wD-68p643-JpoeTa7bbHxoJYP8t0L8vXVSO5raRQ",
+                },
+                new Pictures()
+                {
+                    Id = 145,
+                    UrlImgAddres = "https://static.bnr.bg/gallery/cr/b0579ee84ca72f65f42176568bb7e86d.jpg",
+                },
+                new Pictures()
+                {
+                    Id = 146,
+                    UrlImgAddres = "https://www.fujitsu.com/global/imagesgig5/Bulgaria_tcm100-6387997_tcm100-6286607-32.jpg",
+                },
+                new Pictures()
+                {
+                    Id = 147,
+                    UrlImgAddres = "http://media-s3-us-east-1.ceros.com/euronews/images/2020/08/07/4f86c16a7084de523d28dca936735db2/heritage-sites-article-image.jpg",
+                },
+                new Pictures()
+                {
+                    Id = 148,
+                    UrlImgAddres = "https://image.jimcdn.com/app/cms/image/transf/none/path/sa6549607c78f5c11/image/i8ff1f502e93fe6d5/version/1646389914/best-castles-in-bulgaria-tsarevets-fortress.jpg",
+                },
+                new Pictures()
+                {
+                    Id = 149,
+                    UrlImgAddres = "https://images.unsplash.com/photo-1601152888642-f2f1b5ee0ca2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVsZ2FyaWF8ZW58MHx8MHx8&w=1000&q=80",
+                },
+                new Pictures()
+                {
+                    Id = 150,
+                    UrlImgAddres = " https://plovdivnow.bg/news/2019/06/24/izkachvane-vrah-chiliaka-predizvikva-862.jpg",
+                    JourneyId = 1
+                },
+                new Pictures()
+                {
+                    Id = 151,
+                    UrlImgAddres = "https://static.dir.bg/uploads/images/2021/04/14/2188234/1920x1080.jpg?_=1618417832",
+                    JourneyId = 1
+                },
+                new Pictures()
+                {
+                    Id = 152,
+                    UrlImgAddres = "https://planinazavseki.com/wp-content/uploads/2021/03/01_chilyaka-bezdiven.jpg",
+                    JourneyId = 1
+                },
+                new Pictures()
+                {
+                    Id = 153,
+                    UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_612_15005411781171.jpg",
+                    JourneyId = 2
+                },
+                new Pictures()
+                {
+                    Id = 154,
+                    UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_gora_15005411781171.jpg",
+                    JourneyId = 2
+                },
+                new Pictures()
+                {
+                    Id = 155,
+                    UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_BIG_10_148284126231_15005411781171.jpg",
+                    JourneyId = 2
+                },
+                new Pictures()
+                {
+                    Id = 156,
+                    UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_%D0%B3%D1%8A%D0%B1%D0%B81_148224303987.jpg",
+                    JourneyId = 3
+                },
+                new Pictures()
+                {
+                    Id = 157,
+                    UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_%D0%B3%D1%8A%D0%B1%D0%B82_148224303987.jpg",
+                    JourneyId = 3
+                },
+                new Pictures()
+                {
+                    Id = 158,
+                    UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_%D0%B3%D1%8A%D0%B1%D0%B87_148224303987.jpg",
+                    JourneyId = 3
+                },
+                new Pictures()
+                {
+                    Id = 159,
+                    UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_230fa6edf72005a8d908da1e616982c9_15385490602374.jpg",
+                    JourneyId = 4
+                },
+                new Pictures()
+                {
+                    Id = 160,
+                    UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_768x432_15385518432374.jpg",
+                    JourneyId = 4
+                },
+                new Pictures()
+                {
+                    Id = 161,
+                    UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_45664_650__3_15385518432374.jpg",
+                    JourneyId = 4
+                },
+                new Pictures()
+                {
+                    Id = 162,
+                    UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_87d2badbd94d5fb45d320982ea3a1822_15426273282494.jpg",
+                    JourneyId = 5
+                },
+                new Pictures()
+                {
+                    Id = 163,
+                    UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_462_15426273282494.jpg",
+                    JourneyId = 5
+                },
+                new Pictures()
+                {
+                    Id = 164,
+                    UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_768x432_15426273282494.jpg",
+                    JourneyId = 5
+                },
+                new Pictures()
+                {
+                    Id = 165,
+                    UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_BIG_1_16125284163975_16179691444113.jpg",
+                    JourneyId = 6
+                },
+                new Pictures()
+                {
+                    Id = 166,
+                    UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_BIG_lovech31_15221445172175_16179691444113.jpg",
+                    JourneyId = 6
+                },
+                new Pictures()
+                {
+                    Id = 167,
+                    UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_BIG_5b85cee52d496682b13f9d8f55827de7fb875233_16136575244017_16179691444113.jpg",
+                    JourneyId = 6
+                },
+                new Pictures()
+                {
+                    Id = 168,
+                    UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_110275501_10158488930782530_7946869728201616024_o_159941567292.jpg",
+                    JourneyId = 7
+                },
+                new Pictures()
+                {
+                    Id = 169,
+                    UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_110167056_10158488896777530_5047544933329434040_o_159941567292.jpg",
+                    JourneyId = 7
+                },
+                new Pictures()
+                {
+                    Id = 170,
+                    UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_110101960_10158488900382530_9134956832801263166_o_159941567292.jpg",
+                    JourneyId = 7
+                }
             };
             return pictures;
         }
