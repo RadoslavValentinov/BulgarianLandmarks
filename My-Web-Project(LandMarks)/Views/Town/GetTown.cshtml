@@ -1,0 +1,112 @@
+﻿@using MyWebProject.Core.Models.Town;.
+@model IEnumerable<TownViewModelGetTown>
+@{
+    bool first = true;
+}
+@foreach (var item in Model)
+{
+    <div class="text-lg-center">
+        <p style="font-size:50px;"> @item.Name</p>
+    </div>
+    var pic = item.Picture.Where(a => a.TownId == item.Id && a.LandMarkId == null).ToList();
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach (var sa in pic)
+            {
+                <div class="carousel-item @(first ? "active" : string.Empty)">
+
+                    <img class="d-block w-100" style="height:500px"
+                 src="@sa.UrlImgAddres" alt="...">
+
+                </div>
+
+                first = false;
+            }
+        </div>
+    </div>
+    <div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+    <div class="mt-4 p-5 bg-light d-none" id="statistics">
+        <div class="row">
+            <h2 class="col-md-6 text-center" id="total-houses"></h2>
+            <h2 class="col-md-6 text-center" id="total-rents"></h2>
+        </div>
+    </div>
+    <br />
+
+
+    <div class="container">
+        <div class="row">
+            <div class="text-black">@item.Description</div>
+        </div>
+    </div>
+    <br />
+
+
+    var pict = item.Picture.ToList();
+    var land = item.Landmarks.ToList();
+    @if (land.Count >= 3)
+    {
+        <div class="container">
+            <div class="text-lg-start">
+                <p style="font-size:50px;">Забележителности</p>
+            </div>
+            <div class="row">
+                @for (int i = 0; i < 3; i++)
+                {
+                    var picture = pict.FirstOrDefault(x => x.LandMarkId == land[i].Id);
+
+                    <div class="col" style="width: 18rem;">
+                        <img src="@picture.UrlImgAddres" class="card-img-top" alt="...">
+                        <div class="card-group">
+                            <h5 class="card-title">@land[i].Name.ToString()</h5>
+                            <p class="card-text">@land[i].Description.Substring(0,60)...</p>
+                            <a class="btn btn-primary" asp-route-id="@land[i].Id" asp-controller="landMark" asp-action="Get">Научи повече</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    <br />
+    // if add else to other scenario
+
+    var culEvent = item.cultural_Events.ToList();
+
+    <div class="container">
+        <div class="text-lg-start">
+            <p style="font-size:50px;">Културни Събития</p>
+        </div>
+        <div class="row">
+            @for (int i = 0; i < 3; i++)
+            {
+                <div class="col" style="width: 18rem;">
+                    <img src="@culEvent[i].ImageURL" class="card-img-top" alt="...">
+                    <div class="card-group">
+                        <h5 class="card-title">@culEvent[i].Name.ToString()</h5>
+                        @if (culEvent[i].Description.Length < 50)
+                        {
+                            <p class="card-text">@culEvent[i].Description.Substring(0,culEvent[i].Description.Length)...</p>
+                        }
+                        else
+                        {
+                            <p class="card-text">@culEvent[i].Description.Substring(0,60)...</p>
+                        }
+                        <a class="btn btn-primary" asp-route-id="@culEvent[i].Id" asp-controller="CultureEvent" asp-action="Get">Научи повече</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
