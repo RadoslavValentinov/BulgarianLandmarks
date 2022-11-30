@@ -409,3 +409,4 @@ FodyWeavers.xsd
 /My-Web-Project(LandMarks)/My-Web-Project(LandMarks).csproj
 /MyWebProject.Infrastructure/Migrations/20221115110957_sets.cs
 /My-Web-Project(LandMarks)/wwwroot/favicon.ico
+/MyWebProject.Infrastructure/Migrations/20221114204109_initial.cs

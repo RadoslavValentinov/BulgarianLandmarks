@@ -1,0 +1,33 @@
+﻿@using MyWebProject.Core.Models.LandMarkModel;
+@model IEnumerable<LandMarkViewModelAll>
+
+@{
+    var loopmodel = Model.ToList(); 
+}
+
+<div class="text-lg-center">
+
+    <p style="font-size:50px;">Забележителностите на България</p>
+    
+    @for (int i = 0; i < Model.Count(); i+=3)   
+    {
+        <div class="row">
+            @foreach (var item in loopmodel.Take(3))
+            {
+            var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
+
+                <div class="col" style="width: 18rem;">
+                    <img src="@picture.UrlImgAddres" class="card-img-top" alt="...">
+                    <div class="card-group">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description.Substring(0,60)...</p>
+                        <h2 class="text-sm-start">Рейтинг:@item.Rating</h2>
+                        <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="Get">Научи повече</a>
+                    </div>
+                </div>
+                loopmodel.Remove(item);
+        }
+        </div>
+        <br />
+    }
+</div>
