@@ -3,6 +3,7 @@
 
 @foreach (var pic in Model)
 {
+<<<<<<< HEAD
     var picture = pic.Picture.FirstOrDefault(x => x.TownId != null);
 
     <div class="container">
@@ -17,6 +18,22 @@
                 </div>
             </div>
         </div>
+=======
+    var picture = pic.Picture.FirstOrDefault(x =>x.TownId != null);
+
+   <div class="container">
+    <div class="row">
+    <div class="col" style="width: 10rem;">
+      <img src="@picture.UrlImgAddres" class="card-img-top" alt="Town"/>
+      <div class="card-group">
+        <h5 class="card-title">@pic.Name</h5>
+        <p class="card-img-top">@pic.Description.Substring(0,100)</p>
+                    <a class="btn btn-primary" asp-controller="Town" asp-action="GetTown"
+                   asp-route-id="@pic.Id" method ="post">Към Градът</a>
+    </div>
+    </div>
+    </div>
+>>>>>>> 9e8d5f20cc5880a64054c64a3f65828871396cfc
     </div>
     <br>
 }
