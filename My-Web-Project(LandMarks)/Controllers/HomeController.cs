@@ -1,27 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using My_Web_Project_LandMarks_.Models;
+using MyWebProject.Core.Services.IServices;
 using System.Diagnostics;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        public readonly IHomeService service;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IHomeService _service)
         {
-            _logger = logger;
+            service= _service;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var result = await service.AllPicture();
+
+            return View(result);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

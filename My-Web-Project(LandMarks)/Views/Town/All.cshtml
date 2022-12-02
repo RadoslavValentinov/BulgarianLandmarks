@@ -1,0 +1,54 @@
+﻿@using MyWebProject.Core.Models.Town;
+@model IEnumerable<TownViewModelAll>
+
+@foreach (var pic in Model)
+{
+    var picture = pic.Picture.FirstOrDefault(x => x.TownId != null);
+
+    <div class="container">
+        <div class="row">
+            <div class="col" style="width: 10rem;">
+                <img src="@picture.UrlImgAddres" class="card-img-top" alt="Town" />
+                <div class="card-group">
+                    <h5 class="card-title">@pic.Name</h5>
+                    <p class="card-img-top">@pic.Description.Substring(0,100)</p>
+                    <a class="btn btn-primary" asp-controller="Town" asp-action="GetTown"
+                   asp-route-id="@pic.Id" method="post">Към Градът</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+}
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+
+<script type="text/javascript">
+    $('document').ready(function () {
+        $('#undo').click(function () {
+            $(this).hide();
+            $('#done').show();
+
+            var requested_to = document.getElementById('undo').value;
+
+            $.ajax({
+                type: "post",
+                url: '/requestmeet/{{$id}}',
+                data: { requested_to: requested_to, "_token": "{{ csrf_token() }}" },
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    //$( "#disp" ).append( "<strong>"+data.description+":</strong></br>");
+                    //document.getElementById('disp').innerHTML=data.description;
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                }
+            });
+        });
+    });
+</script>

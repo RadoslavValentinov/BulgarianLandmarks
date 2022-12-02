@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using My_Web_Project_LandMarks_.Infrastructure.Data;
 using My_Web_Project_LandMarks_.Infrastructure.Data.Common;
 using My_Web_Project_LandMarks_.Infrastructure.Data.Models;
+using MyWebProject.Core.Services.IServices;
+using MyWebProject.Core.Services.Services;
 
 namespace My_Web_Project_LandMarks_
 {
@@ -17,10 +19,21 @@ namespace My_Web_Project_LandMarks_
             {
                 DbContextOptionsBuilder dbContextOptionsBuilder = options.UseSqlServer(connectionString);
             });
-            builder.Services.AddScoped<IRepository, Repository>(); ;
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+            builder.Services.AddScoped<IRepository, Repository>();
+            builder.Services.AddScoped<IHomeService,HomeServices>();
+            builder.Services.AddScoped<ICultureEventService,CultureEventService>();
+            builder.Services.AddScoped<ITownService,TownService>();
+            builder.Services.AddScoped<ILandmarkService,LandMarkService>();
+            builder.Services.AddScoped<ITop10Destination,Top10Destination>();
 
-            builder.Services.AddDefaultIdentity<Users>(options => options.SignIn.RequireConfirmedAccount = false)
+            builder.Services.AddDefaultIdentity<Users>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+            }) 
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 

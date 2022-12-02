@@ -1,9 +1,27 @@
-﻿<div class="mb-3">
-      <label for="disabledSelect" class="form-label">Towns</label>
-      <select id="disabledSelect" class="form-select">
-          <a asp-area="" asp-controller="CultureEvent" asp-action="EventByTownId"></a>
-          <a></a>
-        <option>Disabled select</option>
-      </select>
-</div>
-<button type="submit" class="btn btn-primary">Submit</button>
+﻿@model IEnumerable<CultureEventViewModelByTownId>
+
+// not work
+@foreach (var item in Model)
+{
+    //<div class="text-lg-center">
+    //    <p style="font-size:50px;"> @item.Town</p>
+    //</div>
+
+    <div>
+        <img src="@item.ImageURL">
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="text-black">@item.Name</div>
+            <div class="text-black">@item.Description</div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="text-lg-start">Rating: @item.Date</div>
+            <div class="text-md-start">Час на започване: @item.Hour</div>
+        </div>
+    </div>
+}

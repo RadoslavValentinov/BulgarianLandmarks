@@ -23,5 +23,8 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
 
         public List<Cultural_events> cultural_Events { get; set; }
                 =new List<Cultural_events> { };
+
+        [Required]
+        public string Location { get; set; } = null!;
     }
 }

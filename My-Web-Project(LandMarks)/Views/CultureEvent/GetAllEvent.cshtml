@@ -1,0 +1,34 @@
+﻿@model IEnumerable<AllCultureEventViewModel>
+
+@{
+    var all = Model.ToList();
+}
+
+<div class="text-lg-center">
+
+    <p style="font-size:50px;">Събития подредени по Градове</p>
+
+    @for (int i = 0; i < Model.Count(); i += 3)
+    {
+        
+        <div class="row">
+            @foreach (var item in all.Take(3))
+            {
+                <div class="col" style="width: 18rem;">
+                    <img src="@item.ImageURL" class="card-img-top" alt="...">
+                    <div class="card-group">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description.Substring(0,40)...</p>
+                        <p class="card-text">Дата: @item.Date</p>
+                        
+                        <p class="card-text">Започва в: @item.Hour</p>
+                        
+                        <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="CultureEvent" asp-action="EventByTownId">Научи повече</a>
+                    </div>
+                </div>
+                all.Remove(item);
+            }
+        </div>
+        <br />
+    }
+</div>

@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using My_Web_Project_LandMarks_.Infrastructure.Data.Models;
 using MyWebProject.Infrastructure.Data.Configoration;
 using MyWebProject.Infrastructure.Data.Models;
+using System.Reflection.Emit;
+using System.Xml;
 
 namespace My_Web_Project_LandMarks_.Infrastructure.Data
 {
@@ -31,16 +33,21 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data
             builder.Entity<LandMark>()
                 .HasOne(x=>x.Town)
                 .WithMany(x=>x.Landmarks)
-                .OnDelete(DeleteBehavior.NoAction);
+            .OnDelete(DeleteBehavior.NoAction);
 
-          
+            //builder.Entity<Category>(b =>
+            //{
+            //    b.HasKey(e => e.Id);
+            //    b.Property(e => e.Id).ValueGeneratedOnAdd();
+            //});
+
 
             //builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new TownConfiguration());
-            //builder.ApplyConfiguration(new PictureConfiguration());
-            //builder.ApplyConfiguration(new LandMarkConfiguration());
-            //builder.ApplyConfiguration(new JourneyConfiguration());
-            //builder.ApplyConfiguration(new CultureEventConfiguration());
+            builder.ApplyConfiguration(new PictureConfiguration());
+            builder.ApplyConfiguration(new LandMarkConfiguration());
+            builder.ApplyConfiguration(new JourneyConfiguration());
+            builder.ApplyConfiguration(new CultureEventConfiguration());
             builder.ApplyConfiguration(new CategoryConfiguration());
 
 

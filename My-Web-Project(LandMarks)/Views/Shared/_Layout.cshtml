@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - My_Web_Project_LandMarks_</title>
+    <title>@ViewData["Title"] - Пътеводител</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/My_Web_Project_LandMarks_.styles.css" asp-append-version="true" />
@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">My_Web_Project_LandMarks_</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Пътеводител</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,12 +30,30 @@
                                 <ul class="navbar-nav">
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Dropdown
+                                            Towns
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            <li><a class="dropdown-item" asp-area="" asp-controller="Town" asp-action="All">Градове</a></li>
+                                            <li><a class="dropdown-item" asp-area="" asp-controller="LandMark" asp-action="AllLandmark">Забележителности</a></li>
+                                            <li><a class="dropdown-item" asp-area="" asp-controller="CultureEvent" asp-action="GetAllEvent">Събития</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </li>
+                         <li>
+                           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Топ Дестинации
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                            <li><a class="dropdown-item" asp-area="" asp-controller="Top10destination" asp-action="Get10Landmark">Топ 10 забележителности</a></li>
+                                            <li><a class="dropdown-item" asp-area="" asp-controller="LandMark" asp-action="AllLandmark"></a></li>
+                                            <li><a class="dropdown-item" asp-area="" asp-controller="CultureEvent" asp-action="Събития"></a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -52,9 +70,10 @@
         </main>
     </div>
 
+
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - My_Web_Project_LandMarks_ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - Пътеводител на България  <a asp-area="" asp-controller="Home" asp-action="Privacy"></a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
