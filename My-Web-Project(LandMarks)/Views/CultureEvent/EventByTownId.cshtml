@@ -1,16 +1,12 @@
 ﻿@model IEnumerable<CultureEventViewModelByTownId>
 
-// not work
+
 @foreach (var item in Model)
 {
-    //<div class="text-lg-center">
-    //    <p style="font-size:50px;"> @item.Town</p>
-    //</div>
-
     <div>
-        <img src="@item.ImageURL">
+        <img src="@item.ImageURL" class="card-img-top" alt="...">
     </div>
-
+    <br />
     <div class="container">
         <div class="row">
             <div class="text-black">@item.Name</div>
@@ -20,8 +16,11 @@
     <br />
     <div class="container">
         <div class="row">
-            <div class="text-lg-start">Rating: @item.Date</div>
+            <div class="text-lg-start">Дата на събитието: @item.Date</div>
             <div class="text-md-start">Час на започване: @item.Hour</div>
+            <div class="text-lg-start">Град: @item.TownName</div>
         </div>
     </div>
+
 }
+

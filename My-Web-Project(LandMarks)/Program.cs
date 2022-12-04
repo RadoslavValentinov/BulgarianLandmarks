@@ -26,6 +26,7 @@ namespace My_Web_Project_LandMarks_
             builder.Services.AddScoped<ITownService,TownService>();
             builder.Services.AddScoped<ILandmarkService,LandMarkService>();
             builder.Services.AddScoped<ITop10Destination,Top10Destination>();
+            builder.Services.AddScoped<IMysteryPlace,MysteryPlace>();
 
             builder.Services.AddDefaultIdentity<Users>(options =>
             {

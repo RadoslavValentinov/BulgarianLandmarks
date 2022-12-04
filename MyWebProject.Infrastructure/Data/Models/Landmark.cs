@@ -30,6 +30,8 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; } = null!;
 
+        public string? VideoURL { get; set; }
+
         public List<Pictures> Pictures { get; set; }
             = new List<Pictures>();
     }
