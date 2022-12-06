@@ -36,7 +36,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Районът е осеян с високи канари и мегалити от времето на траките. Гледките към язовирите Кърджали и Боровица," +
                     " както и към река Арда, са незабравими.",
                     Rating = 7.2m,
-                    StartDate = new DateTime(2023-08-05),
+                    StartDate = "05-08-2023",
                     Day = 2,
                     Price = 115
                 },
@@ -61,7 +61,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     " Разполага с три църкви.",
                     Rating = 10m,
                     Day = 2,
-                    StartDate = new DateTime(2023-09-13),
+                    StartDate = "13-09-2023",
                     Price = 59
                 },
                 new Journeys 
@@ -87,7 +87,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "забележителните храмове в цяла България с изключителната си история, ценни стари стенописи и уникални находки. ",
                     Rating = 9.5m,
                     Day = 2,
-                    StartDate = new DateTime(2023-06-24),
+                    StartDate = "24-06-2023",
                     Price = 129
                 },
                 new Journeys 
@@ -111,7 +111,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Еврейската Синагога, построена през 1894 г. Свободно време за обяд и  разходка в Крайдунавския парк, ",
                     Rating = 8.9m,
                     Day = 2,
-                    StartDate = new DateTime(2023-06-17),
+                    StartDate = "06-17-2023",
                     Price = 119
                 },
                 new Journeys 
@@ -134,7 +134,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "които са включени в червената книга на България. Към 16.00ч.отпътуване за Пловдив.",
                     Rating = 6.9m,
                     Day = 2,
-                    StartDate = new DateTime(2023-10-28),
+                    StartDate = "10-28-2023",
                     Price = 120
                 },
                 new Journeys 
@@ -157,7 +157,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Следва пешеходен преход по екопътека „Под пръските на водопада“ и посещение на водопад Скока. Екопътеката започва от центъра на гр.",
                     Rating = 9.1m,
                     Day= 2,
-                    StartDate =new DateTime(2023-09-30),
+                    StartDate ="30-09-2023",
                     Price = 119
                 },
                 new Journeys 
@@ -183,7 +183,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Посещение на язовирната стена на яз. Студен кладенец. Под нея намира най-изумителната част от каньона на р. Арда - Шейтана.",
                     Rating = 9.9m,
                     Day = 2,
-                    StartDate = new DateTime(2023-05-13),
+                    StartDate ="13-05-2023",
                     Price = 128
                 }
             };

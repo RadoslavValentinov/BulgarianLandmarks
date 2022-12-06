@@ -1,0 +1,32 @@
+﻿@model IEnumerable<JourneyGetAllViewModel>
+
+@foreach (var pic in Model)
+{
+    var picture = pic.pictures.FirstOrDefault(x => x.JourneyId == pic.Id);
+
+    <div class="container">
+        <div class="row">
+            <div class="col" style="width: 10rem;">
+                <img src="@picture.UrlImgAddres" class="card-img-top" alt="Town" />
+                <div class="card-group">
+                    <h5 class="card-title">@pic.Name</h5>
+                    <p class="card-img-top">@pic.Description.Substring(0,60)</p>
+                    <p class="card-body">
+                       Рейтинг: @pic.Rating
+                       <br />
+                       Начална дата: @pic.StartDate
+                       <br />
+                       Дни: @pic.Day
+                       <br />
+                        Цена: @pic.Price лв.
+                        <br />
+                    </p>
+                    <br />
+                </div>
+                <a class="btn btn-primary" asp-controller="Journey" asp-action="GetById"
+               asp-route-id="@pic.Id">Към Пътешествието</a>
+            </div>
+        </div>
+    </div>
+    <br />
+}

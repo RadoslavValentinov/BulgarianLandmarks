@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MisteryModelView>
+﻿@model IEnumerable<JourneyGetAllViewModel>
 
 @{
     bool first = true;
@@ -6,11 +6,10 @@
 
 @foreach (var item in Model)
 {
-    first = true;
     <div class="text-lg-center">
         <p style="font-size:50px;"> @item.Name</p>
     </div>
-    var pic = item.Pictures.Where(x => x.LandMarkId == item.Id).ToList();
+    var pic = item.pictures.Where(x => x.JourneyId == item.Id).ToList();
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             @foreach (var sa in pic)
@@ -36,22 +35,22 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <br />
+
     <div class="container">
         <div class="row">
+            <div class="text-black">@item.Name</div>
+            <br />
             <div class="text-black">@item.Description</div>
         </div>
     </div>
     <br />
     <div class="container">
         <div class="row">
-            <div class="text-xl-start">Rating: @item.Rating</div>
+            <div class="text-lg-start">Рейтинг: @item.Rating</div>
+            <div class="text-md-start">Дата на Тръгване: @item.StartDate</div>
+            <div class="text-md-start">Продължителност: @item.Day дни</div>
+            <div class="text-md-start">Цена: @item.Price лв.</div>
         </div>
     </div>
     <br />
-    <div class="container">
-        <iframe width="420" height="315"
-            src="@item.VideoUrl">
-        </iframe>
-    </div>
 }

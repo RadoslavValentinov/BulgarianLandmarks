@@ -16,3 +16,30 @@ html {
 body {
   margin-bottom: 60px;
 }
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.column {
+    float: left;
+}
+
+.left, .right {
+    width: 25%;
+}
+
+.middle {
+    width: 50%;
+}
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}

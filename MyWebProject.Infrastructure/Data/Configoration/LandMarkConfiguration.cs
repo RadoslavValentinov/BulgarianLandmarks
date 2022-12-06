@@ -348,7 +348,8 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "че образуват още поне три легнали по гръб мъжки тела.",
                     Rating = 10m,
                     CategoryId= 5,
-                    VideoURL ="https://www.youtube.com/watch?v=kOHCzCnsFkA&t=34s"
+                    VideoURL ="https://www.youtube.com/embed/kOHCzCnsFkA?autoplay=1&mute=1"
+
                 },
                 new LandMark() 
                 {
@@ -380,8 +381,8 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Те успели обаче да скрият кръста в подземното манастирско скривалище.",
                     Rating = 9.7m,
                     CategoryId= 5,
-                    VideoURL = "https://www.youtube.com/watch?v=Wk4CJC3-yms&t=197s"
-                },
+                    VideoURL = "https://www.youtube.com/embed/Wk4CJC3-yms?autoplay=1&mute=1"
+                },   
                 new LandMark() 
                 {
                     Id = 22,
@@ -405,7 +406,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Както и при други древни светилища, тук се наблюдават няколко нива. Първото ниво се нарича Долна култова площадка, следват издълбани стъпала – преход към по-високата част, където в скалите има изсечени малки дупки.",
                      Rating = 7.1m, 
                     CategoryId= 5,
-                    VideoURL = "https://www.youtube.com/watch?v=dz4uhD5sD44&t=15s"
+                    VideoURL = "https://www.youtube.com/embed/dz4uhD5sD44?autoplay=1&mute=1"
                 },
                 new LandMark() 
                 { 
@@ -429,7 +430,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Дяволското гърло дава начало на различни легенди от времето на траките. Една от тях говори, че именно тук Орфей се спуска в подземното царство на Хадес, за да спаси любимата си – Евридика.",
                      Rating = 6.1m,
                      CategoryId= 5,
-                     VideoURL = "https://www.youtube.com/watch?v=6FmeTFGhofA"
+                     VideoURL = "https://www.youtube.com/embed/6FmeTFGhofA?autoplay=1&mute=1"
                 }
             };
 

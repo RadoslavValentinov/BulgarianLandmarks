@@ -27,6 +27,7 @@ namespace My_Web_Project_LandMarks_
             builder.Services.AddScoped<ILandmarkService,LandMarkService>();
             builder.Services.AddScoped<ITop10Destination,Top10Destination>();
             builder.Services.AddScoped<IMysteryPlace,MysteryPlace>();
+            builder.Services.AddScoped<IJourneyServise,JourneyService>();
 
             builder.Services.AddDefaultIdentity<Users>(options =>
             {
@@ -63,7 +64,6 @@ namespace My_Web_Project_LandMarks_
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-            app.MapRazorPages();
 
             app.Run();
         }

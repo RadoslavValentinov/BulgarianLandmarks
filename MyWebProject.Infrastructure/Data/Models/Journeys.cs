@@ -20,7 +20,7 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
         public decimal Rating { get; set; }
 
         [Required]
-        public DateTime StartDate { get; set; }
+        public string StartDate { get; set; } = null!;
 
         public int? Day { get; set; }
 

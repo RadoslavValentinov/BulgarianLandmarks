@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyWebProject.Core.Models.LandMarkModel;
 using MyWebProject.Core.Services.IServices;
 
 namespace My_Web_Project_LandMarks_.Controllers
@@ -36,6 +37,33 @@ namespace My_Web_Project_LandMarks_.Controllers
             }
 
             return View(allLandMark);
+        }
+
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var model = new AddLandMarkViewModel();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(AddLandMarkViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var land = await service.AddLandMark(model);
+
+            if (land != null) 
+            {
+                return RedirectToAction("Home","Index");
+            }
+
+            return View(model);
         }
     }
 }

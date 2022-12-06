@@ -31,5 +31,12 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> AllLandMarkByTown()
+        {
+            var model = await service.AllLandMarkByTown();
+
+            return View(model);
+        }
+
     }
 }

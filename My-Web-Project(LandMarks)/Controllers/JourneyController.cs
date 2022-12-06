@@ -1,12 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyWebProject.Core.Services.IServices;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {
     public class JourneyController : Controller
     {
-        public IActionResult Index()
+        private readonly IJourneyServise service;
+
+        public JourneyController(IJourneyServise _service)
         {
-            return View();
+            service= _service;  
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var model = await service.GetAll();
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var model = await service.GetById(id);
+
+            return View(model);
+        }
+
+
     }
 }
