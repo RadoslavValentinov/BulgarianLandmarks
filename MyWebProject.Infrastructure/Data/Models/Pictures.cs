@@ -12,7 +12,8 @@ namespace MyWebProject.Infrastructure.Data.Models
         [MaxLength(300)]
         public string UrlImgAddres { get; set; } = null!;
 
-        
+        public bool IsActiv { get; set; } = true;
+
         [ForeignKey(nameof(LandMark))]
         public int? LandMarkId { get; set; }
         public LandMark? LandMark { get; set; }

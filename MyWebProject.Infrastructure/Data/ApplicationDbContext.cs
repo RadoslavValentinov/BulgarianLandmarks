@@ -35,11 +35,11 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data
                 .WithMany(x=>x.Landmarks)
             .OnDelete(DeleteBehavior.NoAction);
 
-            //builder.Entity<Category>(b =>
-            //{
-            //    b.HasKey(e => e.Id);
-            //    b.Property(e => e.Id).ValueGeneratedOnAdd();
-            //});
+            builder.Entity<Category>(b =>
+            {
+                b.HasKey(e => e.Id);
+                b.Property(e => e.Id).ValueGeneratedOnAdd();
+            });
 
 
             //builder.ApplyConfiguration(new UserConfiguration());

@@ -27,6 +27,8 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
         [Required]
         public decimal Price { get; set; }
 
+        public bool IsActiv { get; set; } = true;
+
         public List<Pictures> pictures { get; set; }
                 = new List<Pictures>();
 
