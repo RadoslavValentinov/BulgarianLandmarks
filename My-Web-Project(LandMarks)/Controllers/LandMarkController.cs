@@ -18,7 +18,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         {
             if (!await service.ExistById(id))
             {
-                ModelState.AddModelError("", "Not Corect data");
+                ModelState.AddModelError("", "Not Correct data");
             }
 
             var model = await service.GetById(id);
@@ -43,31 +43,27 @@ namespace My_Web_Project_LandMarks_.Controllers
         [HttpGet]
         public async Task<IActionResult> AddLandMark()
         {
-            var model = new AddLandMarkViewModel() 
+            var model = new AddLandMarkViewModel()
             {
-                Categories = await service.AllCategory()
+                Category =await service.AllCategory()
             };
-
             return View(model);
         }
 
         [HttpPost]
         public async Task<IActionResult> AddLandMark(AddLandMarkViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(model);
+                var land =  service.AddLandMark(model);
+                if ( land.IsCompleted) 
+                {
+                     return  RedirectToAction("AllLandmark","LandMark");
+                }
+
+                return  View(model);
             }
 
-            var category = service.AllCategory();
-
-            var land = await service.AddLandMark(model);
-            if (land > 1)
-            {
-                return RedirectToAction("Home", "Index");
-            }
-
-           
             return View(model);
         }
     }

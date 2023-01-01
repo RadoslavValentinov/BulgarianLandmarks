@@ -72,7 +72,7 @@
                         <div class="card-group">
                             <h5 class="card-title">@land[i].Name.ToString()</h5>
                             <p class="card-text">@land[i].Description.Substring(0,60)...</p>
-                            <a class="btn btn-primary" asp-route-id="@land[i].Id" asp-controller="landMark" asp-action="Get">Научи повече</a>
+                            <a class="btn btn-primary" asp-route-id="@land[i].Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
                         </div>
                     </div>
                 }
@@ -103,7 +103,7 @@
                         {
                             <p class="card-text">@culEvent[i].Description.Substring(0,60)...</p>
                         }
-                        <a class="btn btn-primary" asp-route-id="@culEvent[i].Id" asp-controller="CultureEvent" asp-action="Get">Научи повече</a>
+                        <a class="btn btn-primary" asp-route-id="@culEvent[i].Id" asp-controller="CultureEvent" asp-action="EventByTownId">Научи повече</a>
                     </div>
                 </div>
             }
