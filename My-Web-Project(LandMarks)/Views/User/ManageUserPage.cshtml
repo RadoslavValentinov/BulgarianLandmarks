@@ -1,0 +1,150 @@
+﻿@using MyWebProject.Core.Models
+@using My_Web_Project_LandMarks_.Controllers
+@model UserManegePageViewModel
+    
+
+
+<div class="container">
+    <div class="row gutters-sm">
+        <div class="col-md-4 d-none d-md-block">
+            <div class="card">
+                <div class="card-body">
+                    <nav class="nav flex-column nav-pills nav-gap-y-1">
+                        <a href="#profile" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded active">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Profile Information
+                        </a>
+                        <a href="#security" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded" onclick=hiddenForm()>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield mr-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Security
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header border-bottom mb-3 d-flex d-md-none">
+                    <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
+                        <li class="nav-item">
+                            <a href="#profile" data-toggle="tab" class="nav-link has-icon active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#security" data-toggle="tab" class="nav-link has-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <img src="https://us.123rf.com/450wm/anatolir/anatolir2011/anatolir201105528/159470802-jurist-avatar-icon-flat-style.jpg?ver=6" width="100" height="100" alt="User Avatar" />
+                </div>
+                <div class="card-body tab-content">
+                    <div class="tab-pane active" id="profile">
+                        <h6>CHANGE  INFORMATION</h6>
+                        <hr>
+                        <form method="post" asp-area="" asp-controller="User" asp-action="ManageUserPage" >
+                            <div class="text-lg-start mb-3">
+                                <label asp-for="@Model.UserName">Username</label>
+                                <div class="text-lg-start mb-3" >
+                                    <input class="form-control " autocomplete="on" aria-required="true" placeholder="Enter your new Username" asp-for="@Model.UserName" />
+                                </div>
+
+                                <label asp-for="@Model.FirstName">FirstName</label>
+                                <input class="form-control " autocomplete="on" aria-required="true" placeholder="Enter your new First Name" asp-for="@Model.FirstName" />
+                            </div>
+                            <div class="text-lg-start mb-3">
+                                <label asp-for="@Model.LastName">LastName</label>
+                                <input class="form-control " autocomplete="on" aria-required="true" placeholder="Enter your new Last Name" asp-for="@Model.LastName" />
+                            </div>
+                            <div class="text-lg-start mb-3">
+                                <label asp-for="@Model.Email">Email</label>
+                                <input class="form-control " autocomplete="on" aria-required="true" placeholder="Enter your new Email" asp-for="@Model.Email" />
+                            </div>
+
+                            <div class="text-center">
+                                <button id="changeInfo" type="submit" class="btn btn-info"  onclick=" Message()">Update Your Info</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="security">
+                        <h6>SECURITY SETTINGS</h6>
+                        <hr>
+                        <form method="post" asp-area="" asp-controller="User" asp-action="ManageUserPage">
+                            <div class="text-lg-start mb-3">
+                                <label asp-for="@Model.OldPassword">Old Password</label>
+                                <input class="form-control " type="password" autocomplete="password" aria-required="true" placeholder="Enter your Old assword" asp-for="@Model.OldPassword" />
+                                <span asp-validation-for="@Model.OldPassword" class="text-danger"></span>
+                            </div>
+                            <div class="text-lg-start mb-3">
+                                <label asp-for="@Model.newPassword">New Passoword</label>
+                                <input class="form-control " type="password" autocomplete="new-password" aria-required="true" placeholder="Enter your New Password" asp-for="@Model.newPassword" />
+                                <span asp-validation-for="@Model.newPassword" class="text-danger"></span>
+                            </div>
+                            <div class="text-lg-start mb-3">
+                                <label asp-for="@Model.ConfirmPassword">Confirm Password</label>
+                                <input class="form-control" type="password" autocomplete="new-password" aria-required="true" placeholder="Confirm New Password" asp-for="@Model.ConfirmPassword" />
+                                <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+                            </div>
+
+                            <div class="text-center">
+                                <button id="changeInfo" type="submit" class="btn btn-info"  onclick=" Message()">Update Password</button>
+                            </div>
+                        </form>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag != null)
+{
+    <script type="text/javascript">
+        function Message() {
+            alert("Your information is upadeted.");
+        };
+    </script>
+}
+
+<script>
+    function hiddenForm() {
+        let security = document.getElementById('security');
+        let formProfil = document.getElementById('profile');
+        //let classses = document.getElementsByClassName();
+
+        //formProfil.classList.remove("active")
+        //security.classList.add("active");
+   
+        formProfil.style.display = 'none';
+        security.style.display = 'block';
+    }
+</script>
+
+
+
+@*<script>
+
+    function GetUserInfo() {
+        let getInfo = Array.from(document.getElementsByName("profileForm"));
+
+    @Model.FirstName = getInfo[0].value;
+    @Model.LastName = getInfo[1].value;
+
+        return @Model;
+    }
+</script>*@
+
+@*<script>
+    function getInput() {
+        let getInput = document.getElementById('securityinput1');
+        let getInput2 = document.getElementById('securityinput2');
+        let getInput3 = document.getElementById('securityinput3');
+
+    @Model.OldPassword = getInput.value;
+    @Model.newPassword = getInput2.value;
+    @Model.ConfirmPassword = getInput3.value;
+        let sec = @Model.ConfirmPassword = getInput[2].value;
+        return @Model;
+    }
+</script>*@
+
