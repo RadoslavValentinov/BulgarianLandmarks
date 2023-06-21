@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MyWebProject.Core.Models.LandMarkModel;
 using MyWebProject.Core.Services.IServices;
 
@@ -7,10 +8,13 @@ namespace My_Web_Project_LandMarks_.Controllers
     public class LandMarkController : Controller
     {
         private readonly ILandmarkService service;
+        private ILogger<LandMarkController> logger;
 
-        public LandMarkController(ILandmarkService _service)
+        public LandMarkController(ILandmarkService _service, 
+            ILogger<LandMarkController> logger)
         {
             service = _service;
+            this.logger = logger;
         }
 
 
@@ -55,14 +59,12 @@ namespace My_Web_Project_LandMarks_.Controllers
         {
             if (ModelState.IsValid)
             {
-                var land =  service.AddLandMark(model);
-                if ( land.IsCompleted) 
-                {
-                     return  RedirectToAction("AllLandmark","LandMark");
-                }
+                await service.AddLandMark(model);
 
-                return  View(model);
+                return  RedirectToAction("AllLandmark","LandMark"); 
             }
+
+            logger.LogError(model.Name,"Not added you parameters");
 
             return View(model);
         }

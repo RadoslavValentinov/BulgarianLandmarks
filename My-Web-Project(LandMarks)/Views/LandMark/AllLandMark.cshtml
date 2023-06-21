@@ -1,35 +1,62 @@
-﻿@using MyWebProject.Core.Models.LandMarkModel;
-@model IEnumerable<LandMarkViewModelAll>
+﻿@model IEnumerable<LandMarkViewModelAll>
 
 @{
     var loopmodel = Model.ToList();
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/AllLandmark.css" asp-append-version="true" />
+</head>
+
 <div class="text-lg-center">
 
     <p style="font-size:50px;">Забележителностите на България</p>
+    <br />
+    <hr />
 
-    @for (int i = 0; i < Model.Count(); i += 3)
+    @for (int i = 0; i < Model.Count(); i+=2)
     {
+        int count = 0;
         <div class="row">
             @foreach (var item in loopmodel.Take(3))
             {
-                var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
+                count++;
 
                 @if (loopmodel.Count() < 3)
                 {
                     break;
                 }
+                @if (count > 0)
+                {
+                    loopmodel.Remove(item);
+                }
+               
+                var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
 
-                <div class="col" style="width: 18rem;">
+                //TO DO: this if test of landmark no added picture
+                if (picture == null)
+                {
+                   <div id="containerLand" class="col" style="width: 18rem;">
+                    <div class="card-group">
+                        <h4 class="card-title">@item.Name</h4>
+                        <hr />
+                        <p class="card-text">@item.Description.Substring(0,20)...</p>
+                        <hr />
+                        <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
+                    </div>
+                   </div>
+                   continue;
+                }
+
+                <div id="containerLand" class="col" style="width: 18rem;">
                     <img src="@picture.UrlImgAddres" class="card-img-top" alt="...">
                     <div class="card-group">
-                        <h5 class="card-title">@item.Name</h5>
-                        <p class="card-text">@item.Description.Substring(0,60)...</p>
+                        <h4 >@item.Name</h4>
+                        <hr />
+                        <p>@item.Description.Substring(0,60)...</p>
                         <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
                     </div>
                 </div>
-                @loopmodel.Remove(item);
             }
         </div>
         <br />

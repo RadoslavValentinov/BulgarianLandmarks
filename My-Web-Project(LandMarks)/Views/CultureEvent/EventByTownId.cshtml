@@ -1,26 +1,24 @@
 ﻿@model IEnumerable<CultureEventViewModelByTownId>
 
+<head>
+    <link rel="stylesheet" href="~/css/EventCss.css" asp-append-version="true" />
+</head>
 
 @foreach (var item in Model)
 {
-    <div>
-        <img src="@item.ImageURL" class="card-img-top" alt="...">
+    <div id="divConntainer" class="container">
+        <img src="@item.ImageURL" alt="...">
+        <br />
+        <h1>@item.Name</h1>
+        <br />
+        <hr />
+        <p>@item.Description</p>
+        <br />
+        <hr />
+        <p>Дата на събитието: @item.Date</p>
+        <p>Час на започване: @item.Hour</p>
+        <p>Град: @item.TownName</p>  
+        <hr />
+        <p>За заптвания моля да се свържите с нас на посочените телефони или имейли.</p>
     </div>
-    <br />
-    <div class="container">
-        <div class="row">
-            <div class="text-black">@item.Name</div>
-            <div class="text-black">@item.Description</div>
-        </div>
-    </div>
-    <br />
-    <div class="container">
-        <div class="row">
-            <div class="text-lg-start">Дата на събитието: @item.Date</div>
-            <div class="text-md-start">Час на започване: @item.Hour</div>
-            <div class="text-lg-start">Град: @item.TownName</div>
-        </div>
-    </div>
-
 }
-

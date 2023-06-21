@@ -26,7 +26,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         {
             var rest = await service.AllTownsById(id);
 
-            var model = new TownViewModelGetTown();
+            //var model = new TownViewModelGetTown();
 
             if (rest != null)
             {

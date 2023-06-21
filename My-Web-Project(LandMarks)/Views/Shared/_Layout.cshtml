@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/My_Web_Project_LandMarks_.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/StyleSheet.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -19,9 +20,6 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
                         <li>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
@@ -39,9 +37,10 @@
                                         </ul>
                                     </li>
                                 </ul>
+                            </div>
                         </li>
-                         <li>
-                           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <li>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
@@ -51,36 +50,43 @@
                                             Топ Дестинации
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                            <li><a class="dropdown-item" asp-area="" asp-controller="Top10destination" asp-action="Get10Landmark">Топ 10 забележителности</a></li>
+                                            <li><a class="dropdown-item" asp-area="" asp-controller="Top10destination" asp-action="Get10Landmark">Топ забележителности</a></li>
                                             <li><a class="dropdown-item" asp-area="" asp-controller="Top10destination" asp-action="MysteryPlaces">Мистериозни Места</a></li>
                                             <li><a class="dropdown-item" asp-area="" asp-controller="Top10destination" asp-action="AllLandMarkByTown">Забелижителности по Градове</a></li>
                                         </ul>
                                     </li>
                                 </ul>
+                            </div>
                         </li>
                         <li>
-                             <a class="nav-link text-dark" asp-area="" asp-controller="Journey" asp-action="GetAll">Пътешествия</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Journey" asp-action="GetAll">Пътешествия</a>
                         </li>
                         <li>
                             @if (User?.Identity?.IsAuthenticated == true)
                             {
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
+                                    <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Топ Дестинации
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                            <li><a class="dropdown-item" asp-area="" asp-controller="LandMark" asp-action="AddLandMark">Добави Забележителност</a></li>
-                                            <li><a class="dropdown-item" asp-area="" asp-controller="Journey" asp-action="AddJourney">Добави Пътешествие</a></li>
-                                            <li><a class="dropdown-item" asp-area="" asp-controller="PictureController" asp-action="AddPicture">Добави Снимка</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Предложения
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                                <li><a class="dropdown-item" asp-area="" asp-controller="LandMark" asp-action="AddLandMark">Предложи Забележителност</a></li>
+                                                <li><a class="dropdown-item" asp-area="" asp-controller="Journey" asp-action="AddJourney">Предложи Пътешествие</a></li>
+                                                <li><a class="dropdown-item" asp-area="" asp-controller="PictureController" asp-action="AddPicture">Добави Снимка</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </div>
+                            }
+                        </li>
+                        <li>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                            {
+                                <a class="dropdown-item" asp-area="Administrator" asp-controller="HomeAdmin" asp-action="Index">Admin Panel</a>
                             }
                         </li>
                     </ul>
@@ -98,8 +104,22 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - Пътеводител на България  <a asp-area="" asp-controller="Home" asp-action="Privacy"></a>
+            &copy; 2021 - Пътеводител на България
+            <br />
+            <br />
+            <div class="row">
+                <a href="£">
+                    Свържете се с нас
+                </a>
+            </div>
+            <br />
+            <div class="row">
+                <a href="£">
+                    Нашите Партниори
+                </a>
+            </div>
         </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

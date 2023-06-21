@@ -461,3 +461,4 @@ FodyWeavers.xsd
 /MyWebProject.Infrastructure/Migrations/20221114204109_initial.Designer.cs
 /My-Web-Project(LandMarks)/Properties/launchSettings.json
 /.gitignore
+/My-Web-Project(LandMarks)/Views/Journey/Journey.cshtml
