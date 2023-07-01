@@ -21,6 +21,16 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(result);
         }
 
+        public IActionResult ContactUs()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
         
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

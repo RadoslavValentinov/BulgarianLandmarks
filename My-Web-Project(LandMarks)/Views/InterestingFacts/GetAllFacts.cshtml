@@ -1,0 +1,29 @@
+﻿@model IEnumerable<FactOfCountry>
+
+<head>
+    <link rel="stylesheet" href="~/css/Facts.css" asp-append-version="true" />
+</head>
+
+@{
+    var collect = Model.OrderBy<FactOfCountry, int>(x => x.Id).ToList(); 
+    var count = 1;
+}
+
+<div>
+    <h1>Любопитни факти за България</h1>
+    <hr />
+    <br />
+</div>
+@foreach(var item in collect)
+{
+    <div class="container">
+        <div id="intFact">
+            <p id="hide">
+                @count. @item.Description
+            </p>
+        </div>
+    </div>
+    count++;
+    <br />
+    <hr />
+}

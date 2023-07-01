@@ -1,0 +1,36 @@
+﻿@using MyWebProject.Core.Models.Category;
+@model CreateCategoryViewModel
+
+<head>
+    <style>
+        h2{
+            text-align:center;
+            position:relative;
+            left:0px;
+            padding-bottom:30px;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        input{
+            width:300px;
+            position: relative;
+            left: 410px;
+        }
+
+        .btn{
+            position: relative;
+            left: 470px;
+            margin-top:40px;
+            margin-bottom:30px;
+            padding:5px 60px 5px 60px;
+        }
+    </style>
+</head>
+
+
+<h2>Create new Category</h2>
+
+<form method="post" asp-area="Administrator" asp-controller="OptionCategory" asp-action="Create">
+    <input class="form"  autocomplete="on" placeholder="Enter name new category" asp-for="@Model.Name"><br />
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

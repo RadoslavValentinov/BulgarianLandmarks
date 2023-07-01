@@ -31,6 +31,8 @@ namespace My_Web_Project_LandMarks_
             builder.Services.AddScoped<ITop10Destination, Top10Destination>();
             builder.Services.AddScoped<IMysteryPlace, MysteryPlace>();
             builder.Services.AddScoped<IJourneyServise, JourneyService>();
+            builder.Services.AddScoped<IFactsService,FactsService>();
+            builder.Services.AddScoped<ICategoryService,CategoryService>();
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 

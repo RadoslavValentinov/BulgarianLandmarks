@@ -7,7 +7,7 @@ using MyWebProject.Infrastructure.Data.Models;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {
-
+    [Authorize]
     public class UserController : Controller
     {
         private readonly SignInManager<Users> signInManager;

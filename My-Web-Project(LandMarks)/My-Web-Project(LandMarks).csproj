@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\ContactUs.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MyWebProject.Core\MyWebProject.Core.csproj" />
   </ItemGroup>
 
@@ -31,6 +35,24 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.14" />
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\ContactUs.cshtml" />
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Home\ContactUs.cshtml" />
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
+    <None Include="Views\Home\ContactUs.cshtml" />
   </ItemGroup>
 
 </Project>

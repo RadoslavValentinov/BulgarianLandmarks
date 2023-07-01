@@ -1,11 +1,11 @@
-﻿
-<div class="container">
+﻿<div class="container">
     <h1>Admin Panel</h1>
 </div>
 
 
 
-<a class="dropdown-item" asp-controller="HomeAdmin" asp-action="Index">Admin</a>
-<a class="dropdown-item" asp-controller="HomeAdmin" asp-action="Index">Category</a>
-<a class="dropdown-item" asp-controller="HomeAdmin" asp-action="Index">Users</a>
-<a class="dropdown-item" asp-controller="HomeAdmin" asp-action="Index">Event</a>
+<a class="dropdown-item" @Html.ActionLink("Category options","Index","OptionCategory",null,new {@class="myactionlink"})</a>
+<a class="dropdown-item" @Html.ActionLink("Event options","Index","OptionEvent",null,new {@class="myactionlink"})</a>
+<a class="dropdown-item" @Html.ActionLink("Journey options","Index","OptionJourney",null,new {@class="myactionlink"})</a>
+<a class="dropdown-item" @Html.ActionLink("Land mark options","Index","OptionLandMark",null,new {@class="myactionlink"})</a>
+<a class="dropdown-item" @Html.ActionLink("Towns options","Index","OptionTown",null,new {@class="myactionlink"})</a>
