@@ -24,7 +24,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         [HttpGet]
         public async Task<IActionResult> GetTown(int id) 
         {
-            var rest = await service.AllTownsById(id);
+            var rest = await service.TownsById(id);
 
             //var model = new TownViewModelGetTown();
 

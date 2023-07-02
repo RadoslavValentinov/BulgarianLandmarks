@@ -21,6 +21,10 @@
             border: 1px solid black;
             text-align: left;
             padding: 8px;
+            font-family:Arial, Helvetica, sans-serif;
+            white-space:nowrap;
+            display: table-cell;
+            vertical-align: inherit;
         }
 
         tr:nth-child(even) {
@@ -33,12 +37,12 @@
             color: black;
             margin-right: 40px;
             position: relative;
-            right: -340px;
+            right: -10px;
         }
 
         #deleteBtn {
             position: relative;
-            right: -340px;
+            right: 5px;
             padding: 5px 45px 5px 45px;
             background-color: red;
             color: black;
@@ -48,24 +52,34 @@
             padding-bottom: 20px;
         }
 
-            #create a {
-                text-decoration: none;
-                font-family: Arial, Helvetica, sans-serif;
-                font-size: 18px;
-                color: deepskyblue;
-            }
+        #create a {
+          text-decoration: none;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 18px;
+          color: deepskyblue;
+        }
+
+        #seen{
+            text-decoration:none;
+            color:coral;
+        }
     </style>
 </head>
 
 
 <div id="create">
-    <a asp-area="Administrator" asp-controller="OptionCategory" asp-action="Create">Create new category</a>
+    <a asp-area="Administrator" asp-controller="OptionEvent" asp-action="AddEvent">Create new Event</a>
 </div>
 
 <table>
     <tr>
         <th>Id</th>
         <th>Culture Event Name</th>
+        <th>Event Description</th>
+        <th>Event Date</th>
+        <th>Event Hour</th>
+        <th>Event Town</th>
+        <th>Event Image</th>
         <th>Event Options</th>
     <tr />
         @foreach (var item in Model)
@@ -73,11 +87,15 @@
         <tr>
             <td>@item.Id</td>
             <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Date</td>
+            <td>@item.Hour</td>
+            <td>@item.Town</td>
+            <td><a id="seen" href="@item.ImageURL">See image</a></td>
             <td>
                 <a id="edit" class="btn btn-outline-warning" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionEvent" asp-action="Edit">Edit</a>
                 <a id="deleteBtn" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionEvent" asp-action="Delete" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         }
-
 </table>

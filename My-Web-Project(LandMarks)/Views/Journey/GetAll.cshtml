@@ -1,28 +1,37 @@
 ﻿@model IEnumerable<JourneyGetAllViewModel>
 
+
+<head>
+    <link rel="stylesheet" href="~/css/JourneyCustomCss.css" asp-append-version="true" />
+</head>
+
+<div class="card-center">
+    <h1>Екскурзии и Почивки</h1>
+    <br />
+    <hr />
+</div>
+
 @foreach (var pic in Model)
 {
     var picture = pic.pictures.FirstOrDefault(x => x.JourneyId == pic.Id);
 
     <div class="container">
         <div class="row">
-            <div class="col" style="width: 10rem;">
-                <img src="@picture.UrlImgAddres" class="card-img-top" alt="Town" />
-                <div class="card-group">
-                    <h5 class="card-title">@pic.Name</h5>
-                    <p class="card-img-top">@pic.Description.Substring(0,60)</p>
-                    <p class="card-body">
-                       Рейтинг: @pic.Rating
-                       <br />
-                       Начална дата: @pic.StartDate
-                       <br />
-                       Дни: @pic.Day
-                       <br />
-                        Цена: @pic.Price лв.
-                        <br />
-                    </p>
-                    <br />
-                </div>
+            <div id="All" class="col" style="width: 10rem;">
+                <img src="@picture?.UrlImgAddres" class="card-img-top" alt="Town" />
+                <h3 class="card-title">@pic.Name</h3>
+                <br />
+                <hr />
+                <h6 class="card-img-top">@pic.Description.Substring(0,60)...</h6>
+                <br />
+                <hr />
+                <p>Рейтинг: @pic.Rating</p>
+                <hr />
+                <p>Начална дата: @pic.StartDate</p>
+                <hr />
+                <p> Дни: @pic.Day</p>
+                <hr />
+                <br />
                 <a class="btn btn-primary" asp-controller="Journey" asp-action="GetById"
                asp-route-id="@pic.Id">Към Пътешествието</a>
             </div>

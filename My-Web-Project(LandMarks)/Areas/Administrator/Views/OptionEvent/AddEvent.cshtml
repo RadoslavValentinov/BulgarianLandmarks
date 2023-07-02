@@ -1,0 +1,60 @@
+﻿@model CultureEventViewModelByTownId
+
+<head>
+    <style>
+
+        input{
+            width:400px;
+            padding:10px;
+            margin:10px;
+        }
+        h2{
+            text-align:center;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        #formCreate{
+            position:relative;
+            left:350px;
+        }
+
+        .btn{
+            position:relative;
+            left:140px;
+            margin-top:20px;
+        }
+
+        #area{
+            position:relative;
+            left:10px;
+            width:400px;
+            height:100px;
+        }
+
+    </style>
+</head>
+
+
+<h2>Create new Event</h2>
+<hr />
+
+
+<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionEvent" asp-action="AddEvent">
+
+    <input class="form" autocomplete="on" placeholder="Enter event name" asp-for="@Model.Name" />
+    <br />
+    <textarea id="area" class="form" autocomplete="on" placeholder="Enter event description" asp-for="@Model.Description"></textarea>
+    <br />
+    <input class="form" type="date" autocomplete="on" placeholder="Enter event date" asp-for="@Model.Date" />
+    <br />
+    <input class="form" type="time" autocomplete="on" placeholder="Enter event hour to start" asp-for="@Model.Hour" />
+    <br />
+    <input class="form" autocomplete="on" placeholder="Enter event town" asp-for="@Model.TownName" />
+    <br />
+    <input class="form"  autocomplete="on" placeholder="Enter event image" asp-for="@Model.ImageURL" />
+    <br />
+
+    <button type="submit" class="btn btn-primary"> Create Event</button>
+</form>
+
+
