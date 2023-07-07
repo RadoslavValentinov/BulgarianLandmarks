@@ -18,7 +18,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div id="bodyDiv" class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,6 +34,7 @@
                                             <li><a class="dropdown-item" asp-area="" asp-controller="Town" asp-action="All">Градове</a></li>
                                             <li><a class="dropdown-item" asp-area="" asp-controller="LandMark" asp-action="AllLandmark">Забележителности</a></li>
                                             <li><a class="dropdown-item" asp-area="" asp-controller="CultureEvent" asp-action="GetAllEvent">Събития</a></li>
+                                            <li><a class="dropdown-item" asp-area="" asp-controller="InterestingFacts" asp-action="GetAllFacts">Любопитни Факти</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -103,23 +104,14 @@
 
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Пътеводител на България
-            <br />
-            <br />
-            <div class="row">
-                <a href="£">
-                    Свържете се с нас
-                </a>
-            </div>
-            <br />
-            <div class="row">
-                <a href="£">
-                    Нашите Партниори
-                </a>
-            </div>
-        </div>
-
+            <h4 id="foras">За нас</h4>
+                <a id="formquest" asp-area="" asp-controller="Home" asp-action="ContactUs">За контакт с нас</a>
+                <a id="policy" asp-area="" asp-controller="Home" asp-action="Privacy">Политика за Поверителност</a>
+            <h4 id="partn">Нашите партньори</h4>
+                <a id="partner1" href="https://grabo.bg/travel">Grabo</a>
+                <a id="partner2" href="https://opoznai.bg/">Opoznai.bg</a>
+            <img id="posImg" src="https://cdn.freebiesupply.com/logos/large/2x/bulgaria-logo-png-transparent.png" width="230" height="150" alt="Bulgaria" />
+            <p id="copy">&copy; 2022 - 2023 - Пътеводител на Българските забележителности</p>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,79 @@
+﻿@model JourneyGetAllViewModel
+
+
+<head>
+    <style>
+
+        input {
+            width: 400px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #formCreate {
+            position: relative;
+            left: 350px;
+        }
+
+        .btn {
+            position: relative;
+            left: -310px;
+            bottom:-70px;
+            margin: 20px;
+        }
+
+        #area {
+            position: relative;
+            left: 10px;
+            width: 400px;
+            height: 100px;
+        }
+        label{
+            position:relative;
+            left:10px;
+        }
+        form{
+            height:700px;;
+        }
+
+    </style>
+</head>
+
+
+<h2>Create new Journey</h2>
+<hr />
+
+
+<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionJourney" asp-action="Create">
+
+    <input class="form" autocomplete="on" placeholder="Enter  name" asp-for="@Model.Name" />
+    <br />
+    <textarea id="area" class="form" autocomplete="on" placeholder="Enter  description" asp-for="@Model.Description"></textarea>
+    <br />
+    <label>Enter rating</label>
+    <br />
+    <input class="form"  autocomplete="on" placeholder="Enter  " asp-for="@Model.Rating" />
+    <br />
+    <label>Enter start date</label>
+    <br />
+    <input class="form" type="date" autocomplete="on" placeholder="Enter date to start" asp-for="@Model.StartDate" />
+    <br />
+    <label>Enter duration days</label>
+    <br />
+    <input class="form" autocomplete="on" placeholder="duration days" asp-for="@Model.Day" />
+    <br />
+    <label>Enter price</label>
+    <br />
+    <input class="form"  autocomplete="on" placeholder="Enter  price" asp-for="@Model.Price" />
+    <br />
+    <input class="form"  autocomplete="on" placeholder="Enter event image"  asp-for="@Model.pictures"/>
+
+    <button type="submit" class="btn btn-primary"> Create Journey</button>
+    <br />
+</form>
+
