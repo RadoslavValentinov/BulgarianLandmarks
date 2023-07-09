@@ -1,0 +1,13 @@
+﻿body {
+    background-color: #ddecff;
+}
+
+#divConntainer img {
+    width: 1050px;
+    height: 500px;
+}
+
+#divConntainer {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:18px;
+}

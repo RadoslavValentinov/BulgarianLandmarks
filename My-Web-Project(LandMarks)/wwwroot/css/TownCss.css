@@ -1,0 +1,55 @@
+﻿body {
+
+}
+
+#descript{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:18px;
+    letter-spacing:1.2px;
+}
+
+#divCard{
+    width:300px;
+    height:400px;
+    padding:0px;
+    border:2px solid black;
+    margin:10px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    background-color:whitesmoke;
+}
+
+#divCard img{
+    padding:0px;
+    width:350px;
+    height:200px;
+}
+
+#divCard .btn{
+    position:relative;
+    bottom: -30px;
+    left:100px;
+}
+
+#eventss {
+    width: 300px;
+    height: 400px;
+    padding: 0px;
+    border: 2px solid black;
+    margin: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background-color: whitesmoke;
+}
+
+#eventss img {
+    padding: 0px;
+    width: 350px;
+    height: 200px;
+}
+
+#eventss .btn {
+    position: relative;
+    bottom: -60px;
+    left: 100px;
+}

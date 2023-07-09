@@ -1,0 +1,22 @@
+﻿body {
+ 
+}
+
+#Custom img {
+    width:300px;
+    height:250px;
+}
+
+#Custom {
+    border: 2px solid grey;
+    margin-right: 5px;
+    background-color:blanchedalmond;
+}
+
+#Custom .btn:hover{
+    background-color:chocolate;
+}
+
+#Custom .btn {
+    background-color: cadetblue;
+}

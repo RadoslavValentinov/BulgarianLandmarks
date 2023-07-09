@@ -1,0 +1,21 @@
+﻿body {
+    background-color: hsl(0, 0%, 90%);
+}
+
+#All img{
+    padding:0px;
+    width:1150px;
+    height:500px
+}
+
+.container{
+    padding:0px;
+}
+
+#All{
+    background-color:whitesmoke;
+}
+
+#All .btn:hover{
+    background-color: lawngreen;
+}
