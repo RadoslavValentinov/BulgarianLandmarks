@@ -1,11 +1,12 @@
-﻿@model IEnumerable<JourneyGetAllViewModel>
+﻿@model IEnumerable<LandMarkViewModelAll>
 
 
 <head>
     <style>
-        body{
-            background-color:aliceblue;
+        body {
+          
         }
+
         table {
             font-family: arial, sans-serif;
             border: 1px solid black;
@@ -54,12 +55,12 @@
             padding-bottom: 20px;
         }
 
-        #create a {
-           text-decoration: none;
-           font-family: Arial, Helvetica, sans-serif;
-           font-size: 18px;
-           color: mediumseagreen;
-        }
+            #create a {
+                text-decoration: none;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                color: mediumseagreen;
+            }
 
         #seen {
             text-decoration: none;
@@ -70,7 +71,7 @@
 
 
 <div id="create">
-    <a asp-area="Administrator" asp-controller="OptionJourney" asp-action="Create">Create new Journey</a>
+    <a asp-area="Administrator" asp-controller="OptionLandMark" asp-action="AddLandMark">Create New LandMark</a>
 </div>
 
 <table>
@@ -79,9 +80,9 @@
         <th>Name</th>
         <th>Description</th>
         <th>Rating</th>
-        <th>StartDate</th>
-        <th>Day</th>
-        <th>Prace</th>
+        <th>Town Name</th>
+        <th>Category</th>
+        <th>Video Url</th>
         <th>image</th>
         <th>Options</th>
     <tr />
@@ -92,18 +93,24 @@
             <td>@item.Name</td>
             <td>@item.Description</td>
             <td>@item.Rating</td>
-            <td>@item.StartDate</td>
-            <td>@item.Day</td>
-            <td>@item.Price лв.</td>
-                @{
-                    var set = @item.pictures.FirstOrDefault(x => x.JourneyId == item.Id);
-                }
-
-            <td><a id="seen" href="@set?.UrlImgAddres">See image</a></td>
+            <td>@item.TownName</td>
+            <td>@item.Category</td>
+            @if (item.VideoUrl != null)
+            {
+                    <td><a href="@item.VideoUrl">See Video</a></td>
+            }
+            else
+            {
+               <td></td>
+            }
+               
+                @*set all picture to see admin*@
+            <td>@Html.ActionLink("See all picture","SlidePicture","OptionLandMark",new {@Id =item.Id})</td>
             <td>
-                <a id="edit" class="btn btn-outline-warning" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionJourney" asp-action="Edit">Edit</a>
-                <a id="deleteBtn" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionJourney" asp-action="Delete" class="btn btn-danger">Delete</a>
+                <a id="edit" class="btn btn-outline-warning" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionLandMark" asp-action="Edit">Edit</a>
+                <a id="deleteBtn" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionLandMark" asp-action="Delete" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         }
 </table>
+

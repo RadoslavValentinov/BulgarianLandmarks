@@ -23,7 +23,7 @@
         .btn {
             position: relative;
             left: -310px;
-            bottom:-70px;
+            bottom: -70px;
             margin: 20px;
         }
 
@@ -33,47 +33,55 @@
             width: 400px;
             height: 100px;
         }
-        label{
-            position:relative;
-            left:10px;
+
+        label {
+            position: relative;
+            left: 10px;
         }
-        form{
-            height:700px;;
+
+        form {
+            height: 800px;
         }
 
     </style>
 </head>
 
 
-<h2>Create new Journey</h2>
+<h2>Change Journey</h2>
 <hr />
 
 
-<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionJourney" asp-action="Create">
+<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionJourney" asp-action="Edit">
 
+    <label>Change Name</label>
+    <br />
     <input class="form" autocomplete="on" placeholder="Enter  name" asp-for="@Model.Name" />
+    <br />
+    <label>Change description</label>
     <br />
     <textarea id="area" class="form" autocomplete="on" placeholder="Enter  description" asp-for="@Model.Description"></textarea>
     <br />
-    <label>Enter rating</label>
+    <label>Change rating</label>
     <br />
-    <input class="form"  autocomplete="on" placeholder="Enter  " asp-for="@Model.Rating" />
+    <input class="form" autocomplete="on" placeholder="Enter  " asp-for="@Model.Rating" />
     <br />
-    <label>Enter start date</label>
+    <label>Change start date</label>
     <br />
-    <input class="form" type="date" autocomplete="on" placeholder="Enter date to start" asp-for="@Model.StartDate" />
+    <input class="form"  autocomplete="on" placeholder="Enter date to start" asp-for="@Model.StartDate" />
     <br />
-    <label>Enter duration days</label>
+    <label>Change duration days</label>
     <br />
     <input class="form" autocomplete="on" placeholder="duration days" asp-for="@Model.Day" />
     <br />
-    <label>Enter price</label>
+    <label>Change price</label>
     <br />
-    <input class="form"  autocomplete="on" placeholder="Enter  price" asp-for="@Model.Price" />
+    <input class="form" autocomplete="on" placeholder="Enter  price" asp-for="@Model.Price" />
     <br />
-    <input class="form"  autocomplete="on" placeholder="Enter event image"  asp-for="@Model.Urladdress"/>
+    <label>Change Url address image</label>
+    <br />
+    <input class="form" autocomplete="on" placeholder="Enter event image" asp-for="@Model.Urladdress" />
 
-    <button type="submit" class="btn btn-primary"> Create Journey</button>
+    <button type="submit" class="btn btn-primary"> Change Journey</button>
     <br />
 </form>
 
