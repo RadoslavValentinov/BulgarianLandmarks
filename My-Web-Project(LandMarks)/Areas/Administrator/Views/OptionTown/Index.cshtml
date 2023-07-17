@@ -1,0 +1,126 @@
+﻿@using MyWebProject.Core.Models.Town;
+@model IEnumerable<TownViewModelAll>
+
+
+<head>
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border: 1px solid black;
+            width: 90%;
+        }
+
+        th {
+            background-color: white;
+            text-align: center;
+            padding: 8px;
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            white-space: nowrap;
+            display: table-cell;
+            vertical-align: inherit;
+        }
+
+        tr:nth-child(even) {
+            background-color: white;
+        }
+
+        #edit {
+            padding: 5px 45px 5px 45px;
+            background-color: yellow;
+            color: black;
+            margin-right: 40px;
+            position: relative;
+            right: -10px;
+        }
+
+        #deleteBtn {
+            position: relative;
+            right: 5px;
+            padding: 5px 45px 5px 45px;
+            background-color: red;
+            color: black;
+        }
+
+        #create {
+            padding-bottom: 20px;
+        }
+
+            #create a {
+                text-decoration: none;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                color: mediumseagreen;
+            }
+
+        #seen {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+    </style>
+</head>
+
+
+<div id="create">
+    <a asp-area="Administrator" asp-controller="OptionTown" asp-action="Create">+Add New Town</a>
+</div>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Picture</th>
+        <th>landMark</th>
+        <th>Culture Event</th>
+        <th>Options</th>
+    <tr />
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+                @if (item.Picture.Count == 0)
+                {
+                <td>There is no Picture</td>
+                }
+                else
+                {
+                <td>@Html.ActionLink("See all picture","SeeAllPicture","OptionTown",new {@Id =item.Id})</td>
+                }
+                @if (item.Landmarks.Count == 0)
+                {
+                <td>There is no LandMarks</td>
+                }
+                else
+                {
+                      <td>@Html.ActionLink("See all LandMarks","SeeAllLandMarks","OptionTown",new {@Id =item.Id})</td>
+                }
+                @if (item.cultural_Events.Count == 0)
+                {
+                <td>There is no Event</td>
+                }
+                else
+                {
+                     <td>@Html.ActionLink("See All Culture Event","SeeAllEvents","OptionTown",new {@Id =item.Id})</td>
+                }
+          
+           
+            <td>
+                <a id="edit" class="btn btn-outline-warning" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionTown" asp-action="Edit">Edit</a>
+                <a id="deleteBtn" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionTown" asp-action="Delete" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        }
+</table>

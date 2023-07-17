@@ -4,11 +4,17 @@
     bool first = true;
 }
 
+<head>
+    <link rel="stylesheet" href="~/css/MysteryCSS.css" asp-append-version="true" />
+</head>
+
+
 @foreach (var item in Model)
 {
     first = true;
     <div class="text-lg-center">
         <p style="font-size:50px;"> @item.Name</p>
+        <hr />
     </div>
     var pic = item.Pictures.Where(x => x.LandMarkId == item.Id).ToList();
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -17,41 +23,38 @@
             {
                 <div class="carousel-item @(first ? "active" : string.Empty)">
 
-                    <img class="d-block w-100" style="height:500px"
+                    <img id="picture" class="d-block w-100" style="height:500px"
                  src="@sa.UrlImgAddres" alt="...">
 
                 </div>
 
                 first = false;
             }
-        </div>
-    </div>
-    <div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    <br />
-    <div class="container">
-        <div class="row">
-            <div class="text-black">@item.Description</div>
+            <div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
     </div>
     <br />
-    <div class="container">
-        <div class="row">
-            <div class="text-xl-start">Rating: @item.Rating</div>
-        </div>
+    <div id="place" class="container">
+        <p>@item.Description</p>
+        <br />
+        <hr />
+        <p>Rating: @item.Rating</p>
+        <br />
+        <hr />
     </div>
-    <br />
     <div class="container">
         <iframe width="420" height="315"
             src="@item.VideoUrl">
         </iframe>
     </div>
+    <hr />
 }

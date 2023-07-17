@@ -1,5 +1,54 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using MyWebProject.Core.Models.Town;
+@model TownViewModelGetTown
+
+<head>
+    <style>
+
+        form {
+            position: relative;
+            left: 450px;
+            height: 400px;
+        }
+
+        input {
+            margin: 10px;
+            width: 325px;
+            position: relative;
+            left: -55px;
+        }
+
+        textarea {
+            margin: 10px;
+            position: relative;
+            left: -55px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .btn {
+            position: relative;
+            left: 55px;
+        }
+
+    </style>
+</head>
+
+
+
+<h2>Changes Town</h2>
+<hr />
+
+
+<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionTown" asp-action="Edit">
+
+    <input class="form" autocomplete="on" placeholder="Changes town name" asp-for="@Model.Name" />
+    <br />
+
+    <textarea id="area" class="form" autocomplete="on" placeholder="Changes description" rows="12" cols="40" asp-for="@Model.Description"></textarea>
+    <br />
+
+    <button type="submit" class="btn btn-primary"> Changes Town</button>
+</form>
+

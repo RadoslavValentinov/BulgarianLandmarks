@@ -1,5 +1,5 @@
 ﻿@using MyWebProject.Core.Models.Town;
-@model CreateTownViewModel
+@model TownViewModelAll
 
 <head>
     <style>
@@ -40,10 +40,10 @@
 
 <form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionTown" asp-action="Create">
 
-    <input class="form" autocomplete="on" placeholder="Enter event name" asp-for="@Model.Name" />
+    <input class="form" autocomplete="on" placeholder="Enter town name" asp-for="@Model.Name" />
     <br />
 
-    <textarea id="area" class="form" autocomplete="on" placeholder="Enter event description" rows="8" cols="40" asp-for="@Model.Description"></textarea>
+    <textarea id="area" class="form" autocomplete="on" placeholder="Enter town description" rows="8" cols="40" asp-for="@Model.Description"></textarea>
     <br />
  
     <button type="submit" class="btn btn-primary"> Create Town</button>

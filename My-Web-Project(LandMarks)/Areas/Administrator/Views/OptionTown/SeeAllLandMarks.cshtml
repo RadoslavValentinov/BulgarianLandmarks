@@ -1,0 +1,24 @@
+﻿@using MyWebProject.Core.Models.Town;
+@model TownViewModelAll
+
+<head>
+    <link rel="stylesheet" href="~/css/AllTownsCss.css" asp-append-version="true" />
+</head>
+
+@{
+    var land = Model.Landmarks;
+}
+
+@foreach (var pic in land)
+{
+    var picture = Model.Picture.FirstOrDefault(x => x.LandMarkId == pic.Id);
+
+    <div id="containerTown">
+        <img src="@picture?.UrlImgAddres" alt="Town" />
+        <div id="texts">
+            <h4>@pic.Name</h4>
+            <p>@pic.Description.Substring(0,150)...</p>
+            <a class="btn btn-primary" asp-area="" asp-controller="Town" asp-action="GetTown" asp-route-id="@pic.Id" method="post">Виж Повече</a>
+        </div>
+    </div>
+}

@@ -1,53 +1,33 @@
 ﻿@using MyWebProject.Core.Models.Town;
 @model IEnumerable<TownViewModelAll>
 
+<head>
+    <link rel="stylesheet" href="~/css/AllTownsCss.css" asp-append-version="true" />
+</head>
+
 @foreach (var pic in Model)
 {
     var picture = pic.Picture.FirstOrDefault(x => x.TownId != null);
 
-    <div class="container">
-        <div class="row">
-            <div class="col" style="width: 10rem;">
-                <img src="@picture.UrlImgAddres" class="card-img-top" alt="Town" />
-                <div class="card-group">
-                    <h5 class="card-title">@pic.Name</h5>
-                    <p class="card-img-top">@pic.Description.Substring(0,100)</p>
-                    <a class="btn btn-primary" asp-controller="Town" asp-action="GetTown"
-                   asp-route-id="@pic.Id" method="post">Към Градът</a>
-                </div>
+    <div id="containerTown">
+        <img src="@picture?.UrlImgAddres" alt="Town" />
+            <div id="texts">
+                <h4>@pic.Name</h4>
+                <p>@pic.Description.Substring(0,150)...</p>
+                <a class="btn btn-primary" asp-controller="Town" asp-action="GetTown" asp-route-id="@pic.Id" method="post">Към Градът</a>
             </div>
-        </div>
     </div>
 }
 
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-
-
-<script type="text/javascript">
-    $('document').ready(function () {
-        $('#undo').click(function () {
-            $(this).hide();
-            $('#done').show();
-
-            var requested_to = document.getElementById('undo').value;
-
-            $.ajax({
-                type: "post",
-                url: '/requestmeet/{{$id}}',
-                data: { requested_to: requested_to, "_token": "{{ csrf_token() }}" },
-                dataType: "json",
-                success: function (data) {
-                    console.log(data);
-                    //$( "#disp" ).append( "<strong>"+data.description+":</strong></br>");
-                    //document.getElementById('disp').innerHTML=data.description;
-                },
-                error: function (data) {
-                    console.log('Error:', data);
-                }
-            });
-        });
-    });
-</script>
+<div id="Info">
+    <h3>Може да видите още...</h3>
+    <hr />
+    <ul>
+        <li>@Html.ActionLink("Мистериозни места","MysteryPlaces","Top10destination",null,new {@class="myactionlink"})</li>
+        <li> @Html.ActionLink("Забележителностите с най-висок рейтинг","Get10Landmark","Top10destination",null,new {@class="myactionlink"})</li>
+        <li> @Html.ActionLink("Забележителностите на България","AllLandmark","LandMark",null,new {@class="myactionlink"})</li>
+        <li> @Html.ActionLink("Екскурзии и почивки","GetAll","Journey",null,new {@class="myactionlink"})</li>
+        <li> @Html.ActionLink("Културни събития","GetAllEvent","CultureEvent",null,new {@class="myactionlink"})</li>
+    </ul>
+</div>

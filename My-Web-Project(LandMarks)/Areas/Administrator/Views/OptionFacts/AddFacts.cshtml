@@ -1,0 +1,61 @@
+﻿@using MyWebProject.Core.Models.FactOfBulgaria;
+@model FactOfCountry
+
+<head>
+    <style>
+
+        form {
+            position: relative;
+            left: 450px;
+            height: 400px;
+        }
+
+        input {
+            margin: 10px;
+            width: 325px;
+            position: relative;
+            left: -55px;
+        }
+
+        textarea {
+            margin: 10px;
+            position: relative;
+            left: -55px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .btn {
+            position: relative;
+            left: 55px;
+        }
+
+    </style>
+</head>
+
+
+
+<h2>Add New Fact</h2>
+<hr />
+
+
+<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionFacts" asp-action="AddFacts">
+
+    <input class="form" autocomplete="on" placeholder="Enter town name" asp-for="@Model.Description" />
+    <br />
+
+    <div class="form-group">
+        <label asp-for="Category"></label>
+        <select asp-for="Category" class="form-control">
+            @foreach (var category in Model.Category)
+            {
+                <option value="@category.Id">@category.Name</option>
+            }
+        </select>
+        <span asp-validation-for="CategoryId" class="small text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary"> Add Fact</button>
+</form>

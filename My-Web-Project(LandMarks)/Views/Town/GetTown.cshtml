@@ -1,14 +1,23 @@
 ﻿@using MyWebProject.Core.Models.Town;.
-@model IEnumerable<TownViewModelGetTown>
+@model TownViewModelGetTown
 @{
     bool first = true;
 }
-@foreach (var item in Model)
-{
+
+<head>
+    <link rel="stylesheet" href="~/css/TownCss.css" asp-append-version="true" />
+</head>
+
+
     <div class="text-lg-center">
-        <p style="font-size:50px;"> @item.Name</p>
+        <p style="font-size:50px;"> @Model.Name</p>
+        <hr />
+        <br />
     </div>
-    var pic = item.Picture.Where(a => a.TownId == item.Id && a.LandMarkId == null).ToList();
+    @{
+        var pic = Model.Picture.Where(a => a.TownId == Model.Id && a.LandMarkId == null).ToList();
+    }
+    
 
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -24,54 +33,53 @@
                 first = false;
             }
         </div>
-    </div>
-    <div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
-
-    <div class="mt-4 p-5 bg-light d-none" id="statistics">
-        <div class="row">
-            <h2 class="col-md-6 text-center" id="total-houses"></h2>
-            <h2 class="col-md-6 text-center" id="total-rents"></h2>
+        <div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
     <br />
 
 
-    <div class="container">
+
+
+    <div id="descript" class="container">
         <div class="row">
-            <div class="text-black">@item.Description</div>
+            <div class="text-black">@Model.Description</div>
+            <br />
+            <hr />
         </div>
     </div>
     <br />
 
-
-    var pict = item.Picture.ToList();
-    var land = item.Landmarks.ToList();
+    @{
+        var pict = Model.Picture.ToList();
+        var land = Model.Landmarks.ToList();
+    }
+   
     @if (land.Count >= 3)
     {
         <div class="container">
             <div class="text-lg-start">
                 <p style="font-size:50px;">Забележителности</p>
+                <hr />
             </div>
             <div class="row">
                 @for (int i = 0; i < 3; i++)
                 {
                     var picture = pict.FirstOrDefault(x => x.LandMarkId == land[i].Id);
 
-                    <div class="col" style="width: 18rem;">
-                        <img src="@picture.UrlImgAddres" class="card-img-top" alt="...">
-                        <div class="card-group">
-                            <h5 class="card-title">@land[i].Name.ToString()</h5>
-                            <p class="card-text">@land[i].Description.Substring(0,60)...</p>
+                    <div id="divCard" class="col">
+                        <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
+                        <div>
+                            <h5>@land[i].Name.ToString()</h5>
+                            <p>@land[i].Description.Substring(0,60)...</p>
                             <a class="btn btn-primary" asp-route-id="@land[i].Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
                         </div>
                     </div>
@@ -80,18 +88,21 @@
         </div>
     }
     <br />
-    // if add else to other scenario
+    <hr />
 
-    var culEvent = item.cultural_Events.ToList();
+    @{
+        var culEvent = Model.cultural_Events.ToList();
+    }
 
     <div class="container">
         <div class="text-lg-start">
             <p style="font-size:50px;">Културни Събития</p>
+            <hr />
         </div>
         <div class="row">
             @for (int i = 0; i < 3; i++)
             {
-                <div class="col" style="width: 18rem;">
+                <div id="eventss" class="col">
                     <img src="@culEvent[i].ImageURL" class="card-img-top" alt="...">
                     <div class="card-group">
                         <h5 class="card-title">@culEvent[i].Name.ToString()</h5>
@@ -109,6 +120,4 @@
             }
         </div>
     </div>
-
-    
-}
+    <hr />

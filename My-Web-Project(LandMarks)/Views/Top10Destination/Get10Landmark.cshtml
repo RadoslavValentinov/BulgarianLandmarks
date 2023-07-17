@@ -1,37 +1,40 @@
 ﻿@model IEnumerable<Top10ViewModelLandMark>
 
 @{
-    var loopmodel = Model.ToList();
+    var loopmodel = Model.Where<Top10ViewModelLandMark>(x => x.Rating >= 8).ToList();
 }
+
+<head>
+    <link rel="stylesheet" href="~/css/topLandmarkCSS.css" asp-append-version="true" />
+</head>
 
 <div class="text-lg-center">
 
-    <p style="font-size:50px;">Топ 10 Забележителности на България</p>
+    <p style="font-size:50px;">Най посещавани Забележителности</p>
 
     @for (int i = 0; i < Model.Count(); i += 3)
     {
-            <div class="row">
+        <div class="row">
             @foreach (var item in loopmodel.Take(3))
             {
                 var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
 
-                @if (loopmodel.Count() < 3)
+                @if (loopmodel.Count() < 2)
                 {
-                    break;
+                    continue;
                 }
 
-                        <div class="col" style="width: 18rem;">
-                            <img src="@picture.UrlImgAddres" class="card-img-top" alt="...">
-                            <div class="card-group">
-                                <h5 class="card-title">@item.Name</h5>
-                                <p class="card-text">@item.Description.Substring(0,60)...</p>
-                                <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
-                            </div>
-                        </div>
+                <div id="cards" class="col" style="width: 18rem;">
+                    <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
+                    <h4>@item.Name</h4>
+                    <p>@item.Description.Substring(0,40)...</p>
+                    <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
+                </div>
+
                 loopmodel.Remove(item);
             }
-            </div>
-            <br />
+        </div>
+        <br />
     }
 </div>
 
