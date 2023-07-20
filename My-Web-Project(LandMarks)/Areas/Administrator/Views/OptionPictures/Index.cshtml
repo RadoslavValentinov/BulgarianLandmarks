@@ -1,0 +1,92 @@
+﻿@using MyWebProject.Core.Models.PictureModel;
+@model IEnumerable<PicturesViewModel>
+
+
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border: 1px solid black;
+            width: 90%;
+        }
+
+        th {
+            background-color: white;
+            text-align: center;
+            padding: 8px;
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: white;
+        }
+
+        #edit {
+            padding: 5px 45px 5px 45px;
+            background-color: rgb(255, 219, 88);
+            color: black;
+            position: relative;
+            right: -10px;
+            margin: 10px;
+        }
+
+        #deleteBtn {
+            position: relative;
+            right: 0px;
+            padding: 5px 45px 5px 45px;
+            background-color: red;
+            color: black;
+            margin: 10px;
+        }
+
+        #create {
+            padding-bottom: 20px;
+        }
+
+            #create a {
+                text-decoration: none;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                color: deepskyblue;
+            }
+    </style>
+</head>
+
+
+<div id="create">
+    <a asp-area="Administrator" asp-controller="OptionPictures" asp-action="AddPicture">Add New Picture</a>
+</div>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>UrlImgAddres</th>
+        <th>Active</th>
+        <th>LandMarkId</th>
+        <th>TownId</th>
+        <th>JourneyId</th>
+        <th>Options</th>
+    <tr />
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td><img src="@item.UrlImgAddres" width="300" height="200" /></td>
+            <td>@item.IsActive</td>
+            <td>@item.LandMark</td>
+            <td>@item.Town</td>
+            <td>@item.Journey</td>
+            <td>
+                <a id="edit" class="btn btn-outline-warning" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionPictures" asp-action="EditPicture">Edit</a>
+                <a id="deleteBtn" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionPictures" asp-action="Delete" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        }
+
+</table>
