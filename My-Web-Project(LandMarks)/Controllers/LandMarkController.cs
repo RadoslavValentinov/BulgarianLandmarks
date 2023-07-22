@@ -8,13 +8,11 @@ namespace My_Web_Project_LandMarks_.Controllers
     public class LandMarkController : Controller
     {
         private readonly ILandmarkService service;
-        private ILogger<LandMarkController> logger;
+        
 
-        public LandMarkController(ILandmarkService _service, 
-            ILogger<LandMarkController> logger)
+        public LandMarkController(ILandmarkService _service)
         {
             service = _service;
-            this.logger = logger;
         }
 
 
@@ -41,32 +39,6 @@ namespace My_Web_Project_LandMarks_.Controllers
             }
 
             return View(allLandMark);
-        }
-
-
-        [HttpGet]
-        public async Task<IActionResult> AddLandMark()
-        {
-            var model = new AddLandMarkViewModel()
-            {
-                Category =await service.AllCategory()
-            };
-            return View(model);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AddLandMark(AddLandMarkViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                await service.AddLandMark(model);
-
-                return  RedirectToAction("AllLandmark","LandMark"); 
-            }
-
-            logger.LogError(model.Name,"Not added you parameters");
-
-            return View(model);
         }
     }
 }
