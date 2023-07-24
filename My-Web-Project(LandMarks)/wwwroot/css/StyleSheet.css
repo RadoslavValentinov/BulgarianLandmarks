@@ -25,7 +25,7 @@ nav {
 #posImg {
     position: relative;
     top: 0px;
-    right: -130px;
+    right: -300px;
 }
 
 footer {
@@ -109,7 +109,7 @@ footer {
 .col-sm-1 {
     margin: 0px;
     padding:0px;
-    width: 335px;
+    width: 400px;
     height: 450px;
     margin: 20px;
     border: 2px solid black;
@@ -122,7 +122,7 @@ footer {
 .col-sm-2 {
     margin: 0px;
     padding:0px;
-    width: 350px;
+    width: 400px;
     height: 450px;
     margin: 20px;
     border: 2px solid black;
@@ -135,7 +135,7 @@ footer {
 .col-sm-3 {
     margin: 0px;
     padding:0px;
-    width: 335px;
+    width: 400px;
     height: 450px;
     margin: 20px;
     border: 2px solid black;
@@ -148,20 +148,20 @@ footer {
 /* this container all img in  div */
 .col-sm-1 img {
     position: relative;
-    width: 333px;
+    width: 398px;
     height: 250px;
 }
 
 .col-sm-2 img {
     position: relative;
     left: -0px;
-    width: 348px;
+    width: 398px;
     height: 250px;
 }
 
 .col-sm-3 img {
     position: relative;
-    width: 332px;
+    width: 398px;
     height: 250px;
 }
 
@@ -169,43 +169,44 @@ footer {
     margin:0px;
     position: relative;
     bottom: -30px;
-    left: 110px;
+    left: 125px;
 }
 
 #colbtn-end {
     margin: 0px;
     position: relative;
-    bottom: -5px;
-    left: 110px;
+    bottom: -30px;
+    left: 125px;
 }
 
 #btn-tw1 {
     margin: 0px;
     position: relative;
     bottom: -5px;
-    left: 105px;
+    left: 125px;
 }
 
 #set {
     margin: 0px;
     position: relative;
-    bottom: -5px;
-    left: 105px;
+    bottom: -30px;
+    left: 130px;
+    left: 130px;
 }
 
 #set2 {
    
     margin: 0px;
     position: relative;
-    bottom: -28px;
-    left: 105px;
+    bottom: -30px;
+    left: 130px;
 }
 
 #set3 {
     margin: 0px;
     position: relative;
     bottom: -28px;
-    left: 105px;
+    left: 130px;
 }
 
 #colbtn:hover{
@@ -234,9 +235,8 @@ footer {
 }
 /* this position to nested div*/
 #facts {
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    position:relative;
+    left:10px;
     width: 800px;
     height: 300px;
 }
@@ -275,15 +275,24 @@ footer {
 }
 
 #facts2 {
-    align-items: center;
+    position: relative;
+    left: 600px;
 }
 
 
 #redirect {
     text-decoration: none !important;
     color:crimson;
+    position:relative;
+    left:20px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:20px;
 }
 
 #redirect:hover{
-    color:indianred;
+    color:lightcoral;
+}
+
+#allFacts{
+    background-color:whitesmoke;   
 }

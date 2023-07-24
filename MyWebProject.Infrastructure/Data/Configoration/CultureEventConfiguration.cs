@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using My_Web_Project_LandMarks_.Infrastructure.Data.Models;
+using MyWebProject.Infrastructure.Data.Models;
 
 namespace MyWebProject.Infrastructure.Data.Configoration
 {
@@ -13,7 +13,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
         }
 
 
-        private List<Cultural_events> AllEvent()
+        private  List<Cultural_events> AllEvent()
         {
             List<Cultural_events> events = new List<Cultural_events>()
             {
