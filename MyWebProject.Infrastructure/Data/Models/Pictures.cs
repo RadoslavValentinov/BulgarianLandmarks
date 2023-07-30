@@ -10,6 +10,7 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         [Required]
         [MaxLength(300)]
+        [MinLength(20)]
         public string UrlImgAddres { get; set; } = null!;
 
         public bool IsActiv { get; set; } = true;

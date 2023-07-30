@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyWebProject.Infrastructure.Data.Models
 {
@@ -6,8 +7,14 @@ namespace MyWebProject.Infrastructure.Data.Models
     {
         public string? Avatar { get; set; }
 
+        [Required]
+        [MaxLength(100)]
+        [MinLength(3)]
         public string FirstName { get; set; } = null!;
 
+        [Required]
+        [MaxLength(100)]
+        [MinLength(3)]
         public string LastName { get; set; } = null!;
 
         public bool IsActiv { get; set; } = true;

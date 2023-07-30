@@ -10,6 +10,7 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         [Required]
         [MaxLength(50)]
+        [MinLength(5)]
         public string Name { get; set; } = null!;
 
     }

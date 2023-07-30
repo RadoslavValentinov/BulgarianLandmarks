@@ -10,10 +10,12 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         [Required]
         [MaxLength(100)]
+        [MinLength(5)]
         public string Name { get; set; } = null!;
 
         [Required]
         [MaxLength(5000)]
+        [MinLength(20)]
         public string Description { get; set; } = null!;
 
         [Required]
@@ -31,6 +33,7 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         public bool IsActiv { get; set; } = true;
 
+        [MaxLength(300)]
         public string? VideoURL { get; set; }
 
         public List<Pictures> Pictures { get; set; }
