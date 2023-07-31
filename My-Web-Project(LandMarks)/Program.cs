@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using My_Web_Project_LandMarks_.ModelBinder;
 using MyWebProject.Core.Services.IServices;
@@ -47,7 +49,12 @@ namespace My_Web_Project_LandMarks_
             .AddDefaultUI()
             .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation()
+            builder.Services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+            })
+            .AddRazorRuntimeCompilation()
+
             .AddMvcOptions(options =>
             {
                 options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
@@ -75,6 +82,14 @@ namespace My_Web_Project_LandMarks_
 
             app.UseAuthentication();
             app.UseAuthorization();
+            //app.MapGet("antiforgery/token", (IAntiforgery forgeryService, HttpContext context) =>
+            //{
+            //    var tokens = forgeryService.GetAndStoreTokens(context);
+            //    context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken!,
+            //            new CookieOptions { HttpOnly = false });
+
+            //    return Results.Ok();
+            //}).RequireAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

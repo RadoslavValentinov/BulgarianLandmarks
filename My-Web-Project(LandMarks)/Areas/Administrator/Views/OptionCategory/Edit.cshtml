@@ -28,6 +28,7 @@
 <h2>Change category</h2>
 
     <form method="post" asp-area="Administrator" asp-controller="OptionCategory" asp-action="Edit">
+    @Html.AntiForgeryToken()
         <input autocomplete="on" asp-for="@Model.Name">
         <button type="submit" class="btn btn-primary">Submit changes</button>
     </form>

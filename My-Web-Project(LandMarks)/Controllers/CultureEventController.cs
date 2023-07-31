@@ -15,6 +15,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
         [HttpGet]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> EventByTownId(int id)
         {
             var model = await service.EventByTownId(id);

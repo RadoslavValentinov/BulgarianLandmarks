@@ -12,17 +12,19 @@ namespace My_Web_Project_LandMarks_.Controllers
     {
         private readonly SignInManager<Users> signInManager;
         private readonly UserManager<Users> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
         private readonly IRepository repo;
-       
+
         public UserController(SignInManager<Users> _signInManager,
             UserManager<Users> _userManager,
+            RoleManager<IdentityRole> _roleManager,
             IRepository _repo)
         {
             signInManager = _signInManager;
             userManager = _userManager;
+            roleManager = _roleManager;
             repo = _repo;
         }
-
 
 
         [HttpGet]
@@ -36,6 +38,7 @@ namespace My_Web_Project_LandMarks_.Controllers
 
         [HttpPost]
         [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
@@ -72,6 +75,7 @@ namespace My_Web_Project_LandMarks_.Controllers
 
         [HttpPost]
         [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
@@ -79,22 +83,32 @@ namespace My_Web_Project_LandMarks_.Controllers
                 return View(model);
             }
 
+            string Username = model.FirstName;
+            string first = model.FirstName;
+            string last = model.LastName;
+            string email = model.Email;
+
             var user = new Users()
             {
-                UserName = model.FirstName,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
+                UserName = Username,
+                FirstName = first,
+                LastName = last,
                 IsActiv = true,
-                Email = model.Email,
+                Email = email,
                 EmailConfirmed = true
             };
 
-            await userManager.AddToRoleAsync(user, "User");
             var registerUser = await userManager.CreateAsync(user, model.Password);
+            var role = await roleManager.FindByNameAsync("User");
 
             if (registerUser.Succeeded)
             {
-                return RedirectToAction("Login", "User");
+                if (role != null)
+                {
+                    await userManager.AddToRoleAsync(user, role.Name);
+
+                    return RedirectToAction("Login", "User");
+                }
             }
 
             foreach (var error in registerUser.Errors)
@@ -107,7 +121,7 @@ namespace My_Web_Project_LandMarks_.Controllers
 
         ///// <summary>
         ///// this method get info for user
-        ///// and load page field
+        ///// and load page field 
         ///// </summary>
         ///// <returns>
         ///// all info of the current user
@@ -129,6 +143,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                     Avatar = currerntUsers.Avatar,
                     FirstName = currerntUsers.FirstName,
                     LastName = currerntUsers.LastName,
+                    Email = currerntUsers.Email,
                 };
 
                 return View(model);
@@ -147,9 +162,10 @@ namespace My_Web_Project_LandMarks_.Controllers
         /// <returns>return message to update info from current user </returns>
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> ManageUserPage(UserManegePageViewModel model)
         {
-            if (!string.IsNullOrEmpty(model.ConfirmPassword) && !string.IsNullOrEmpty(model.OldPassword) && !string.IsNullOrEmpty(model.newPassword))
+            if (!string.IsNullOrWhiteSpace(model.ConfirmPassword) && !string.IsNullOrWhiteSpace(model.OldPassword) && !string.IsNullOrWhiteSpace(model.newPassword))
             {
                 if (ModelState.IsValid)
                 {
@@ -173,15 +189,14 @@ namespace My_Web_Project_LandMarks_.Controllers
                     }
                     catch (ArgumentException ae)
                     {
-                        new ArgumentException("Not found current User", ae.Message);
+                       throw new ArgumentException("Not found current User", ae.Message);
                     }
 
                     return View(model);
                 }
-
-
             }
-            if (!string.IsNullOrEmpty(model.FirstName) || !string.IsNullOrEmpty(model.UserName) || !string.IsNullOrEmpty(model.LastName) || !string.IsNullOrEmpty(model.Email))
+            if (!string.IsNullOrWhiteSpace(model.FirstName) || !string.IsNullOrWhiteSpace(model.UserName)
+                || !string.IsNullOrWhiteSpace(model.LastName) || !string.IsNullOrWhiteSpace(model.Email))
             {
 
                 if (ModelState.IsValid)
@@ -212,7 +227,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                     }
                     catch (ArgumentException ae)
                     {
-                        new ArgumentException("Not found current User", ae.Message);
+                       throw new ArgumentException("Not found current User", ae.Message);
                     }
                 }
             }

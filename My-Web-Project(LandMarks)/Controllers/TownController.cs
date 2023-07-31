@@ -22,6 +22,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
         [HttpGet]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> GetTown(int id) 
         {
             var rest = await service.TownsById(id);

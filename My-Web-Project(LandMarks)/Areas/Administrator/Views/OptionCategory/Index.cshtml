@@ -74,7 +74,8 @@
             <td>@item.Id</td>
             <td>@item.Name</td>
             <td>
-                <a id="edit" class="btn btn-outline-warning" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionCategory" asp-action="Edit">Edit</a>
+                    @Html.AntiForgeryToken()
+                <a id="edit" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionCategory" asp-action="Edit" class="btn btn-outline-warning">Edit</a>
                 <a id="deleteBtn" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionCategory" asp-action="Delete" class="btn btn-danger">Delete</a>
             </td>
         </tr>
