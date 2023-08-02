@@ -17,7 +17,7 @@
 
         #formCreate {
             position: relative;
-            left: 350px;
+            left: 450px;
         }
 
         .btn {
@@ -48,32 +48,34 @@
 <h2>Create new Journey</h2>
 <hr />
 
+@using (Html.BeginForm("Create", "OptionJourney", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div id="formCreate">
+        <input class="form" autocomplete="on" placeholder="Enter  name" asp-for="@Model.Name" />
+        <br />
+        <textarea id="area" class="form" autocomplete="on" placeholder="Enter  description" asp-for="@Model.Description"></textarea>
+        <br />
+        <label>Enter rating</label>
+        <br />
+        <input class="form" autocomplete="on" placeholder="Enter  " asp-for="@Model.Rating" />
+        <br />
+        <label>Enter start date</label>
+        <br />
+        <input class="form" type="date" autocomplete="on" placeholder="Enter date to start" asp-for="@Model.StartDate" />
+        <br />
+        <label>Enter duration days</label>
+        <br />
+        <input class="form" autocomplete="on" placeholder="duration days" asp-for="@Model.Day" />
+        <br />
+        <label>Enter price</label>
+        <br />
+        <input class="form" autocomplete="on" placeholder="Enter  price" asp-for="@Model.Price" />
+        <br />
+        <input class="form" autocomplete="on" placeholder="Enter event image" asp-for="@Model.Urladdress" />
 
-<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionJourney" asp-action="Create">
-
-    <input class="form" autocomplete="on" placeholder="Enter  name" asp-for="@Model.Name" />
-    <br />
-    <textarea id="area" class="form" autocomplete="on" placeholder="Enter  description" asp-for="@Model.Description"></textarea>
-    <br />
-    <label>Enter rating</label>
-    <br />
-    <input class="form"  autocomplete="on" placeholder="Enter  " asp-for="@Model.Rating" />
-    <br />
-    <label>Enter start date</label>
-    <br />
-    <input class="form" type="date" autocomplete="on" placeholder="Enter date to start" asp-for="@Model.StartDate" />
-    <br />
-    <label>Enter duration days</label>
-    <br />
-    <input class="form" autocomplete="on" placeholder="duration days" asp-for="@Model.Day" />
-    <br />
-    <label>Enter price</label>
-    <br />
-    <input class="form"  autocomplete="on" placeholder="Enter  price" asp-for="@Model.Price" />
-    <br />
-    <input class="form"  autocomplete="on" placeholder="Enter event image"  asp-for="@Model.Urladdress"/>
-
-    <button type="submit" class="btn btn-primary"> Create Journey</button>
-    <br />
-</form>
+        <button type="submit" class="btn btn-primary"> Create Journey</button>
+        <br />
+    </div>
+}
 

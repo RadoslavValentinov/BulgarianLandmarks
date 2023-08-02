@@ -17,7 +17,6 @@ namespace My_Web_Project_LandMarks_.Controllers
 
 
         [HttpGet]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> LandMarkById(int id)
         {
             if (!await service.ExistById(id))

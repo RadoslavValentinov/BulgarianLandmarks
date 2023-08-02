@@ -6,7 +6,7 @@
 
         form {
             position: relative;
-            left: 450px;
+            left: 550px;
             height: 400px;
         }
 
@@ -48,23 +48,27 @@
 <hr />
 
 
-<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionFacts" asp-action="AddFacts">
+@using (Html.BeginForm("AddFacts", "OptionFacts", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div id="formCreate">
 
-    <textarea class="form" autocomplete="on" placeholder="Enter description" rows="10" cols="40" asp-for="@Model.Description" ></textarea>
-    <br />
+        <textarea class="form" autocomplete="on" placeholder="Enter description" rows="10" cols="40" asp-for="@Model.Description"></textarea>
+        <br />
 
-    <div id="formSelect" class="mb-3">
-        <label asp-for="CategoryId" class="form-label">Choises Category</label>
-        <select asp-for="CategoryId" class="form-control">
-            @foreach (var category in Model.Category)
-            {
-                <option value="@category.Id">@category.Name</option>
-            }
-        </select>
-        <span asp-validation-for="Category" class="text-danger"></span>
+        <div id="formSelect" class="mb-3">
+            <label asp-for="CategoryId" class="form-label">Choises Category</label>
+            <select asp-for="CategoryId" class="form-control">
+                @foreach (var category in Model.Category)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            </select>
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary"> Add Fact </button>сс
     </div>
-
-
-
-    <button type="submit" class="btn btn-primary"> Add Fact </button>
-</form>
+}

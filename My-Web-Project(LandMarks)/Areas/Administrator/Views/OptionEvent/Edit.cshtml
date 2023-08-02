@@ -17,7 +17,7 @@
 
         #formCreate {
             position: relative;
-            left: 350px;
+            left: 450px;
         }
 
         .btn {
@@ -41,20 +41,23 @@
 <hr />
 
 
-<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionEvent" asp-action="Edit">
+@using (Html.BeginForm("Edit", "OptionEvent", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div id="formCreate">
+        <input class="form" autocomplete="on" asp-for="@Model.Name" />
+        <br />
+        <textarea id="area" class="form" autocomplete="on" asp-for="@Model.Description"></textarea>
+        <br />
+        <input class="form" autocomplete="on" asp-for="@Model.Date" />
+        <br />
+        <input class="form" autocomplete="on" asp-for="@Model.Hour" />
+        <br />
+        <input class="form" autocomplete="on" asp-for="@Model.TownName" />
+        <br />
+        <input class="form" autocomplete="on" asp-for="@Model.ImageURL" />
+        <br />
 
-    <input class="form" autocomplete="on"  asp-for="@Model.Name" />
-    <br />
-    <textarea id="area" class="form" autocomplete="on" asp-for="@Model.Description"></textarea>
-    <br />
-    <input class="form" autocomplete="on" asp-for="@Model.Date" />
-    <br />
-    <input class="form"  autocomplete="on" asp-for="@Model.Hour" />
-    <br />
-    <input class="form" autocomplete="on" asp-for="@Model.TownName" />
-    <br />
-    <input class="form" autocomplete="on" asp-for="@Model.ImageURL" />
-    <br />
-
-    <button type="submit" class="btn btn-primary"> Create Event</button>
-</form>
+        <button type="submit" class="btn btn-primary"> Create Event</button>
+    </div>
+}
