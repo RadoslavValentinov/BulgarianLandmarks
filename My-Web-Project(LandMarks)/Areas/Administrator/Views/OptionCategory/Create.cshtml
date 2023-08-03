@@ -44,7 +44,7 @@
     @Html.AntiForgeryToken()
     <div class="mb-3">
         <label asp-for="@Model.Name" class="form-label">Category Name</label>
-        <input asp-for="Name" class="form-control" aria-required="true" />
+        <input asp-for=@Model.Name class="form-control" aria-required="true" />
         <span asp-validation-for="@Model.Name" class="text-danger"></span>
     </div>
     <br />

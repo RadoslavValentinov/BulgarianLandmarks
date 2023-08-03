@@ -4,16 +4,15 @@
 <head>
     <style>
 
-        form {
+        .mb-3 textarea {
             position: relative;
-            left: 450px;
-            height: 400px;
+            width: 450px;
+            left: 420px;
         }
 
-        textarea {
-            margin: 10px;
+        .mb-3 label {
             position: relative;
-            left: -55px;
+            left: 420px;
         }
 
         h2 {
@@ -22,8 +21,8 @@
 
         .btn {
             position: relative;
-            left: -45px;
-            padding:10px 150px 10px 150px;
+            left: 460px;
+            padding: 10px 150px 10px 150px;
             margin-top: 10px;
         }
 
@@ -36,10 +35,16 @@
 <hr />
 
 
-<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionFacts" asp-action="EditFact">
+@using (Html.BeginForm("EditFact", "OptionFacts", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
 
-    <textarea class="form" autocomplete="on" placeholder="Enter description" rows="12" cols="45" asp-for="@Model.Description"></textarea>
-    <br />
-
+    <div class="mb-3">
+        <label asp-for="@Model.Description" class="form-label">Description</label>
+        <textarea asp-for="@Model.Description" class="form-control" aria-required="true" rows="12" cols="45"></textarea>
+        <span asp-validation-for="@Model.Description" class="text-danger"></span>
+    </div>
+   
     <button type="submit" class="btn btn-primary"> Edit Fact </button>
-</form>
+
+}

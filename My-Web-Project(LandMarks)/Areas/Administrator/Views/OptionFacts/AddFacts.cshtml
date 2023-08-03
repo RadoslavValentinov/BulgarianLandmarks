@@ -4,39 +4,43 @@
 <head>
     <style>
 
-        form {
+        .mb-3 textarea {
             position: relative;
-            left: 550px;
-            height: 400px;
+            width: 450px;
+            left: 420px;
         }
 
-        input {
-            margin: 10px;
-            width: 325px;
+        .mb-3 label {
             position: relative;
-            left: -55px;
+            left: 420px;
         }
 
-        textarea {
-            margin: 10px;
+        .mb-3 span {
             position: relative;
-            left: -55px;
+            left: 420px;
         }
 
+        
         h2 {
             text-align: center;
         }
 
-        #formSelect{
-            width:325px;
-            position:relative;
-            left:-45px;
+        #formSelect {
+            width: 450px;
+            position: relative;
+            left: 420px;
+        }
+
+        #formSelect label{
+            position: relative;
+            left: -2px;
         }
 
         .btn {
             position: relative;
-            left: 55px;
-            margin-top:10px;
+            left: 580px;
+            margin-top: 10px;
+            padding:10px 25px 10px 25px;
         }
 
     </style>
@@ -51,10 +55,12 @@
 @using (Html.BeginForm("AddFacts", "OptionFacts", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    <div id="formCreate">
-
-        <textarea class="form" autocomplete="on" placeholder="Enter description" rows="10" cols="40" asp-for="@Model.Description"></textarea>
-        <br />
+ 
+        <div class="mb-3">
+            <label asp-for="@Model.Description" class="form-label">Description</label>
+            <textarea asp-for="@Model.Description" class="form-control" aria-required="true" rows="12" cols="45"></textarea>
+            <span asp-validation-for="@Model.Description" class="text-danger"></span>
+        </div>
 
         <div id="formSelect" class="mb-3">
             <label asp-for="CategoryId" class="form-label">Choises Category</label>
@@ -69,6 +75,5 @@
 
 
 
-        <button type="submit" class="btn btn-primary"> Add Fact </button>сс
-    </div>
+        <button type="submit" class="btn btn-primary"> Add Fact </button>
 }
