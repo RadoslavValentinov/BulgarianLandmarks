@@ -4,32 +4,26 @@
 <head>
     <style>
 
-        form {
-            position: relative;
-            left: 450px;
-            height: 400px;
-        }
-
-        input {
-            margin: 10px;
-            width: 325px;
-            position: relative;
-            left: -55px;
-        }
-
-        textarea {
-            margin: 10px;
-            position: relative;
-            left: -55px;
-        }
-
         h2 {
             text-align: center;
         }
 
+        #formCreate{
+            position:relative;
+            left:450px;
+        }
+
+        #formCreate input{
+            width:400px;
+        }
+
+            #formCreate textarea {
+                width: 400px;
+            }
+
         .btn {
             position: relative;
-            left: 55px;
+            left: 120px;
         }
 
     </style>
@@ -40,15 +34,23 @@
 <h2>Changes Town</h2>
 <hr />
 
+@using (Html.BeginForm("Edit", "OptionTown", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div id="formCreate">
 
-<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionTown" asp-action="Edit">
+        <div class="mb-3">
+            <label asp-for="@Model.Name" class="form-label">Name</label>
+            <input asp-for="@Model.Name" class="form-control" aria-required="true" />
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Description" class="form-label">Description</label>
+            <textarea asp-for="@Model.Description" class="form-control" aria-required="true" rows="6" cols="30"></textarea>
+            <span asp-validation-for="@Model.Description" class="text-danger"></span>
+        </div>
 
-    <input class="form" autocomplete="on" placeholder="Changes town name" asp-for="@Model.Name" />
-    <br />
-
-    <textarea id="area" class="form" autocomplete="on" placeholder="Changes description" rows="12" cols="40" asp-for="@Model.Description"></textarea>
-    <br />
-
-    <button type="submit" class="btn btn-primary"> Changes Town</button>
-</form>
+        <button type="submit" class="btn btn-primary"> Changes Town</button>
+    </div>
+}
 

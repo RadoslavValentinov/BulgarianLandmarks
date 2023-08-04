@@ -12,7 +12,7 @@
 
         .mb-3 label {
             position: relative;
-            left: 420px;
+            left: 0px;
         }
 
         .mb-3 span {
@@ -20,7 +20,7 @@
             left: 420px;
         }
 
-        
+
         h2 {
             text-align: center;
         }
@@ -31,16 +31,16 @@
             left: 420px;
         }
 
-        #formSelect label{
+        .mb-3 .form-label {
             position: relative;
-            left: -2px;
+            left: 420px;
         }
 
         .btn {
             position: relative;
             left: 580px;
             margin-top: 10px;
-            padding:10px 25px 10px 25px;
+            padding: 10px 25px 10px 25px;
         }
 
     </style>
@@ -55,25 +55,25 @@
 @using (Html.BeginForm("AddFacts", "OptionFacts", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
- 
-        <div class="mb-3">
-            <label asp-for="@Model.Description" class="form-label">Description</label>
-            <textarea asp-for="@Model.Description" class="form-control" aria-required="true" rows="12" cols="45"></textarea>
-            <span asp-validation-for="@Model.Description" class="text-danger"></span>
-        </div>
 
-        <div id="formSelect" class="mb-3">
-            <label asp-for="CategoryId" class="form-label">Choises Category</label>
-            <select asp-for="CategoryId" class="form-control">
-                @foreach (var category in Model.Category)
-                {
-                    <option value="@category.Id">@category.Name</option>
-                }
-            </select>
-            <span asp-validation-for="Category" class="text-danger"></span>
-        </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Description" class="form-label">Description</label>
+        <textarea asp-for="@Model.Description" class="form-control" aria-required="true" rows="12" cols="45"></textarea>
+        <span asp-validation-for="@Model.Description" class="text-danger"></span>
+    </div>
+
+    <div id="formSelect">
+        <label asp-for="@Model.CategoryId" class="form-label">Choises Category</label>
+        <select asp-for="@Model.CategoryId" class="form-control">
+            @foreach (var category in Model.Category)
+            {
+                <option value="@category.Id">@category.Name</option>
+            }
+        </select>
+        <span asp-validation-for="@Model.CategoryId" class="text-danger"></span>
+    </div>
 
 
 
-        <button type="submit" class="btn btn-primary"> Add Fact </button>
+    <button type="submit" class="btn btn-primary"> Add Fact </button>
 }

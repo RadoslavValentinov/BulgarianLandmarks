@@ -1,4 +1,4 @@
-﻿@model IEnumerable<JourneyGetAllViewModel>
+﻿@model JourneyGetAllViewModel
 
 @{
     bool first = true;
@@ -8,52 +8,48 @@
     <link rel="stylesheet" href="~/css/JourneyByIdCss.css" asp-append-version="true" />
 </head>
 
-@foreach (var item in Model)
-{
-
     var pic = item.pictures.Where(x => x.JourneyId == item.Id).ToList();
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            @foreach (var sa in pic)
-            {
-                <div class="carousel-item @(first ? "active" : string.Empty)">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @foreach (var sa in Model.pictures)
+        {
+            <div class="carousel-item @(first ? "active" : string.Empty)">
 
-                    <img class="d-block w-100" style="height:400px" src="@sa.UrlImgAddres" alt="...">
+                <img class="d-block w-100" style="height:400px" src="@sa.UrlImgAddres" alt="...">
 
-                </div>
+            </div>
 
-                first = false;
-            }
-        </div>
-        <div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+            first = false;
+        }
     </div>
-    <br />
-    <div id="divCont" class="container">
-        <div class="row">
-            <h2 class="text-black">@item.Name</h2>
-            <br />
-            <hr />
-            <p>@item.Description</p>
-            <br />
-            <hr />
-        </div>
-        <p class="text-lg-start">Рейтинг: @item.Rating</p>
-        <hr />
-        <p class="text-md-start">Дата на Тръгване: @item.StartDate</p>
-        <p class="text-md-start">Продължителност: @item.Day дни</p>
-        <hr />
-        <p class="text-md-start">Цена: @item.Price лв.</p>
-        <hr />
+    <div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<br />
+<div id="divCont" class="container">
+    <div class="row">
+        <h2 class="text-black">@Model.Name</h2>
         <br />
-        <p>За записване и справка свободми места може да се свържете с нас на тел.номер - 0999567999 или на имейл - pochivka.zapitvane@mail.bg</p>
+        <hr />
+        <p>@Model.Description</p>
+        <br />
+        <hr />
     </div>
-}
+    <p class="text-lg-start">Рейтинг: @Model.Rating</p>
+    <hr />
+    <p class="text-md-start">Дата на Тръгване: @Model.StartDate</p>
+    <p class="text-md-start">Продължителност: @Model.Day дни</p>
+    <hr />
+    <p class="text-md-start">Цена: @Model.Price лв.</p>
+    <hr />
+    <br />
+    <p>За записване и справка свободми места може да се свържете с нас на тел.номер - 0999567999 или на имейл - pochivka.zapitvane@mail.bg</p>
+</div>
