@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="~/css/JourneyByIdCss.css" asp-append-version="true" />
 </head>
 
-    var pic = item.pictures.Where(x => x.JourneyId == item.Id).ToList();
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         @foreach (var sa in Model.pictures)

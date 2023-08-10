@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Top10ViewModelLandMark>
 
 @{
-    var loopmodel = Model.Where<Top10ViewModelLandMark>(x => x.Rating >= 8).ToList();
+    var loopmodel = Model.Where<Top10ViewModelLandMark>(x => x.Rating >= 9).Take(7).ToList();
 }
 
 <head>
@@ -21,7 +21,7 @@
 
                 @if (loopmodel.Count() < 2)
                 {
-                    continue;
+                    break;
                 }
 
                 <div id="cards" class="col" style="width: 18rem;">
