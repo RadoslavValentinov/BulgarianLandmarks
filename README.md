@@ -1,6 +1,5 @@
 # My-Web-Project(LandMarks)
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------
 This is my project about Bulgarian sights, nature, cities and excursions.
 The app currently has 2 areas, admin and user, and in the future a manager area will 
 be added to adjust everything that or filters, and soon everything that users will upload.
