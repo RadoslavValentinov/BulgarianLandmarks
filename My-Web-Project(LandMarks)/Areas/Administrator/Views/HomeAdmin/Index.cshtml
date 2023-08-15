@@ -1,5 +1,26 @@
-﻿<div class="container">
+﻿<style>
+
+    .item {
+        position: relative;
+        left: 900px;
+        top: -120px;
+        text-decoration:none;
+    }
+
+    .item-2 {
+        position: relative;
+        left: 900px;
+        top: -120px;
+        margin:20px;
+        text-decoration: none;
+    }
+
+</style>
+
+<div class="container">
     <h1>Admin Panel</h1>
+    <a class="item" @Html.ActionLink("Wait for Approval landmark","GetByUser","OptionLandMark",null,new {@class="myactionlink"})</a>
+    <a class="item-2" @Html.ActionLink("Wait for Approval Picture","Index","OptionPictures",null,new {@class="myactionlink"})</a>
 </div>
 
 <a class="dropdown-item" @Html.ActionLink("Category options","Index","OptionCategory",null,new {@class="myactionlink"})</a>

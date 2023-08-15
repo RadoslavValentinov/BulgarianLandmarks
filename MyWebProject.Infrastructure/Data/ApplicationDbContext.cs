@@ -22,6 +22,8 @@ namespace MyWebProject.Infrastructure.Data
 
         public DbSet<LandMark> Landmarks { get; set; } = null!;
 
+        public DbSet<Landmark_suggestions> LandmarkSuggestions { get; set; } = null!;
+
         public DbSet<Cultural_events> Cultural_Events { get; set; } = null!;
 
         public DbSet<Journeys> Journeys { get; set; } = null!;

@@ -1,5 +1,8 @@
-﻿@model IEnumerable<LandMarkViewModelAll>
+﻿@model IEnumerable<LandMarkByUserAdded>
 
+@{
+    var all = new AddLandMarkViewModel();
+}
 
 <head>
     <style>
@@ -69,17 +72,10 @@
 </head>
 
 
-<div id="create">
-    <a asp-area="Administrator" asp-controller="OptionLandMark" asp-action="AddLandMark">Create New LandMark</a>
-</div>
-
 <table>
     <tr>
-        <th>Id</th>
         <th>Name</th>
         <th>Description</th>
-        <th>Rating</th>
-        <th>Town Name</th>
         <th>Category</th>
         <th>Video Url</th>
         <th>image</th>
@@ -87,27 +83,35 @@
     <tr />
         @foreach (var item in Model)
         {
+            all.Name = item.Name;
+            all.Description = item.Description;
+            all.VideoURL = item.VideoURL;
+            all.VideoURL = item.ImageURL;
+
         <tr>
-            <td>@item.Id</td>
             <td>@item.Name</td>
             <td>@item.Description</td>
-            <td>@item.Rating</td>
-            <td>@item.TownName</td>
-            <td>@item.Category</td>
-                @if (item.VideoUrl != null)
+            <td>@item.CategoryId</td>
+                @if (item.VideoURL != null)
                 {
-                <td><a href="@item.VideoUrl">See Video</a></td>
+                <td><a href="@item.VideoURL">See Video</a></td>
                 }
                 else
                 {
                 <td></td>
                 }
-
-                @*set all picture to see admin*@
-            <td>@Html.ActionLink("See all picture","SlidePicture","OptionLandMark",new {@Id =item.Id})</td>
+                @if (item.ImageURL != null)
+                {
+                <td><a href="@item.ImageURL">See Image</a></td>
+                }
+                else
+                {
+                <td></td>
+                }
             <td>
-                <a id="edit" class="btn btn-outline-warning" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionLandMark" asp-action="Edit">Edit</a>
-                <a id="deleteBtn" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionLandMark" asp-action="Delete" class="btn btn-danger">Delete</a>
+               @Html.ActionLink("Add","AddLandMarkByUser","OptionLandMark",new AddLandMarkViewModel(){Name=item.Name,Description=item.Description,VideoURL = item.VideoURL,
+               ImageURL = item.ImageURL,CategoryId = item.CategoryId})
+
             </td>
         </tr>
         }

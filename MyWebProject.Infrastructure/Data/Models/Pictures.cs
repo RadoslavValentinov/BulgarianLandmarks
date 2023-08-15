@@ -1,11 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyWebProject.Infrastructure.Data.Models
 {
     public class Pictures
     {
-        
         public int Id { get; set; }
 
         [Required]
@@ -23,6 +23,7 @@ namespace MyWebProject.Infrastructure.Data.Models
         [ForeignKey(nameof(Town))]
         public int? TownId { get; set; }
         public Town? Town { get; set; }
+
 
         [ForeignKey(nameof(Journey))]
         public int? JourneyId { get; set; }

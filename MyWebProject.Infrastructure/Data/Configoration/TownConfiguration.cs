@@ -28,14 +28,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     " Тук се намират също така Българската академия на науките, много университети, театри, кина, както и Националната художествена галерия, археологически, исторически, природонаучни и други музеи. На много места в центъра на града са запазени видими археологически паметници от римско време.[4]София носи името на късноантичната раннохристиянска съборна[5] църква на града „Света София“ (на гръцки Ἁγία Σοφία на латински: Sancta Sophia; или „Светата Премъдрост Божия“ (едно от имената на младия Исус Христос)). Празникът на града обаче е на 17 септември, когато Православната църква отбелязва Светите мъченици София," +
                     " Вяра, Надежда и Любов. Датата е определена за Празник на София с решение на Столичния общински съвет от 25 март 1992 г.София е обявена за столица на 3 април 1879 г. от Учредителното народно събрание по предложение на проф. Марин Дринов, като стар български град, отдалечен от турската граница и средищно разположен в българското етническо землище.[6]МестоположениеИсторическият център на София е разположен непосредствено на юг от центъра на Софийското поле, една от Задбалканските котловини, разположена между Западна Стара планина (Мургаш, Софийска планина и Три уши) на север и планините Люлин, Витоша," +
                     " Плана и Лозенска, части на Средногорската планинска система, на юг. Съвременният град заема значителна част от Софийското поле, като е развит в по-голяма степен на югоизток и югозапад от историческия център, достигайки ниските части на Витоша, но най-североизточните му квартали – Сеславци и Кремиковци – са разположени по склоновете на Стара планина.[26]Климат:София е разположена в умерения климатичен пояс и има влажен континентален климат с топло лято (Dfb климатичната класификация на Кьопен) – средните месечни температури падат под 0 °C и не надхвърлят 22 °C, като повече от 3 месеца имат средна температура над 10 °C.",
-                    Location ="<div class=mapouter><div class=gmap_canvas><iframe width=600 height=500 id=gmap_canvas" +
-                    "src=https://maps.google.com/maps?q=sofia&t=&z=13&ie=UTF8&iwloc=&output=embed" +
-                    " frameborder=0" +
-                    " scrolling=no marginheight=0 marginwidth=0></iframe><a href=https://123movies-to.org>" +
-                    "</a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href=" +
-                    "https://www.embedgooglemap.net>" +
-                    "embed google maps in website</a><style>.gmap_canvas {overflow:hidden;background:none!important;" +
-                    "height:500px;width:600px;}</style></div></div>"
                 },
 
                 new Town
@@ -52,12 +44,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Градът е най-динамично развиващият се център в Южна България. Икономиката му се крепи на добре развитата многопрофилна индустрия, на услугите, туризма и информационните технологии.Пловдив е разположен в централната част на Горнотракийската низина. През него преминава река Марица – най-пълноводната река в България. Така по естествен начин градът се разделя на две части – северна и южна. На север от Марица е разположен единствено район „Северен“, известен още със старото си наименование Кършияка, " +
                     "а на юг се намира същинската част на града, включваща останалите пет района. Отстои на 15 km северно от Родопите и на 50 km южно от Стара планина. Градът се намира на 126 km от столицата София, на 381 km от Варна и на 255 km от Бургас.\r\nКлиматът е преходно-континентален, типичен за доста централни южни части на Европа. Средната годишна температура е 12,3 °С. Средната максимална температура през юли е 30,3 °С, а абсолютният максимум е измерен на 5 юли 2000 г.: 45 °С. " +
                     "Средната годишна минимална температура е 6,5 °С, а абсолютният минимум е минус 31,5 °С",
-                    Location = "<div class=mapouter><div class=gmap_canvas><iframe width=600 height=500 id=gmap_canvas" +
-                    "src=https://maps.google.com/maps?q=%D0%BF%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2&t=&z=13&ie=UTF8&iwloc=&output=embed" +
-                    "frameborder=0 scrolling=nomarginheight=0marginwidth=0></iframe><a href=https://123movies-to.org></a><br><style>." +
-                    "mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href=https://www.embedgooglemap.net" +
-                    ">embed google maps in website</a><style>.gmap_canvas " +
-                    "{overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>"
+                  
                 },
 
                 new Town
@@ -82,12 +69,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "на Римската империя и на България." +
                     "Климат:" +
                     "Климатът на Плевен е умереноконтинентален.",
-                    Location = "<div class=\"mapouter\"><div class=\"gmap_canvas\">" +
-                    "<iframe width=\"600\" height=\"500\" id=\"gmap_canvas\" src=\"https://maps.google.com/maps?q=pleven&t=&z=13&ie=UTF8&iwloc=&output=embed\" " +
-                    "frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe><a href=\"https://123movies-to.org\">" +
-                    "</a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href=\"https://www.embedgooglemap.net\"" +
-                    ">embed google maps in website</a><style>.gmap_canvas" +
-                    " {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>"
+                   
                 },
                 new Town
                 {
@@ -110,12 +92,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Климат" +
                     "Климатът на градската територия е преходноконтинентален с влияние от Средиземно море. " +
                     "През зимата времето е по-меко и по-топло в сравнение с градовете в Тракийска низина, тъй като Средна гора предпазва от студените северни и североизточни ветрове.",
-                     Location = "<div class=\"mapouter\"><div class=\"gmap_canvas\"><iframe width=\"600\" " +
-                     "height=\"500\" id=\"gmap_canvas\" src=\"https://maps.google.com/maps?q=stara%20zagora&t=&z=13&ie=UTF8&iwloc=&output=embed\"" +
-                     " frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe><a href=\"https://123movies-to.org\">" +
-                     "</a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href=\"https://www.embedgooglemap.net\"" +
-                     ">embed google maps in website</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}" +
-                     "</style></div></div>"
+                    
                 },
                 new Town 
                 { 
@@ -136,12 +113,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     " са разположени кварталите Аспарухово и Галата. На северния бряг се намират промишлената зона и пристанищният комплекс. " +
                     "Североизточно от тях са централната градска част с историческия център (т.нар. „Гръцка махала“) и централните плажове." +
                     "Климатът на Варна е с морско и континентално влияние. Средната януарска температура е 1,9 °С, средната юлска – 22,4 °С, средногодишната е 12,2 °С, абсолютната минимална температура е –19 °С, абсолютната максимална е 41 °С. Средните годишни валежи са 540,3 mm.",
-                    Location = "<div class=\"mapouter\"><div class=\"gmap_canvas\"><iframe width=\"600\" height=\"500\" id=\"gmap_canvas\" " +
-                    "src=\"https://maps.google.com/maps?q=varna&t=&z=13&ie=UTF8&iwloc=&output=embed\" frameborder=\"0\" scrolling=\"no\"" +
-                    " marginheight=\"0\" marginwidth=\"0\"></iframe><a href=\"https://123movies-to.org\"></a><br><style>" +
-                    ".mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href=\"https://www.embedgooglemap.net\"" +
-                    ">embed google maps in website</a><style>.gmap_canvas {overflow:hidden;background:none!" +
-                    "important;height:500px;width:600px;}</style></div></div>"
+                    
                 }
             };
 

@@ -32,6 +32,12 @@ namespace My_Web_Project_LandMarks_
            {
                options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
            });
+            builder.Services.ConfigureApplicationCookie(option =>{
+
+                option.Cookie.SameSite = SameSiteMode.Strict;
+                option.LoginPath = "/User/Login";
+                option.LogoutPath = "/User/Login";
+            });
 
 
             builder.Services.AddIdentity<Users, IdentityRole>(options =>
