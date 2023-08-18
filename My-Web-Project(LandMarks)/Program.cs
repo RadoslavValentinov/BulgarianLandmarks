@@ -85,7 +85,8 @@ namespace My_Web_Project_LandMarks_
 
             });
 
-
+           
+            
             using (var scope = app.Services.CreateScope())
             {
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
@@ -98,7 +99,7 @@ namespace My_Web_Project_LandMarks_
                         await roleManager.CreateAsync(new IdentityRole(role));
                 }
             }
-
+           
             using (var scope = app.Services.CreateScope())
             {
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<Users>>();

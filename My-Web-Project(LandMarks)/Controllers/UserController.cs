@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Models;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
+using System;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {
     [Authorize]
+    [AutoValidateAntiforgeryToken]
     public class UserController : Controller
     {
         private readonly SignInManager<Users> signInManager;
@@ -27,6 +29,10 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
 
+        /// <summary>
+        /// LogIn current user and loading model 
+        /// </summary>
+        /// <returns>model of users data</returns>
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Login()
@@ -36,6 +42,12 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// LogIn user and chech email and password
+        /// model is valid
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>Redirect to start page of login succssesfuly</returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -63,6 +75,10 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
 
+        /// <summary>
+        /// Loads the registration view model
+        /// </summary>
+        /// <returns>View model registration</returns>
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Register()
@@ -73,6 +89,14 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
 
+        /// <summary>
+        /// 
+        ///Receives in the registration model checks if it is valid 
+        ///creates a user after successful 
+        ///registration redirects them to the Login page
+        /// </summary>
+        /// <param name="Register model"></param>
+        /// <returns>Redirect to login page</returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -128,6 +152,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         ///// </returns>
 
         [HttpGet]
+        [Authorize]
         public IActionResult ManageUserPage()
         {
             var model = new UserManegePageViewModel();
@@ -162,6 +187,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         /// <returns>return message to update info from current user </returns>
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ManageUserPage(UserManegePageViewModel model)
         {
@@ -189,7 +215,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                     }
                     catch (ArgumentException ae)
                     {
-                       throw new ArgumentException("Not found current User", ae.Message);
+                        throw new ArgumentException("Not found current User", ae.Message);
                     }
 
                     return View(model);
@@ -227,7 +253,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                     }
                     catch (ArgumentException ae)
                     {
-                       throw new ArgumentException("Not found current User", ae.Message);
+                        throw new ArgumentException("Not found current User", ae.Message);
                     }
                 }
             }
@@ -236,7 +262,10 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(model);
         }
 
-
+        /// <summary>
+        /// Log out current user
+        /// </summary>
+        /// <returns>redirect to index page</returns>
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
