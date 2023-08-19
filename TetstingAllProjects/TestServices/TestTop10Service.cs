@@ -1,0 +1,104 @@
+﻿using Microsoft.EntityFrameworkCore;
+using MyWebProject.Core.Models.LandMarkModel;
+using MyWebProject.Core.Models.Top10;
+using MyWebProject.Core.Services.IServices;
+using MyWebProject.Core.Services.Services;
+using MyWebProject.Infrastructure.Data;
+using MyWebProject.Infrastructure.Data.Common;
+using MyWebProject.Infrastructure.Data.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TetstingAllProjects.TestServices
+{
+    [TestFixture]
+    public class TestTop10Service
+    {
+        private ITop10Destination services;
+        private ApplicationDbContext context;
+
+
+        [SetUp]
+        public void Setup()
+        {
+
+            var contextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
+                 .UseInMemoryDatabase("LandDB")
+                 .Options;
+
+            context = new ApplicationDbContext(contextOptions);
+
+            context.Database.EnsureDeleted();
+            context.Database.EnsureCreated();
+        }
+
+
+        [Test]
+        public async Task TestMethod_AllLandMarkByTown_Return_Data_Correctly()
+        {
+            var repo = new Repository(context);
+            services = new Top10Destination(repo);
+
+
+            var allService = await services.AllLandMarkByTown();
+
+            var dbAll = await repo.AllReadonly<LandMark>()
+                .Where(x => x.TownId != null && x.Rating >= 9)
+                .Select(l => new LandMarkViewModelAll()
+                {
+                    Id = l.Id,
+                    Name = l.Name,
+                    Description = l.Description,
+                    Rating = l.Rating,
+                    TownName = l.Town!.Name,
+                    Pictures = l.Pictures.Where(p => p.LandMarkId == l.Id)
+                    .ToList(),
+                })
+                .OrderBy(x => x.Name)
+                .ToListAsync();
+
+
+            Assert.That(allService.Count(), Is.EqualTo(dbAll.Count()));
+        }
+
+        [Test]
+        public async Task TestMethod_Get10TopLandMark_Return_Data_Correctly()
+        {
+            var repo = new Repository(context);
+            services = new Top10Destination(repo);
+
+
+            var allService = await services.Get10TopLandMark();
+
+            var dbAll = await repo.AllReadonly<LandMark>()
+              .Where(x => x.Rating >= 9.2m && x.Rating <= 10m)
+                .Select(d => new Top10ViewModelLandMark
+                {
+                    Id = d.Id,
+                    Name = d.Name,
+                    Description = d.Description,
+                    Rating = d.Rating,
+                    TownName = d.Town!.Name,
+                    Category = d.Category.Name,
+                    Pictures = d.Pictures.Where(z => z.LandMarkId == d.Id)
+                    .ToList(),
+                })
+                .OrderByDescending(x => x.Rating)
+                .Take(10)
+                .ToListAsync();
+
+
+            Assert.That(allService.Count(), Is.EqualTo(dbAll.Count()));
+        }
+
+
+        [TearDown]
+        public void TearDown()
+        {
+            context.Dispose();
+        }
+    }
+}
