@@ -26,6 +26,8 @@ namespace MyWebProject.Infrastructure.Data
 
         public DbSet<Cultural_events> Cultural_Events { get; set; } = null!;
 
+        public DbSet<PictureByUser> UserPicture { get; set; } = null!;
+
         public DbSet<Journeys> Journeys { get; set; } = null!;
 
         public DbSet<Pictures> Pictures { get; set; } = null!;

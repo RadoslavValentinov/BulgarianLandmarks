@@ -1144,6 +1144,31 @@ namespace MyWebProject.Infrastructure.Migrations
                     b.ToTable("LandmarkSuggestions");
                 });
 
+            modelBuilder.Entity("MyWebProject.Infrastructure.Data.Models.PictureByUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UrlImgAddres")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserPicture");
+                });
+
             modelBuilder.Entity("MyWebProject.Infrastructure.Data.Models.Pictures", b =>
                 {
                     b.Property<int>("Id")
@@ -1168,6 +1193,9 @@ namespace MyWebProject.Infrastructure.Migrations
                         .IsRequired()
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UsersId")
                         .HasColumnType("nvarchar(450)");
@@ -2593,7 +2621,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = "630d5dda-7255-4ce9-a658-0eedfb698a5f",
                             AccessFailedCount = 0,
                             Avatar = "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg",
-                            ConcurrencyStamp = "81b94450-22f7-40fc-95e9-07bd9314e654",
+                            ConcurrencyStamp = "5e47eccf-297f-4141-ac4d-6c4de2bfdb04",
                             Email = "Bobo561@abv.bg",
                             EmailConfirmed = true,
                             FirstName = "Borislav",
@@ -2602,9 +2630,9 @@ namespace MyWebProject.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "Bobo561@abv.bg",
                             NormalizedUserName = "Bobo561@abv.bg",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPmVY4jMN9x6bYM3SFYS4yGKglzjJTRUXOjM8MxRyxSvmjDo7ef0euK7AganPXeeog==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEnqlndkYmT7zSkJCQK/LoDN3TjO6Po5KCQJPiN8ciFF+w6PZoVSFzY3yxpW1qbxXw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "41a7907e-ae96-4560-954c-e3cfec84cadf",
+                            SecurityStamp = "330e4d03-4a56-4a6f-b139-4264b1b11bda",
                             TwoFactorEnabled = false,
                             UserName = "Bobo561@abv.bg"
                         });

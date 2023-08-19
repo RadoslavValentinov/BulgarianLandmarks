@@ -28,5 +28,8 @@ namespace MyWebProject.Infrastructure.Data.Models
         [ForeignKey(nameof(Journey))]
         public int? JourneyId { get; set; }
         public Journeys? Journey { get; set; }
+
+
+        public string? UserName { get; set; }
     }
 }
