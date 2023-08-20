@@ -89,9 +89,16 @@
             </td>
             <td>@item.UserName</td>
             <td>
-                    @Html.ActionLink("Add Picture","AddPictureByUser","OptionPictures",new AddPictureViewModel(){UrlImgAddres=item.UrlImgAddres,UserName = item.UserName})
+                    @Html.ActionLink("Add Picture","AddPictureByUser","OptionPictures",new AddPictureViewModel(){UrlImgAddres=item.UrlImgAddres,UserName = item.UserName}, new {id="click"})
             </td>
         </tr>
         }
 </table>
 
+@section Scripts {
+    <script>
+        $("#click").click(function () {
+            alert("Picture succssesfuly added in Pictures");
+        });
+    </script>
+}

@@ -109,11 +109,18 @@
                 <td></td>
                 }
             <td>
-               @Html.ActionLink("Add","AddLandMarkByUser","OptionLandMark",new AddLandMarkViewModel(){Name=item.Name,Description=item.Description,VideoURL = item.VideoURL,
-               ImageURL = item.ImageURL,CategoryId = item.CategoryId})
+                    @Html.ActionLink("Add","AddLandMarkByUser","OptionLandMark",new AddLandMarkViewModel(){Name=item.Name,Description=item.Description,VideoURL = item.VideoURL,
+                    ImageURL = item.ImageURL,CategoryId = item.CategoryId}, new {id="click"})
 
             </td>
         </tr>
         }
 </table>
 
+@section Scripts {
+    <script>
+        $("#click").click(function () {
+            alert("Landmark succssesfuly added in landmarks");
+        });
+    </script>
+}
