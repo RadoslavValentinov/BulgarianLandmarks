@@ -1,9 +1,7 @@
 ﻿using Ganss.Xss;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.Category;
-using MyWebProject.Core.Models.FactOfBulgaria;
 using MyWebProject.Core.Models.LandMarkModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
@@ -40,7 +38,7 @@ namespace MyWebProject.Core.Services.Services
                 Id = model.Id,
                 Name = name,
                 Description = description,
-                IsActive = false,
+                IsActive = true,
                 CategoryId = model.CategoryId,
                 ImageURL = image,
             };

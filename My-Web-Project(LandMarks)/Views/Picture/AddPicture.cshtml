@@ -43,7 +43,7 @@
                         <span asp-validation-for="UrlImgAddres" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <input asp-area="" asp-controller="Picture"  asp-action="AddPicture" class="btn btn-primary" type="submit" method="post" />
+                        <input asp-area="" asp-controller="Picture"  asp-action="AddPicture" id="btnPicture" class="btn btn-primary" type="submit" method="post" />
                     </div>
                 </form>
             </div>
@@ -53,5 +53,11 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $("#btnPicture").click(function () {
+            alert("След одобрение добавено изобраежнието ще бъде добавено");
+        });
+    </script>
 }
 

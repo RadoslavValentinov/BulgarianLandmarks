@@ -39,7 +39,7 @@
                 <span asp-validation-for="ImageURL" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <input asp-controller="LandMark" asp-action="AddUserSuggestions" class="btn btn-primary" type="submit" method="post" />
+                <input asp-controller="LandMark" asp-action="AddUserSuggestions" id="btn" class="btn btn-primary" type="submit" method="post" />
             </div>
         </form>
     </div>
@@ -48,4 +48,11 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $("#btn").click(function () {
+            alert("След одобрение ще бъде добавено към списъкът с забелевителности");
+        });
+    </script>
+
 }
