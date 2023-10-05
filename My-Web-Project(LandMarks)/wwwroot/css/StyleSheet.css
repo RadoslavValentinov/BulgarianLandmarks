@@ -296,3 +296,11 @@ footer {
 #allFacts{
     background-color:whitesmoke;   
 }
+
+#FieldToSearch{
+    position:relative;
+    left:10px;
+    top:10px;
+    padding:0px;
+    margin:0px;
+}

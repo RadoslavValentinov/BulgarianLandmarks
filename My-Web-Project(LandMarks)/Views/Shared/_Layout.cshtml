@@ -83,6 +83,14 @@
                                 </div>
                             }
                         </li>
+                       @* <li>
+                            @if (User?.Identity?.IsAuthenticated == true)
+                            {
+                                <input id="FieldToSearch" asp-area="" asp-controller="Home" asp-action="SearchBy" onclick="set()" class="form-control" placeholder="Search..." />
+                            }
+
+
+                        </li>*@
                         <li>
                             @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
                             {
@@ -103,14 +111,14 @@
 
 
     <footer class="border-top footer text-muted">
-            <h4 id="foras">За нас</h4>
-                <a id="formquest" asp-area="" asp-controller="Home" asp-action="ContactUs">За контакт с нас</a>
-                <a id="policy" asp-area="" asp-controller="Home" asp-action="Privacy">Политика за Поверителност</a>
-            <h4 id="partn">Нашите партньори</h4>
-                <a id="partner1" href="https://grabo.bg/travel">Grabo</a>
-                <a id="partner2" href="https://opoznai.bg/">Opoznai.bg</a>
-            <img id="posImg" src="https://cdn.freebiesupply.com/logos/large/2x/bulgaria-logo-png-transparent.png" width="230" height="150" alt="Bulgaria" />
-            <p id="copy">&copy; 2022 - 2023 - Пътеводител на Българските забележителности</p>
+        <h4 id="foras">За нас</h4>
+        <a id="formquest" asp-area="" asp-controller="Home" asp-action="ContactUs">За контакт с нас</a>
+        <a id="policy" asp-area="" asp-controller="Home" asp-action="Privacy">Политика за Поверителност</a>
+        <h4 id="partn">Нашите партньори</h4>
+        <a id="partner1" href="https://grabo.bg/travel">Grabo</a>
+        <a id="partner2" href="https://opoznai.bg/">Opoznai.bg</a>
+        <img id="posImg" src="https://cdn.freebiesupply.com/logos/large/2x/bulgaria-logo-png-transparent.png" width="230" height="150" alt="Bulgaria" />
+        <p id="copy">&copy; 2022 - 2023 - Пътеводител на Българските забележителности</p>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -118,3 +126,15 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+@section Scripts{
+    <script>
+
+        let getValue = document.getElementById("FieldToSearch");
+        getValue.addEventListener();
+
+        function set(e) {
+
+        }
+
+    </script>
+}

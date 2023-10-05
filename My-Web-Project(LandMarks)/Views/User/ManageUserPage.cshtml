@@ -1,7 +1,7 @@
-﻿@using MyWebProject.Core.Models
+﻿﻿@using MyWebProject.Core.Models
 @using My_Web_Project_LandMarks_.Controllers
 @model UserManegePageViewModel
-    
+
 
 
 <div class="container">
@@ -41,10 +41,10 @@
                     <div class="tab-pane active" id="profile">
                         <h6>CHANGE  INFORMATION</h6>
                         <hr>
-                        <form method="post" asp-area="" asp-controller="User" asp-action="ManageUserPage" >
+                        <form method="post" asp-area="" asp-controller="User" asp-action="ManageUserPage">
                             <div class="text-lg-start mb-3">
                                 <label asp-for="@Model.UserName">Username</label>
-                                <div class="text-lg-start mb-3" >
+                                <div class="text-lg-start mb-3">
                                     <input class="form-control " autocomplete="on" aria-required="true" placeholder="Enter your new Username" asp-for="@Model.UserName" />
                                 </div>
 
@@ -61,7 +61,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button id="changeInfo" type="submit" class="btn btn-info"  onclick=" Message()">Update Your Info</button>
+                                <button id="changeInfo" type="submit" class="btn btn-info" onclick=" Message()">Update Your Info</button>
                             </div>
                         </form>
                     </div>
@@ -86,7 +86,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button id="changeInfo" type="submit" class="btn btn-info"  onclick=" Message()">Update Password</button>
+                                <button id="changeInfo" type="submit" class="btn btn-info" onclick=" Message()">Update Password</button>
                             </div>
                         </form>
                         <hr>
@@ -106,7 +106,7 @@
     </script>
 }
 
-<script>
+<script type="text/javascript">
     function hiddenForm() {
         let security = document.getElementById('security');
         let formProfil = document.getElementById('profile');
@@ -114,37 +114,8 @@
 
         //formProfil.classList.remove("active")
         //security.classList.add("active");
-   
+
         formProfil.style.display = 'none';
         security.style.display = 'block';
     }
 </script>
-
-
-
-@*<script>
-
-    function GetUserInfo() {
-        let getInfo = Array.from(document.getElementsByName("profileForm"));
-
-    @Model.FirstName = getInfo[0].value;
-    @Model.LastName = getInfo[1].value;
-
-        return @Model;
-    }
-</script>*@
-
-@*<script>
-    function getInput() {
-        let getInput = document.getElementById('securityinput1');
-        let getInput2 = document.getElementById('securityinput2');
-        let getInput3 = document.getElementById('securityinput3');
-
-    @Model.OldPassword = getInput.value;
-    @Model.newPassword = getInput2.value;
-    @Model.ConfirmPassword = getInput3.value;
-        let sec = @Model.ConfirmPassword = getInput[2].value;
-        return @Model;
-    }
-</script>*@
-

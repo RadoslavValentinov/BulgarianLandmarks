@@ -18,6 +18,7 @@ namespace My_Web_Project_LandMarks_.Controllers
             service = _service;
         }
 
+
         /// <summary>
         /// The method takes a collection of all the photos in the database
         /// </summary>
