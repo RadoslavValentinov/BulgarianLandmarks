@@ -18,8 +18,20 @@ nav {
     padding: 10px;
 }
 
+p{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.card-text{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:20px;
+    padding-left:10px;
+}
+
 #bodyDiv {
-    margin:0px;
+    margin: 0px;
 }
 
 #posImg {
@@ -159,6 +171,28 @@ footer {
     height: 250px;
 }
 
+h3{
+    padding-left: 20px;
+    margin: 0px;
+}
+
+hr{
+    margin:0px;
+}
+
+.col-sm-1:hover {
+    transform: scale(1.1);
+}
+
+.col-sm-2:hover {
+    transform: scale(1.1);
+}
+
+.col-sm-3:hover {
+    transform: scale(1.1);
+}
+
+
 .col-sm-3 img {
     position: relative;
     width: 398px;
@@ -175,7 +209,7 @@ footer {
 #colbtn-end {
     margin: 0px;
     position: relative;
-    bottom: -30px;
+    bottom: 0px;
     left: 125px;
 }
 
@@ -189,8 +223,7 @@ footer {
 #set {
     margin: 0px;
     position: relative;
-    bottom: -30px;
-    left: 130px;
+    bottom: 0px;
     left: 130px;
 }
 
@@ -210,13 +243,13 @@ footer {
 }
 
 #colbtn:hover{
-    background-color:lawngreen;
+    background-color:lightblue;
 }
 #colbtn-end:hover {
-    background-color: lawngreen;
+    background-color: lightblue;
 }
 #btn-tw1:hover {
-    background-color:aquamarine;
+    background-color:lightblue;
 }
 
 #set:hover {
@@ -254,6 +287,9 @@ footer {
 }
 #facts{
     align-items:center;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:20px;
+    padding:10px;
 }
 
 #facts2 {
