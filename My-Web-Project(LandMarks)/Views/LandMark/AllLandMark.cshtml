@@ -14,7 +14,7 @@
     <br />
     <hr />
 
-    @for (int i = 0; i < Model.Count(); i+=2)
+    @for (int i = 0; i < Model.Count() + 1; i += 2)
     {
         int count = 0;
         <div class="row">
@@ -30,31 +30,17 @@
                 {
                     loopmodel.Remove(item);
                 }
-               
+
                 var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
 
                 //TO DO: this if test of landmark no added picture
-                if (picture == null)
-                {
-                   <div id="containerLand" class="col" style="width: 18rem;">
-                    <div class="card-group">
-                        <h4 class="card-title">@item.Name</h4>
-                        <hr />
-                        <p class="card-text">@item.Description.Substring(0,20)...</p>
-                        <hr />
-                        <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
-                    </div>
-                   </div>
-
-                   continue;
-                }
 
                 <div id="containerLand" class="col" style="width: 18rem;">
-                    <img src="@picture.UrlImgAddres" class="card-img-top" alt="...">
+                    <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
+                    <h4>@item.Name</h4>
+                    <hr/>
                     <div class="card-group">
-                        <h4 >@item.Name</h4>
-                        <hr />
-                        <p>@item.Description.Substring(0,60)...</p>
+                        <p>@item.Description.Substring(0,90)...</p>
                         <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
                     </div>
                 </div>

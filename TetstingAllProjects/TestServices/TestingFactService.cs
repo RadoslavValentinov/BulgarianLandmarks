@@ -11,7 +11,7 @@ namespace TetstingAllProjects.TestServices
     [TestFixture]
     public class TestingFactService
     {
-        private IFactsService service;
+        private IFactsService? service;
         private ApplicationDbContext context;
 
 
@@ -75,7 +75,7 @@ namespace TetstingAllProjects.TestServices
             Assert.ThrowsAsync<NullReferenceException>(() => service.AddFacts(new FactOfCountry()
             {
                 Id = 100,
-                Description = null,
+                Description = null!,
                 CategoryId = 4
             }));
         }

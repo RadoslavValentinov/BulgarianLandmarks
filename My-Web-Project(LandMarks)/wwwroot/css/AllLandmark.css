@@ -3,34 +3,38 @@
 }
 
 #containerLand {
+    display:inline;
     margin: 10px;
     padding: 0px;
     width: 300px;
-    height: 380px;
-    border: 2px solid black;
+    height: 420px;
+    border: 1px solid lightgray;
+    border-radius:4px;
     background-color:whitesmoke;
     font-family:Arial, Helvetica, sans-serif;
 }
 
-h4{
-    margin:0px;
+.card-group h4 {
+    margin-top: 5px;
+    text-align: center;
 }
 
 p {
+    text-align:center;
     margin: 0px;
+    padding:5px;
 }
 
 #containerLand img {
     padding-left: 0px;
-    width: 415px;
+    width: 418px;
     height: 200px;
+    object-fit:cover;
 }
 
 #containerLand .btn {
     position: relative;
-    bottom: -35px;
-    left:130px;
+    bottom: -50px;
+    padding:7px 160px 7px 155px;
 }
-
-#containerLand
 

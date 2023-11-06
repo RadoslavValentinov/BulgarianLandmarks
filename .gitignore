@@ -475,3 +475,7 @@ FodyWeavers.xsd
 /MyWebProject.Infrastructure/Migrations/20221114204109_initial.Designer.cs
 /MyWebProject.Infrastructure/Migrations/20221114204109_initial.cs
 /My-Web-Project(LandMarks)/Properties/launchSettings.json
+/TetstingAllProjects/TestServices/TestingFactService.cs
+/MyWebProject.Core/Models/FactOfBulgaria/AllFactsViewModel.cs
+/My-Web-Project(LandMarks)/Areas/Administrator/Controllers/HomeAdminController.cs
+/My-Web-Project(LandMarks)/Areas/Administrator/Controllers/HomeAdminController.cs

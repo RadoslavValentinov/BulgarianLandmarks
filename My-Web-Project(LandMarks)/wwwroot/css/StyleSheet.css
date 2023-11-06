@@ -2,15 +2,18 @@
 
 body {
     background-color: rgba(215, 215, 217);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .carousel-inner img {
     width: 800px;
     height: 600px;
+    border-radius: 6px;
 }
 
 h1 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+    font-family: Arial, sans-serif;
+    font-style: italic;
 }
 
 nav {
@@ -18,17 +21,30 @@ nav {
     padding: 10px;
 }
 
-p{
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 20px;
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
     padding-left: 20px;
 }
 
-.card-text{
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:20px;
-    padding-left:10px;
+.card-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    margin: 0px;
+    text-align: center;
 }
+
+.card-title {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.btn {
+    padding: 7px 50px 7px 50px;
+}
+
 
 #bodyDiv {
     margin: 0px;
@@ -41,26 +57,27 @@ p{
 }
 
 footer {
-    margin:0px;
-    padding:0px;
+    margin: 0px;
+    padding: 0px;
     border: 2px solid black;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     background-color: ghostwhite;
 }
-#partn{
-    display:inline-block;
-    position:relative;
-    margin:0px;
-    left:60px;
+
+#partn {
+    display: inline-block;
+    position: relative;
+    margin: 0px;
+    left: 60px;
     top: -50px;
 }
 
-#foras{
-    display:inline-block;
-    margin:0px;
-    position:relative;
-    left:70px;
+#foras {
+    display: inline-block;
+    margin: 0px;
+    position: relative;
+    left: 70px;
     bottom: 50px;
 }
 
@@ -89,17 +106,17 @@ footer {
 }
 
 #copy {
-    position:relative;
+    position: relative;
     bottom: 0px;
-    left:10px;
-    margin:0px;
-    font-family:Arial, Helvetica, sans-serif;
+    left: 10px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #policy {
     text-decoration: none;
     color: cornflowerblue;
-    position:relative;
+    position: relative;
     bottom: -30px;
     left: -145px;
 }
@@ -113,18 +130,18 @@ footer {
 
 .container-fluid {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     padding-right: 20px;
 }
 
 /* section to size container*/
 .col-sm-1 {
     margin: 0px;
-    padding:0px;
+    padding: 0px;
     width: 400px;
     height: 450px;
     margin: 20px;
-    border: 2px solid black;
+    border: 2px solid lightgray;
     border-radius: 5px;
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -133,11 +150,11 @@ footer {
 
 .col-sm-2 {
     margin: 0px;
-    padding:0px;
+    padding: 0px;
     width: 400px;
     height: 450px;
     margin: 20px;
-    border: 2px solid black;
+    border: 2px solid lightgray;
     border-radius: 5px;
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -146,11 +163,11 @@ footer {
 
 .col-sm-3 {
     margin: 0px;
-    padding:0px;
+    padding: 0px;
     width: 400px;
     height: 450px;
     margin: 20px;
-    border: 2px solid black;
+    border: 2px solid lightgray;
     border-radius: 5px;
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -158,103 +175,128 @@ footer {
 }
 
 /* this container all img in  div */
+
 .col-sm-1 img {
     position: relative;
-    width: 398px;
+    width: 397px;
     height: 250px;
 }
 
 .col-sm-2 img {
     position: relative;
     left: -0px;
-    width: 398px;
+    width: 397px;
     height: 250px;
-}
-
-h3{
-    padding-left: 20px;
-    margin: 0px;
-}
-
-hr{
-    margin:0px;
-}
-
-.col-sm-1:hover {
-    transform: scale(1.1);
-}
-
-.col-sm-2:hover {
-    transform: scale(1.1);
-}
-
-.col-sm-3:hover {
-    transform: scale(1.1);
 }
 
 
 .col-sm-3 img {
     position: relative;
-    width: 398px;
+    width: 397px;
     height: 250px;
 }
 
+/*Title of all div*/
+
+h3 {
+    padding-left: 20px;
+    margin: 0px;
+}
+
+hr {
+    margin: 0px;
+}
+
+
+/*hover effect for all card in index view*/
+
+.col-sm-1:hover {
+    transform: scale(1.02);
+    transition: 0.5s ease-in;
+    border-left: 2px solid gray;
+    border-bottom: 2px solid gray;
+}
+
+.col-sm-2:hover {
+    transform: scale(1.02);
+    transition: 0.5s ease-in;
+    border-left: 2px solid gray;
+    border-bottom: 2px solid gray;
+}
+
+.col-sm-3:hover {
+    transform: scale(1.02);
+    transition: 0.5s ease-in;
+    border-left: 2px solid gray;
+    border-bottom: 2px solid gray;
+}
+
+/*button by custom css style by Id */
+
 #colbtn {
-    margin:0px;
+    margin: 0px;
     position: relative;
-    bottom: -30px;
-    left: 125px;
+    bottom: -10px;
+    left: 100px;
 }
 
 #colbtn-end {
     margin: 0px;
     position: relative;
-    bottom: 0px;
-    left: 125px;
+    bottom: -10px;
+    left: 100px;
 }
 
 #btn-tw1 {
     margin: 0px;
     position: relative;
-    bottom: -5px;
-    left: 125px;
+    bottom: -15px;
+    left: 100px;
 }
 
 #set {
     margin: 0px;
     position: relative;
-    bottom: 0px;
-    left: 130px;
+    bottom: -15px;
+    left: 95px;
 }
 
 #set2 {
-   
     margin: 0px;
     position: relative;
-    bottom: -30px;
-    left: 130px;
+    bottom: -15px;
+    left: 95px;
 }
 
 #set3 {
     margin: 0px;
     position: relative;
-    bottom: -28px;
-    left: 130px;
+    bottom: -15px;
+    left: 95px;
+    left: 100px;
 }
 
-#colbtn:hover{
-    background-color:lightblue;
+
+/*hover effect to buttons*/
+
+#colbtn:hover {
+    background-color: lightskyblue;
+    border: 1px solid gray;
 }
+
 #colbtn-end:hover {
-    background-color: lightblue;
+    background-color: lightskyblue;
+    border: 1px solid gray;
 }
+
 #btn-tw1:hover {
-    background-color:lightblue;
+    background-color: lightskyblue;
+    border: 1px solid gray;
 }
 
 #set:hover {
-    background-color:cornsilk;
-    color:black
+    background-color: cornsilk;
+    color: black
 }
 
 #set2:hover {
@@ -266,30 +308,48 @@ hr{
     background-color: cornsilk;
     color: black
 }
-/* this position to nested div*/
+
+
+
+/* this position to nested div for all facts*/
+
+#allFacts h1 {
+    margin: 0px;
+    padding-left: 20px;
+}
+
+#allFacts {
+    background-color: whitesmoke;
+}
+
+
 #facts {
-    position:relative;
-    left:10px;
+    position: relative;
+    left: 10px;
     width: 800px;
-    height: 300px;
+    height: 350px;
 }
 
-#facts p img {
-    float: right;
-    width: 300px;
-    height: 200px;
-}
+    #facts img {
+        float: right;
+        width: 350px;
+        height: 200px;
+        margin: 10px;
+    }
 
-#facts p {
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 18px;
-   margin: 5px;
-}
-#facts{
-    align-items:center;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:20px;
-    padding:10px;
+    #facts p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        margin: 5px;
+        font-family: Helvetica, sans-serif;
+        width: 900px;
+    }
+
+#facts {
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 10px;
 }
 
 #facts2 {
@@ -297,18 +357,18 @@ hr{
     height: 300px;
 }
 
-#facts2 p img {
-    float: left;
-    width: 400px;
-    height: 200px;
-    margin:10px;
-}
+    #facts2 p img {
+        float: left;
+        width: 400px;
+        height: 200px;
+        margin: 10px;
+    }
 
-#facts2 p {
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 18px;
-   margin: 5px;
-}
+    #facts2 p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        margin: 5px;
+    }
 
 #facts2 {
     position: relative;
@@ -318,25 +378,32 @@ hr{
 
 #redirect {
     text-decoration: none !important;
-    color:crimson;
-    position:relative;
-    left:20px;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:20px;
+    color: crimson;
+    margin: 10px;
+    position: relative;
+    left: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
-#redirect:hover{
-    color:lightcoral;
+    #redirect:hover {
+        color: lightcoral;
+    }
+
+#FieldToSearch {
+    position: relative;
+    left: 10px;
+    top: 10px;
+    padding: 0px;
+    margin: 0px;
 }
 
-#allFacts{
-    background-color:whitesmoke;   
-}
+/* navbar option */
 
-#FieldToSearch{
-    position:relative;
-    left:10px;
-    top:10px;
-    padding:0px;
-    margin:0px;
+
+.navbar-nav li a:hover {
+   /* background-color: rgb(237, 235, 235);
+    border-radius: 6px;*/
+    border-left:0.5px solid lightgray;
+    height:35px
 }
