@@ -400,10 +400,17 @@ hr {
 
 /* navbar option */
 
+<<<<<<< HEAD
 
 .navbar-nav li a:hover {
    /* background-color: rgb(237, 235, 235);
     border-radius: 6px;*/
     border-left:0.5px solid lightgray;
     height:35px
+=======
+.navbar-nav li a:hover {
+    height: 38px;
+    border-left: 0.1px solid lightgray;
+    border-right: 0.1px solid lightgray;
+>>>>>>> 5281cbea755775ec005c469b6bb709f1042b2568
 }
