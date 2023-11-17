@@ -1,0 +1,55 @@
+﻿@using MyWebProject.Core.Models.Usersss;
+@using System.Collections;
+@model IEnumerable<UserViewModel>
+
+
+<head>
+    <style>
+        table{
+            font-family: arial, sans-serif;
+            border: 1px solid black;
+            width: 90%;
+        }
+
+        th {
+            background-color: white;
+            text-align: center;
+            padding: 8px;
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: white;
+        }
+        tr{
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<table>
+    <tr>
+        <th>Full Name</th>
+        <th>User Name</th>
+        <th>Activ</th>
+        <th>Email</th>
+
+    <tr />
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.FirstName  @item.LastName</td>
+            <td>@item.UserName</td>
+            <td>@item.IsActived</td>
+            <td>@item.Email</td>
+        </tr>
+        }
+</table>

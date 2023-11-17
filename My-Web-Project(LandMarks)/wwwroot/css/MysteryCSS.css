@@ -1,13 +1,19 @@
 ﻿body {
-    background-color: #f9e6d9;
+    background-color: lightgray;
 }
 
 #place {
     font-family:Arial, Helvetica, sans-serif;
-    font-size:18px;
+    letter-spacing: 1px;
 }
 
 #picture{
-    width:500px;
-    height:400px;
+    position:relative;
+    width:1000px;
+    height:500px;
+    left:150px;
+}
+
+#place .rating{
+    font-size:32px;
 }

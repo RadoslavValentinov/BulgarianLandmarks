@@ -22,14 +22,14 @@
                 <h3 class="card-title">@pic.Name</h3>
                 <br />
                 <hr />
-                <h6 class="card-img-top">@pic.Description.Substring(0,60)...</h6>
+                <h6 class="card-img-top">@pic.Description.Substring(0,500)...</h6>
                 <br />
                 <hr />
-                <p>Рейтинг: @pic.Rating</p>
+                <p class="rating">Рейтинг: @pic.Rating</p>
                 <hr />
-                <p>Начална дата: @pic.StartDate</p>
+                <p class="startDate">Начална дата: @pic.StartDate</p>
                 <hr />
-                <p> Дни: @pic.Day</p>
+                <p class="day"> Дни: @pic.Day</p>
                 <hr />
                 <br />
                 <a class="btn btn-primary" asp-controller="Journey" asp-action="GetById"

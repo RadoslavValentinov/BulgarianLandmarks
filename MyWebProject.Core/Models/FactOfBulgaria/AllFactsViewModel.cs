@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace MyWebProject.Core.Models.FactOfBulgaria
 {
     /// <summary>
-    /// This class validated facts requared propertys and lenght of facts
+    /// This class validated Facts requared propertys and lenght of Facts
     /// </summary>
     public class AllFactsViewModel
     {

@@ -1,18 +1,24 @@
-﻿body {
+﻿* {
+    box-sizing:border-box;
+}
 
+body {
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 #cards{
-    width:400px;
-    height:400px;
-    border:2px solid black;
+    max-width:400px;
+    height:430px;
+    border:2px solid lightgray;
     margin:10px;
     padding:0px;
     background-color:whitesmoke;
+    text-align:center;
 }
 
+
 #cards img{
-    width:415px;
+    width:397px;
     height:200px;
 }
 
@@ -22,5 +28,5 @@
 
 #cards .btn {
     position: relative;
-    bottom: -50px;
+    bottom: -40px;
 }

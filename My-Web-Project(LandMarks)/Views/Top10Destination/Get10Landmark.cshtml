@@ -11,7 +11,9 @@
 <div class="text-lg-center">
 
     <p style="font-size:50px;">Най посещавани Забележителности</p>
-
+    @{
+        int count = 1;
+    }
     @for (int i = 0; i < Model.Count(); i += 3)
     {
         <div class="row">
@@ -27,8 +29,9 @@
                 <div id="cards" class="col" style="width: 18rem;">
                     <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
                     <h4>@item.Name</h4>
-                    <p>@item.Description.Substring(0,40)...</p>
-                    <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
+                    <hr>
+                    <p>@item.Description.Substring(0,70)...</p>
+                    <a id="@count" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
                 </div>
 
                 loopmodel.Remove(item);
