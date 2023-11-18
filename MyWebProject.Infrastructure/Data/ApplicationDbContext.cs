@@ -32,7 +32,7 @@ namespace MyWebProject.Infrastructure.Data
 
         public DbSet<Pictures> Pictures { get; set; } = null!;
 
-        public DbSet<InterestingFacts> facts { get; set; } = null!;
+        public DbSet<InterestingFacts> Facts { get; set; } = null!;
 
 
 

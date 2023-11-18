@@ -18,6 +18,7 @@ namespace MyWebProject.Core.Services.Services
             repo = _repo;
         }
 
+        
         [Area("Administrator")]
         public  async Task<LandMarkByUserAdded> AddLandMarkOfUsers(LandMarkByUserAdded model)
         {

@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Graph.Models.Security;
 using MyWebProject.Core.Models;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
 using System;
+using System.Text.Encodings.Web;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {
@@ -16,16 +19,21 @@ namespace My_Web_Project_LandMarks_.Controllers
         private readonly UserManager<Users> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IRepository repo;
+        private ILogger<UserController> logger;
+        private readonly IEmailSender emailSender;
 
         public UserController(SignInManager<Users> _signInManager,
             UserManager<Users> _userManager,
             RoleManager<IdentityRole> _roleManager,
-            IRepository _repo)
+            IRepository _repo,
+            ILogger<UserController> _logger, IEmailSender _emailSender)
         {
             signInManager = _signInManager;
             userManager = _userManager;
             roleManager = _roleManager;
             repo = _repo;
+            logger = _logger;
+            emailSender = _emailSender;
         }
 
 
@@ -114,25 +122,31 @@ namespace My_Web_Project_LandMarks_.Controllers
 
             var user = new Users()
             {
-                UserName = Username,
+                UserName = email,
                 FirstName = first,
                 LastName = last,
                 IsActiv = true,
                 Email = email,
-                EmailConfirmed = true
+                EmailConfirmed = false
             };
 
             var registerUser = await userManager.CreateAsync(user, model.Password);
             var role = await roleManager.FindByNameAsync("User");
 
+            // email confirmet
+
+
             if (registerUser.Succeeded)
             {
+                await emailSender.SendEmailAsync(user.Email, "Confirm your email",
+                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode("www.google.com")}'>clicking here</a>.");
                 if (role != null)
                 {
                     await userManager.AddToRoleAsync(user, role.Name);
 
                     return RedirectToAction("Login", "User");
                 }
+
             }
 
             foreach (var error in registerUser.Errors)
@@ -142,6 +156,7 @@ namespace My_Web_Project_LandMarks_.Controllers
 
             return View(model);
         }
+
 
         ///// <summary>
         ///// this method get info for user
@@ -261,6 +276,7 @@ namespace My_Web_Project_LandMarks_.Controllers
             ViewBag.Message = "Your information is upadeted.";
             return View(model);
         }
+
 
         /// <summary>
         /// Log out current user

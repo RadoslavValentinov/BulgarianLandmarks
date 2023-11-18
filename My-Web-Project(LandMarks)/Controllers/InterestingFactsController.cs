@@ -15,9 +15,9 @@ namespace My_Web_Project_LandMarks_.Controllers
 
 
         /// <summary>
-        /// The method returns a collection of all interesting facts
+        /// The method returns a collection of all interesting Facts
         /// </summary>
-        /// <returns>Collection of all interesting facts</returns>
+        /// <returns>Collection of all interesting Facts</returns>
         [HttpGet]
         public async Task<IActionResult> GetAllFacts()
         {

@@ -6,13 +6,6 @@ namespace MyWebProject.Core.Models
     public class RegisterViewModel
     {
 
-        [Required]
-        [StringLength(GlobalConstant.UserConstant.UserNameMaxLenght,
-            MinimumLength = GlobalConstant.UserConstant.UserNameMinLenght)]
-        public string UserName { get; set; } = null!;
-
-
-
         [StringLength(GlobalConstant.UserConstant.FirstNameMaxLenght,
             MinimumLength = GlobalConstant.UserConstant.FirstNameMinLenght)]
         public string FirstName { get; set; } = null!;

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using My_Web_Project_LandMarks_.Extensions;
 using My_Web_Project_LandMarks_.ModelBinder;
+using My_Web_Project_LandMarks_.Models;
 using MyWebProject.Infrastructure.Data;
 using MyWebProject.Infrastructure.Data.Models;
 
@@ -23,11 +24,15 @@ namespace My_Web_Project_LandMarks_
             builder.Services.AddDbContext<ApplicationDbContext>();
             builder.Services.AddApplicationServiceApp();
             builder.Services.AddResponseCaching();
+            builder.Services.AddAuthorization();
+            builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
             builder.Services.AddControllersWithViews(options =>
             {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             })
            .AddRazorRuntimeCompilation()
+           
+
            .AddMvcOptions(options =>
            {
                options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
@@ -42,13 +47,15 @@ namespace My_Web_Project_LandMarks_
 
             builder.Services.AddIdentity<Users, IdentityRole>(options =>
             {
-                options.SignIn.RequireConfirmedAccount = false;
+                options.SignIn.RequireConfirmedAccount = true;
                 options.Password.RequireDigit = true;
                 options.Password.RequireUppercase = true;
                 options.Password.RequiredLength = 6;
             })
             .AddDefaultUI()
-            .AddEntityFrameworkStores<ApplicationDbContext>();
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
+        
 
             var app = builder.Build();
 
