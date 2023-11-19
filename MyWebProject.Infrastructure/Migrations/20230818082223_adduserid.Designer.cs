@@ -448,7 +448,7 @@ namespace MyWebProject.Infrastructure.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("facts");
+                    b.ToTable("Facts");
 
                     b.HasData(
                         new

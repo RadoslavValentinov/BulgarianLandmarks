@@ -223,7 +223,7 @@ namespace MyWebProject.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "facts",
+                name: "Facts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -533,7 +533,7 @@ namespace MyWebProject.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "facts",
+                table: "Facts",
                 columns: new[] { "Id", "CategoryId", "Description" },
                 values: new object[,]
                 {
@@ -573,7 +573,7 @@ namespace MyWebProject.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "facts",
+                table: "Facts",
                 columns: new[] { "Id", "CategoryId", "Description" },
                 values: new object[,]
                 {
@@ -762,7 +762,7 @@ namespace MyWebProject.Infrastructure.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_facts_CategoryId",
-                table: "facts",
+                table: "Facts",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
@@ -822,7 +822,7 @@ namespace MyWebProject.Infrastructure.Migrations
                 name: "Cultural_Events");
 
             migrationBuilder.DropTable(
-                name: "facts");
+                name: "Facts");
 
             migrationBuilder.DropTable(
                 name: "LandmarkSuggestions");

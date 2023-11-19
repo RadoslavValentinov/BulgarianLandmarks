@@ -479,3 +479,6 @@ FodyWeavers.xsd
 /MyWebProject.Core/Models/FactOfBulgaria/AllFactsViewModel.cs
 /My-Web-Project(LandMarks)/Areas/Administrator/Controllers/HomeAdminController.cs
 /My-Web-Project(LandMarks)/Areas/Administrator/Controllers/HomeAdminController.cs
+/My-Web-Project(LandMarks)/Models/EmailSender.cs
+*.db
+*.json
