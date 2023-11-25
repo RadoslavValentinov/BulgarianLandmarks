@@ -127,7 +127,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                 LastName = last,
                 IsActiv = true,
                 Email = email,
-                EmailConfirmed = false
+                EmailConfirmed = true
             };
 
             var registerUser = await userManager.CreateAsync(user, model.Password);
