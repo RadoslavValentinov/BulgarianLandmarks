@@ -27,9 +27,16 @@
             text-align: center;
         }
 
+        #formSelect{
+            width:325px;
+            position:relative;
+            left:-45px;
+        }
+
         .btn {
             position: relative;
             left: 55px;
+            margin-top:10px;
         }
 
     </style>
@@ -43,19 +50,21 @@
 
 <form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionFacts" asp-action="AddFacts">
 
-    <input class="form" autocomplete="on" placeholder="Enter town name" asp-for="@Model.Description" />
+    <textarea class="form" autocomplete="on" placeholder="Enter description" rows="10" cols="40" asp-for="@Model.Description" ></textarea>
     <br />
 
-    <div class="form-group">
-        <label asp-for="Category"></label>
-        <select asp-for="Category" class="form-control">
+    <div id="formSelect" class="mb-3">
+        <label asp-for="CategoryId" class="form-label">Choises Category</label>
+        <select asp-for="CategoryId" class="form-control">
             @foreach (var category in Model.Category)
             {
                 <option value="@category.Id">@category.Name</option>
             }
         </select>
-        <span asp-validation-for="CategoryId" class="small text-danger"></span>
+        <span asp-validation-for="Category" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary"> Add Fact</button>
+
+
+    <button type="submit" class="btn btn-primary"> Add Fact </button>
 </form>

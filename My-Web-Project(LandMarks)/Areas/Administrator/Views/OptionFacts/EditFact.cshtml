@@ -1,0 +1,45 @@
+﻿@using MyWebProject.Core.Models.FactOfBulgaria;
+@model FactOfCountry
+
+<head>
+    <style>
+
+        form {
+            position: relative;
+            left: 450px;
+            height: 400px;
+        }
+
+        textarea {
+            margin: 10px;
+            position: relative;
+            left: -55px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .btn {
+            position: relative;
+            left: -45px;
+            padding:10px 150px 10px 150px;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+
+
+
+<h2>Change Fact</h2>
+<hr />
+
+
+<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionFacts" asp-action="EditFact">
+
+    <textarea class="form" autocomplete="on" placeholder="Enter description" rows="12" cols="45" asp-for="@Model.Description"></textarea>
+    <br />
+
+    <button type="submit" class="btn btn-primary"> Edit Fact </button>
+</form>

@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using MyWebProject.Infrastructure.Data;
 using System.Linq.Expressions;
-using My_Web_Project_LandMarks_.Infrastructure.Data;
 
-namespace My_Web_Project_LandMarks_.Infrastructure.Data.Common
+
+namespace MyWebProject.Infrastructure.Data.Common
 {
     /// <summary>
     /// Implementation of repository access methods
@@ -13,21 +14,17 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Common
     /// current reposity is attached</typeparam>
     public class Repository : IRepository
     {
-        private readonly DbContext _context = null!;
-
-        public Repository(ApplicationDbContext _context)
-        {
-            Context = _context;
-        }
-
-
         /// <summary>
         /// Entity framework DB context holding connection information and properties
         /// and tracking entity states 
         /// </summary>
         protected DbContext Context { get; set; }
 
-        public DbContext Context1 => _context;
+
+        public Repository(ApplicationDbContext context)
+        {
+            Context = context;
+        }
 
         /// <summary>
         /// Representation of table in database

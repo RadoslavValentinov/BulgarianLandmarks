@@ -1,8 +1,7 @@
-﻿using MyWebProject.Infrastructure.Data.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
+namespace MyWebProject.Infrastructure.Data.Models
 {
 
     public class LandMark
@@ -20,7 +19,7 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
         [Required]
         public decimal Rating { get; set; }
 
-        
+
         [ForeignKey(nameof(Town))]
         public int? TownId { get; set; }
         public Town? Town { get; set; }
