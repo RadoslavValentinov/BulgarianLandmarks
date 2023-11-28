@@ -17,51 +17,54 @@
 <h2>Create New Landmark</h2>
 <hr />
 
-
-<div class="row">
-    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-        <form asp-controller="OptionLandMark" asp-action="AddLandMark" method="post">
-            <div class="mb-3">
-                <label asp-for="Name" class="form-label">Name</label>
-                <input asp-for="Name" class="form-control" aria-required="true" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Description" class="form-label">Description</label>
-                <textarea asp-for="Description" class="form-control" aria-required="true" rows="6" cols="30"></textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Rating" class="form-label">Rating</label>
-                <input asp-for="Rating" class="form-control" aria-required="true" />
-                <span asp-validation-for="Rating" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="CategoryId" class="form-label">Category</label>
-                <select asp-for="CategoryId" class="form-control">
-                    @foreach (var category in Model.Category)
-                    {
-                        <option value="@category.Id">@category.Name</option>
-                    }
-                </select>
-                <span asp-validation-for="Category" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="VideoURL" class="form-label">Video Url</label>
-                <input asp-for="VideoURL" class="form-control" aria-required="true" />
-                <span asp-validation-for="VideoURL" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="ImageURL" class="form-label">Image Url</label>
-                <input asp-for="ImageURL" class="form-control" aria-required="true" />
-                <span asp-validation-for="ImageURL" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <input asp-area="Administrator" asp-controller="OptionLandMark" asp-action="AddLandMark" class="btn btn-primary" type="submit" method="post" />
-            </div>
-        </form>
+@using (Html.BeginForm("AddLandMark", "OptionLandMarks", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+            <form asp-controller="OptionLandMark" asp-action="AddLandMark" method="post">
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label">Name</label>
+                    <input asp-for="Name" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" aria-required="true" rows="6" cols="30"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Rating" class="form-label">Rating</label>
+                    <input asp-for="Rating" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Rating" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CategoryId" class="form-label">Category</label>
+                    <select asp-for="CategoryId" class="form-control">
+                        @foreach (var category in Model.Category)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="VideoURL" class="form-label">Video Url</label>
+                    <input asp-for="VideoURL" class="form-control" aria-required="true" />
+                    <span asp-validation-for="VideoURL" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ImageURL" class="form-label">Image Url</label>
+                    <input asp-for="ImageURL" class="form-control" aria-required="true" />
+                    <span asp-validation-for="ImageURL" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <input asp-area="Administrator" asp-controller="OptionLandMark" asp-action="AddLandMark" class="btn btn-primary" type="submit" method="post" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+}
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

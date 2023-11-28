@@ -13,8 +13,9 @@
 {
     first = true;
     <div class="text-lg-center">
-        <p style="font-size:50px;"> @item.Name</p>
-        <hr />
+        <p style="font-size:50px; font-style:italic;"> @item.Name</p>
+        <hr>
+        <br>
     </div>
     var pic = item.Pictures.Where(x => x.LandMarkId == item.Id).ToList();
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -23,9 +24,7 @@
             {
                 <div class="carousel-item @(first ? "active" : string.Empty)">
 
-                    <img id="picture" class="d-block w-100" style="height:500px"
-                 src="@sa.UrlImgAddres" alt="...">
-
+                    <img id="picture" src="@sa.UrlImgAddres" alt="...">
                 </div>
 
                 first = false;
@@ -46,14 +45,15 @@
     <div id="place" class="container">
         <p>@item.Description</p>
         <br />
-        <hr />
-        <p>Rating: @item.Rating</p>
-        <br />
-        <hr />
+        <hr>
+        <p class="rating">Rating: @item.Rating</p>
+        <br>
+        <hr>
+        <br>
     </div>
     <div class="container">
         <iframe width="420" height="315"
-            src="@item.VideoUrl">
+                src="@item.VideoUrl">
         </iframe>
     </div>
     <hr />

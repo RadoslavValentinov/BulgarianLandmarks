@@ -13,6 +13,11 @@ namespace My_Web_Project_LandMarks_.Controllers
             service = _service;
         }
 
+
+        /// <summary>
+        /// The method selects six cities from the database
+        /// </summary>
+        /// <returns>Collection of towns</returns>
         [HttpGet]
         public async Task<IActionResult> All()
         {
@@ -21,12 +26,16 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(rest);
         }
 
+
+        /// <summary>
+        /// The method searches for a city by the specified id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns“Returns the city its cultural events and attractions, if available</returns>
         [HttpGet]
-        public async Task<IActionResult> GetTown(int id) 
+        public async Task<IActionResult> GetTown(int id)
         {
             var rest = await service.TownsById(id);
-
-            //var model = new TownViewModelGetTown();
 
             if (rest != null)
             {

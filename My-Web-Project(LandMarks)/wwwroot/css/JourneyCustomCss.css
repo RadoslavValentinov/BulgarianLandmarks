@@ -2,20 +2,55 @@
     background-color: hsl(0, 0%, 90%);
 }
 
-#All img{
-    padding:0px;
-    width:1150px;
-    height:500px
+/* Size of image */
+
+#All img {
+    padding: 0px;
+    width: 899px;
+    height: 398px
 }
 
-.container{
-    padding:0px;
+/* size of container div */
+.container {
+    padding: 0px;
+    width: 900px;
 }
 
-#All{
-    background-color:whitesmoke;
+#All {
+    background-color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
-#All .btn:hover{
-    background-color: lawngreen;
-}
+    #All h6 {
+        padding-top:5px;
+    }
+
+    #All h3 {
+        font-style: italic;
+    }
+
+    #All .rating {
+        font-size:24px;
+    }
+
+    #All .startDate {
+        font-size: 24px;
+    }
+
+    #All .day {
+        font-size: 24px;
+    }
+
+
+    /* button positioin and hover effect */
+
+    #All .btn {
+        position: relative;
+        left: 320px;
+        padding: 10px 50px 10px 50px;
+    }
+
+        #All .btn:hover {
+            background-color: lightcoral;
+        }

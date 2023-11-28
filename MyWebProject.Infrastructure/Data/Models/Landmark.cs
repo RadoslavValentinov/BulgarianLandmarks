@@ -1,8 +1,7 @@
-﻿using MyWebProject.Infrastructure.Data.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
+namespace MyWebProject.Infrastructure.Data.Models
 {
 
     public class LandMark
@@ -11,16 +10,18 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
 
         [Required]
         [MaxLength(100)]
+        [MinLength(5)]
         public string Name { get; set; } = null!;
 
         [Required]
         [MaxLength(5000)]
+        [MinLength(20)]
         public string Description { get; set; } = null!;
 
         [Required]
         public decimal Rating { get; set; }
 
-        
+
         [ForeignKey(nameof(Town))]
         public int? TownId { get; set; }
         public Town? Town { get; set; }
@@ -32,6 +33,7 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
 
         public bool IsActiv { get; set; } = true;
 
+        [MaxLength(300)]
         public string? VideoURL { get; set; }
 
         public List<Pictures> Pictures { get; set; }

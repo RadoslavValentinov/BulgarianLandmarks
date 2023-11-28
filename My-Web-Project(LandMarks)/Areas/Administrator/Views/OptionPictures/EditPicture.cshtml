@@ -1,0 +1,62 @@
+﻿@using MyWebProject.Core.Models.PictureModel;
+@model AddPictureViewModel
+
+
+
+<head>
+    <style>
+        .btn {
+            position: relative;
+            left: 200px;
+            padding: 10px 30px 10px 30px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+
+<h2>Change Picture Info</h2>
+<hr />
+
+@using (Html.BeginForm("EditPicture", "OptionPictures", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+            <form asp-controller="OptionPictures" asp-action="EditPicture" method="post">
+                <div class="mb-3">
+                    <label asp-for="UrlImgAddres" class="form-label">URL image address</label>
+                    <input asp-for="UrlImgAddres" class="form-control" aria-required="true" />
+                    <span asp-validation-for="UrlImgAddres" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="LandMark" class="form-label">Landmark Id</label>
+                    <input asp-for="LandMark" class="form-control" aria-required="true" />
+                    <span asp-validation-for="LandMark" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Town" class="form-label">Town Id</label>
+                    <input asp-for="Town" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Town" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Journey" class="form-label">Journey Id</label>
+                    <input asp-for="Journey" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Journey" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <input asp-area="Administrator" asp-controller="OptionPictures" asp-action="EditPicture" class="btn btn-primary" type="submit" method="post" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

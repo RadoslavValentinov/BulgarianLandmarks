@@ -1,4 +1,4 @@
-﻿namespace My_Web_Project_LandMarks_.Core.Constants
+﻿namespace MyWebProject.Core.Constants
 {
     public static class GlobalConstant
     {
@@ -13,8 +13,8 @@
             public const int PassworMaxLenght = 50;
             public const int PassworMinLenght = 6;
 
-            public const int UserNameMaxLenght = 100; 
-            public const int UserNameMinLenght = 5; 
+            public const int UserNameMaxLenght = 100;
+            public const int UserNameMinLenght = 5;
         }
 
         public static class TownConstant
@@ -50,7 +50,7 @@
         public static class CultureEventConstant
         {
             public const int NameMaxLenght = 100;
-            public const int NameMinLenght = 50;
+            public const int NameMinLenght = 10;
 
             public const int DescriptionMaxLenght = 2000;
             public const int DescriptionMinLenght = 20;

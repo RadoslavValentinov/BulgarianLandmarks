@@ -1,12 +1,20 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using MyWebProject.Infrastructure.Data.Models;
+using System.ComponentModel.DataAnnotations;
 
-namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
+namespace MyWebProject.Infrastructure.Data.Models
 {
     public class Users : IdentityUser
     {
+        public string? Avatar { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        [MinLength(3)]
         public string FirstName { get; set; } = null!;
 
+        [Required]
+        [MaxLength(100)]
+        [MinLength(3)]
         public string LastName { get; set; } = null!;
 
         public bool IsActiv { get; set; } = true;

@@ -1,0 +1,63 @@
+﻿@using MyWebProject.Core.Models.PictureModel;
+@using Microsoft.AspNetCore.Identity
+@using MyWebProject.Infrastructure.Data.Models;
+@model AddPictureByUser
+@inject UserManager<Users> userManager;
+
+
+
+@Html.Hidden(
+    Model.UserName = User?.Identity?.Name ?? null!
+)
+
+
+<head>
+    <style>
+        .btn {
+            position: relative;
+            left: 200px;
+            padding: 10px 30px 10px 30px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+
+<h2>Add New Picture url</h2>
+<hr />
+
+@using (Html.BeginForm("AddPicture", "Picture", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div id="formCreate">
+        <div class="row">
+            <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+                <form asp-controller="OptionPictures" asp-action="AddPicture" method="post">
+                    @Html.HiddenFor(m=>m.UserName)
+                    <div class="mb-3">
+                        <label asp-for="UrlImgAddres" class="form-label">URL image address</label>
+                        <input asp-for="UrlImgAddres" class="form-control" aria-required="true" />
+                        <span asp-validation-for="UrlImgAddres" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <input asp-area="" asp-controller="Picture"  asp-action="AddPicture" id="btnPicture" class="btn btn-primary" type="submit" method="post" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $("#btnPicture").click(function () {
+            alert("След одобрение добавено изобраежнието ще бъде добавено");
+        });
+    </script>
+}
+

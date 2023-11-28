@@ -10,5 +10,6 @@ namespace MyWebProject.Core.Services.IServices
     public interface IHomeService
     {
         public Task<IEnumerable<Pictures>> AllPicture();
+       
     }
 }

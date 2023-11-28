@@ -1,11 +1,11 @@
-﻿@model IEnumerable<FactOfCountry>
+﻿@model IEnumerable<AllFactsViewModel>
 
 <head>
     <link rel="stylesheet" href="~/css/Facts.css" asp-append-version="true" />
 </head>
 
 @{
-    var collect = Model.OrderBy<FactOfCountry, int>(x => x.Id).ToList(); 
+    var collect = Model.OrderBy<AllFactsViewModel, int>(x => x.Id).ToList(); 
     var count = 1;
 }
 

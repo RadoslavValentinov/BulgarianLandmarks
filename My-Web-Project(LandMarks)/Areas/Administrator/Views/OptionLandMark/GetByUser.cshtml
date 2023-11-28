@@ -1,0 +1,126 @@
+﻿@model IEnumerable<LandMarkByUserAdded>
+
+@{
+    var all = new AddLandMarkViewModel();
+}
+
+<head>
+    <style>
+        body {
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border: 1px solid black;
+            width: 90%;
+        }
+
+        th {
+            background-color: white;
+            text-align: center;
+            padding: 8px;
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            white-space: nowrap;
+            display: table-cell;
+            vertical-align: inherit;
+        }
+
+        tr:nth-child(even) {
+            background-color: white;
+        }
+
+        #edit {
+            padding: 5px 45px 5px 45px;
+            background-color: yellow;
+            color: black;
+            margin-right: 40px;
+            position: relative;
+            right: -10px;
+        }
+
+        #deleteBtn {
+            position: relative;
+            right: 5px;
+            padding: 5px 45px 5px 45px;
+            background-color: red;
+            color: black;
+        }
+
+        #create {
+            padding-bottom: 20px;
+        }
+
+            #create a {
+                text-decoration: none;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                color: mediumseagreen;
+            }
+
+        #seen {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+    </style>
+</head>
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Video Url</th>
+        <th>image</th>
+        <th>Options</th>
+    <tr />
+        @foreach (var item in Model)
+        {
+            all.Name = item.Name;
+            all.Description = item.Description;
+            all.VideoURL = item.VideoURL;
+            all.VideoURL = item.ImageURL;
+
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.CategoryId</td>
+                @if (item.VideoURL != null)
+                {
+                <td><a href="@item.VideoURL">See Video</a></td>
+                }
+                else
+                {
+                <td></td>
+                }
+                @if (item.ImageURL != null)
+                {
+                <td><a href="@item.ImageURL">See Image</a></td>
+                }
+                else
+                {
+                <td></td>
+                }
+            <td>
+                    @Html.ActionLink("Add","AddLandMarkByUser","OptionLandMark",new AddLandMarkViewModel(){Name=item.Name,Description=item.Description,VideoURL = item.VideoURL,
+                    ImageURL = item.ImageURL,CategoryId = item.CategoryId}, new {id="click"})
+
+            </td>
+        </tr>
+        }
+</table>
+
+@section Scripts {
+    <script>
+        $("#click").click(function () {
+            alert("Landmark succssesfuly added in landmarks");
+        });
+    </script>
+}

@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using My_Web_Project_LandMarks_.Extensions;
 using My_Web_Project_LandMarks_.ModelBinder;
-using MyWebProject.Core.Services.IServices;
-using MyWebProject.Core.Services.Services;
+using My_Web_Project_LandMarks_.Models;
 using MyWebProject.Infrastructure.Data;
-using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
 
 namespace My_Web_Project_LandMarks_
@@ -15,7 +15,6 @@ namespace My_Web_Project_LandMarks_
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -23,17 +22,27 @@ namespace My_Web_Project_LandMarks_
                 DbContextOptionsBuilder dbContextOptionsBuilder = options.UseSqlServer(connectionString);
             });
             builder.Services.AddDbContext<ApplicationDbContext>();
-            builder.Services.AddScoped<IRepository, Repository>();
-            builder.Services.AddScoped<IHomeService, HomeServices>();
-            builder.Services.AddScoped<ICultureEventService, CultureEventService>();
-            builder.Services.AddScoped<ITownService, TownService>();
-            builder.Services.AddScoped<ILandmarkService, LandMarkService>();
-            builder.Services.AddScoped<ITop10Destination, Top10Destination>();
-            builder.Services.AddScoped<IMysteryPlace, MysteryPlace>();
-            builder.Services.AddScoped<IJourneyServise, JourneyService>();
-            builder.Services.AddScoped<IFactsService,FactsService>();
-            builder.Services.AddScoped<ICategoryService,CategoryService>();
-            builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            builder.Services.AddApplicationServiceApp();
+            builder.Services.AddResponseCaching();
+            builder.Services.AddAuthorization();
+            builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
+            builder.Services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+            })
+           .AddRazorRuntimeCompilation()
+           
+
+           .AddMvcOptions(options =>
+           {
+               options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+           });
+            builder.Services.ConfigureApplicationCookie(option =>{
+
+                option.Cookie.SameSite = SameSiteMode.Strict;
+                option.LoginPath = "/User/Login";
+                option.LogoutPath = "/User/Login";
+            });
 
 
             builder.Services.AddIdentity<Users, IdentityRole>(options =>
@@ -44,14 +53,9 @@ namespace My_Web_Project_LandMarks_
                 options.Password.RequiredLength = 6;
             })
             .AddDefaultUI()
-            .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation()
-            .AddMvcOptions(options =>
-            {
-                options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
-            });
-
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
+        
 
             var app = builder.Build();
 
@@ -75,6 +79,7 @@ namespace My_Web_Project_LandMarks_
             app.UseAuthentication();
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -87,7 +92,8 @@ namespace My_Web_Project_LandMarks_
 
             });
 
-
+           
+            
             using (var scope = app.Services.CreateScope())
             {
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
@@ -100,7 +106,7 @@ namespace My_Web_Project_LandMarks_
                         await roleManager.CreateAsync(new IdentityRole(role));
                 }
             }
-
+           
             using (var scope = app.Services.CreateScope())
             {
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<Users>>();
@@ -142,11 +148,33 @@ namespace My_Web_Project_LandMarks_
                         EmailConfirmed = true,
                         UserName = "maria89@gmail.com",
                         NormalizedEmail = "maria89@gmail.com",
-                        NormalizedUserName = "maria89@gmail.com",
+                        NormalizedUserName = "maria89@gmail.com"
                     };
 
                     await userManager.CreateAsync(menagerUser, "Maria123@");
                     await userManager.AddToRoleAsync(menagerUser, "Menager");
+                }
+
+                string userEmail = "bobi1101@gmail.com";
+
+                if (await userManager.FindByEmailAsync(userEmail) == null)
+                {
+                    var menagerUser = new Users()
+                    {
+                        Id = "f620aaf2-03e7-4252-adf8-bc286f246a45",
+                        Avatar = "https://us.123rf.com/450wm/anatolir/anatolir2011/anatolir201105528/159470802-jurist-avatar-icon-flat-style.jpg?ver=6",
+                        FirstName = "Borislav",
+                        LastName = "Antonov",
+                        Email = "bobi1101@gmail.com",
+                        IsActiv = true,
+                        EmailConfirmed = true,
+                        UserName = "bobi1101@gmail.com",
+                        NormalizedEmail = "bobi1101@gmail.com",
+                        NormalizedUserName = "bobi1101@gmail.com"
+                    };
+
+                    await userManager.CreateAsync(menagerUser, "Bobi31126@");
+                    await userManager.AddToRoleAsync(menagerUser, "User");
                 }
             }
 

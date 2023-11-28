@@ -1,0 +1,56 @@
+﻿using Microsoft.EntityFrameworkCore;
+using MyWebProject.Core.Services.IServices;
+using MyWebProject.Core.Services.Services;
+using MyWebProject.Infrastructure.Data;
+using MyWebProject.Infrastructure.Data.Common;
+using MyWebProject.Infrastructure.Data.Models;
+
+namespace TetstingAllProjects.TestServices
+{
+    [TestFixture]
+    public class TestHomeServices
+    {
+
+        private IHomeService service;
+        private ApplicationDbContext context;
+
+
+        [SetUp]
+        public void Setup()
+        {
+
+            var contextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
+                 .UseInMemoryDatabase("LandDB")
+                 .Options;
+
+            context = new ApplicationDbContext(contextOptions);
+
+            context.Database.EnsureDeleted();
+            context.Database.EnsureCreated();
+        }
+
+
+        [Test]
+        public async Task Test_Method_AllPicture_Return_Collection_Corectly()
+        {
+            var repo = new Repository(context);
+            service = new HomeServices(repo);
+
+            var allServicePicture = await service.AllPicture();
+
+            var allDBPicture = await repo.AllReadonly<Pictures>()
+                .Where(x => x.TownId == null && x.LandMarkId == null && x.JourneyId == null)
+                .ToArrayAsync();
+
+
+            Assert.That(allServicePicture.Count(), Is.EqualTo(allDBPicture.Count()));
+        }
+
+
+        [TearDown]
+        public void TearDown()
+        {
+            context.Dispose();
+        }
+    }
+}

@@ -1,7 +1,6 @@
-﻿using MyWebProject.Infrastructure.Data.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
+namespace MyWebProject.Infrastructure.Data.Models
 {
     public class Town
     {
@@ -9,22 +8,21 @@ namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
 
         [Required]
         [MaxLength(50)]
+        [MinLength(5)]
         public string Name { get; set; } = null!;
 
         [Required]
         [MaxLength(5000)]
+        [MinLength(50)]
         public string Description { get; set; } = null!;
 
-       public List<Pictures> Picture { get; set; } 
-            = new List<Pictures>();
+        public List<Pictures> Picture { get; set; }
+             = new List<Pictures>();
 
         public List<LandMark> Landmarks { get; set; }
-            =new List<LandMark>();
+            = new List<LandMark>();
 
         public List<Cultural_events> cultural_Events { get; set; }
-                =new List<Cultural_events> { };
-
-        [Required]
-        public string Location { get; set; } = null!;
+                = new List<Cultural_events> { };
     }
 }

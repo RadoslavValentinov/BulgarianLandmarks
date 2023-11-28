@@ -4,22 +4,33 @@
 <head>
     <style>
         h2 {
-            position:relative;
-            left:450px;
-            font-family:Arial, Helvetica, sans-serif;
-            margin-bottom:30px;
+            position: relative;
+            left: 450px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 30px;
         }
-        input{
-            position:relative;
-            left:425px;
-            top: -50PX;
-            width:300px;
+
+        .mb-3 input {
+            width: 400px;
+            position: relative;
+            left: 390px;
         }
-        .btn{
-            position:relative;
-            bottom:-50px;
-            left:200px;
-            margin-bottom:50PX;
+
+        .mb-3 label {
+            position: relative;
+            left: 390px;
+        }
+
+        .mb-3 span {
+            position: relative;
+            left: 450px;
+        }
+
+        .btn {
+            position: relative;
+            bottom: -30px;
+            left: 520px;
+            margin-bottom: 50PX;
         }
 
     </style>
@@ -27,7 +38,13 @@
 
 <h2>Change category</h2>
 
-    <form method="post" asp-area="Administrator" asp-controller="OptionCategory" asp-action="Edit">
-        <input autocomplete="on" asp-for="@Model.Name">
-        <button type="submit" class="btn btn-primary">Submit changes</button>
-    </form>
+@using (Html.BeginForm("Edit", "OptionCategory", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="mb-3">
+        <label asp-for="@Model.Name" class="form-label">Change Name</label>
+        <input asp-for="Name" class="form-control" aria-required="true" />
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Name</button>
+}

@@ -9,9 +9,15 @@ namespace My_Web_Project_LandMarks_.Controllers
 
         public JourneyController(IJourneyServise _service)
         {
-            service= _service;  
+            service = _service;
         }
 
+
+        /// <summary>
+        /// The method returns a collection of all journeys
+        /// accessed by a service
+        /// </summary>
+        /// <returns>Collection of all journeys</returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -20,6 +26,12 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(model);
         }
 
+
+        /// <summary>
+        /// The method returns the received trip idand passes it through a service method
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Рeturns a trip with the given id</returns>
         [HttpGet]
         public async Task<IActionResult> GetById(int id)
         {

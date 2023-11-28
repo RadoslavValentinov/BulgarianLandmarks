@@ -13,7 +13,8 @@
         <img src="@picture?.UrlImgAddres" alt="Town" />
             <div id="texts">
                 <h4>@pic.Name</h4>
-                <p>@pic.Description.Substring(0,150)...</p>
+                <hr>
+                <p>@pic.Description.Substring(0,380)...</p>
                 <a class="btn btn-primary" asp-controller="Town" asp-action="GetTown" asp-route-id="@pic.Id" method="post">Към Градът</a>
             </div>
     </div>

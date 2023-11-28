@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Services.IServices;
+using MyWebProject.Infrastructure.Data.Models;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {
@@ -15,7 +16,10 @@ namespace My_Web_Project_LandMarks_.Controllers
             mpService= _mpService;
         }
 
-
+        /// <summary>
+        /// The method returns a collection of landmarks with a rating above 9, taking the top 10
+        /// </summary>
+        /// <returns>Collection</returns>
         public async Task<IActionResult> Get10Landmark()
         {
             var model = await service.Get10TopLandMark();
@@ -23,7 +27,11 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(model);
         }
 
-
+        /// <summary>
+        /// The method returns a collection of landmarks with a rating above 
+        /// 9 that have an address added to a video about the landmark
+        /// </summary>
+        /// <returns>Collection of landmarks</returns>
         public async Task<IActionResult> MysteryPlaces()
         {
             var model = await mpService.MysteryPlaces();
@@ -31,6 +39,12 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(model);
         }
 
+
+        /// <summary>
+        /// The method returns a collection of landmarks and their 
+        /// associated cities with a rating greater than 9
+        /// </summary>
+        /// <returns>Collection of landmarks</returns>
         public async Task<IActionResult> AllLandMarkByTown()
         {
             var model = await service.AllLandMarkByTown();

@@ -4,26 +4,31 @@
 <head>
     <style>
 
-        input {
-            width: 400px;
-            padding: 10px;
-            margin: 10px;
-        }
-
         h2 {
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        #formCreate {
-            position: relative;
-            left: 350px;
+        #formCreate{
+            position:relative;
+            left:450px;
         }
+
+        .mb-3 input {
+            position: relative;
+            width: 400px;
+        }
+
+        .mb-3 textarea {
+            position: relative;
+            width: 400px;
+        }
+
 
         .btn {
             position: relative;
-            left: -310px;
-            bottom:-70px;
+            left: 100px;
+            bottom: -10px;
             margin: 20px;
         }
 
@@ -33,13 +38,6 @@
             width: 400px;
             height: 100px;
         }
-        label{
-            position:relative;
-            left:10px;
-        }
-        form{
-            height:700px;;
-        }
 
     </style>
 </head>
@@ -48,32 +46,47 @@
 <h2>Create new Journey</h2>
 <hr />
 
+@using (Html.BeginForm("Create", "OptionJourney", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div id="formCreate">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" class="form-control" aria-required="true" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Description</label>
+            <textarea asp-for="Description" class="form-control" aria-required="true" rows="6" cols="30"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Rating" class="form-label">Rating</label>
+            <input asp-for="@Model.Rating" class="form-control" aria-required="true" />
+            <span asp-validation-for="@Model.Rating" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.StartDate" class="form-label">Start Date</label>
+            <input asp-for="@Model.StartDate" type="date" class="form-control" aria-required="true" />
+            <span asp-validation-for="@Model.StartDate" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Day" class="form-label">Duration days</label>
+            <input asp-for="@Model.Day" class="form-control" aria-required="true" />
+            <span asp-validation-for="@Model.Day" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Price" class="form-label">Price</label>
+            <input asp-for="@Model.Price лв." class="form-control" aria-required="true" />
+            <span asp-validation-for="@Model.Price" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Urladdress" class="form-label">Image URL address</label>
+            <input asp-for="@Model.Urladdress" class="form-control" aria-required="true" />
+            <span asp-validation-for="@Model.Urladdress" class="text-danger"></span>
+        </div>
 
-<form id="formCreate" method="post" asp-area="Administrator" asp-controller="OptionJourney" asp-action="Create">
-
-    <input class="form" autocomplete="on" placeholder="Enter  name" asp-for="@Model.Name" />
-    <br />
-    <textarea id="area" class="form" autocomplete="on" placeholder="Enter  description" asp-for="@Model.Description"></textarea>
-    <br />
-    <label>Enter rating</label>
-    <br />
-    <input class="form"  autocomplete="on" placeholder="Enter  " asp-for="@Model.Rating" />
-    <br />
-    <label>Enter start date</label>
-    <br />
-    <input class="form" type="date" autocomplete="on" placeholder="Enter date to start" asp-for="@Model.StartDate" />
-    <br />
-    <label>Enter duration days</label>
-    <br />
-    <input class="form" autocomplete="on" placeholder="duration days" asp-for="@Model.Day" />
-    <br />
-    <label>Enter price</label>
-    <br />
-    <input class="form"  autocomplete="on" placeholder="Enter  price" asp-for="@Model.Price" />
-    <br />
-    <input class="form"  autocomplete="on" placeholder="Enter event image"  asp-for="@Model.Urladdress"/>
-
-    <button type="submit" class="btn btn-primary"> Create Journey</button>
-    <br />
-</form>
+        <button type="submit" class="btn btn-primary"> Create Journey</button>
+    </div>
+}
 

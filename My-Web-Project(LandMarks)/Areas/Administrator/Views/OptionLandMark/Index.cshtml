@@ -4,7 +4,6 @@
 <head>
     <style>
         body {
-          
         }
 
         table {
@@ -95,15 +94,15 @@
             <td>@item.Rating</td>
             <td>@item.TownName</td>
             <td>@item.Category</td>
-            @if (item.VideoUrl != null)
-            {
-                    <td><a href="@item.VideoUrl">See Video</a></td>
-            }
-            else
-            {
-               <td></td>
-            }
-               
+                @if (item.VideoUrl != null)
+                {
+                <td><a href="@item.VideoUrl">See Video</a></td>
+                }
+                else
+                {
+                <td></td>
+                }
+
                 @*set all picture to see admin*@
             <td>@Html.ActionLink("See all picture","SlidePicture","OptionLandMark",new {@Id =item.Id})</td>
             <td>

@@ -11,27 +11,30 @@
 
 <div class="text-lg-center">
 
+    @{
+       int count = 1;
+    }
     <p style="font-size:50px;">Събития подредени по Градове</p>
 
     @for (int i = 0; i < Model.Count(); i += 3)
     {
-        
         <div class="row">
             @foreach (var item in all.Take(3))
             {
                 <div id="Custom" class="col">
                     <img src="@item.ImageURL" alt="...">
-                        <h3 >@item.Name</h3>
-                        <hr />
-                        <p>@item.Description.Substring(0,40)...</p>
-                        <hr />
-                        <p>Дата: @item.Date</p>
-                        <hr />
-                        <p>Започва в: @item.Hour</p>
-                        <hr />
-                        <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="CultureEvent" asp-action="EventByTownId">Научи повече</a>
+                    <h3>@item.Name</h3>
+                    <hr />
+                    <p>@item.Description.Substring(0,40)...</p>
+                    <hr />
+                    <p>Дата: @item.Date</p>
+                    <hr />
+                    <p>Започва в: @item.Hour</p>
+                    <hr />
+                    <a id="@count" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="CultureEvent" asp-action="EventByTownId">Научи повече</a>
                 </div>
                 all.Remove(item);
+                count++;
             }
         </div>
         <br />

@@ -1,4 +1,4 @@
-﻿using My_Web_Project_LandMarks_.Infrastructure.Data.Models;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,10 +6,11 @@ namespace MyWebProject.Infrastructure.Data.Models
 {
     public class Pictures
     {
-        [Key]
         public int Id { get; set; }
+
         [Required]
         [MaxLength(300)]
+        [MinLength(20)]
         public string UrlImgAddres { get; set; } = null!;
 
         public bool IsActiv { get; set; } = true;
@@ -23,8 +24,12 @@ namespace MyWebProject.Infrastructure.Data.Models
         public int? TownId { get; set; }
         public Town? Town { get; set; }
 
+
         [ForeignKey(nameof(Journey))]
         public int? JourneyId { get; set; }
         public Journeys? Journey { get; set; }
+
+
+        public string? UserName { get; set; }
     }
 }

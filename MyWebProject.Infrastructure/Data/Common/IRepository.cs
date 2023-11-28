@@ -1,11 +1,7 @@
 ﻿using System.Linq.Expressions;
-using My_Web_Project_LandMarks_.Infrastructure.Data;
 
-namespace My_Web_Project_LandMarks_.Infrastructure.Data.Common
+namespace MyWebProject.Infrastructure.Data.Common
 {
-    /// <summary>
-    /// Abstraction of repository access methods
-    /// </summary>
     public interface IRepository : IDisposable
     {
         /// <summary>
