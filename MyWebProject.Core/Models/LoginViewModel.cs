@@ -1,7 +1,7 @@
-﻿using MyWebProject.Core.Constants;
+﻿using My_Web_Project_LandMarks_.Core.Constants;
 using System.ComponentModel.DataAnnotations;
 
-namespace MyWebProject.Core.Models
+namespace My_Web_Project_LandMarks_.Core.Models
 {
     public class LoginViewModel
     {
@@ -11,7 +11,7 @@ namespace MyWebProject.Core.Models
 
         [Required]
         [StringLength(GlobalConstant.UserConstant.PassworMaxLenght,
-            MinimumLength = GlobalConstant.UserConstant.PassworMinLenght)]
+            MinimumLength =GlobalConstant.UserConstant.PassworMinLenght)]
         public string Password { get; set; } = null!;
 
         public bool RememberMe { get; set; }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MyWebProject.Infrastructure.Data.Models;
+using My_Web_Project_LandMarks_.Infrastructure.Data.Models;
 
 namespace MyWebProject.Infrastructure.Data.Configoration
 {
@@ -50,18 +50,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                 { 
                     Id = 6,
                     Name="Town"
-                },
-
-                new Category
-                {
-                    Id= 7,
-                    Name = "BulgarianFacts"
-                },
-
-                new Category
-                {
-                    Id = 8,
-                    Name = "PeopleFacts"
                 }
             };
 

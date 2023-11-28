@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using My_Web_Project_LandMarks_.Infrastructure.Data.Models;
 using MyWebProject.Infrastructure.Data.Models;
 using static System.Net.WebRequestMethods;
 

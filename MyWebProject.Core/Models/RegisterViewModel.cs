@@ -1,25 +1,25 @@
-﻿using MyWebProject.Core.Constants;
+﻿using My_Web_Project_LandMarks_.Core.Constants;
 using System.ComponentModel.DataAnnotations;
 
-namespace MyWebProject.Core.Models
+namespace My_Web_Project_LandMarks_.Core.Models
 {
     public class RegisterViewModel
     {
 
         [Required]
         [StringLength(GlobalConstant.UserConstant.UserNameMaxLenght,
-            MinimumLength = GlobalConstant.UserConstant.UserNameMinLenght)]
+            MinimumLength =GlobalConstant.UserConstant.UserNameMinLenght)]
         public string UserName { get; set; } = null!;
 
 
-
+        [Required]
         [StringLength(GlobalConstant.UserConstant.FirstNameMaxLenght,
-            MinimumLength = GlobalConstant.UserConstant.FirstNameMinLenght)]
+            MinimumLength =GlobalConstant.UserConstant.FirstNameMinLenght)]
         public string FirstName { get; set; } = null!;
 
-
+        [Required]
         [StringLength(GlobalConstant.UserConstant.LastNameMaxLenght,
-            MinimumLength = GlobalConstant.UserConstant.LastNameMinLenght)]
+            MinimumLength =GlobalConstant.UserConstant.LastNameMinLenght)]
         public string LastName { get; set; } = null!;
 
         [Required]

@@ -1,19 +1,19 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using My_Web_Project_LandMarks_.Infrastructure.Data.Models;
 using MyWebProject.Infrastructure.Data.Configoration;
 using MyWebProject.Infrastructure.Data.Models;
 using System.Reflection.Emit;
+using System.Xml;
 
-namespace MyWebProject.Infrastructure.Data
+namespace My_Web_Project_LandMarks_.Infrastructure.Data
 {
     public class ApplicationDbContext : IdentityDbContext<Users>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-         : base(options)
+            : base(options)
         {
         }
-
 
 
         public DbSet<Town> Towns { get; set; } = null!;
@@ -27,16 +27,12 @@ namespace MyWebProject.Infrastructure.Data
         public DbSet<Journeys> Journeys { get; set; } = null!;
 
         public DbSet<Pictures> Pictures { get; set; } = null!;
-
-        public DbSet<InterestingFacts> facts { get; set; } = null!;
-
-
-
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<LandMark>()
-                .HasOne(x => x.Town)
-                .WithMany(x => x.Landmarks)
+                .HasOne(x=>x.Town)
+                .WithMany(x=>x.Landmarks)
             .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Category>(b =>
@@ -45,21 +41,14 @@ namespace MyWebProject.Infrastructure.Data
                 b.Property(e => e.Id).ValueGeneratedOnAdd();
             });
 
-            builder.Entity<Pictures>()
-            .HasOne(x => x.Journey)
-            .WithMany(a => a.pictures)
-            .OnDelete(DeleteBehavior.Cascade);
 
-
-
-            builder.ApplyConfiguration(new UserConfiguration());
+            //builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new TownConfiguration());
             builder.ApplyConfiguration(new PictureConfiguration());
             builder.ApplyConfiguration(new LandMarkConfiguration());
             builder.ApplyConfiguration(new JourneyConfiguration());
             builder.ApplyConfiguration(new CultureEventConfiguration());
             builder.ApplyConfiguration(new CategoryConfiguration());
-            builder.ApplyConfiguration(new InterestigFactConfiguration());
 
 
             base.OnModelCreating(builder);

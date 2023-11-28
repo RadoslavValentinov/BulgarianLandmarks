@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MyWebProject.Infrastructure.Data.Models;
+using My_Web_Project_LandMarks_.Infrastructure.Data.Models;
 
 namespace MyWebProject.Infrastructure.Data.Configoration
 {
@@ -86,7 +86,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Посещение на средновековния манастирски комплекс от VI-VII в. „Св. Йоан Продром“ - един от най-" +
                     "забележителните храмове в цяла България с изключителната си история, ценни стари стенописи и уникални находки. ",
                     Rating = 9.5m,
-                    Day = 1,
+                    Day = 2,
                     StartDate = "24-06-2023",
                     Price = 129
                 },

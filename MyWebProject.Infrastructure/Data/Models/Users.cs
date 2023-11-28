@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using MyWebProject.Infrastructure.Data.Models;
 
-namespace MyWebProject.Infrastructure.Data.Models
+namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
 {
     public class Users : IdentityUser
     {
-        public string? Avatar { get; set; }
-
         public string FirstName { get; set; } = null!;
 
         public string LastName { get; set; } = null!;

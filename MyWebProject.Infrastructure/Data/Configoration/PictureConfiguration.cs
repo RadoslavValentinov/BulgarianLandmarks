@@ -812,7 +812,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                 new Pictures()
                 {
                     Id = 119,
-                    UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwEhU_6ooZTuDpb6y69FGOd6jJM9275mrHXkuqnMXOmA&s",
+                    UrlImgAddres = "https://different-journey.com/wp-content/uploads/2018/03/belintash-20546d2-1.jpg",
                     LandMarkId = 20,
                 },
                 new Pictures()

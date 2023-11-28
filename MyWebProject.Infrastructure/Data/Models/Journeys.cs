@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MyWebProject.Infrastructure.Data.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MyWebProject.Infrastructure.Data.Models
+namespace My_Web_Project_LandMarks_.Infrastructure.Data.Models
 {
     public class Journeys
     {

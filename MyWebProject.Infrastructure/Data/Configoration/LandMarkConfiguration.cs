@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MyWebProject.Infrastructure.Data.Models;
+using My_Web_Project_LandMarks_.Infrastructure.Data.Models;
 
 namespace MyWebProject.Infrastructure.Data.Configoration
 {
