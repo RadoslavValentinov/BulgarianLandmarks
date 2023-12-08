@@ -482,3 +482,13 @@ FodyWeavers.xsd
 /My-Web-Project(LandMarks)/Models/EmailSender.cs
 *.db
 *.json
+/MyWebProject.Infrastructure/Migrations/20230819150409_addpictureproperty.Designer.cs
+/MyWebProject.Infrastructure/Migrations/20230814135954_useraddfunc.Designer.cs
+/MyWebProject.Infrastructure/Migrations/20230818075944_userfuncpicture.Designer.cs
+/MyWebProject.Infrastructure/Migrations/20230818082223_adduserid.Designer.cs
+/MyWebProject.Infrastructure/Migrations/20230818111259_addbooflag.Designer.cs
+/MyWebProject.Infrastructure/Migrations/20230818175244_reset.Designer.cs
+/MyWebProject.Infrastructure/Migrations/20230814135954_useraddfunc.Designer.cs
+/MyWebProject.Infrastructure/Migrations/20230818175244_reset.Designer.cs
+/MyWebProject.Infrastructure/Migrations/20230818075944_userfuncpicture.Designer.cs
+/MyWebProject.Infrastructure/Migrations/20230818082223_adduserid.Designer.cs
