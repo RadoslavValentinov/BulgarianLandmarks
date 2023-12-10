@@ -25,7 +25,7 @@ namespace My_Web_Project_LandMarks_
             builder.Services.AddApplicationServiceApp();
             builder.Services.AddResponseCaching();
             builder.Services.AddAuthorization();
-            builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
+            //builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
             builder.Services.AddControllersWithViews(options =>
             {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
