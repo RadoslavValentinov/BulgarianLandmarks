@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using My_Web_Project_LandMarks_.Extensions;
 using My_Web_Project_LandMarks_.ModelBinder;
-using My_Web_Project_LandMarks_.Models;
 using MyWebProject.Infrastructure.Data;
 using MyWebProject.Infrastructure.Data.Models;
 

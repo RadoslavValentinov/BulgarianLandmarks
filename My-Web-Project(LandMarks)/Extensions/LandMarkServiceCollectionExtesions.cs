@@ -26,6 +26,7 @@ namespace My_Web_Project_LandMarks_.Extensions
             services.AddScoped<IJourneyServise, JourneyService>();
             services.AddScoped<IFactsService, FactsService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IPictureService, PictureService>();
             //services.AddScoped<IUserService, UserService>();
             //services.AddTransient<IEmailSender, EmailSender>();
 

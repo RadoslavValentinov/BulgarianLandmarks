@@ -52,6 +52,9 @@
             background-color: red;
             color: black;
         }
+        .title{
+            text-align:center;
+        }
 
         #create {
             padding-bottom: 20px;
@@ -69,58 +72,69 @@
             color: cornflowerblue;
         }
     </style>
+
+    <link rel="stylesheet" href="~/js/CustomMessageToAdd.js">
+
 </head>
 
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Category</th>
-        <th>Video Url</th>
-        <th>image</th>
-        <th>Options</th>
-    <tr />
-        @foreach (var item in Model)
-        {
-            all.Name = item.Name;
-            all.Description = item.Description;
-            all.VideoURL = item.VideoURL;
-            all.VideoURL = item.ImageURL;
-
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.Description</td>
-            <td>@item.CategoryId</td>
-                @if (item.VideoURL != null)
-                {
-                <td><a href="@item.VideoURL">See Video</a></td>
-                }
-                else
-                {
-                <td></td>
-                }
-                @if (item.ImageURL != null)
-                {
-                <td><a href="@item.ImageURL">See Image</a></td>
-                }
-                else
-                {
-                <td></td>
-                }
-            <td>
-                    @Html.ActionLink("Add","AddLandMarkByUser","OptionLandMark",new AddLandMarkViewModel(){Name=item.Name,Description=item.Description,VideoURL = item.VideoURL,
-                    ImageURL = item.ImageURL,CategoryId = item.CategoryId}, new {id="click"})
-
-            </td>
-        </tr>
-        }
-</table>
-
-@section Scripts {
-    <script>
-        $("#click").click(function () {
-            alert("Landmark succssesfuly added in landmarks");
-        });
-    </script>
+@if (Model.Count() == 0)
+{
+    <h1 class="title">No Land Marks to added</h1>
 }
+else
+{
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Video Url</th>
+            <th>image</th>
+            <th>Options</th>
+        <tr />
+            @foreach (var item in Model)
+            {
+                all.Name = item.Name;
+                all.Description = item.Description;
+                all.VideoURL = item.VideoURL;
+                all.VideoURL = item.ImageURL;
+
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.CategoryId</td>
+                    @if (item.VideoURL != null)
+                    {
+                    <td><a href="@item.VideoURL">See Video</a></td>
+                    }
+                    else
+                    {
+                    <td></td>
+                    }
+                    @if (item.ImageURL != null)
+                    {
+                    <td><a href="@item.ImageURL">See Image</a></td>
+                    }
+                    else
+                    {
+                    <td></td>
+                    }
+                <td>
+                        @Html.ActionLink("Add", "AddLandMarkByUser", "OptionLandMark", new AddLandMarkViewModel()
+       {
+           Name = item.Name,
+           Description = item.Description,
+           VideoURL = item.VideoURL,
+           ImageURL = item.ImageURL,
+           CategoryId = item.CategoryId
+       }, new { id = "click" })
+
+                </td>
+            </tr>
+            }
+    </table>
+}
+
+
+
