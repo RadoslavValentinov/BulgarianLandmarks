@@ -1,0 +1,15 @@
+﻿
+.item {
+    position: relative;
+    left: 900px;
+    top: -120px;
+    text-decoration: none;
+}
+
+.item-2 {
+    position: relative;
+    left: 900px;
+    top: -120px;
+    margin: 20px;
+    text-decoration: none;
+}
