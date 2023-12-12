@@ -1,0 +1,22 @@
+﻿
+#formCreate {
+    position: relative;
+    left: 450px;
+}
+
+    #formCreate input {
+        width: 400px;
+    }
+
+    #formCreate textarea {
+        width: 400px;
+    }
+
+h2 {
+    text-align: center;
+}
+
+.btn {
+    position: relative;
+    left: 140px;
+}

@@ -1,0 +1,52 @@
+﻿
+table {
+    font-family: arial, sans-serif;
+    border: 1px solid black;
+    width: 90%;
+}
+
+th {
+    background-color: white;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+}
+
+#edit {
+    padding: 5px 45px 5px 45px;
+    background-color: rgb(255, 219, 88);
+    color: black;
+    position: relative;
+    right: -10px;
+    margin: 10px;
+}
+
+#deleteBtn {
+    position: relative;
+    right: 0px;
+    padding: 5px 45px 5px 45px;
+    background-color: red;
+    color: black;
+    margin: 10px;
+}
+
+#create {
+    padding-bottom: 20px;
+}
+
+    #create a {
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        color: deepskyblue;
+    }
