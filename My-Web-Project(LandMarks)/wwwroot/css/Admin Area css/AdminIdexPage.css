@@ -1,15 +1,36 @@
 ﻿
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:18PX;
+    margin-top:0px;
+}
+
+body a{
+    padding:10px;
+}
+
 .item {
     position: relative;
-    left: 900px;
-    top: -120px;
+    left: 650px;
+    top: -110px;
     text-decoration: none;
+    color: firebrick;
 }
 
 .item-2 {
     position: relative;
-    left: 900px;
-    top: -120px;
+    left: 670px;
+    top: -110px;
     margin: 20px;
     text-decoration: none;
+    color:firebrick;
+}
+
+nav{
+    margin: 5px 0px;
+}
+
+footer{
+    height:160px;
+    width:auto;
 }

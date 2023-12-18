@@ -511,3 +511,5 @@ FodyWeavers.xsd
 =======
 /My-Web-Project(LandMarks)/appsettings.Development.json
 >>>>>>> a831ac8703bda735f3ffb26479cb84f8ca164184
+/MyWebProject.Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs
+/MyWebProject.Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs

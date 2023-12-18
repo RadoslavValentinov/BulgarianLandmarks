@@ -1,4 +1,18 @@
-﻿
+﻿* {
+    box-sizing:border-box;
+}
+
+body {
+    height: 590px;
+}
+
+footer {
+    width: auto;
+    height: 180px;
+    margin-top: 300px;
+}
+
+
 table
 {
     font-family: arial, sans-serif;

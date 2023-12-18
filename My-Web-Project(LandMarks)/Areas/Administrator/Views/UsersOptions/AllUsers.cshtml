@@ -1,6 +1,5 @@
-﻿@* @using MyWebProject.Core.Models.Usersss;
-@using System.Collections;
-@model IEnumerable<UserViewModel>
+﻿@using MyWebProject.Core.Models
+@model IEnumerable<UserviewModel>
 
 
 <head>
@@ -20,7 +19,7 @@
 
         td {
             border: 1px solid black;
-            text-align: left;
+            text-align: center;
             padding: 8px;
         }
 
@@ -32,24 +31,30 @@
             text-align: left;
             padding: 8px;
         }
+        img{
+            object-fit:cover;
+        }
+  
     </style>
 </head>
 
 <table>
     <tr>
+        <th>Avatar</th>
         <th>Full Name</th>
         <th>User Name</th>
-        <th>Activ</th>
         <th>Email</th>
+        <th>Activ</th>
 
     <tr />
         @foreach (var item in Model)
         {
         <tr>
-            <td>@item.FirstName  @item.LastName</td>
+            <td><img src="@item.Avatar" width="250" height="150" /></td>
+            <td>@item.FullName</td>
             <td>@item.UserName</td>
-            <td>@item.IsActived</td>
             <td>@item.Email</td>
+            <td>@item.IsActive</td>
         </tr>
         }
-</table> *@
+</table> 

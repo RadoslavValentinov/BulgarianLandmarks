@@ -56,15 +56,6 @@ p {
     right: -300px;
 }
 
-footer {
-    margin: 0px;
-    padding: 0px;
-    border: 2px solid black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    background-color: ghostwhite;
-}
-
 #partn {
     display: inline-block;
     position: relative;
@@ -120,7 +111,10 @@ footer {
     bottom: -30px;
     left: -145px;
 }
+
+
 /* nav bar custom */
+
 .navbar-brand {
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
@@ -134,7 +128,9 @@ footer {
     padding-right: 20px;
 }
 
+
 /* section to size container*/
+
 .col-sm-1 {
     margin: 0px;
     padding: 0px;
@@ -400,17 +396,31 @@ hr {
 
 /* navbar option */
 
-<<<<<<< HEAD
 
-.navbar-nav li a:hover {
-   /* background-color: rgb(237, 235, 235);
+/*.navbar-nav li a:hover {*/
+    /* background-color: rgb(237, 235, 235);
     border-radius: 6px;*/
-    border-left:0.5px solid lightgray;
-    height:35px
-=======
+    /*border-left: 0.5px solid lightgray;
+    height: 35px;
+}*/
 .navbar-nav li a:hover {
     height: 38px;
     border-left: 0.1px solid lightgray;
     border-right: 0.1px solid lightgray;
->>>>>>> 5281cbea755775ec005c469b6bb709f1042b2568
+}
+.navbar-nav li a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+
+/* FOOTER */
+footer {
+    width: auto;
+    margin: 0px;
+    padding: 0px;
+    border-top: 2px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background-color: ghostwhite;
 }
