@@ -5,8 +5,9 @@
 </head>
 
 @{
-    var collect = Model.OrderBy<AllFactsViewModel, int>(x => x.Id).ToList(); 
+    var collect = Model.OrderBy<AllFactsViewModel, int>(x => x.Id).ToList();
     var count = 1;
+    var sortedCollect = new List<AllFactsViewModel>();
 }
 
 <div>
@@ -14,16 +15,31 @@
     <hr />
     <br />
 </div>
-@foreach(var item in collect)
-{
-    <div class="container">
-        <div id="intFact">
-            <p id="hide">
-                @count. @item.Description
-            </p>
-        </div>
-    </div>
-    count++;
-    <br />
-    <hr />
-}
+<div class="container">
+    @foreach (var item in collect.OrderBy(x=>x.Description.Length >250).ToList())
+    {
+        if (item.Description.Length < 250)
+        {
+           <div id="intFactCustom">
+                <p id="hidecustom">
+                    <span>@count</span>
+                    @item.Description
+                </p>
+            </div>
+            count++; 
+        }
+        else
+        {
+            <div id="intFact">
+                <p id="hide">
+                    <span>@count</span>
+                    @item.Description
+                </p>
+            </div>
+            count++;
+        }
+       
+        
+
+    }
+</div>

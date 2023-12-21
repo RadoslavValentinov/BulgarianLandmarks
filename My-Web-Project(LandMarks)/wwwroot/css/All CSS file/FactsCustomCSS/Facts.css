@@ -1,13 +1,51 @@
 ﻿body {
-    background-color:whitesmoke;
-    padding:10px;
+    background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGYtczEwNy10ZC0wMDNfMi5qcGc.jpg');
 }
 
-#intFact {
+h1{
+    text-align:center;
+}
+span{
+    display:block;
+    text-align:center;
+}
+#hide{
+    padding:5px;
+}
+
+.container {
+    width:auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0px;
+    gap:10px;
+    margin-left: 40px;
+}
+
+#intFact p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
+    border: 1px solid black;
+    background-color: white;
+    width: 450px;
+    height: 380px;
 }
 
-#intFact:nth-child(even){
-    background-color:whitesmoke;
+#intFactCustom {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    border: 1px solid black;
+    background-color: white;
+    width: 450px;
+    height: 200px;
+}
+
+#intFact #hidecustom {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    border: 1px solid black;
+    background-color: white;
+    width: 450px;
+    height: 200px;
 }

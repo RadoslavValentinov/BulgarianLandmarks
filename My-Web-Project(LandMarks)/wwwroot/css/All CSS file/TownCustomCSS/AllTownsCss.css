@@ -1,6 +1,5 @@
 ﻿body {
     width: auto;
-    height: auto;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -19,6 +18,7 @@ h3 {
 }
 
 /* div town container */
+
 #containerTown {
     position: relative;
     left: -100px;
@@ -43,8 +43,8 @@ h3 {
 #Info {
     float: right;
     position: relative;
-    top: -2080px;
-    left: 0px;
+    top: -2100px;
+    left: 60px;
 }
 
 hr {
@@ -60,13 +60,19 @@ hr {
         color: lightcoral;
     }
 
+#Info ul {
+    padding-left: 0px;
+}
+
 #Info ul li {
     padding-bottom: 10px;
     position: relative;
     left: 10px;
     padding: 5px;
     font-family: Arial, Helvetica, sans-serif;
+    font-size:16px;
 }
+
 
 
 /* all button */
@@ -110,16 +116,16 @@ footer {
 #partner1 {
     position: relative;
     top: 60px;
-    left: -208px;
+    left: -240px;
 }
 
 #partner2 {
     position: relative;
-    top: 97px;
-    left: -265px;
+    top: 10px;
+    left: 505px;
 }
 
 #posImg {
     position: relative;
-    left: 1200px;
+    left: 800px;
 }

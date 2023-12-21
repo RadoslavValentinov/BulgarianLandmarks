@@ -2,16 +2,21 @@
     background-color: hsl(0, 0%, 90%);
 }
 
+#containerLand .card-group p{
+    padding:0px;
+}
+
 #containerLand {
-    display:block;
+    display: block;
     margin: 10px;
     padding: 0px;
     width: 300px;
-    height: 420px;
+    height: 430px;
     border: 1px solid lightgray;
-    border-radius:4px;
-    background-color:whitesmoke;
-    font-family:Arial, Helvetica, sans-serif;
+    border-radius: 4px;
+    background-color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 
 .card-group h4 {
@@ -23,18 +28,19 @@ p {
     text-align:center;
     margin: 0px;
     padding:5px;
+    height:80px;
 }
 
 #containerLand img {
     padding-left: 0px;
-    width: 418px;
+    width: 358px;
     height: 200px;
     object-fit:cover;
 }
 
 #containerLand .btn {
     position: relative;
-    bottom: -50px;
-    padding:7px 160px 7px 155px;
+    bottom: -65px;
+    padding:3px 160px 3px 155px;
 }
 
