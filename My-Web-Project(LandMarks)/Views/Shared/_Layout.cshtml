@@ -7,99 +7,90 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/StyleSheet.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" asp-append-version="true" />
+    <script src="/js/ViewoptionsDiv.js" asp-append-version="true"></script>
+    <script src="/js/CloseHiddenDiv.js" asp-append-version="true"></script>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Пътеводител</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="bodyDiv" class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Нашите Предложения
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                            <li><a class="dropdown-item" asp-area="" asp-controller="Town" asp-action="All">Градове</a></li>
-                                            <li><a class="dropdown-item" asp-area="" asp-controller="LandMark" asp-action="AllLandmark">Забележителности</a></li>
-                                            <li><a class="dropdown-item" asp-area="" asp-controller="CultureEvent" asp-action="GetAllEvent">Събития</a></li>
-                                            <li><a class="dropdown-item" asp-area="" asp-controller="InterestingFacts" asp-action="GetAllFacts">Любопитни Факти</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Топ Дестинации
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                            <li><a class="dropdown-item" asp-area="" asp-controller="Top10destination" asp-action="Get10Landmark">Топ забележителности</a></li>
-                                            <li><a class="dropdown-item" asp-area="" asp-controller="Top10destination" asp-action="MysteryPlaces">Мистериозни Места</a></li>
-                                            <li><a class="dropdown-item" asp-area="" asp-controller="Top10destination" asp-action="AllLandMarkByTown">Забелижителности по Градове</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Journey" asp-action="GetAll">Пътешествия</a>
-                        </li>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Пътеводител</a>
+
+            <i class="fa-solid fa-bars fa-2xl" onclick="viewdiv()"></i>
+
+
+            @* <li>
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+            <input id="FieldToSearch" asp-area="" asp-controller="Home" asp-action="SearchBy" onclick="set()" class="form-control" placeholder="Search..." />
+            }
+            </li>*@
+
+            <div id="bodyDiv" hidden="hidden">
+
+                <ul id="allOptions">
+                    <li>
+                        <div>
+                            <h3>Нашите Предложения</h3>
+                            <ul id="firstoptions">
+                                <li><a asp-area="" asp-controller="Town" asp-action="All">Градове</a></li>
+                                <li><a asp-area="" asp-controller="LandMark" asp-action="AllLandmark">Забележителности</a></li>
+                                <li><a asp-area="" asp-controller="CultureEvent" asp-action="GetAllEvent">Събития</a></li>
+                                <li><a asp-area="" asp-controller="InterestingFacts" asp-action="GetAllFacts">Любопитни Факти</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <h3>
+                                Топ Дестинации
+                            </h3>
+                            <ul id="secondoptions">
+                                <li><a asp-area="" asp-controller="Top10destination" asp-action="Get10Landmark">Топ забележителности</a></li>
+                                <li><a asp-area="" asp-controller="Top10destination" asp-action="MysteryPlaces">Мистериозни Места</a></li>
+                                <li><a asp-area="" asp-controller="Top10destination" asp-action="AllLandMarkByTown">Забелижителности по Градове</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Пътешествия</h3>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Journey" asp-action="GetAll">Пътешествия</a>
+                    </li>
+
+
+                    @if (User?.Identity?.IsAuthenticated == true)
+                    {
                         <li>
                             @if (User?.Identity?.IsAuthenticated == true)
                             {
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <h3>
                                                 Предложения
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                                <li><a class="dropdown-item" asp-area="" asp-controller="LandMark" asp-action="AddUserSuggestions">Добави Забелевителност</a></li>
-                                                <li><a class="dropdown-item" asp-area="" asp-controller="Picture" asp-action="AddPicture">Добави Изображение</a></li>
+                                            </h3>
+                                            <ul>
+                                                <li><a asp-area="" asp-controller="LandMark" asp-action="AddUserSuggestions">Добави Забелевителност</a></li>
+                                                <li><a asp-area="" asp-controller="Picture" asp-action="AddPicture">Добави Изображение</a></li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </div>
                             }
                         </li>
-                       @* <li>
-                            @if (User?.Identity?.IsAuthenticated == true)
-                            {
-                                <input id="FieldToSearch" asp-area="" asp-controller="Home" asp-action="SearchBy" onclick="set()" class="form-control" placeholder="Search..." />
-                            }
-
-
-                        </li>*@
-                        <li>
-                            @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-                            {
-                                <a class="dropdown-item" asp-area="Administrator" asp-controller="HomeAdmin" asp-action="Index">Admin Panel</a>
-                            }
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
+                    }
+                </ul>
+                <button id="Close" class="btn" onclick="closediv()">X Затвори</button>
             </div>
+
+            @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+            {
+                <a asp-area="Administrator" asp-controller="HomeAdmin" asp-action="Index">Admin Panel</a>
+            }
+
+            <partial name="_LoginPartial" />
         </nav>
     </header>
     <div class="container">
@@ -125,7 +116,7 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-@section Scripts{
+@section Scripts {
     <script>
 
         let getValue = document.getElementById("FieldToSearch");
