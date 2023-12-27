@@ -3,7 +3,7 @@
 body {
     background-color: rgba(215, 215, 217);
     font-family: Arial, Helvetica, sans-serif;
-    margin-top:0px;
+    margin-top: 0px;
 }
 
 .carousel-inner img {
@@ -19,62 +19,180 @@ h1 {
 
 
 /* Navigations and hidden div */
+
 nav {
     padding: 10px;
     margin-bottom: 20px;
-    width:auto;
+    width: auto;
+    justify-content: space-between;
 }
 
-#bodyDiv{
-    z-index:5;
-    width:400px;
-    height:450px;
-    border:1px solid gray;
-    position:absolute;
-    background-color:white;
-    top:40px;
+#search {
+    margin-left: 50px;
+    margin-bottom: 5px;
+    height: 45px;
+}
+
+    #search .btn-search {
+        position: relative;
+        left: 260px;
+        top: -20px;
+        border: 1px solid black;
+        padding: 3.8px 20px;
+        border-radius: 0px;
+        background-color: lightblue;
+    }
+
+    #search #FieldToSearch {
+        width: 250px;
+        border-radius: 0px;
+        height: 30px;
+    }
+
+li h4 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-style: italic;
+}
+
+/* Size hidden div */
+
+#bodyDiv {
+    text-align: center;
+    z-index: 5;
+    width: 490px;
+    height: 590px;
+    border: 1px solid gray;
+    position: absolute;
+    background-color: white;
+    top: 40px;
     left: 270px;
 }
-.navbar-nav{
-    margin-left:auto;
-    margin-right:20px;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:22px;
+
+.secondTitle {
+    list-style: none;
 }
 
+    .secondTitle ul li {
+        padding: 5px;
+    }
+
+        .secondTitle ul li a {
+            text-decoration: none;
+            color:gray;
+        }
+
+    .secondTitle ul {
+        list-style: none;
+        text-align: center;
+        padding-left: 0px;
+    }
+
+.navbar-nav {
+    margin-left: auto;
+    margin-right: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+/* Button close div */
+
 #Close {
-    position: relative;
-    bottom: 10px;
-    left: 310px;
+    position: absolute;
+    top: 550px;
+    left: 210px;
     padding: 3px 5px;
 }
-#allOptions{
-    list-style:none;
-    margin:20px;
+    #Close:hover {
+        color:darkgrey;
+    }
+
+
+
+/* Option div */
+#allOptions {
+    list-style: none;
+    margin: 10px;
+    padding-left: 0px;
 }
-#firstoptions{
-    list-style:none;
+
+    #allOptions li ul {
+        padding-left: 0px;
+        padding-top: 5px;
+    }
+
+    #allOptions li h4 {
+        margin-bottom: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+
+    #allOptions #advent a {
+        color: gray;
+        text-decoration: none;
+    }
+
+    #allOptions a:hover {
+        font-size: 20px;
+        border-block-end: 1px solid lightgray;
+        transition-duration: 1s;
+    }
+
+#advent hr{
     margin-bottom:10px;
 }
-#firstoptions li{
-    padding:5px;
+#advent{
+    margin-bottom:10px;
 }
-#firstoptions li a{
-    text-decoration:none;
+
+#firstoptions {
+    list-style: none;
+    margin-bottom: 10px;
 }
+
+    #firstoptions li {
+        padding: 5px;
+    }
+
+        #firstoptions li a {
+            text-decoration: none;
+            color: gray;
+        }
+
 #secondoptions {
     list-style: none;
     margin-bottom: 10px
 }
-#secondoptions li {
-    padding: 5px;
+
+    #secondoptions li {
+        padding: 5px;
+    }
+
+        #secondoptions li a {
+            text-decoration: none;
+            color: gray;
+        }
+
+#panel {
+    position: relative;
+    left: 330px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: gray;
 }
-#secondoptions li a {
-    text-decoration:none;
+
+.navbar-nav .nav-link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-left: 20px;
 }
 
 
 
+/* Card Div */
 
 p {
     font-family: Arial, Helvetica, sans-serif;
@@ -184,9 +302,9 @@ p {
 }
 
 
-.row{
-    justify-content:space-between;
-    margin-bottom:50px;
+.row {
+    justify-content: space-between;
+    margin-bottom: 50px;
 }
 
 /* section to size container*/
@@ -230,7 +348,7 @@ p {
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 
@@ -295,7 +413,7 @@ hr {
 /*button by custom css style by Id */
 
 #colbtn {
-    border-radius:50px;
+    border-radius: 50px;
     margin: 0px;
     position: relative;
     bottom: -3px;
@@ -325,6 +443,7 @@ hr {
     bottom: 0px;
     left: 85px;
 }
+
 #btn-tw1-first {
     margin: 0px;
     border-radius: 50px;
@@ -493,7 +612,7 @@ hr {
 footer {
     width: auto;
     margin: 0px;
-    margin-top:20px;
+    margin-top: 20px;
     padding: 0px;
     border-top: 1px solid gray;
     font-family: Arial, Helvetica, sans-serif;
@@ -501,13 +620,12 @@ footer {
     background-color: ghostwhite;
 }
 
-footer a {
-    color:lightgray;
-}
+    footer a {
+        color: lightgray;
+    }
 
-#copy{
-    display:inline-block;
+#copy {
+    display: inline-block;
     margin-left: 33px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
-

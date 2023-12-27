@@ -18,20 +18,18 @@
 
             <i class="fa-solid fa-bars fa-2xl" onclick="viewdiv()"></i>
 
-
-            @* <li>
-            @if (User?.Identity?.IsAuthenticated == true)
-            {
-            <input id="FieldToSearch" asp-area="" asp-controller="Home" asp-action="SearchBy" onclick="set()" class="form-control" placeholder="Search..." />
-            }
-            </li>*@
+            <div id="search">
+                <input id="FieldToSearch" asp-area="" asp-controller="Home" asp-action="SearchBy" onclick="set()" class="form-control" placeholder="Search..." />
+                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
 
             <div id="bodyDiv" hidden="hidden">
 
                 <ul id="allOptions">
                     <li>
                         <div>
-                            <h3>Нашите Предложения</h3>
+                            <h4>Нашите Предложения</h4>
+                            <hr />
                             <ul id="firstoptions">
                                 <li><a asp-area="" asp-controller="Town" asp-action="All">Градове</a></li>
                                 <li><a asp-area="" asp-controller="LandMark" asp-action="AllLandmark">Забележителности</a></li>
@@ -43,9 +41,10 @@
 
                     <li>
                         <div>
-                            <h3>
+                            <h4>
                                 Топ Дестинации
-                            </h3>
+                            </h4>
+                            <hr />
                             <ul id="secondoptions">
                                 <li><a asp-area="" asp-controller="Top10destination" asp-action="Get10Landmark">Топ забележителности</a></li>
                                 <li><a asp-area="" asp-controller="Top10destination" asp-action="MysteryPlaces">Мистериозни Места</a></li>
@@ -54,40 +53,35 @@
                         </div>
                     </li>
 
-                    <li>
-                        <h3>Пътешествия</h3>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Journey" asp-action="GetAll">Пътешествия</a>
+                    <li id="advent">
+                        <h4>Пътешествия</h4>
+                        <hr />
+                        <a  asp-area="" asp-controller="Journey" asp-action="GetAll">Пътешествия</a>
                     </li>
 
+                    <li class="secondTitle">
+                        @if (User?.Identity?.IsAuthenticated == true)
+                        {
+                            <div>
+                                <h4>
+                                    Предложения
+                                </h4>
+                                <hr />
+                                <ul>
+                                    <li><a asp-area="" asp-controller="LandMark" asp-action="AddUserSuggestions">Добави Забелевителност</a></li>
+                                    <li><a asp-area="" asp-controller="Picture" asp-action="AddPicture">Добави Изображение</a></li>
+                                </ul>
+                            </div>
+                        }
+                    </li>
 
-                    @if (User?.Identity?.IsAuthenticated == true)
-                    {
-                        <li>
-                            @if (User?.Identity?.IsAuthenticated == true)
-                            {
-                                <div>
-                                    <ul>
-                                        <li>
-                                            <h3>
-                                                Предложения
-                                            </h3>
-                                            <ul>
-                                                <li><a asp-area="" asp-controller="LandMark" asp-action="AddUserSuggestions">Добави Забелевителност</a></li>
-                                                <li><a asp-area="" asp-controller="Picture" asp-action="AddPicture">Добави Изображение</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            }
-                        </li>
-                    }
                 </ul>
                 <button id="Close" class="btn" onclick="closediv()">X Затвори</button>
             </div>
 
             @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
             {
-                <a asp-area="Administrator" asp-controller="HomeAdmin" asp-action="Index">Admin Panel</a>
+                <a id="panel" asp-area="Administrator" asp-controller="HomeAdmin" asp-action="Index">Admin Panel</a>
             }
 
             <partial name="_LoginPartial" />
