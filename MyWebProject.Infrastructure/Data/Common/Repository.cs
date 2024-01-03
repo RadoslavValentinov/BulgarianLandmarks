@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using MyWebProject.Infrastructure.Data;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq.Expressions;
+
 
 
 namespace MyWebProject.Infrastructure.Data.Common
@@ -25,6 +27,14 @@ namespace MyWebProject.Infrastructure.Data.Common
         {
             Context = context;
         }
+
+
+        //public Task<Enumerable> AllSearch(object item)
+        //{
+        //    var allSearch = Context.FindAsync((Type)item).Result;
+
+        //    return allSearch;
+        //}
 
         /// <summary>
         /// Representation of table in database

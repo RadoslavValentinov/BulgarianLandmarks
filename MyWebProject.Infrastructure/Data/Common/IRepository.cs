@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Collections;
+using System.Linq.Expressions;
 
 namespace MyWebProject.Infrastructure.Data.Common
 {
@@ -21,6 +22,10 @@ namespace MyWebProject.Infrastructure.Data.Common
         /// </summary>
         /// <returns>Expression tree</returns>
         IQueryable<T> AllReadonly<T>() where T : class;
+
+        //Task<IEnumerable> AllSearch(object item);
+
+
 
         /// <summary>
         /// The result collection won't be tracked by the context

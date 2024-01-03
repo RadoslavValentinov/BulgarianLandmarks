@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Graph.Models;
 using Microsoft.VisualBasic;
 using My_Web_Project_LandMarks_.Models;
+using MyWebProject.Core.Models.SearchEngineModel;
 using MyWebProject.Core.Services.IServices;
 using NuGet.Packaging.Signing;
 using System.Diagnostics;
@@ -27,6 +28,15 @@ namespace My_Web_Project_LandMarks_.Controllers
         {
             var result = await service.AllPicture();
 
+            return View(result);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Search(string item)
+        {
+            var result = await service.ShearchItem(item);
+            
             return View(result);
         }
 

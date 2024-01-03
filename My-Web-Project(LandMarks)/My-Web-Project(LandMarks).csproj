@@ -57,4 +57,13 @@
     <None Include="Views\Home\ContactUs.cshtml" />
   </ItemGroup>
 
+ 
+
+  <ItemGroup>
+    <Content Update="Views\_LoginPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

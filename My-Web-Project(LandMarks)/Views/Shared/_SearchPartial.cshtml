@@ -1,0 +1,16 @@
+﻿@using MyWebProject.Core.Models.SearchEngineModel
+@model SearchTextField
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<li class="nav-item">
+    <form asp-area="" asp-controller="Home" asp-action="Search" method="post">
+        <input id="FieldToSearch" asp-for="@Model.Serchtext" placeholder="Search..." />
+        <button class="btn-1"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+</li>
+
+

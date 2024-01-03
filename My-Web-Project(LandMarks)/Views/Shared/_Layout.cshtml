@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" asp-append-version="true" />
     <script src="/js/ViewoptionsDiv.js" asp-append-version="true"></script>
     <script src="/js/CloseHiddenDiv.js" asp-append-version="true"></script>
+    <script src="/js/SearchFied.js" type="text/html" asp-append-version="true"></script>
 </head>
 <body>
     <header>
@@ -17,12 +18,14 @@
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Пътеводител</a>
 
             <i class="fa-solid fa-bars fa-2xl" onclick="viewdiv()"></i>
+            
 
-            <div id="search">
-                <input id="FieldToSearch" asp-area="" asp-controller="Home" asp-action="SearchBy" onclick="set()" class="form-control" placeholder="Search..." />
-                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
+            <form method="get" asp-area="" asp-controller="Home" asp-action="Search">
+                <input id="FieldToSearch"  placeholder="Search..." />
+                <button class="btn btn-1"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+            </form>
 
+            @* @Html.PartialAsync("_SearchPartial.cshtml"); *@
             <div id="bodyDiv" hidden="hidden">
 
                 <ul id="allOptions">
@@ -56,7 +59,7 @@
                     <li id="advent">
                         <h4>Пътешествия</h4>
                         <hr />
-                        <a  asp-area="" asp-controller="Journey" asp-action="GetAll">Пътешествия</a>
+                        <a asp-area="" asp-controller="Journey" asp-action="GetAll">Пътешествия</a>
                     </li>
 
                     <li class="secondTitle">
@@ -86,13 +89,13 @@
 
             <partial name="_LoginPartial" />
         </nav>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
 
     <footer>
         <h4 id="foras">За нас</h4>
@@ -110,15 +113,5 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-@section Scripts {
-    <script>
 
-        let getValue = document.getElementById("FieldToSearch");
-        getValue.addEventListener();
 
-        function set(e) {
-
-        }
-
-    </script>
-}
