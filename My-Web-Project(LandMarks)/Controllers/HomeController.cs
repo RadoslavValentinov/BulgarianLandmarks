@@ -32,10 +32,10 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<IActionResult> Search(string item)
+        [HttpPost]
+        public IActionResult Search(string search)
         {
-            var result = await service.ShearchItem(item);
+            var result =  service.ShearchItem(search).Result;
             
             return View(result);
         }

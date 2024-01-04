@@ -28,49 +28,58 @@ namespace MyWebProject.Core.Services.Services
 
         public async Task<IEnumerable> ShearchItem(string item)
         {
-            var sanitizer = new HtmlSanitizer();
-            string srcitem = sanitizer.Sanitize(item.ToLower());
-
-            var searchTown = await repo.AllReadonly<Town>()
-                .Where(x=> x.Name.ToLower() == srcitem || x.Description.Contains(srcitem))
-                 .Select(x => new SearchViewModel()
-                 {
-                     Name = x.Name,
-                     Description = x.Description
-                 })
-                .ToListAsync();
-
-            if (searchTown != null)
+            try
             {
-                return searchTown;
-            }
+                var sanitizer = new HtmlSanitizer();
+                string srcitem = sanitizer.Sanitize(item.ToLower());
 
-            var searchLandmark = await repo.AllReadonly<LandMark>()
-                .Where(l => l.Name.ToLower() == srcitem || l.Description.Contains(srcitem))
-                .Select(x=> new SearchViewModel()
+               
+
+                var searchTown = await repo.All<Town>()
+                    .Where(x => x.Name.ToLower() == item)
+                     .Select(x => new SearchViewModel()
+                     {
+                         Name = x.Name,
+                         Description = x.Description
+                     })
+                    .ToListAsync();
+
+                if (searchTown.Count() != 0)
                 {
-                    Name = x.Name,
-                    Description = x.Description
-                })
-                .ToListAsync();
+                    return searchTown;
+                }
 
-            if (searchLandmark != null)
-            {
-                return searchLandmark;
+                var searchLandmark = await repo.AllReadonly<LandMark>()
+                    .Where(l => l.Name.ToLower() == srcitem || l.Description.Contains(srcitem))
+                    .Select(x => new SearchViewModel()
+                    {
+                        Name = x.Name,
+                        Description = x.Description
+                    })
+                    .ToListAsync();
+
+                if (searchLandmark.Count() != 0)
+                {
+                    return searchLandmark;
+                }
+
+                var searchEvent = await repo.AllReadonly<Cultural_events>()
+                    .Where(e => e.Name.ToLower() == srcitem || e.Description.Contains(srcitem))
+                     .Select(x => new SearchViewModel()
+                     {
+                         Name = x.Name,
+                         Description = x.Description
+                     })
+                    .ToListAsync();
+
+                if (searchEvent.Count() != 0)
+                {
+                    return searchEvent;
+                }
             }
-
-            var searchEvent = await repo.AllReadonly<Cultural_events>()
-                .Where(e=> e.Name.ToLower() == srcitem || e.Description.Contains(srcitem))
-                 .Select(x => new SearchViewModel()
-                 {
-                     Name = x.Name,
-                     Description = x.Description
-                 })
-                .ToListAsync();
-
-            if (searchEvent != null)
+            catch (ArgumentException ar)
             {
-                return searchEvent;
+                new ArgumentException(ar.Message);
             }
 
             return "";

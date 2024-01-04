@@ -515,3 +515,4 @@ FodyWeavers.xsd
 /MyWebProject.Infrastructure/Migrations/ApplicationDbContextModelSnapshot.cs
 /My-Web-Project(LandMarks)/Views/Shared/_LoginPartial.cshtml
 /My-Web-Project(LandMarks)/Views/Shared/_LoginPartial.cshtml
+/My-Web-Project(LandMarks)/Views/Shared/_SearchPartial.cshtml

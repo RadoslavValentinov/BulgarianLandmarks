@@ -1,4 +1,5 @@
-﻿using MyWebProject.Infrastructure.Data.Models;
+﻿using MyWebProject.Core.Models.SearchEngineModel;
+using MyWebProject.Infrastructure.Data.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;

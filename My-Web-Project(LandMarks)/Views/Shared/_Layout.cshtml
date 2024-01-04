@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" asp-append-version="true" />
     <script src="/js/ViewoptionsDiv.js" asp-append-version="true"></script>
     <script src="/js/CloseHiddenDiv.js" asp-append-version="true"></script>
-    <script src="/js/SearchFied.js" type="text/html" asp-append-version="true"></script>
 </head>
 <body>
     <header>
@@ -18,14 +17,16 @@
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Пътеводител</a>
 
             <i class="fa-solid fa-bars fa-2xl" onclick="viewdiv()"></i>
-            
 
-            <form method="get" asp-area="" asp-controller="Home" asp-action="Search">
-                <input id="FieldToSearch"  placeholder="Search..." />
-                <button class="btn btn-1"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-            </form>
+            <div class="rowNav">
+                <form asp-area="" asp-controller="Home" asp-action="Search">
+                    @Html.AntiForgeryToken()
+                    @ViewData["search"]  <input id="FieldToSearch" name="search" class="form-control" type="search" placeholder="Search..." />
+                    <button class="btn-1" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
 
-            @* @Html.PartialAsync("_SearchPartial.cshtml"); *@
+   
             <div id="bodyDiv" hidden="hidden">
 
                 <ul id="allOptions">
@@ -113,5 +114,3 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-
-

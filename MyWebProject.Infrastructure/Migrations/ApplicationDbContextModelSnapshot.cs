@@ -2621,7 +2621,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = "630d5dda-7255-4ce9-a658-0eedfb698a5f",
                             AccessFailedCount = 0,
                             Avatar = "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg",
-                            ConcurrencyStamp = "5e47eccf-297f-4141-ac4d-6c4de2bfdb04",
+                            ConcurrencyStamp = "d16f0708-220e-4932-9cd4-dec9761bc2e1",
                             Email = "Bobo561@abv.bg",
                             EmailConfirmed = true,
                             FirstName = "Borislav",
@@ -2630,9 +2630,9 @@ namespace MyWebProject.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "Bobo561@abv.bg",
                             NormalizedUserName = "Bobo561@abv.bg",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEnqlndkYmT7zSkJCQK/LoDN3TjO6Po5KCQJPiN8ciFF+w6PZoVSFzY3yxpW1qbxXw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEONvS4RDQigVLieKhmDxZg3u5yfgfb10ct1MT0NRJ6BE5yOXRS6ZUN5FYHE5z2/MHg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "330e4d03-4a56-4a6f-b139-4264b1b11bda",
+                            SecurityStamp = "282b7499-9512-428f-adec-c977603bd31b",
                             TwoFactorEnabled = false,
                             UserName = "Bobo561@abv.bg"
                         });

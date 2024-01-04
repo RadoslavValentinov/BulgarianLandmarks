@@ -29,13 +29,6 @@ namespace MyWebProject.Infrastructure.Data.Common
         }
 
 
-        //public Task<Enumerable> AllSearch(object item)
-        //{
-        //    var allSearch = Context.FindAsync((Type)item).Result;
-
-        //    return allSearch;
-        //}
-
         /// <summary>
         /// Representation of table in database
         /// </summary>

@@ -1,7 +1,16 @@
 ﻿@using MyWebProject.Core.Models.SearchEngineModel
-@model SearchViewModel
+@model IEnumerable<SearchViewModel>
 
-<h1>Резултатите от вашето търсене...</h1>
+
+
+<h1 id="searchRes">Резултатите от вашето търсене...</h1>
 <hr />
 
-<h4></h4>
+
+@foreach (var item in Model)
+{
+    <h2 id="Title">@item.Name</h2>
+
+    <p id="Descript">@item.Description</p>
+}
+
