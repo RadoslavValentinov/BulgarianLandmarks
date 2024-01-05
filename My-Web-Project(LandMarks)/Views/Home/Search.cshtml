@@ -2,15 +2,23 @@
 @model IEnumerable<SearchViewModel>
 
 
-
-<h1 id="searchRes">Резултатите от вашето търсене...</h1>
-<hr />
-
-
-@foreach (var item in Model)
+@if ( Model == null)
 {
-    <h2 id="Title">@item.Name</h2>
-
-    <p id="Descript">@item.Description</p>
+    <h1 class="notFound">Няма намерени резултати...</h1>
 }
+else
+{
+    @foreach (var item in Model)
+    {
+        <h1 id="searchRes">Резултатите от вашето търсене...</h1>
+        <hr />
+
+        <h2 id="Title">@item.Name</h2>
+
+        <p id="Descript">@item.Description</p>
+    }
+}
+
+
+
 

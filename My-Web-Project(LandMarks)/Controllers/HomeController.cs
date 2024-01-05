@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Graph.Models;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualBasic;
 using My_Web_Project_LandMarks_.Models;
 using MyWebProject.Core.Models.SearchEngineModel;
@@ -35,9 +36,17 @@ namespace My_Web_Project_LandMarks_.Controllers
         [HttpPost]
         public IActionResult Search(string search)
         {
-            var result =  service.ShearchItem(search).Result;
-            
-            return View(result);
+            if (string.IsNullOrEmpty(search))
+            {
+                return View();
+            }
+            else
+            {
+                var result = service.ShearchItem(search).Result;
+
+                return View(result);
+            }
+
         }
 
 
