@@ -82,7 +82,7 @@ namespace MyWebProject.Core.Services.Services
                 new ArgumentException(ar.Message);
             }
 
-            return "";
+            return item = null!;
         }
     }
 }

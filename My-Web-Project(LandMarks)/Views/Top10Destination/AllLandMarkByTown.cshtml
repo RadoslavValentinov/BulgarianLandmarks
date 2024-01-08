@@ -10,37 +10,24 @@
     <link rel="stylesheet" href="~/css/All CSS file/LandMarkCustomCSS/topLandmarkCSS.css" asp-append-version="true" />
 </head>
 
-<div class="text-lg-center">
+<h1>Забележителностите на България</h1>
+<hr />
 
-    <p style="font-size:50px;">Забележителностите на България</p>
-    @for (int i = 0; i < Model.Count()-1; i += 3)
+
+<div class="row">
+    @foreach (var item in loopmodel)
     {
-        <div class="row">
-            @foreach (var item in loopmodel.Take(3))
-            {
-                var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
+        var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
 
-                @if (loopmodel.Count() < 3)
-                {
-                    <div id="cards" class="col" style="width: 18rem;">
-                        <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
-                        <h4>@item.Name</h4>
-                        <p>@item.Description.Substring(0,40)...</p>
-                        <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
-                    </div>
-                }
-
-                <div id="cards" class="col" style="width: 18rem;">
-                    <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
-                    <h4>@item.Name</h4>
-                    <p>@item.Description.Substring(0,40)...</p>
-                    <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
-                </div>
-
-                loopmodel.Remove(item);
-            }
+       @*  <p style="display=inline-block"> @item.TownName</p> *@
+        <div id="cardsBox">
+            <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
+            <h4>@item.Name</h4>
+            <p>@item.Description.Substring(0, 120)...</p>
+            <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
         </div>
-        <br />
-    }
 
+    }
 </div>
+<br />
+

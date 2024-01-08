@@ -1,43 +1,32 @@
 ﻿@model IEnumerable<Top10ViewModelLandMark>
 
 @{
-    var loopmodel = Model.Where<Top10ViewModelLandMark>(x => x.Rating >= 9).Take(7).ToList();
+    var loopmodel = Model.Where<Top10ViewModelLandMark>(x => x.Rating >= 9).Take(8).ToList();
 }
 
 <head>
     <link rel="stylesheet" href="~/css/All CSS file/LandMarkCustomCSS/topLandmarkCSS.css" asp-append-version="true" />
 </head>
 
-<div class="text-lg-center">
 
-    <p style="font-size:50px;">Най посещавани Забележителности</p>
-    @{
-        int count = 1;
-    }
-    @for (int i = 0; i < Model.Count(); i += 3)
+
+<h1 style="font-size:50px;">Най посещавани Забележителности</h1>
+
+
+<div class="row">
+    @foreach (var item in loopmodel)
     {
-        <div class="row">
-            @foreach (var item in loopmodel.Take(3))
-            {
-                var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
+        var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
 
-                @if (loopmodel.Count() < 2)
-                {
-                    break;
-                }
 
-                <div id="cards" class="col" style="width: 18rem;">
-                    <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
-                    <h4>@item.Name</h4>
-                    <hr>
-                    <p>@item.Description.Substring(0,70)...</p>
-                    <a id="@count" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
-                </div>
-
-                loopmodel.Remove(item);
-            }
+        <div id="cardsBox">
+            <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
+            <h4>@item.Name</h4>
+            <hr>
+            <p>@item.Description.Substring(0, 120)...</p>
+            <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
         </div>
-        <br />
+
     }
 </div>
 

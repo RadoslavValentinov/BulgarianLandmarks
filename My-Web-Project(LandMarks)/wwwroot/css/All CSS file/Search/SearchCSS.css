@@ -1,0 +1,31 @@
+﻿
+
+.notFound{
+    text-align:center;
+    margin-bottom: 280px;
+}
+
+#searchRes {
+    text-align:center;
+    margin:20px;
+}
+
+#Title {
+    font-family: Arial, Helvetica, sans-serif;
+    margin:10px;
+    margin-bottom: 20px;
+    padding-left:10px;
+}
+
+#Descript {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+    font-family:Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    padding-left: 20px;
+    font-size:18px;
+}
+
+

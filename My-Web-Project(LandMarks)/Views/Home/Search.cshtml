@@ -1,6 +1,10 @@
 ﻿@using MyWebProject.Core.Models.SearchEngineModel
 @model IEnumerable<SearchViewModel>
 
+<head>
+    <link rel="stylesheet" href="~/css/All CSS file/Search/SearchCSS.css" asp-append-version="true" />
+</head>
+
 
 @if ( Model == null)
 {
@@ -16,6 +20,8 @@ else
         <h2 id="Title">@item.Name</h2>
 
         <p id="Descript">@item.Description</p>
+
+        <a href="https://bg.wikipedia.org/wiki/@item.Name">Може да научите повече за градът...</a>
     }
 }
 

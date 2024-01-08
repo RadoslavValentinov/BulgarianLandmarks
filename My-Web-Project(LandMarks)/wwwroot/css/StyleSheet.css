@@ -46,6 +46,11 @@ nav {
     width: 250px;
     border-radius: 0px;
     height: 30px;
+    position: relative;
+    left: 10px;
+    top: 10px;
+    padding: 0px;
+    margin: 0px;
 }
 
 li h4 {
@@ -548,7 +553,6 @@ hr {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
         margin: 5px;
-        font-family: Helvetica, sans-serif;
         width: 900px;
     }
 
@@ -597,14 +601,6 @@ hr {
     #redirect:hover {
         color: lightcoral;
     }
-
-#FieldToSearch {
-    position: relative;
-    left: 10px;
-    top: 10px;
-    padding: 0px;
-    margin: 0px;
-}
 
 
 /* FOOTER */

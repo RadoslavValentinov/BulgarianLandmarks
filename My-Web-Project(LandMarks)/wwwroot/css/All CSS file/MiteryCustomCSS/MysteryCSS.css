@@ -11,9 +11,16 @@
     position:relative;
     width:1000px;
     height:500px;
-    left:150px;
+    left:50px;
 }
 
 #place .rating{
     font-size:32px;
+}
+
+
+.carousel-control-prev {
+    position:relative;
+    left: -15px;
+    top: 232px;   
 }

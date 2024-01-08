@@ -5,28 +5,41 @@
 body {
     font-family:Arial, Helvetica, sans-serif;
 }
-
-#cards{
-    max-width:400px;
-    height:430px;
-    border:2px solid lightgray;
-    margin:10px;
-    padding:0px;
-    background-color:whitesmoke;
+h1{
     text-align:center;
+    font-style:italic;
+    margin-bottom:20px;
 }
 
 
-#cards img{
-    width:397px;
-    height:200px;
+
+.container{
+    display:flex;
+    justify-content:space-between;
 }
 
-#cards .btn:hover{
-    background-color:cadetblue;
+
+#cardsBox  {
+    width: 450px;
+    height: 500px;
+    border: 2px solid lightgray;
+    margin: 10px;
+    padding: 0px;
+    background-color: white;
+    text-align: center;
 }
 
-#cards .btn {
-    position: relative;
-    bottom: -40px;
-}
+
+    #cardsBox img {
+        width: 447px;
+        height: 250px;
+    }
+
+    #cardsBox .btn:hover {
+        background-color: cadetblue;
+    }
+
+    #cardsBox .btn {
+        position: relative;
+        bottom: -70px;
+    }
