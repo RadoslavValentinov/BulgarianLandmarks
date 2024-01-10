@@ -1,4 +1,6 @@
 ﻿using Ganss.Xss;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyWebProject.Core.Models.PictureModel;
@@ -8,10 +10,12 @@ using MyWebProject.Infrastructure.Data.Models;
 
 namespace MyWebProject.Core.Services.Services
 {
+    [Authorize]
     public class PictureService : IPictureService
     {
 
         private readonly IRepository repo;
+        private  UserManager<Users> user;
      
         public PictureService(IRepository _repo)
         {
@@ -76,8 +80,7 @@ namespace MyWebProject.Core.Services.Services
                     UrlImgAddres = image,
                     UserName =model.UserName,
                 };
-
-
+              
                 await repo.AddAsync(newPicture);
                 await repo.SaveChangesAsync();
 

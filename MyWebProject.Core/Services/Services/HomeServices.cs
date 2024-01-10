@@ -1,5 +1,8 @@
 ﻿using Ganss.Xss;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Graph.Models;
+using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Models.SearchEngineModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
@@ -25,6 +28,22 @@ namespace MyWebProject.Core.Services.Services
 
             return result;
         }
+
+
+        public async Task<IEnumerable<PicturesViewModel>> AllUserPicctures(string userName)
+        {
+            var result = await repo.All<Pictures>()
+              .Where(x=> x.UserName == userName)
+              .Select(s=> new PicturesViewModel()
+              {
+                  Id= s.Id,
+                  UrlImgAddres = s.UrlImgAddres
+              })
+              .ToListAsync();
+
+            return result;
+        }
+
 
         public async Task<IEnumerable> ShearchItem(string item)
         {

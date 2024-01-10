@@ -1,4 +1,5 @@
-﻿using MyWebProject.Core.Models.SearchEngineModel;
+﻿using MyWebProject.Core.Models.PictureModel;
+using MyWebProject.Core.Models.SearchEngineModel;
 using MyWebProject.Infrastructure.Data.Models;
 using System;
 using System.Collections;
@@ -11,7 +12,8 @@ namespace MyWebProject.Core.Services.IServices
 {
     public interface IHomeService
     {
-        public Task<IEnumerable<Pictures>> AllPicture();
+        Task<IEnumerable<Pictures>> AllPicture();
+        Task<IEnumerable<PicturesViewModel>> AllUserPicctures(string username);
 
         Task<IEnumerable> ShearchItem(string item);
     }

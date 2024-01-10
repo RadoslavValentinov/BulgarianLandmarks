@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.Graph.Models;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.VisualBasic;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using My_Web_Project_LandMarks_.Models;
-using MyWebProject.Core.Models.SearchEngineModel;
+using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Services.IServices;
-using NuGet.Packaging.Signing;
 using System.Diagnostics;
 
 namespace My_Web_Project_LandMarks_.Controllers
@@ -31,6 +27,19 @@ namespace My_Web_Project_LandMarks_.Controllers
 
             return View(result);
         }
+
+        [Authorize]
+        public  IActionResult GetUserPictures()
+        {
+            var userName =  User.Identity?.Name;
+
+            var all =  service.AllUserPicctures(userName ?? null!).Result;
+           
+
+            return View(all);
+        }
+
+
 
 
         [HttpPost]
@@ -61,7 +70,7 @@ namespace My_Web_Project_LandMarks_.Controllers
 
 
         /// <summary>
-        /// Loads a privacy policy page currently copied from another site
+        ///     Loads a privacy policy page currently copied from another site
         /// </summary>
         /// <returns>Privacy policy page</returns>
         public IActionResult Privacy()
