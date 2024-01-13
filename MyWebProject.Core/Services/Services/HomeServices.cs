@@ -47,15 +47,16 @@ namespace MyWebProject.Core.Services.Services
 
         public async Task<IEnumerable> ShearchItem(string item)
         {
+            List<SearchViewModel> search = new List<SearchViewModel>();
+
             try
             {
                 var sanitizer = new HtmlSanitizer();
                 string srcitem = sanitizer.Sanitize(item.ToLower());
-
                
 
                 var searchTown = await repo.All<Town>()
-                    .Where(x => x.Name.ToLower() == item)
+                    .Where(x => x.Name.Contains(srcitem))
                      .Select(x => new SearchViewModel()
                      {
                          Name = x.Name,
@@ -65,11 +66,14 @@ namespace MyWebProject.Core.Services.Services
 
                 if (searchTown.Count() != 0)
                 {
-                    return searchTown;
+                    foreach (var town in searchTown)
+                    {
+                        search.Add(town);
+                    }
                 }
 
                 var searchLandmark = await repo.AllReadonly<LandMark>()
-                    .Where(l => l.Name.ToLower() == srcitem || l.Description.Contains(srcitem))
+                    .Where(l => l.Name.Contains(srcitem) || l.Description.Contains(srcitem))
                     .Select(x => new SearchViewModel()
                     {
                         Name = x.Name,
@@ -79,11 +83,14 @@ namespace MyWebProject.Core.Services.Services
 
                 if (searchLandmark.Count() != 0)
                 {
-                    return searchLandmark;
+                    foreach (var land in searchLandmark)
+                    {
+                        search.Add(land);
+                    }
                 }
 
                 var searchEvent = await repo.AllReadonly<Cultural_events>()
-                    .Where(e => e.Name.ToLower() == srcitem || e.Description.Contains(srcitem))
+                    .Where(e => e.Name.Contains(srcitem) || e.Description.Contains(srcitem))
                      .Select(x => new SearchViewModel()
                      {
                          Name = x.Name,
@@ -93,15 +100,36 @@ namespace MyWebProject.Core.Services.Services
 
                 if (searchEvent.Count() != 0)
                 {
-                    return searchEvent;
+                    foreach (var events in searchEvent)
+                    {
+                        search.Add(events);
+                    }
                 }
+
+                var searchJourney = await repo.AllReadonly<Journeys>()
+                    .Where(e => e.Name.Contains(srcitem) || e.Description.Contains(srcitem))
+                     .Select(x => new SearchViewModel()
+                     {
+                         Name = x.Name,
+                         Description = x.Description
+                     })
+                    .ToListAsync();
+
+                if (searchJourney.Count() != 0)
+                {
+                    foreach (var jour in searchJourney)
+                    {
+                        search.Add(jour);
+                    }
+                }
+
             }
             catch (ArgumentException ar)
             {
                 new ArgumentException(ar.Message);
             }
 
-            return item = null!;
+            return search;
         }
     }
 }

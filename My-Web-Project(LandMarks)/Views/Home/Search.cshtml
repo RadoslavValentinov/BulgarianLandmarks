@@ -12,16 +12,19 @@
 }
 else
 {
+    <h1 id="searchRes">Резултатите от вашето търсене...</h1>
+    <hr />
+
     @foreach (var item in Model)
     {
-        <h1 id="searchRes">Резултатите от вашето търсене...</h1>
-        <hr />
 
         <h2 id="Title">@item.Name</h2>
 
         <p id="Descript">@item.Description</p>
 
-        <a href="https://bg.wikipedia.org/wiki/@item.Name">Може да научите повече за градът...</a>
+        <a href="https://bg.wikipedia.org/wiki/@item.Name">Може да научите повече...</a>
+
+        <hr />
     }
 }
 

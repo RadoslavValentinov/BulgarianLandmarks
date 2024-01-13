@@ -18,6 +18,37 @@ h1 {
 }
 
 
+
+/* nav bar custom */
+
+.navbar-brand {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 20px 0px 5px;
+    margin-right: 20px;
+}
+
+
+.row {
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.navbar-nav .nav-link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.navbar-nav {
+    margin-left:auto;
+    align-items:center;
+    margin-right: 20px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+
 /* Navigations and hidden div */
 
 .rowNav {
@@ -39,7 +70,6 @@ nav {
     padding: 10px;
     margin-bottom: 20px;
     width: auto;
-    justify-content: space-between;
 }
 
 #FieldToSearch {
@@ -93,12 +123,7 @@ li h4 {
         padding-left: 0px;
     }
 
-.navbar-nav {
-    margin-left: auto;
-    margin-right: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-}
+
 
 /* Button close div */
 
@@ -181,8 +206,6 @@ li h4 {
         }
 
 #panel {
-    position: relative;
-    left: 320px;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -190,11 +213,6 @@ li h4 {
     color: gray;
 }
 
-.navbar-nav .nav-link {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    margin-left: 20px;
-}
 
 
 
@@ -291,27 +309,6 @@ p {
     left: -145px;
 }
 
-
-/* nav bar custom */
-
-.navbar-brand {
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0px 20px 0px 5px;
-    margin-right: 20px;
-}
-
-.container-fluid {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    padding-right: 20px;
-}
-
-
-.row {
-    justify-content: space-between;
-    margin-bottom: 50px;
-}
 
 /* section to size container*/
 

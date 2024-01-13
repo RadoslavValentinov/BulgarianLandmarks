@@ -15,7 +15,6 @@ namespace MyWebProject.Core.Services.Services
     {
 
         private readonly IRepository repo;
-        private  UserManager<Users> user;
      
         public PictureService(IRepository _repo)
         {

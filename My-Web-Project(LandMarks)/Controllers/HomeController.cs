@@ -35,7 +35,6 @@ namespace My_Web_Project_LandMarks_.Controllers
 
             var all =  service.AllUserPicctures(userName ?? null!).Result;
            
-
             return View(all);
         }
 

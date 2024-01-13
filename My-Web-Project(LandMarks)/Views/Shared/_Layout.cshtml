@@ -14,6 +14,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Пътеводител</a>
 
             <i class="fa-solid fa-bars fa-2xl" onclick="viewdiv()"></i>
@@ -64,6 +65,7 @@
                     </li>
 
                     <li class="secondTitle">
+
                         @if (User?.Identity?.IsAuthenticated == true)
                         {
                             <div>
@@ -82,11 +84,6 @@
                 </ul>
                 <button id="Close" class="btn" onclick="closediv()">X Затвори</button>
             </div>
-
-            @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-            {
-                <a id="panel" asp-area="Administrator" asp-controller="HomeAdmin" asp-action="Index">Admin Panel</a>
-            }
 
             <partial name="_LoginPartial" />
         </nav>
