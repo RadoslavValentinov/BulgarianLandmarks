@@ -1,6 +1,7 @@
 ﻿using Ganss.Xss;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.JourneyModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
@@ -13,10 +14,13 @@ namespace MyWebProject.Core.Services.Services
     public class JourneyService : IJourneyServise
     {
         private readonly IRepository repo;
+        private readonly ILogger<JourneyService> logger;
 
-        public JourneyService(IRepository _repo)
+        public JourneyService(IRepository _repo,
+            ILogger<JourneyService> _logger)
         {
             repo = _repo;
+            logger = _logger;
         }
 
 
@@ -63,9 +67,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.SaveChangesAsync();
 
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException ne)
             {
-                throw new NullReferenceException("Journry not added in database");
+                logger.LogError(string.Format("Journry not added in database"), ne);
             }
 
             return model;
@@ -85,9 +89,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.DeleteAsync<Journeys>(setersss[0].Id);
                 await repo.SaveChangesAsync();
             }
-            catch (ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException ae)
             {
-                throw new ArgumentOutOfRangeException("Journey not deleted");
+                logger.LogError(string.Format("Journey not deleted"), ae);
             }
         }
 
@@ -131,9 +135,9 @@ namespace MyWebProject.Core.Services.Services
                 repo.Update<Journeys>(current);
                 await repo.SaveChangesAsync();
             }
-            catch (InvalidOperationException)
+            catch (InvalidOperationException ie)
             {
-                throw new InvalidOperationException("Model not added some property is not valid");
+                logger.LogError(string.Format("Model not added some property is not valid"), ie);
             }
 
 

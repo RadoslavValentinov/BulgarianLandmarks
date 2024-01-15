@@ -1,6 +1,7 @@
 ﻿using Ganss.Xss;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.Category;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
@@ -11,10 +12,13 @@ namespace MyWebProject.Core.Services.Services
     public class CategoryService : ICategoryService
     {
         private readonly IRepository repo;
+        private readonly ILogger<CategoryService> logger;   
 
-        public CategoryService(IRepository _repo)
+        public CategoryService(IRepository _repo,
+            ILogger<CategoryService> _logger)
         {
             repo = _repo;
+            logger = _logger;
         }
 
         public async Task<IEnumerable<CategoryViewModel>> AllCategory()
@@ -52,9 +56,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.AddAsync(newCategory);
                 await repo.SaveChangesAsync();
             }
-            catch (ArgumentException)
+            catch (Exception ex)
             {
-                throw new ArgumentException("Place try again later");
+                logger.LogError(string.Format("Place try again later"), ex);
             }
 
             return model;
@@ -76,9 +80,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.SaveChangesAsync();
 
             }
-            catch (NullReferenceException)
+            catch (Exception ex)
             {
-                throw new NullReferenceException("Тhe category Not deleted");
+                logger.LogError(string.Format("Тhe category Not deleted"), ex);
             }
         }
 
@@ -104,7 +108,7 @@ namespace MyWebProject.Core.Services.Services
             }
             catch (ArgumentException)
             {
-                new ArgumentException("Place try again later");
+                logger.LogError(string.Format("Place try again later"), ex);
             }
 
             return model;

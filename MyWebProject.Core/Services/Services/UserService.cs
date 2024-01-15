@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
@@ -13,10 +14,13 @@ namespace MyWebProject.Core.Services.Services
     public class UserService : IUserService
     {
         private readonly IRepository repo;
+        private readonly ILogger<UserService> logger;
 
-        public UserService(IRepository _repo)
+        public UserService(IRepository _repo,
+            ILogger<UserService> _logger)
         {
             repo = _repo;
+            logger = _logger;
         }
 
 
@@ -37,10 +41,10 @@ namespace MyWebProject.Core.Services.Services
 
             if (AllUsers == null)
             {
-                throw new ArgumentException("No register users");
+                logger.LogError(string.Format("No register users"),new NullReferenceException());
             }
 
-            return AllUsers;
+            return AllUsers ?? null!;
         }
     }
 }

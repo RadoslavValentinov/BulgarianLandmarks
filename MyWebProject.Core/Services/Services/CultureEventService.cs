@@ -1,6 +1,7 @@
 ﻿using Ganss.Xss;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
@@ -13,10 +14,13 @@ namespace MyWebProject.Core.Services.Services
     public class CultureEventService : ICultureEventService
     {
         private readonly IRepository repo;
+        private readonly ILogger<CultureEventService> logger;
 
-        public CultureEventService(IRepository _repo)
+        public CultureEventService(IRepository _repo,
+            ILogger<CultureEventService> _logger)
         {
             repo = _repo;
+            logger = _logger;
         }
 
         public async Task<IEnumerable<AllCultureEventViewModel>> AllEvent()
@@ -68,9 +72,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.SaveChangesAsync();
 
             }
-            catch (ArgumentException)
+            catch (ArgumentException ar)
             {
-                throw new ArgumentException("Model not added succssesfuly");
+                logger.LogError(string.Format("Model not added succssesfuly"), ar);
             }
 
             return model;
@@ -129,9 +133,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.SaveChangesAsync();
 
             }
-            catch (ArgumentNullException)
+            catch (ArgumentNullException an)
             {
-                throw new ArgumentNullException("Not changed sevad");
+                logger.LogError(string.Format("Not changed sevad"), an);
             }
 
             return model;

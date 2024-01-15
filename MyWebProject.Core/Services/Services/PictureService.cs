@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Microsoft.Graph.Models;
 using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
@@ -15,10 +17,13 @@ namespace MyWebProject.Core.Services.Services
     {
 
         private readonly IRepository repo;
+        private readonly ILogger<PictureService> logger;    
      
-        public PictureService(IRepository _repo)
+        public PictureService(IRepository _repo,
+            ILogger<PictureService> _logger)
         {
             repo = _repo;
+            logger = _logger;
         }
 
 
@@ -52,9 +57,9 @@ namespace MyWebProject.Core.Services.Services
 
                 return newPicture.Id;
             }
-            catch (ArgumentNullException)
+            catch (ArgumentNullException ae)
             {
-                throw new ArgumentNullException("Pictures not added");
+                logger.LogError(string.Format("Pictures not added"), ae);
             }
         }
 
@@ -84,9 +89,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.SaveChangesAsync();
 
             }
-            catch (ArgumentNullException)
+            catch (ArgumentNullException ae)
             {
-                throw new ArgumentNullException("Pictures not added");
+                logger.LogError(string.Format("Pictures not added"), ae);
             }
 
             return model;
@@ -140,9 +145,9 @@ namespace MyWebProject.Core.Services.Services
                 repo.Delete(deletedItem);
                 await repo.SaveChangesAsync();
             }
-            catch (ArgumentNullException)
+            catch (ArgumentNullException ae)
             {
-                throw new ArgumentNullException("This picture is not deleted");
+                logger.LogError(string.Format("This picture is not deleted"), ae);
             }
         }
 
@@ -156,9 +161,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.DeleteAsync<PictureByUser>(deletedItem.Id);
                 await repo.SaveChangesAsync();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new NullReferenceException("This picture is not deleted");
+                logger.LogError(string.Format("This picture is not deleted"), ex);
             }
         }
 
@@ -198,9 +203,9 @@ namespace MyWebProject.Core.Services.Services
                 repo.Update(editPictures);
                 await repo.SaveChangesAsync();
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException ne)
             {
-                throw new NullReferenceException("No updated this picture");
+                logger.LogError(string.Format("No updated this picture"), ne);
             }
 
             return model;

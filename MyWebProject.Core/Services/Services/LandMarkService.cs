@@ -1,6 +1,7 @@
 ﻿using Ganss.Xss;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.Category;
 using MyWebProject.Core.Models.LandMarkModel;
 using MyWebProject.Core.Services.IServices;
@@ -12,45 +13,55 @@ namespace MyWebProject.Core.Services.Services
     public class LandMarkService : ILandmarkService
     {
         private readonly IRepository repo;
+        private readonly ILogger<LandMarkService> logger;
 
-        public LandMarkService(IRepository _repo)
+        public LandMarkService(IRepository _repo,
+            ILogger<LandMarkService> _logger)
         {
             repo = _repo;
+            logger = _logger;
         }
 
-        
+
         [Area("Administrator")]
-        public  async Task<LandMarkByUserAdded> AddLandMarkOfUsers(LandMarkByUserAdded model)
+        public async Task<LandMarkByUserAdded> AddLandMarkOfUsers(LandMarkByUserAdded model)
         {
-            var sanitizer = new HtmlSanitizer();
-
-            string name = sanitizer.Sanitize(model.Name);
-            string description = sanitizer.Sanitize(model.Description);
-            string videoUrl = sanitizer.Sanitize(model.VideoURL ?? null!);
-            string image = sanitizer.Sanitize(model.ImageURL ?? null!);
-
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description))
+            try
             {
-                throw new NullReferenceException("Name and Description connot by Null or Empty");
+                var sanitizer = new HtmlSanitizer();
+
+                string name = sanitizer.Sanitize(model.Name);
+                string description = sanitizer.Sanitize(model.Description);
+                string videoUrl = sanitizer.Sanitize(model.VideoURL ?? null!);
+                string image = sanitizer.Sanitize(model.ImageURL ?? null!);
+
+                if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description))
+                {
+                    throw new NullReferenceException("Name and Description connot by Null or Empty");
+                }
+
+                var land = new Landmark_suggestions()
+                {
+                    Id = model.Id,
+                    Name = name,
+                    Description = description,
+                    IsActive = true,
+                    CategoryId = model.CategoryId,
+                    ImageURL = image,
+                };
+
+                if (!string.IsNullOrWhiteSpace(videoUrl))
+                {
+                    land.VideoURL = videoUrl;
+                }
+
+                await repo.AddAsync(land);
+                await repo.SaveChangesAsync();
             }
-
-            var land = new Landmark_suggestions()
+            catch (Exception ex)
             {
-                Id = model.Id,
-                Name = name,
-                Description = description,
-                IsActive = true,
-                CategoryId = model.CategoryId,
-                ImageURL = image,
-            };
-
-            if (!string.IsNullOrWhiteSpace(videoUrl))
-            {
-                land.VideoURL = videoUrl;
+                logger.LogError(string.Format("Model is not valid"), ex);
             }
-
-            await repo.AddAsync(land);
-            await repo.SaveChangesAsync();
 
             return model;
         }
@@ -71,7 +82,7 @@ namespace MyWebProject.Core.Services.Services
                 throw new NullReferenceException("Name and Description connot by Null or Empty");
             }
 
-            var category =  repo.GetByIdAsync<Category>(model.CategoryId).Result;
+            var category = repo.GetByIdAsync<Category>(model.CategoryId).Result;
 
             try
             {
@@ -104,9 +115,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.SaveChangesAsync();
 
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException de)
             {
-                throw new DbUpdateException("Database not save info try again...");
+                logger.LogError(string.Format("Database not save info try again..."), de);
             }
 
             return model;
@@ -138,9 +149,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.DeleteAsync<LandMark>(deletedItem[0].Id);
                 await repo.SaveChangesAsync();
             }
-            catch (ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException ae)
             {
-                throw new ArgumentOutOfRangeException("Journey not deleted");
+                logger.LogError(string.Format("Journey not deleted"), ae);
             }
         }
 
@@ -169,9 +180,9 @@ namespace MyWebProject.Core.Services.Services
                 repo.Update(landUpdated);
                 await repo.SaveChangesAsync();
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException ne)
             {
-                throw new NullReferenceException("Model is not vaid");
+                logger.LogError(string.Format("Model is not vaid"), ne);
             }
 
             return model;
@@ -229,7 +240,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<IEnumerable<LandMarkByUserAdded>> GetAllByUser()
         {
             var result = await repo.All<Landmark_suggestions>()
-                .Where(l=>l.IsActive == true)
+                .Where(l => l.IsActive == true)
                 .Select(l => new LandMarkByUserAdded()
                 {
                     Id = l.Id,

@@ -1,28 +1,25 @@
 ﻿using Ganss.Xss;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.Category;
-using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Models.FactOfBulgaria;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
 
 namespace MyWebProject.Core.Services.Services
 {
     public class FactsService : IFactsService
     {
         private readonly IRepository repo;
+        private readonly ILogger<FactsService> logger;
 
-        public FactsService(IRepository _repo)
+        public FactsService(IRepository _repo,
+            ILogger<FactsService> _logger)
         {
             repo = _repo;
+            logger = _logger;
         }
 
 
@@ -54,9 +51,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.AddAsync(fact);
                 await repo.SaveChangesAsync();
             }
-            catch (ArgumentException)
+            catch (ArgumentException ae)
             {
-                throw new ArgumentException("No added fact");
+                logger.LogError(string.Format("\"No added fact"), ae);
             }
 
             return model;
@@ -88,9 +85,9 @@ namespace MyWebProject.Core.Services.Services
                 repo.Delete<InterestingFacts>(deletedFact);
                 await repo.SaveChangesAsync();
             }
-            catch (ArgumentNullException)
+            catch (ArgumentNullException an)
             {
-                throw new ArgumentNullException("Not deleted this fact");
+                logger.LogError(string.Format("Not deleted this fact, Plese try again later"), an); 
             }
         }
 
@@ -117,9 +114,9 @@ namespace MyWebProject.Core.Services.Services
                 repo.Update(editedFact);
                 await repo.SaveChangesAsync();
             }
-            catch (ArgumentException)
+            catch (ArgumentException ae)
             {
-                new ArgumentException("Model is not vaid");
+                logger.LogError(string.Format("Model is not vaid"), ae);
             }
 
             return model;

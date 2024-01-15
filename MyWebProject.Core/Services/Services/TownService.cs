@@ -1,6 +1,7 @@
 ﻿using Ganss.Xss;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.Town;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
@@ -12,10 +13,13 @@ namespace MyWebProject.Core.Services.Services
     public class TownService : ITownService
     {
         private readonly IRepository repo;
+        private readonly ILogger<TownService> logger;
 
-        public TownService(IRepository _repo)
+        public TownService(IRepository _repo,
+            ILogger<TownService> _logger)
         {
             repo = _repo;
+            logger = _logger;
         }
 
         public async Task<TownViewModelGetTown> TownsById(int id)
@@ -78,9 +82,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.AddAsync(newTown);
                 await repo.SaveChangesAsync();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException de)
             {
-                throw new DbUpdateException("Model is not valid");
+                logger.LogError(string.Format("Model is not valid"), de);
             }
 
 
@@ -102,9 +106,9 @@ namespace MyWebProject.Core.Services.Services
                 await repo.DeleteAsync<Town>(currenttown[0].Id);
                 await repo.SaveChangesAsync();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new ArgumentOutOfRangeException("Not deleted this town");
+                logger.LogError(string.Format("Not deleted this town"), ex);
             }
 
         }
@@ -149,9 +153,9 @@ namespace MyWebProject.Core.Services.Services
                 repo.Update(editTown);
                 await repo.SaveChangesAsync();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-               throw new NullReferenceException("Not save changes to town");
+                logger.LogError(string.Format("Not save changes to town"), ex);
             }
 
             return model;
