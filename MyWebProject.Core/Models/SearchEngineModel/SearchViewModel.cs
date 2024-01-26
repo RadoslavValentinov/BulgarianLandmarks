@@ -15,5 +15,7 @@ namespace MyWebProject.Core.Models.SearchEngineModel
 
         [Required]
         public string Description { get; set; } = null!;
+
+        public string CategoryName { get; set; } = null!;
     }
 }

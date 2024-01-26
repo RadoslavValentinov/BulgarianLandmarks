@@ -33,14 +33,14 @@ p {
 
 #containerLand img {
     padding-left: 0px;
-    width: 358px;
+    width: 417px;
     height: 200px;
     object-fit:cover;
 }
 
 #containerLand .btn {
     position: relative;
-    bottom: -65px;
-    padding:3px 160px 3px 155px;
+    bottom: -60px;
+    padding:8px 160px 8px 170px;
 }
 

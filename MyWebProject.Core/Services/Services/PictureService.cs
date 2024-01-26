@@ -55,12 +55,13 @@ namespace MyWebProject.Core.Services.Services
                 await repo.AddAsync(newPicture);
                 await repo.SaveChangesAsync();
 
-                return newPicture.Id;
             }
             catch (ArgumentNullException ae)
             {
                 logger.LogError(string.Format("Pictures not added"), ae);
             }
+
+            return model.Id;
         }
 
         [Area("Administrator")]

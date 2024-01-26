@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using My_Web_Project_LandMarks_.Models;
-using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Services.IServices;
 using System.Diagnostics;
 

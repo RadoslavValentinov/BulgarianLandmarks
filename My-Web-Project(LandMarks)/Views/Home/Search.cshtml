@@ -6,7 +6,7 @@
 </head>
 
 
-@if ( Model == null)
+@if ( Model == null || Model.Count() == 0)
 {
     <h1 class="notFound">Няма намерени резултати...</h1>
 }
@@ -22,7 +22,21 @@ else
 
         <p id="Descript">@item.Description</p>
 
-        <a href="https://bg.wikipedia.org/wiki/@item.Name">Може да научите повече...</a>
+      
+        @if (item.CategoryName == "Journey")
+        {
+            <a href="https://www.google.com/search?q=@item.Name">Може да научите повече...</a>
+            continue;
+
+        }
+        @if (item.CategoryName == "Event")
+        {
+            <a href="https://www.google.com/search?q=@item.Name">Може да научите повече...</a>
+        }
+        else
+        {
+            <a href="https://bg.wikipedia.org/wiki/@item.Name">Може да научите повече...</a> 
+        }
 
         <hr />
     }

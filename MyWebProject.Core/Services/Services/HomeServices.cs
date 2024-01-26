@@ -1,7 +1,6 @@
 ﻿using Ganss.Xss;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Graph.Models;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Models.SearchEngineModel;
 using MyWebProject.Core.Services.IServices;
@@ -13,11 +12,15 @@ namespace MyWebProject.Core.Services.Services
 {
     public class HomeServices : IHomeService
     {
-        public readonly IRepository repo;
+        private readonly IRepository repo;
+        private readonly ILogger<HomeServices> logger;
 
-        public HomeServices(IRepository _repo)
+
+        public HomeServices(IRepository _repo,
+            ILogger<HomeServices> _logger)
         {
             repo = _repo;
+            logger = _logger;
         }
 
         public async Task<IEnumerable<Pictures>> AllPicture()
@@ -33,10 +36,10 @@ namespace MyWebProject.Core.Services.Services
         public async Task<IEnumerable<PicturesViewModel>> AllUserPicctures(string userName)
         {
             var result = await repo.All<Pictures>()
-              .Where(x=> x.UserName == userName)
-              .Select(s=> new PicturesViewModel()
+              .Where(x => x.UserName == userName)
+              .Select(s => new PicturesViewModel()
               {
-                  Id= s.Id,
+                  Id = s.Id,
                   UrlImgAddres = s.UrlImgAddres
               })
               .ToListAsync();
@@ -53,14 +56,15 @@ namespace MyWebProject.Core.Services.Services
             {
                 var sanitizer = new HtmlSanitizer();
                 string srcitem = sanitizer.Sanitize(item.ToLower());
-               
+
 
                 var searchTown = await repo.All<Town>()
                     .Where(x => x.Name.Contains(srcitem))
                      .Select(x => new SearchViewModel()
                      {
                          Name = x.Name,
-                         Description = x.Description
+                         Description = x.Description,
+                         CategoryName = "Town"
                      })
                     .ToListAsync();
 
@@ -77,7 +81,8 @@ namespace MyWebProject.Core.Services.Services
                     .Select(x => new SearchViewModel()
                     {
                         Name = x.Name,
-                        Description = x.Description
+                        Description = x.Description,
+                        CategoryName = "LandMark",
                     })
                     .ToListAsync();
 
@@ -94,7 +99,8 @@ namespace MyWebProject.Core.Services.Services
                      .Select(x => new SearchViewModel()
                      {
                          Name = x.Name,
-                         Description = x.Description
+                         Description = x.Description,
+                         CategoryName = "Event"
                      })
                     .ToListAsync();
 
@@ -111,7 +117,8 @@ namespace MyWebProject.Core.Services.Services
                      .Select(x => new SearchViewModel()
                      {
                          Name = x.Name,
-                         Description = x.Description
+                         Description = x.Description,
+                         CategoryName = "Journey"
                      })
                     .ToListAsync();
 
@@ -124,9 +131,9 @@ namespace MyWebProject.Core.Services.Services
                 }
 
             }
-            catch (ArgumentException ar)
+            catch (Exception ex)
             {
-                new ArgumentException(ar.Message);
+                logger.LogError(string.Format("Not Found search item"), ex);
             }
 
             return search;

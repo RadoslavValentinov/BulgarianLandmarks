@@ -106,7 +106,7 @@ namespace MyWebProject.Core.Services.Services
                 repo.Update(currentCategory);
                 await repo.SaveChangesAsync();
             }
-            catch (ArgumentException)
+            catch (ArgumentException ex)
             {
                 logger.LogError(string.Format("Place try again later"), ex);
             }
