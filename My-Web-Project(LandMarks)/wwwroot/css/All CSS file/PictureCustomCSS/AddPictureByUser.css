@@ -1,10 +1,17 @@
 ﻿
 .btn {
     position: relative;
-    left: 200px;
-    padding: 10px 30px 10px 30px;
+    left: 220px;
+    top: 40px;
+    padding: 10px 70px 10px 70px;
 }
+
 
 h2 {
     text-align: center;
 }
+
+form{
+    margin-bottom:200px;
+}
+

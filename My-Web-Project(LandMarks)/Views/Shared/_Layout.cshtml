@@ -27,7 +27,7 @@
                 </form>
             </div>
 
-   
+
             <div id="bodyDiv" hidden="hidden">
 
                 <ul id="allOptions">
@@ -96,14 +96,21 @@
     </div>
 
     <footer>
-        <h4 id="foras">За нас</h4>
-        <a id="formquest" asp-area="" asp-controller="Home" asp-action="ContactUs">За контакт с нас</a>
-        <a id="policy" asp-area="" asp-controller="Home" asp-action="Privacy">Политика за Поверителност</a>
-        <h4 id="partn">Нашите партньори</h4>
-        <a id="partner1" href="https://grabo.bg/travel">Grabo</a>
-        <a id="partner2" href="https://opoznai.bg/">Opoznai.bg</a>
-        <img id="posImg" src="https://cdn.freebiesupply.com/logos/large/2x/bulgaria-logo-png-transparent.png" width="230" height="150" alt="Bulgaria" />
-        <p id="copy">&copy; 2022 - 2023 - Пътеводител на Българските забележителности</p>
+        <div id="title">
+            <h4 id="foras">За нас</h4>
+            <a id="formquest" asp-area="" asp-controller="Home" asp-action="ContactUs">За контакт с нас</a>
+            <a id="policy" asp-area="" asp-controller="Home" asp-action="Privacy">Политика за Поверителност</a>
+            <p id="copy">&copy; 2022 - 2023 - Пътеводител на Българските забележителности</p>
+        </div>
+
+        <div id="options">
+            <h4 id="partn">Нашите партньори</h4>
+            <a id="partner1" href="https://grabo.bg/travel">Grabo</a>
+            <a id="partner2" href="https://opoznai.bg/">Opoznai.bg</a>
+        </div>
+
+        <img id="posImg" src="https://cdn.freebiesupply.com/logos/large/2x/bulgaria-logo-png-transparent.png" width="250" height="170" alt="Bulgaria" />
+        
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
