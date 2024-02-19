@@ -15,9 +15,13 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
 
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Пътеводител</a>
+            <div class="titleAndMenu">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Пътеводител</a>
 
-            <i class="fa-solid fa-bars fa-2xl" onclick="viewdiv()"></i>
+                <i class="fa-solid fa-bars fa-2xl" onclick="viewdiv()"></i>
+            </div>
+
+
 
             <div class="rowNav">
                 <form asp-area="" asp-controller="Home" asp-action="Search">
@@ -110,7 +114,7 @@
         </div>
 
         <img id="posImg" src="https://cdn.freebiesupply.com/logos/large/2x/bulgaria-logo-png-transparent.png" width="250" height="170" alt="Bulgaria" />
-        
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
