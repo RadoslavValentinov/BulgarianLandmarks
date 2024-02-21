@@ -603,7 +603,41 @@ footer {
 
 
 
+@media (min-width: 600px) and (max-width: 768px){
+    body{
+        max-width:auto;
+    }
+    .titleAndMenu{
+        display:flex;
+        align-items:center;
+    }
+    .navbar{
+        width:auto;
+        height:150px;
+        flex-direction:column;
+        align-items:center;
+    }
+    .navbar-brand {
+        margin-right: 5px;
+        padding-right: 5px;
+    }
+    .navbar-nav{
+        margin:0px;
+    }
+    .rowNav {
+        left: 5px;
+    }
 
+    .pb-3{
+        width:100%;
+    }
+
+    #cont {
+        margin: 0px;
+        max-width: 100%;
+        padding:0px;
+    }
+}
 
 
 @media (max-width:600px){
