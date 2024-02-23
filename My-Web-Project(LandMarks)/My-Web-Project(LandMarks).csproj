@@ -60,7 +60,7 @@
  
 
   <ItemGroup>
-    <Content Update="Views\_LoginPartial.cshtml">
+    <Content Update="Views\Shared\_LoginPartial.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

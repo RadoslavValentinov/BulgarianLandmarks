@@ -601,9 +601,96 @@ footer {
 }
 
 
+@media (min-width: 768px){
 
+    body {
+        max-width: auto;
+    }
+    .rowNav{
+        left:20px;
+    }
+
+
+    .row {
+        max-width:auto;
+        justify-content:space-between;
+      
+        margin-left:10px;
+    }
+
+    .col-sm-1 {
+        max-width: 100%;
+        margin: 0px;
+        margin-top: 15px;
+        margin-left: 5px;
+    }
+
+    .col-sm-2 {
+        max-width: 100%;
+        margin: 0px;
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+
+    .col-sm-3 {
+        max-width:100%;
+        margin: 0px;
+        max-width: 100%;
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+    .container{
+        max-width:auto;
+    }
+    #carouselExampleControls {
+        max-width: 100%;
+    }
+
+
+    /* section Facts */
+    #allFacts {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+        #allFacts .row {
+            height: 400px;
+            max-width: 100%;
+            margin: 0px;
+            padding: 0px;
+            justify-content: center;
+        }
+
+            #allFacts .row p img {
+                margin: 0px;
+                display: block;
+                left: -20px;
+                float: right;
+                width: 360px;
+            }
+
+        #allFacts #facts2 {
+            left: 0px;
+            height: 300px;
+        }
+
+            #allFacts #facts2 p img {
+                margin: 5px;
+                display: block;
+                float: left;
+            }
+
+            #allFacts #facts2 p {
+                height: 300px;
+                margin: 5px;
+            }
+
+}
 
 @media (min-width: 600px) and (max-width: 768px){
+
+    /* body and navigation */
     body{
         max-width:auto;
     }
@@ -627,9 +714,12 @@ footer {
     .rowNav {
         left: 5px;
     }
-
-    .pb-3{
-        width:100%;
+    .fa-bars{
+        margin-left:20px;
+    }
+    
+    .pb-3 {
+        width: 100%;
     }
 
     #cont {
@@ -637,6 +727,78 @@ footer {
         max-width: 100%;
         padding:0px;
     }
+
+
+    /* card elements */
+
+    .row{
+        justify-content:center;
+        gap:10px;
+    }
+
+    .col-sm-1 {
+        max-width: 70%;
+        
+        margin: 0px;
+        margin-top: 15px;
+        margin-left: 5px;
+    }
+
+    .col-sm-2 {
+        max-width: 70%;
+        margin: 0px;
+        margin-top: 15px;
+        margin-left: 5px;
+    }
+
+    .col-sm-3 {
+        margin: 0px;
+        max-width: 100%;
+        margin-top: 15px;
+        margin-left: 10px;
+    }
+
+
+
+
+    /* section Facts */
+    #allFacts {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+        #allFacts .row {
+            height: 400px;
+            max-width: 100%;
+            margin: 0px;
+            padding: 0px;
+            justify-content: center;
+        }
+
+            #allFacts .row p img {
+                margin: 0px;
+                display: block;
+                left: -20px;
+                float: right;
+                width: 360px;
+            }
+
+        #allFacts #facts2 {
+            left: 0px;
+            height: 300px;
+        }
+
+            #allFacts #facts2 p img {
+                margin: 5px;
+                display: block;
+                float: left;
+            }
+
+            #allFacts #facts2 p {
+                height: 300px;
+                margin: 5px;
+            }
 }
 
 
