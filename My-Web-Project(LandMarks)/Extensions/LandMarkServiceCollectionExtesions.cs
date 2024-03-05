@@ -28,7 +28,7 @@ namespace My_Web_Project_LandMarks_.Extensions
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IPictureService, PictureService>();
             services.AddScoped<IUserService, UserService>();
-            //services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IEmailSender, EmailSender>();
 
 
             return services;

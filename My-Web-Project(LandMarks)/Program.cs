@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using My_Web_Project_LandMarks_.Extensions;
 using My_Web_Project_LandMarks_.ModelBinder;
+using My_Web_Project_LandMarks_.Models;
 using MyWebProject.Infrastructure.Data;
 using MyWebProject.Infrastructure.Data.Models;
 
@@ -24,7 +25,7 @@ namespace My_Web_Project_LandMarks_
             builder.Services.AddApplicationServiceApp();
             builder.Services.AddResponseCaching();
             builder.Services.AddAuthorization();
-            //builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
+            builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
             builder.Services.AddControllersWithViews(options =>
             {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
