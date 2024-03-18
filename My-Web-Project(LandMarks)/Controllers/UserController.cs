@@ -133,13 +133,11 @@ namespace My_Web_Project_LandMarks_.Controllers
             var registerUser = await userManager.CreateAsync(user, model.Password);
             var role = await roleManager.FindByNameAsync("User");
 
-            // email confirmet
-
 
             if (registerUser.Succeeded)
             {
-                await emailSender.SendEmailAsync(user.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode("www.google.com")}'>clicking here</a>.");
+                //await emailSender.SendEmailAsync(user.Email, "Confirm your email",
+                //        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode("www.google.com")}'>clicking here</a>.");
                 if (role != null)
                 {
                     await userManager.AddToRoleAsync(user, role.Name);

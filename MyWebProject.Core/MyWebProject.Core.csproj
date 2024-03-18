@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.20" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.39" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.1.2" />
+    <PackageReference Include="Microsoft.Configuration.ConfigurationBuilders.UserSecrets" Version="3.0.0" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.20" />
     <PackageReference Include="Microsoft.Graph" Version="5.20.0" />
     <PackageReference Include="System.Security.Claims" Version="4.3.0" />
