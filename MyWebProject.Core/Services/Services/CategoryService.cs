@@ -67,18 +67,18 @@ namespace MyWebProject.Core.Services.Services
         [Area("Administrator")]
         public async Task Delete(int id)
         {
+
+            var catDeleted = await repo.GetByIdAsync<Category>(id);
+
+            if (catDeleted == null)
+            {
+                throw new NullReferenceException("Тhe category you want to delete was not found!");
+            }
+
             try
             {
-                var catDeleted = await repo.GetByIdAsync<Category>(id);
-
-                if (catDeleted == null)
-                {
-                    throw new NullReferenceException("Тhe category you want to delete was not found!");
-                }
-
                 repo.Delete(catDeleted);
                 await repo.SaveChangesAsync();
-
             }
             catch (Exception ex)
             {

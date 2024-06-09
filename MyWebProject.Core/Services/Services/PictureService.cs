@@ -155,10 +155,15 @@ namespace MyWebProject.Core.Services.Services
         [Area("Administrator")]
         public async Task DeleteByUser(int Id)
         {
+            var deletedItem = await repo.GetByIdAsync<PictureByUser>(Id);
+
+            if (deletedItem == null) 
+            {
+                throw new NullReferenceException("This picture is not deleted");
+            }
+
             try
             {
-                var deletedItem = await repo.GetByIdAsync<PictureByUser>(Id);
-
                 await repo.DeleteAsync<PictureByUser>(deletedItem.Id);
                 await repo.SaveChangesAsync();
             }
@@ -175,9 +180,16 @@ namespace MyWebProject.Core.Services.Services
 
             string Image = sanitizer.Sanitize(model.UrlImgAddres);
 
+            var editPictures = await repo.GetByIdAsync<Pictures>(model.Id);
+
+            if (editPictures == null)
+            {
+                throw new NullReferenceException("No updated this picture");
+            }
+
+
             try
             {
-                var editPictures = await repo.GetByIdAsync<Pictures>(model.Id);
                 editPictures.UrlImgAddres = Image;
 
                 if (model.LandMark != null)

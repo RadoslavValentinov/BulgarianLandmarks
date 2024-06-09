@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.FactOfBulgaria;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Core.Services.Services;
@@ -13,6 +14,7 @@ namespace TetstingAllProjects.TestServices
     {
         private IFactsService? service;
         private ApplicationDbContext context;
+        private readonly ILogger<FactsService> logger;
 
 
         [SetUp]
@@ -35,7 +37,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethodAdd_Insert_In_Database_Fact_Corectly()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo);
+            service = new FactsService(repo, logger);
 
             await repo.AddAsync(new InterestingFacts()
             {
@@ -55,7 +57,7 @@ namespace TetstingAllProjects.TestServices
         public void Test_MethodAdd_Throw_Exeption_is_Moidel_NotValid()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo);
+            service = new FactsService(repo, logger);
 
 
             Assert.ThrowsAsync<NullReferenceException>(() => service.AddFacts(new FactOfCountry()
@@ -84,7 +86,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethodAdd_Insert_In_Database_Fact_Corectly_By_Service()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo);
+            service = new FactsService(repo, logger);
 
             await service.AddFacts(new FactOfCountry()
             {
@@ -104,7 +106,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_AllCategory_Return_Data_Corectly()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo);
+            service = new FactsService(repo, logger);
 
             var allCategoryOService = await service.AllCategory();
 
@@ -117,7 +119,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_AllFacts_Return_Data_Corectly()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo);
+            service = new FactsService(repo, logger);
 
             var allFactsOService = await service.AllFacts();
 
@@ -130,7 +132,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethod_Delete_Remove_Corectly_Facts()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo);
+            service = new FactsService(repo, logger);
 
             var all = await service.AllFacts();
 
@@ -153,7 +155,7 @@ namespace TetstingAllProjects.TestServices
         public void TestMethod_Delete_Throw_Exeption_If_Not_Found_ID()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo);
+            service = new FactsService(repo, logger);
 
             Assert.ThrowsAsync<ArgumentNullException>(async () => await service.Delete(-1));
         }
@@ -162,7 +164,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Edit_Method_Update_Proparty_of_Fact_Corectly()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo);
+            service = new FactsService(repo, logger);
 
             await repo.AddAsync(new InterestingFacts()
             {
@@ -192,7 +194,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Edit_Method_Throw_Exeption_If_InputModel_is_Not_Valid()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo);
+            service = new FactsService(repo, logger);
 
             await repo.AddAsync(new InterestingFacts()
             {
@@ -222,7 +224,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Edit_Method_Throw_Exeption_If_Save_Database()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo);
+            service = new FactsService(repo, logger);
 
             await repo.AddAsync(new InterestingFacts()
             {

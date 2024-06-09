@@ -5,14 +5,17 @@ using MyWebProject.Infrastructure.Data;
 using MyWebProject.Core.Services.Services;
 using MyWebProject.Infrastructure.Data.Models;
 using MyWebProject.Core.Models.CultureEventModel;
+using Microsoft.Extensions.Logging;
+using Moq;
 
 namespace TetstingAllProjects.TestServices
 {
     [TestFixture]
     public class TestCultureEventService
     {
-        private ICultureEventService services;
+        private ICultureEventService? services;
         private ApplicationDbContext context;
+        private readonly ILogger<CultureEventService> logger = Mock.Of<ILogger<CultureEventService>>();
 
 
         [SetUp]
@@ -34,7 +37,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethod_AllEvents()
         {
             var repo = new Repository(context);
-            services = new CultureEventService(repo);
+            services = new CultureEventService(repo, logger!);
 
             var dbAllEvent = await repo.AllReadonly<Cultural_events>().ToListAsync();
             var AllEventMethod = await services.AllEvent();
@@ -46,7 +49,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethod_Create_New_Eventl()
         {
             var repo = new Repository(context);
-            services = new CultureEventService(repo);
+            services = new CultureEventService(repo, logger!);
 
             var dbAllEvent = await repo.AllReadonly<Cultural_events>().ToListAsync();
             var count = dbAllEvent.Count();
@@ -72,7 +75,7 @@ namespace TetstingAllProjects.TestServices
         public void TestMethod_Createw_Eventl()
         {
             var repo = new Repository(context);
-            services = new CultureEventService(repo);
+            services = new CultureEventService(repo, logger);
 
             var newEvent = new CultureEventViewModelByTownId()
             {
@@ -80,7 +83,7 @@ namespace TetstingAllProjects.TestServices
                 Description = "Прецташлението ще се състои в зала Армеец",
                 Date = "19-09-2023",
                 Hour = "19:00",
-                TownName = "Уюиндол",
+                TownName = "Вашингтон",
                 ImageURL = "https://ichef.bbci.co.uk/news/999/cpsprodpb/15951/production/_117310488_16.jpg",
             };
 
@@ -92,7 +95,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Delete_Method_Remove_Event_Succssesfuly()
         {
             var repo = new Repository(context);
-            services = new CultureEventService(repo);
+            services = new CultureEventService(repo, logger!);
 
             await repo.AddAsync(new Cultural_events()
             {
@@ -122,7 +125,7 @@ namespace TetstingAllProjects.TestServices
         public void Deleted_Method_Throw_Exeption_If_Not_Found_Event()
         {
             var repo = new Repository(context);
-            services = new CultureEventService(repo);
+            services = new CultureEventService(repo, logger!);
 
             Assert.ThrowsAsync<NullReferenceException>(async () => await services.Delete(30));
             Assert.ThrowsAsync<NullReferenceException>(async () => await services.Delete(-1));
@@ -132,7 +135,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Edit_Method_Update_Corectly_Event()
         {
             var repo = new Repository(context);
-            services = new CultureEventService(repo);
+            services = new CultureEventService(repo, logger!);
 
             await repo.AddAsync(new Cultural_events()
             {
@@ -170,7 +173,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Edit_Method_Throw_Exeption_Event()
         {
             var repo = new Repository(context);
-            services = new CultureEventService(repo);
+            services = new CultureEventService(repo, logger!);
 
             await repo.AddAsync(new Cultural_events()
             {
@@ -202,7 +205,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Edit_Method_Throw_Exeption_Town_Count_is_Null()
         {
             var repo = new Repository(context);
-            services = new CultureEventService(repo);
+            services = new CultureEventService(repo, logger!);
 
             await repo.AddAsync(new Cultural_events()
             {
@@ -233,7 +236,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_GetById_Reeturn_Corect_Model()
         {
             var repo = new Repository(context);
-            services = new CultureEventService(repo);
+            services = new CultureEventService(repo, logger!);
 
             var all = await services.EventByTownId(4);
 
@@ -245,7 +248,7 @@ namespace TetstingAllProjects.TestServices
         public void Test_Method_GetById_Throw_Exeption_Not_Found()
         {
             var repo = new Repository(context);
-            services = new CultureEventService(repo);
+            services = new CultureEventService(repo, logger!);
 
             Assert.ThrowsAsync<ArgumentNullException>(async () => await services.EventByTownId(29));
         }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Custodians;
 using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
@@ -52,11 +53,20 @@ namespace MyWebProject.Core.Services.Services
             string HourEvent = sanitizer.Sanitize(model.Hour);
             string image = sanitizer.Sanitize(model.ImageURL);
 
-            try
-            {
-                var currenttown = repo.AllReadonly<Town>()
-                   .Where(x => x.Name == model.TownName).ToList();
 
+            var currenttown = repo.AllReadonly<Town>()
+                  .Where(x => x.Name == model.TownName).ToList();
+
+
+            if (currenttown.Count == 0)
+            {
+                throw new ArgumentException("Town connot by null");
+            }
+
+
+
+            try
+            { 
 
                 var newEvent = new Cultural_events()
                 {

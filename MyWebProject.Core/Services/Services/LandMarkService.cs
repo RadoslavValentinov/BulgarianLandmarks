@@ -26,20 +26,22 @@ namespace MyWebProject.Core.Services.Services
         [Area("Administrator")]
         public async Task<LandMarkByUserAdded> AddLandMarkOfUsers(LandMarkByUserAdded model)
         {
+
+            var sanitizer = new HtmlSanitizer();
+
+            string name = sanitizer.Sanitize(model.Name);
+            string description = sanitizer.Sanitize(model.Description);
+            string videoUrl = sanitizer.Sanitize(model.VideoURL ?? null!);
+            string image = sanitizer.Sanitize(model.ImageURL ?? null!);
+
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description))
+            {
+                throw new NullReferenceException("Name and Description connot by Null or Empty");
+            }
+
             try
             {
-                var sanitizer = new HtmlSanitizer();
-
-                string name = sanitizer.Sanitize(model.Name);
-                string description = sanitizer.Sanitize(model.Description);
-                string videoUrl = sanitizer.Sanitize(model.VideoURL ?? null!);
-                string image = sanitizer.Sanitize(model.ImageURL ?? null!);
-
-                if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description))
-                {
-                    throw new NullReferenceException("Name and Description connot by Null or Empty");
-                }
-
+               
                 var land = new Landmark_suggestions()
                 {
                     Id = model.Id,
@@ -139,13 +141,19 @@ namespace MyWebProject.Core.Services.Services
         [Area("Administrator")]
         public async Task Delete(int id)
         {
-            try
-            {
-                var deletedItem = await repo.AllReadonly<LandMark>()
+            var deletedItem = await repo.AllReadonly<LandMark>()
                     .Where(z => z.Id == id)
                     .Include(x => x.Pictures)
                     .ToListAsync();
 
+            if (deletedItem.Count == 0)
+            {
+                throw new ArgumentOutOfRangeException("Journey not deleted ,item not found");
+            }
+
+            try
+            {
+                
                 await repo.DeleteAsync<LandMark>(deletedItem[0].Id);
                 await repo.SaveChangesAsync();
             }
@@ -170,10 +178,15 @@ namespace MyWebProject.Core.Services.Services
 
             var landUpdated = await repo.GetByIdAsync<LandMark>(model.Id);
 
+            if (landUpdated == null)
+            {
+                throw new NullReferenceException("Model is not vaid");
+            }
+
 
             try
             {
-                landUpdated.Name = name;
+                landUpdated!.Name = name;
                 landUpdated.Description = description;
                 landUpdated.Rating = model.Rating;
 

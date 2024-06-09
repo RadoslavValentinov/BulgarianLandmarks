@@ -94,15 +94,21 @@ namespace MyWebProject.Core.Services.Services
         [Area("Administrator")]
         public async Task Delete(int id)
         {
+            var currenttown = await repo.AllReadonly<Town>()
+              .Where(x => x.Id == id)
+              .Include(p => p.Picture)
+              .Include(l => l.Landmarks)
+              .Include(c => c.cultural_Events)
+              .ToListAsync();
+
+            if (currenttown.Count == 0)
+            {
+                throw new ArgumentOutOfRangeException("Id is Not Found");
+            }
+
+
             try
             {
-                var currenttown = await repo.AllReadonly<Town>()
-               .Where(x => x.Id == id)
-               .Include(p => p.Picture)
-               .Include(l => l.Landmarks)
-               .Include(c => c.cultural_Events)
-               .ToListAsync();
-
                 await repo.DeleteAsync<Town>(currenttown[0].Id);
                 await repo.SaveChangesAsync();
             }
@@ -143,10 +149,15 @@ namespace MyWebProject.Core.Services.Services
             string name = sanitizer.Sanitize(model.Name);
             string description = sanitizer.Sanitize(model.Description);
 
+            var editTown = await repo.GetByIdAsync<Town>(model.Id);
+
+            if (editTown == null)
+            {
+                throw new NullReferenceException("The pattern cannot be null");
+            }
 
             try
             {
-                var editTown = await repo.GetByIdAsync<Town>(model.Id);
                 editTown.Name = name;
                 editTown.Description = description;
 

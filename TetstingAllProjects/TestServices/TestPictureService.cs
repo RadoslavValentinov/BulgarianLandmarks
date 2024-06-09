@@ -1,5 +1,6 @@
 ﻿using Ganss.Xss;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Core.Services.Services;
@@ -12,8 +13,9 @@ namespace TetstingAllProjects.TestServices
     [TestFixture]
     public class TestPictureService
     {
-        private IPictureService service;
+        private IPictureService? service;
         private ApplicationDbContext context;
+        private readonly ILogger<PictureService>? logger;
 
 
         [SetUp]
@@ -35,7 +37,7 @@ namespace TetstingAllProjects.TestServices
         public void TestMethod_Create_Trow_Exeption_of_Model_Not_Valid()
         {
             var repo = new Repository(context);
-            service = new PictureService(repo);
+            service = new PictureService(repo, logger!);
 
 
             Assert.ThrowsAsync<ArgumentNullException>(async ()=> await service.AddPicture(new AddPictureViewModel()));
@@ -45,7 +47,7 @@ namespace TetstingAllProjects.TestServices
         public void TestMethod_AddByUser_Trow_Exeption_of_Model_Not_Valid()
         {
             var repo = new Repository(context);
-            service = new PictureService(repo);
+            service = new PictureService(repo, logger!);
 
             Assert.ThrowsAsync<ArgumentNullException>(async () => await service.AddPictureByUser(new AddPictureByUser()));
         }
@@ -55,7 +57,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethod_Create_Successfully_Added_Picture()
         {
             var repo = new Repository(context);
-            service = new PictureService(repo);
+            service = new PictureService(repo, logger!);
 
             await service.AddPicture(new AddPictureViewModel()
             {
@@ -80,7 +82,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethod_AddByUser_Successfully_Added_Picture_in_Database()
         {
             var repo = new Repository(context);
-            service = new PictureService(repo);
+            service = new PictureService(repo, logger!);
 
             await service.AddPictureByUser(new AddPictureByUser()
             {
@@ -104,7 +106,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethod_AllPictures_Return_data_Corectly()
         {
             var repo = new Repository(context);
-            service = new PictureService(repo);
+            service = new PictureService(repo, logger!);
 
             var allPictureService = await service.AllPicture();
 
@@ -117,7 +119,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethod_AllPicturesByUser_Return_data_Corectly()
         {
             var repo = new Repository(context);
-            service = new PictureService(repo);
+            service = new PictureService(repo, logger!);
 
             var allPictureService = await service.AllPictureByUser();
 
@@ -130,7 +132,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethod_Delete_Remove_Picture_Successfully()
         {
             var repo = new Repository(context);
-            service = new PictureService(repo);
+            service = new PictureService(repo, logger!);
 
             var allPictureService = await service.AllPicture();
 
@@ -157,7 +159,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethod_DeleteByUser_Remove_PictureByUser_Successfully()
         {
             var repo = new Repository(context);
-            service = new PictureService(repo);
+            service = new PictureService(repo, logger!);
 
             var allPictureByUser = await service.AllPictureByUser();
 
@@ -182,7 +184,7 @@ namespace TetstingAllProjects.TestServices
         public void TestMethod_DeleteByUser_throw_Exeption_If_Id_Not_Found_Picture()
         {
             var repo = new Repository(context);
-            service = new PictureService(repo);
+            service = new PictureService(repo, logger!);
 
             Assert.ThrowsAsync<NullReferenceException>(async () => await service.DeleteByUser(370));
         }
@@ -194,7 +196,7 @@ namespace TetstingAllProjects.TestServices
         public void TestMethod_Delete_throw_Exeption_If_Id_Not_Found()
         {
             var repo = new Repository(context);
-            service = new PictureService(repo);
+            service = new PictureService(repo, logger!);
 
             Assert.ThrowsAsync<ArgumentNullException>(async ()=> await service.Delete(370));
         }
@@ -204,7 +206,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethod_Edit_Update_Info_Succsessfuly()
         {
             var repo = new Repository(context);
-            service = new PictureService(repo);
+            service = new PictureService(repo, logger!);
 
             await service.AddPicture(new AddPictureViewModel()
             {
@@ -239,7 +241,7 @@ namespace TetstingAllProjects.TestServices
         public void TestMethod_Edit_Trow_Exeption_If_Model_is_Not_Valid()
         {
             var repo = new Repository(context);
-            service = new PictureService(repo);
+            service = new PictureService(repo, logger!);
 
             Assert.ThrowsAsync<NullReferenceException>(async () => await service.EditPicture(new AddPictureViewModel()));
         }

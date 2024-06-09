@@ -34,14 +34,15 @@ namespace MyWebProject.Core.Services.Services
             string date = sanitizer.Sanitize(model.StartDate);
             string image = sanitizer.Sanitize(model.Urladdress);
 
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(date)
+                    || string.IsNullOrWhiteSpace(image))
+            {
+                throw new NullReferenceException("The field connot empty");
+            }
+
             try
             {
-                if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(date)
-                    || string.IsNullOrWhiteSpace(image))
-                {
-                    throw new NullReferenceException("The field connot empty");
-                }
-
+               
                 var journey = new Journeys()
                 {
                     Id = model.Id,
@@ -70,6 +71,7 @@ namespace MyWebProject.Core.Services.Services
             catch (NullReferenceException ne)
             {
                 logger.LogError(string.Format("Journry not added in database"), ne);
+                throw new NullReferenceException("The field connot empty");
             }
 
             return model;
@@ -77,15 +79,20 @@ namespace MyWebProject.Core.Services.Services
 
         [Area("Administrator")]
         public async Task Delete(int id)
-        {
-            try
-            {
-                var setersss = await repo.AllReadonly<Journeys>()
+        { 
+            
+            var setersss = await repo.AllReadonly<Journeys>()
                     .Where(z => z.Id == id)
                     .Include(x => x.pictures)
                     .ToListAsync();
 
+            if (setersss.Count == 0)
+            {
+                throw new ArgumentOutOfRangeException("Item to deleted Not Found!");
+            }
 
+            try
+            {
                 await repo.DeleteAsync<Journeys>(setersss[0].Id);
                 await repo.SaveChangesAsync();
             }
@@ -105,10 +112,17 @@ namespace MyWebProject.Core.Services.Services
             string date = sanitizer.Sanitize(model.StartDate);
             string image = sanitizer.Sanitize(model.Urladdress);
 
+            var current = await repo.GetByIdAsync<Journeys>(model.Id);
+
+            if (current == null)
+            {
+                throw new InvalidOperationException("\"Model not added some property is not valid\"");
+            }
+
+
             try
             {
-                var current = await repo.GetByIdAsync<Journeys>(model.Id);
-
+               
                 if (model.Urladdress != null)
                 {
                     var pict = await repo.AllReadonly<Pictures>().FirstAsync(x => x.JourneyId == model.Id);

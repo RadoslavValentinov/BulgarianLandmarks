@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Core.Services.Services;
 using MyWebProject.Infrastructure.Data;
@@ -13,6 +14,7 @@ namespace TetstingAllProjects.TestServices
 
         private IHomeService service;
         private ApplicationDbContext context;
+        private readonly ILogger<HomeServices> logger;
 
 
         [SetUp]
@@ -34,7 +36,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_AllPicture_Return_Collection_Corectly()
         {
             var repo = new Repository(context);
-            service = new HomeServices(repo);
+            service = new HomeServices(repo, logger);
 
             var allServicePicture = await service.AllPicture();
 

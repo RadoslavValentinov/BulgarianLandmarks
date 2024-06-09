@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.JourneyModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Core.Services.Services;
@@ -15,8 +16,9 @@ namespace TetstingAllProjects.TestServices
 {
     public class TestJourneyService
     {
-        private IJourneyServise service;
+        private IJourneyServise? service;
         private ApplicationDbContext context;
+        private readonly ILogger<JourneyService>? logger;
 
 
         [SetUp]
@@ -38,7 +40,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_Create_Added_New_Journey()
         {
             var repo = new Repository(context);
-            service = new JourneyService(repo);
+            service = new JourneyService(repo, logger);
 
             var allJourney = await service.GetAll();
 
@@ -73,17 +75,17 @@ namespace TetstingAllProjects.TestServices
         public void Test_Method_Create_Added_New_Journey_Throw_Exeption()
         {
             var repo = new Repository(context);
-            service = new JourneyService(repo);
+            service = new JourneyService(repo, logger!);
 
             Assert.ThrowsAsync<NullReferenceException>(async () => await service.Create(new JourneyViewModel()
             {
                 Name = "    ",
                 Description = "Пирин е разположен в югозападната част на страната между долините на ... Северен Пирин е най-големият дял на планината и всъщност неговата същинска",
                 Rating = 0.0m,
-                StartDate = null,
+                StartDate = null!,
                 Day = null,
                 Price = 198,
-                Urladdress = null
+                Urladdress = null!
             }));
         }
 
@@ -92,7 +94,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_GetById_Return_Correctly_Journey()
         {
             var repo = new Repository(context);
-            service = new JourneyService(repo);
+            service = new JourneyService(repo, logger);
 
             await service.Create(new JourneyViewModel()
             {
@@ -123,7 +125,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_GetByIdNewModel_Return_Correctly_Journey()
         {
             var repo = new Repository(context);
-            service = new JourneyService(repo);
+            service = new JourneyService(repo, logger!);
 
             await service.Create(new JourneyViewModel()
             {
@@ -155,7 +157,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_Delete_Remove_Journey_Corectly()
         {
             var repo = new Repository(context);
-            service = new JourneyService(repo);
+            service = new JourneyService(repo, logger!);
 
             await service.Create(new JourneyViewModel()
             {
@@ -183,29 +185,17 @@ namespace TetstingAllProjects.TestServices
         public void Test_Method_Delete_Throw_Exeption_Model_Is_Not_Valid()
         {
             var repo = new Repository(context);
-            service = new JourneyService(repo);
+            service = new JourneyService(repo, logger!);
 
             Assert.ThrowsAsync<ArgumentOutOfRangeException>(async () => await service.Delete(150));
         }
 
 
         [Test]
-        public async Task Test_Method_Edit_Trow_Exeption_to_Model_Is_Not_Valid()
+        public void Test_Method_Edit_Trow_Exeption_to_Model_Is_Not_Valid()
         {
             var repo = new Repository(context);
-            service = new JourneyService(repo);
-
-            await service.Create(new JourneyViewModel()
-            {
-                Id = 50,
-                Name = "дву дневна екскурзия в недрата на Пирин",
-                Description = "Пирин е разположен в югозападната част на страната между долините на ... Северен Пирин е най-големият дял на планината и всъщност неговата същинска",
-                Rating = 7,
-                StartDate = "12-09-2023",
-                Day = 2,
-                Price = 198,
-                Urladdress = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Pirin_pano0.jpg/2250px-Pirin_pano0.jpg"
-            });
+            service = new JourneyService(repo, logger!);
 
 
             Assert.ThrowsAsync<InvalidOperationException>(async () => await service.Edit(new JourneyViewModel()
@@ -227,7 +217,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_Edit_Set_New_Value_Corectly()
         {
             var repo = new Repository(context);
-            service = new JourneyService(repo);
+            service = new JourneyService(repo, logger!);
 
             await service.Create(new JourneyViewModel()
             {

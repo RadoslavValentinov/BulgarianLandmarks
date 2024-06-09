@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.LandMarkModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Core.Services.Services;
@@ -17,8 +18,9 @@ namespace TetstingAllProjects.TestServices
     [TestFixture]
     public class TestLandMarkService
     {
-        private ILandmarkService service;
+        private ILandmarkService? service;
         private ApplicationDbContext context;
+        private readonly ILogger<LandMarkService>? logger;
 
 
         [SetUp]
@@ -40,7 +42,7 @@ namespace TetstingAllProjects.TestServices
         public void Method_AddNew_LandMark_Throw_Exeption_To_Model_Property_Is_Empty()
         {
             var repo = new Repository(context);
-            service = new LandMarkService(repo);
+            service = new LandMarkService(repo, logger!);
 
             Assert.ThrowsAsync<NullReferenceException>(async () => await service.AddLandMark(new AddLandMarkViewModel()));
         }
@@ -49,7 +51,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Method_AddNew_LandMark_Added_Model_Corectly()
         {
             var repo = new Repository(context);
-            service = new LandMarkService(repo);
+            service = new LandMarkService(repo, logger!);
 
             var allLadmark = await service.GetAllLandmark();
 
@@ -76,7 +78,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Method_AddNewUser_LandMark_Added_Model_Corectly()
         {
             var repo = new Repository(context);
-            service = new LandMarkService(repo);
+            service = new LandMarkService(repo, logger!);
 
             var allLadmark = await service.GetAllByUser();
 
@@ -103,7 +105,7 @@ namespace TetstingAllProjects.TestServices
         public void Method_AddNewUser_LandMark_Throw_Exeption_To_Model_Property_Is_Empty()
         {
             var repo = new Repository(context);
-            service = new LandMarkService(repo);
+            service = new LandMarkService(repo, logger!);
 
             Assert.ThrowsAsync<NullReferenceException>(async () => await service.AddLandMarkOfUsers(new LandMarkByUserAdded()));
         }
@@ -113,7 +115,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Method_AllCategory_Return_All_Category_Corectly()
         {
             var repo = new Repository(context);
-            service = new LandMarkService(repo);
+            service = new LandMarkService(repo, logger!);
 
             var all = await service.AllCategory();
 
@@ -125,7 +127,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_ExistById_Return_True_Result()
         {
             var repo = new Repository(context);
-            service = new LandMarkService(repo);
+            service = new LandMarkService(repo, logger!);
 
             Assert.IsTrue(await service.ExistById(7));
         }
@@ -134,7 +136,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_ExistById_Return_False_Result()
         {
             var repo = new Repository(context);
-            service = new LandMarkService(repo);
+            service = new LandMarkService(repo, logger!);
 
             Assert.IsFalse(await service.ExistById(-1));
         }
@@ -143,7 +145,7 @@ namespace TetstingAllProjects.TestServices
         public void TestMetyhod_Delete_Throw_Exp_To_Id_Is_Not_Valid()
         {
             var repo = new Repository(context);
-            service = new LandMarkService(repo);
+            service = new LandMarkService(repo, logger!);
 
             Assert.ThrowsAsync<ArgumentOutOfRangeException>(async ()=> await service.Delete(100));
         }
@@ -153,7 +155,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_Delete_Succsessfully()
         {
             var repo = new Repository(context);
-            service = new LandMarkService(repo);
+            service = new LandMarkService(repo, logger!);
 
 
             var allLadmark = await service.GetAllLandmark();
@@ -182,7 +184,7 @@ namespace TetstingAllProjects.TestServices
         public void Test_Method_Edit_Trow_Exeption_Name_And_Description_Is_Null()
         {
             var repo = new Repository(context);
-            service = new LandMarkService(repo);
+            service = new LandMarkService(repo, logger!);
 
             Assert.ThrowsAsync<NullReferenceException>(async ()=> await service.Edit(new LandMarkViewModelAll()));
         }
@@ -191,7 +193,7 @@ namespace TetstingAllProjects.TestServices
         public void Test_Method_Edit_Trow_Exeption_Model_Is_Empty()
         {
             var repo = new Repository(context);
-            service = new LandMarkService(repo);
+            service = new LandMarkService(repo, logger!);
 
             Assert.ThrowsAsync<NullReferenceException>(async () => await service.Edit(new LandMarkViewModelAll()
             {
@@ -204,7 +206,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_Edit_Update_Successfully_LandMark()
         {
             var repo = new Repository(context);
-            service = new LandMarkService(repo);
+            service = new LandMarkService(repo, logger!);
 
             await service.AddLandMark(new AddLandMarkViewModel()
             {

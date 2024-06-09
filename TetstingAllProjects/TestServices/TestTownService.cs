@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.LandMarkModel;
 using MyWebProject.Core.Models.Town;
 using MyWebProject.Core.Services.IServices;
@@ -17,8 +18,9 @@ namespace TetstingAllProjects.TestServices
     [TestFixture]
     public class TestTownService
     {
-        private ITownService service;
+        private ITownService? service;
         private ApplicationDbContext context;
+        private readonly ILogger<TownService>? logger;
 
 
         [SetUp]
@@ -41,7 +43,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_TownsById_Return_Town_Correctly()
         {
             var repo = new Repository(context);
-            service = new TownService(repo);
+            service = new TownService(repo, logger!);
 
             var targetTown = await service.TownsById(1);
 
@@ -53,7 +55,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_TownsByName_Return_Town_Correctly()
         {
             var repo = new Repository(context);
-            service = new TownService(repo);
+            service = new TownService(repo, logger!);
 
             var targetTown = await service.TownsByName("Плевен");
 
@@ -67,7 +69,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_AllTowns_Return_Town_Correctly()
         {
             var repo = new Repository(context);
-            service = new TownService(repo);
+            service = new TownService(repo, logger!);
 
             var townByService = await service.AllTowns();
 
@@ -83,7 +85,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_Create_Add_Town_Correctly()
         {
             var repo = new Repository(context);
-            service = new TownService(repo);
+            service = new TownService(repo, logger!);
 
             var townCount = await service.AllTowns();
 
@@ -110,7 +112,7 @@ namespace TetstingAllProjects.TestServices
         public void Test_Method_CreateTown_Throw_Exeption_If_Model_Is_Not_Valid()
         {
             var repo = new Repository(context);
-            service = new TownService(repo);
+            service = new TownService(repo, logger!);
 
             Assert.ThrowsAsync<ArgumentNullException>(async ()=> await service.CreateTown(new CreateTownViewModel()));
         }
@@ -120,7 +122,7 @@ namespace TetstingAllProjects.TestServices
         public void Test_Method_Delete_Throw_Exeption_If_Id_Not_Found()
         {
             var repo = new Repository(context);
-            service = new TownService(repo);
+            service = new TownService(repo, logger!);
 
             Assert.ThrowsAsync<ArgumentOutOfRangeException>(async () => await service.Delete(200));
         }
@@ -130,7 +132,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_Delete_Remove_Town_Succsessfuly()
         {
             var repo = new Repository(context);
-            service = new TownService(repo);
+            service = new TownService(repo, logger!);
 
             var all = await service.AllTowns();
 
@@ -154,7 +156,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_Edit_Update_Successfully_LandMark()
         {
             var repo = new Repository(context);
-            service = new TownService(repo);
+            service = new TownService(repo, logger!);
 
             await service.CreateTown(new CreateTownViewModel()
             {
@@ -181,7 +183,7 @@ namespace TetstingAllProjects.TestServices
         public void Test_Method_Edit_Throw_Exeption_If_Model_Not_Valid()
         {
             var repo = new Repository(context);
-            service = new TownService(repo);
+            service = new TownService(repo, logger!);
 
             Assert.ThrowsAsync<NullReferenceException>(async () => await service.Edit(new TownViewModelGetTown()));
         }
