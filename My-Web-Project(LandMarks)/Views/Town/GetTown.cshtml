@@ -5,7 +5,7 @@
 }
 
 <head>
-    <link rel="stylesheet" href="~/css/All CSS file/TownCustomCSS/TownCss.csss" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/All CSS file/TownCustomCSS/TownCss.css" asp-append-version="true" />
 </head>
 
 
@@ -20,13 +20,13 @@
 
 
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
+    <div class="carousel-inner" style="margin-left:150px">
         @foreach (var sa in pic)
         {
             <div class="carousel-item @(first ? "active" : string.Empty)">
 
-                <img class="d-block w-100" style="height:500px"
-                     src="@sa.UrlImgAddres" alt="...">
+                <img class="d-block w-75" style="height:500px"
+                     src="@sa.UrlImgAddres" alt="Town Picture">
 
             </div>
 
@@ -51,7 +51,7 @@
 
 <div id="descript" class="container">
     <div class="row">
-        <div class="text-black">@Model.Description</div>
+        <div id="desc"><p>@Model.Description</p></div>
         <br />
         <hr />
     </div>
@@ -66,8 +66,9 @@
 @if (land.Count >= 3)
 {
     <div class="container">
-        <div class="text-lg-start">
-            <p style="font-size:50px;">Забележителности</p>
+        <div class="text-lg-center">
+            <hr />
+            <p style=" font-size:50px;">Забележителности</p>
             <hr />
         </div>
         <div class="row">
@@ -75,11 +76,12 @@
             {
                 var picture = pict.FirstOrDefault(x => x.LandMarkId == land[i].Id);
 
-                <div id="divCard" class="col">
+                <div id="cardElement">
                     <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
-                    <div>
+                    <div id="secText">
                         <h5>@land[i].Name.ToString()</h5>
-                        <p>@land[i].Description.Substring(0,60)...</p>
+                        <hr />
+                        <p>@land[i].Description.Substring(0, 60)...</p>
                         <a class="btn btn-primary" asp-route-id="@land[i].Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
                     </div>
                 </div>
@@ -95,26 +97,27 @@
 }
 
 <div class="container">
-    <div class="text-lg-start">
+    <div class="text-lg-center">
         <p style="font-size:50px;">Културни Събития</p>
         <hr />
     </div>
     <div class="row">
         @for (int i = 0; i < 3; i++)
         {
-            <div id="eventss" class="col">
+            <div id="cardElement">
                 <img src="@culEvent[i].ImageURL" class="card-img-top" alt="...">
-                <div class="card-group">
-                    <h5 class="card-title">@culEvent[i].Name.ToString()</h5>
+                <div id="secText">
+                    <h5>@culEvent[i].Name.ToString()</h5>
+                    <hr />
                     @if (culEvent[i].Description.Length < 50)
                     {
-                        <p class="card-text">@culEvent[i].Description.Substring(0,culEvent[i].Description.Length)...</p>
+                        <p>@culEvent[i].Description.Substring(0,culEvent[i].Description.Length)...</p>
                     }
                     else
                     {
-                        <p class="card-text">@culEvent[i].Description.Substring(0,60)...</p>
+                        <p>@culEvent[i].Description.Substring(0,60)...</p>
                     }
-                    <a class="btn btn-primary" asp-route-id="@culEvent[i].Id" asp-controller="CultureEvent" asp-action="EventByTownId">Научи повече</a>
+                    <a id="eventss" class="btn btn-primary" asp-route-id="@culEvent[i].Id" asp-controller="CultureEvent" asp-action="EventByTownId">Научи повече</a>
                 </div>
             </div>
         }

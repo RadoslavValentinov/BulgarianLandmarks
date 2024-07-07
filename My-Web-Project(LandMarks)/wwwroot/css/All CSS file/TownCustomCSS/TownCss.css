@@ -1,53 +1,51 @@
 ﻿
-
 #descript{
     font-family:Arial, Helvetica, sans-serif;
-    font-size:18px;
+    font-size:20px;
     letter-spacing:1.2px;
 }
 
-#divCard{
-    width:300px;
-    height:400px;
-    padding:0px;
-    border:2px solid black;
-    margin:10px;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:12px;
-    background-color:whitesmoke;
-}
-
-#divCard img{
-    padding:0px;
-    width:350px;
-    height:200px;
-}
-
-#divCard .btn{
-    position:relative;
-    bottom: -30px;
-    left:100px;
-}
-
-#eventss {
-    width: 300px;
-    height: 400px;
+.container .row #cardElement {
+    width: 350px;
+    height: 390px;
     padding: 0px;
-    border: 2px solid black;
+    border: 1px solid gray;
     margin: 10px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 12px;
     background-color: whitesmoke;
+    border-radius:4px;
 }
 
-#eventss img {
-    padding: 0px;
-    width: 350px;
-    height: 200px;
+    #cardElement img {
+        padding: 0px;
+        width: 348px;
+        height: 200px;
+    }
+
+    #cardElement .btn {
+        position: relative;
+        bottom: -50px;
+        left: 0px;
+    }
+#cardElement #secText{
+    text-align:center;
 }
 
-#eventss .btn {
+    #cardElement #secText p {
+        padding: 0px;
+        margin:5px 0px;
+    }
+
+
+#desc p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+#eventss {
     position: relative;
-    bottom: -60px;
-    left: 100px;
+    bottom: -50px;
+    left: 50px;
 }
+
+
