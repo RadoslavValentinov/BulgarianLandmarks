@@ -238,7 +238,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                 new Pictures()
                 {
                     Id = 34,
-                    UrlImgAddres = "https://www.ethnograph.info/images/facade-new-web.jpg",
+                    UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKxzDFhmlyXlHYSinCSzQMFqM1cc5toWXMZw&s",
                     LandMarkId = 6,
                     TownId = 2
                 },
@@ -273,7 +273,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                 new Pictures()
                 {
                     Id = 39,
-                    UrlImgAddres = "https://www.bg-guide.org/thumbs/1130x636/objects/antichen-teatar-plovdiv/nebettepe-re_1130x636_crop_95f4d0d6be.jpg",
+                    UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVkOx63M2NLAshJkZ0FUIzOZyeNUglKdjNfg&s",
                     LandMarkId = 7,
                     TownId = 2
                 },
@@ -837,7 +837,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                 {
                     Id = 123,
                     UrlImgAddres = "https://www.andrey-andreev.com/wp-content/uploads/2016/10/IMGP7125.jpg",
-                    LandMarkId = 20,
+                    LandMarkId = 20,    
                 },
                 new Pictures()
                 {

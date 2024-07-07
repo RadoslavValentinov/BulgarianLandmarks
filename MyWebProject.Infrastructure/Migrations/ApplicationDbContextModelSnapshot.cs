@@ -1470,7 +1470,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             IsActiv = true,
                             LandMarkId = 6,
                             TownId = 2,
-                            UrlImgAddres = "https://www.ethnograph.info/images/facade-new-web.jpg"
+                            UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKxzDFhmlyXlHYSinCSzQMFqM1cc5toWXMZw&s"
                         },
                         new
                         {
@@ -1510,7 +1510,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             IsActiv = true,
                             LandMarkId = 7,
                             TownId = 2,
-                            UrlImgAddres = "https://www.bg-guide.org/thumbs/1130x636/objects/antichen-teatar-plovdiv/nebettepe-re_1130x636_crop_95f4d0d6be.jpg"
+                            UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVkOx63M2NLAshJkZ0FUIzOZyeNUglKdjNfg&s"
                         },
                         new
                         {
@@ -2621,7 +2621,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = "630d5dda-7255-4ce9-a658-0eedfb698a5f",
                             AccessFailedCount = 0,
                             Avatar = "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg",
-                            ConcurrencyStamp = "08b84a3b-1e39-4bc7-ad09-a7f2b53eea26",
+                            ConcurrencyStamp = "9c011d37-c01a-4868-b3c4-876c210d2de5",
                             Email = "Bobo561@abv.bg",
                             EmailConfirmed = true,
                             FirstName = "Borislav",
@@ -2630,9 +2630,9 @@ namespace MyWebProject.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "Bobo561@abv.bg",
                             NormalizedUserName = "Bobo561@abv.bg",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIyg2dzkQncPm1eNgWnwwqwW4aBkYAtqP2Yw+7MfAyYw4RCAcioOXJMoPCvgKV+tBw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHM9F5EKQudbj8x6jGV6XDP1byH5Sq99GHFdEg7E/Evs77N6NXeyKZJIUCtegA71Rg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "16bd838d-eee7-4382-9c9a-d1b09c521083",
+                            SecurityStamp = "457b2020-5354-4770-b0db-6307d4ce9cd0",
                             TwoFactorEnabled = false,
                             UserName = "Bobo561@abv.bg"
                         });
