@@ -39,7 +39,7 @@
                     <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
                     <h4>@item.Name</h4>
                     <hr/>
-                    <div class="card-group">
+                    <div id="hideElement">
                         <p>@item.Description.Substring(0,90)...</p>
                         <a id="sub" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
                     </div>
