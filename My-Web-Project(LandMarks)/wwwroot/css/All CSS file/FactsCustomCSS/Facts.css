@@ -1,5 +1,5 @@
 ﻿body {
-    background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGYtczEwNy10ZC0wMDNfMi5qcGc.jpg');
+    background-image: url('https://media.istockphoto.com/id/1407271723/photo/gray-gradient-background.webp?b=1&s=170667a&w=0&k=20&c=wR_0Nfhe5W2DYm_o94veFQ5PRoD6Y_9DPhuOpcNIgzA=');
 }
 
 h1{
@@ -8,20 +8,33 @@ h1{
 span{
     display:block;
     text-align:center;
+    width:auto;
+    font-weight:300;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:24px;
 }
 #hide{
     padding:5px;
 }
 
-.container {
-    width:auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0px;
-    gap:10px;
-    margin-left: 40px;
+#hidecustom{
+    margin:0px;
+    padding:0px;
 }
+
+    #hidecustom #descs {
+        padding: 0px 5px;
+    }
+
+    .container {
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0px;
+        gap: 10px;
+        margin-left: 40px;
+    }
 
 #intFact p {
     font-family: Arial, Helvetica, sans-serif;
@@ -37,8 +50,9 @@ span{
     font-size: 18px;
     border: 2px solid lightgray;
     background-color: white;
-    width: 450px;
-    height: 200px;
+    width: 550px;
+    height: 230px;
+    overflow:hidden;
 }
 
 #intFact #hidecustom {

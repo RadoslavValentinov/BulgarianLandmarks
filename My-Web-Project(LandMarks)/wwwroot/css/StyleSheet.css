@@ -442,6 +442,10 @@ hr {
     background-color: lightskyblue;
     border: 1px solid gray;
 }
+#btn-tw1-first:hover {
+    background-color: lightskyblue;
+    border: 1px solid gray;
+}
 
 #set:hover {
     background-color: cornsilk;
@@ -481,7 +485,7 @@ hr{
     height: 400px;
     background-image: url('https://m.netinfo.bg/media/images/49165/49165728/1280-840-plovdiv.jpg');
     object-fit: cover;
-    opacity: 0.8;
+    opacity: 0.9;
     margin-bottom:20px;
 }
 
@@ -501,7 +505,8 @@ hr{
         font-size: 18px;
         margin: 5px;
         width: 800px;
-        color: ghostwhite;
+        color: white;
+        font-size:20px;
     }
 
 #facts {
@@ -561,7 +566,7 @@ hr{
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
         width: 800px;
-        color: ghostwhite;
+        color: whitesmoke;
     }
 
 #facts3 {
