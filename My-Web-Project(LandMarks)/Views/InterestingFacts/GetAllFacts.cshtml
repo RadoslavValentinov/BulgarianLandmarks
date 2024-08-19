@@ -16,26 +16,26 @@
     <br />
 </div>
 <div class="container">
-    @foreach (var item in collect.OrderBy(x => x.Description.Length > 250).ToList())
+    @foreach (var item in collect.OrderBy(x=> x.Description.Length <= 315).ToList())
     {
-        if (item.Description.Length < 250)
+        if (item.Description.Length <= 315)
         {
             <div id="intFactCustom">
-                <p id="hidecustom">
+                <p id="hidecustom" >
                     <span>@count</span>
                     <hr />
-                    <p id=" descs"> @item.Description</p>
+                    <p id="descs">@item.Description</p>
                 </p>
             </div>
             count++;
         }
         else
         {
-            <div id="intFactCustom">
+            <div id="largefacts">
                 <p id="hidecustom">
                     <span>@count</span>
                     <hr />
-                    <p id=" descs"> @item.Description</p>
+                    <p id="descs"> @item.Description</p>
                 </p>
             </div>
             count++;
