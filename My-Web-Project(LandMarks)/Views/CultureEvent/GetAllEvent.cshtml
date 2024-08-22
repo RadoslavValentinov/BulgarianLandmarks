@@ -6,30 +6,35 @@
 
 <head>
     <link rel="stylesheet" href="~/css/All CSS file/EventsCustomCSS/AllEventCSS.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 
 
 <div class="text-lg-center">
 
     @{
-       int count = 1;
+        int count = 1;
     }
     <p style="font-size:50px;">Събития подредени по Градове</p>
 
-    @for (int i = 0; i < Model.Count(); i += 3)
+    @for (int i = 0; i < Model.Count(); i += 4)
     {
         <div class="row">
-            @foreach (var item in all.Take(3))
+            @foreach (var item in all.Take(4))
             {
-                <div id="Custom" class="col">
-                    <img src="@item.ImageURL" alt="...">
-                    <h3>@item.Name</h3>
-                    <hr />
-                    <p>@item.Description.Substring(0,35)...</p>
-                    <hr />
-                    <p>Дата: @item.Date</p>
-                    <hr />
-                    <p>Започва в: @item.Hour</p>
+                <div id="Custom" class="col" onmouseover="displayBlock()" onmouseout="normalSize()">
+                    <img src="@item.ImageURL" alt="@item.Name">
+                    <div id="statistic" style="display: none;">
+                        <p>Може би</p>
+                        <p>Ще присъствам</p>
+                    </div>
+                    <h4>"@item.Name"</h4>
+
+                    <p><i class="fa-regular fa-calendar-days"></i> @item.Date.Substring(0, 5)</p>
+
+                    <p><i class="fa-regular fa-clock"></i> @item.Hour</p>
+
+                    <p><i class="fa-solid fa-location-dot"></i>@item.Town</p>
                     <hr />
                     <a id="@count" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="CultureEvent" asp-action="EventByTownId">Научи повече</a>
                 </div>
@@ -40,3 +45,22 @@
         <br />
     }
 </div>
+
+
+@section scripts {
+    <script>
+        function displayBlock() {
+
+            let getDivId = document.getElementById('statistic');
+
+            getDivId.style.display = 'block';
+        }
+
+        function normalSize() {
+
+            let getDivId = document.getElementById('statistic');
+
+            getDivId.style.display = 'none';
+        }
+    </script>
+}

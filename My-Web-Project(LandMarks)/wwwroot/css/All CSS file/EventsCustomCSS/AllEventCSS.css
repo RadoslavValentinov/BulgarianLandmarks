@@ -3,25 +3,39 @@
 }
 
 #Custom img {
-    width: 300px;
-    height: 200px;
-    padding-left:0px;
+    width: 278px;
+    height: 150px;
 }
 
 #Custom {
     border: 2px solid lightgray;
     box-shadow: initial 10px 10px 10px initial;
-    margin: 5px 10px 5px 10px;
     border-radius: 5px;
-    max-width: 350px;
-    height: 550px;
-    background-color: blanchedalmond;
+    max-width: 280px;
+    height: 380px;
+    background-color: whitesmoke;
+    padding:0px;
 }
 
-h3 {
+.row h4 {
+    padding: 0px;
+    font-style: italic;
     font-family: Helvetica, sans-serif;
     font-style: italic;
     margin: 5px 0px 5px 0px;
+    padding: 0px;
+}
+
+.row p {
+    padding: 0px;
+    margin-bottom: 5px;
+    color: lightslategray;
+    text-align:center;
+}
+
+.row p i{
+    padding-right:5px;
+    color:lightgray;
 }
 
 p {
@@ -30,17 +44,16 @@ p {
 }
 
 #Custom .btn:hover {
-    background-color: chocolate;
+    background-color: dodgerblue;
 }
 
 #Custom .btn {
-    background-color: cadetblue;
-    position: relative;
-    padding: 3px 151px;
-    bottom: -65px;
-    left: -12px;
+    background-color: #0f7fab;
+    padding: 7px 25px;
+    margin-top: 10px;
+    color: white;
+    border: 1px solid #0f7fab;
 }
-
-#Custom #7{
-    bottom: -330px;
+hr{
+    color:gray;
 }
