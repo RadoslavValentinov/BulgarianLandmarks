@@ -1,5 +1,5 @@
 ﻿* {
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
 #Custom img {
@@ -12,9 +12,9 @@
     box-shadow: initial 10px 10px 10px initial;
     border-radius: 5px;
     max-width: 280px;
-    height: 380px;
+    height: 390px;
     background-color: whitesmoke;
-    padding:0px;
+    padding: 0px;
 }
 
 .row h4 {
@@ -30,13 +30,13 @@
     padding: 0px;
     margin-bottom: 5px;
     color: lightslategray;
-    text-align:center;
+    text-align: center;
 }
 
-.row p i{
-    padding-right:5px;
-    color:lightgray;
-}
+    .row p i {
+        padding-right: 5px;
+        color: lightgray;
+    }
 
 p {
     font-family: Arial, Helvetica, sans-serif;
@@ -54,6 +54,33 @@ p {
     color: white;
     border: 1px solid #0f7fab;
 }
-hr{
-    color:gray;
+
+hr {
+    color: gray;
+}
+
+#statistic {
+    display: none;
+    background-color:white;
+}
+#statistic a i{
+    padding-right:5px;
+} 
+
+a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    color: lightslategray;
+}
+a:hover{
+    color:lightseagreen;
+}
+
+#Custom:hover #statistic {
+    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 10px;
 }

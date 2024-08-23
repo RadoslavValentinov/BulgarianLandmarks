@@ -6,7 +6,7 @@
 
 <head>
     <link rel="stylesheet" href="~/css/All CSS file/EventsCustomCSS/AllEventCSS.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" asp-append-version="true" />
 </head>
 
 
@@ -22,11 +22,12 @@
         <div class="row">
             @foreach (var item in all.Take(4))
             {
-                <div id="Custom" class="col" onmouseover="displayBlock()" onmouseout="normalSize()">
-                    <img src="@item.ImageURL" alt="@item.Name">
-                    <div id="statistic" style="display: none;">
-                        <p>Може би</p>
-                        <p>Ще присъствам</p>
+               @*  next task add onclick event to a tag to clicked set color to green maybe *@
+                <div id="Custom" class="col">
+                    <img src="@item.ImageURL" alt="@item.Name"/>
+                    <div id="statistic">
+                        <a href="#"><i class="fa-regular fa-star"></i>Може би</a>
+                        <a href="#"><i class="fa-solid fa-circle-check"></i>Ще присъствам</a>
                     </div>
                     <h4>"@item.Name"</h4>
 
