@@ -1,4 +1,5 @@
 ﻿using Ganss.Xss;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -250,6 +251,7 @@ namespace MyWebProject.Core.Services.Services
                 }).FirstAsync();
         }
 
+        [Authorize]
         public async Task<IEnumerable<LandMarkByUserAdded>> GetAllByUser()
         {
             var result = await repo.All<Landmark_suggestions>()

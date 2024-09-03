@@ -30,6 +30,17 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
 
+        public async Task<IActionResult> AddEventByUserCollection(int id)
+        {
+
+            var currentEvent = await service.EventByTownId(id);
+
+
+
+            return Ok();
+        }
+
+
         /// <summary>
         /// The method takes all cities
         /// </summary>

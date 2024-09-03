@@ -24,5 +24,8 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         public List<Pictures> UserPictures { get; set; }
             = new List<Pictures>();
+
+        public List<Cultural_events> CulturalEvents { get; set; }
+            = new List<Cultural_events>();
     }
 }

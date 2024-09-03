@@ -24,6 +24,14 @@ namespace MyWebProject.Core.Services.Services
             logger = _logger;
         }
 
+        public async Task<CultureEventViewModelByTownId> AddUserEventCollection(CultureEventViewModelByTownId model)
+        {
+
+
+
+            return model;
+        }
+
         public async Task<IEnumerable<AllCultureEventViewModel>> AllEvent()
         {
             var all = await repo.AllReadonly<Cultural_events>()

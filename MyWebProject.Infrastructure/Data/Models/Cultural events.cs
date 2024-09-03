@@ -25,6 +25,8 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         public bool IsActiv { get; set; } = true;
 
+       
+
 
         [ForeignKey(nameof(Town))]
         public int TownId { get; set; }
@@ -33,6 +35,9 @@ namespace MyWebProject.Infrastructure.Data.Models
         [Required]
         [MaxLength(300)]
         public string ImageURL { get; set; } = null!;
+
+
+        public string? UserName { get; set; }
 
     }
 }

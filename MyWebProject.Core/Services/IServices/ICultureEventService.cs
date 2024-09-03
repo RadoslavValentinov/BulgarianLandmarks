@@ -5,6 +5,7 @@ namespace MyWebProject.Core.Services.IServices
     public interface ICultureEventService
     {
         Task<CultureEventViewModelByTownId> EventByTownId(int id);
+        Task<CultureEventViewModelByTownId> AddUserEventCollection(CultureEventViewModelByTownId model);
 
         Task<IEnumerable<AllCultureEventViewModel>> AllEvent();
 

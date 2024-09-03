@@ -109,9 +109,9 @@ namespace MyWebProject.Core.Services.Services
                     Id = x.Id,
                     UrlImgAddres = x.UrlImgAddres,
                     IsActive = x.IsActiv,
-                    LandMark = x.LandMark.Name,
-                    Town = x.Town.Name,
-                    Journey = x.Journey.Name
+                    LandMark = x.LandMark!.Name,
+                    Town = x.Town!.Name,
+                    Journey = x.Journey!.Name
                 })
                 .ToListAsync();
 

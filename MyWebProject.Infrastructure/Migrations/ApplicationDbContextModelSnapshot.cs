@@ -252,9 +252,17 @@ namespace MyWebProject.Infrastructure.Migrations
                     b.Property<int>("TownId")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UsersId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("TownId");
+
+                    b.HasIndex("UsersId");
 
                     b.ToTable("Cultural_Events");
 
@@ -2621,7 +2629,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = "630d5dda-7255-4ce9-a658-0eedfb698a5f",
                             AccessFailedCount = 0,
                             Avatar = "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg",
-                            ConcurrencyStamp = "9c011d37-c01a-4868-b3c4-876c210d2de5",
+                            ConcurrencyStamp = "94f31cc0-3d0d-4b18-8554-60207948a82a",
                             Email = "Bobo561@abv.bg",
                             EmailConfirmed = true,
                             FirstName = "Borislav",
@@ -2630,9 +2638,9 @@ namespace MyWebProject.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "Bobo561@abv.bg",
                             NormalizedUserName = "Bobo561@abv.bg",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHM9F5EKQudbj8x6jGV6XDP1byH5Sq99GHFdEg7E/Evs77N6NXeyKZJIUCtegA71Rg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELMRk/Aam08ogxpY2wxBi7WAXCVoIzcupCEfFP+wjV3RzMgZVw2k2X7j6B+ILuj/aA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "457b2020-5354-4770-b0db-6307d4ce9cd0",
+                            SecurityStamp = "11b47d04-46a5-4f2f-8b4f-ac7d8691c0f2",
                             TwoFactorEnabled = false,
                             UserName = "Bobo561@abv.bg"
                         });
@@ -2696,6 +2704,10 @@ namespace MyWebProject.Infrastructure.Migrations
                         .HasForeignKey("TownId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("MyWebProject.Infrastructure.Data.Models.Users", null)
+                        .WithMany("CulturalEvents")
+                        .HasForeignKey("UsersId");
 
                     b.Navigation("Town");
                 });
@@ -2780,6 +2792,8 @@ namespace MyWebProject.Infrastructure.Migrations
 
             modelBuilder.Entity("MyWebProject.Infrastructure.Data.Models.Users", b =>
                 {
+                    b.Navigation("CulturalEvents");
+
                     b.Navigation("SightsVisited");
 
                     b.Navigation("UserPictures");

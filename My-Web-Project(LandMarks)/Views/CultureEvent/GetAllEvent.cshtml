@@ -22,12 +22,12 @@
         <div class="row">
             @foreach (var item in all.Take(4))
             {
-               @*  next task add onclick event to a tag to clicked set color to green maybe *@
+               @*  next task add onclick event to a tag to clicked set color to light ,light ,light  green maybe *@
                 <div id="Custom" class="col">
                     <img src="@item.ImageURL" alt="@item.Name"/>
                     <div id="statistic">
-                        <a href="#"><i class="fa-regular fa-star"></i>Може би</a>
-                        <a href="#"><i class="fa-solid fa-circle-check"></i>Ще присъствам</a>
+                        <a href="#" onclick="changeColorTag(this)"><i class="fa-regular fa-star"></i>Може би</a>
+                        <a href="#" onclick="changeColorTag(this)"><i class="fa-solid fa-circle-check"></i>Ще присъствам</a>
                     </div>
                     <h4>"@item.Name"</h4>
 
@@ -62,6 +62,12 @@
             let getDivId = document.getElementById('statistic');
 
             getDivId.style.display = 'none';
+        }
+
+        function changeColorTag(change) {
+
+            change.style.color = '#06f420';
+
         }
     </script>
 }
