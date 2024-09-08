@@ -34,5 +34,9 @@ namespace MyWebProject.Core.Models.CultureEventModel
         [Required]
         [MaxLength(300)]
         public string ImageURL { get; set; } = null!;
+
+        public bool Going { get; set; } = false;
+
+        public bool Maybe { get; set; } = false;
     }
 }

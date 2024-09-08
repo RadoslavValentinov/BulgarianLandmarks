@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Internal;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyWebProject.Infrastructure.Data.Models
@@ -37,7 +38,10 @@ namespace MyWebProject.Infrastructure.Data.Models
         public string ImageURL { get; set; } = null!;
 
 
-        public string? UserName { get; set; }
+        public List<Users> UserName { get; set; }
+            = new List<Users>();
+        public bool Going { get; set; } = false;
 
+        public bool Maybe { get; set; } = false;
     }
 }

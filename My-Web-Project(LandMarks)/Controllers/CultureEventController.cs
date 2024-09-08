@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Services.IServices;
@@ -29,7 +30,7 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(model);
         }
 
-
+        [Authorize]
         public async Task<IActionResult> AddEventByUserCollection(int id)
         {
 

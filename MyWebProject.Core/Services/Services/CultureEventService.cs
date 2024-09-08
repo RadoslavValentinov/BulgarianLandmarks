@@ -1,7 +1,9 @@
 ﻿using Ganss.Xss;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Graph.Models;
 using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Custodians;
 using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Services.IServices;
@@ -12,6 +14,7 @@ using System.Text.Encodings.Web;
 
 namespace MyWebProject.Core.Services.Services
 {
+    
     public class CultureEventService : ICultureEventService
     {
         private readonly IRepository repo;
@@ -161,6 +164,8 @@ namespace MyWebProject.Core.Services.Services
 
         public async Task<CultureEventViewModelByTownId> EventByTownId(int id)
         {
+            
+
             try
             {
                 var allEvent = await repo.AllReadonly<Cultural_events>()

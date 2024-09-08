@@ -22,6 +22,21 @@ namespace MyWebProject.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Cultural_eventsUsers", b =>
+                {
+                    b.Property<int>("CulturalEventsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserNameId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CulturalEventsId", "UserNameId");
+
+                    b.HasIndex("UserNameId");
+
+                    b.ToTable("Cultural_eventsUsers");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -232,6 +247,9 @@ namespace MyWebProject.Infrastructure.Migrations
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
 
+                    b.Property<bool>("Going")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Hour")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -244,6 +262,9 @@ namespace MyWebProject.Infrastructure.Migrations
                     b.Property<bool>("IsActiv")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("Maybe")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -252,17 +273,9 @@ namespace MyWebProject.Infrastructure.Migrations
                     b.Property<int>("TownId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UsersId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("TownId");
-
-                    b.HasIndex("UsersId");
 
                     b.ToTable("Cultural_Events");
 
@@ -272,9 +285,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 1,
                             Date = "13.09.2022",
                             Description = "Фестивалът е забележителна част от културния живот на Плевен. Неговата цел е да популяризира джаза и импровизационната музика и да ги направи по-достъпни за широката аудитория.Създаден през 2017 година, фестивалът се провежда всяка година през месец септември на сцената в парка на Регионален исторически музей, организиран и финансиран от Община Плевен.Във фестивалната програма са участвали знакови музиканти и групи в българския и европейски джаз, изпълняващи различни направления в джаза, участвали в значими джаз фестивали в България и в много престижни музикални форуми в чужбина, където техният атрактивен начин на представяне винаги е предизвиквал интереса и овациите на публиката.",
+                            Going = false,
                             Hour = "17:00",
                             ImageURL = "https://visitpleven.com/wp-content/uploads/2018/02/jazz_afish_28-08-2019-2-scaled.jpg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "МЕЖДУНАРОДЕН AUTUMN JAZZ FEST",
                             TownId = 3
                         },
@@ -283,9 +298,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 2,
                             Date = "21.11.2022",
                             Description = "от Магда Борисоваnрежисьор: Ива Николовасценография и костюми: Константин Вълковкомпозитор: Ангел Бешевучастват: Асен Данков, Валентин Василев, Елица Анева, Камелия Хатиб, Мария Йорданова, Мариян Стефанов, Мариета Калъпова, Александър КъневМислите си, че е лесно да си таласъм ?Да поддържаш ужасяващия си вид, постоянно да си мръсен, рошав, сърдит?Да обитаваш мрачни места, да плашиш всички и да нямаш приятели?Трудно е, особено когато си малко симпатично таласъмче, което иска да бъде обичано…Един атрактивен, ярък и забавен спектакъл с много музика, невероятни костюми и чудесни актьори!",
+                            Going = false,
                             Hour = "18:00",
                             ImageURL = "https://www.theatre-pleven.bg/predstavlenia/images/talasamcheto-tami/tami%20clean.jpg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Таласъмчето Тами",
                             TownId = 3
                         },
@@ -294,9 +311,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 3,
                             Date = "03.12.2022",
                             Description = "Двама от най-дългогодишните и успешни актьори в плевенската трупа - Мариета Калъпова и Георги Ангелов ще ви потопят в една колкото забавна, толкова и тъжна история - трябва ви само ваучер!По Валентин Красногороврежисьор: Анастас Попдимитровсценограф: Мария Димановав ролите: Мариета Калъпова и Георги АнгеловЕдна и забавна, и тъжна история, наситена с много силни емоции и топлота.Мъж на средна възраст наема стая от една жена и се влюбва в нея. Уморен от скитническия живот, той иска да напусне завинаги цирка, в който работи от дълги години, да се ожени и да започне нов спокоен живот. Жената също е уморена да бъде сама. Щастието изглежда толкова близо...но дали е така? Героите решават много житейски ребуси и постоянно изненадват зрителя с ненадейни обрати.",
+                            Going = false,
                             Hour = "19:00",
                             ImageURL = "https://www.theatre-pleven.bg/predstavlenia/images/edin-maj-i-edna-jena/edin-maj-i-edna-jena.jpg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Един мъж и една жена",
                             TownId = 3
                         },
@@ -305,9 +324,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 4,
                             Date = "06.12.2022",
                             Description = "Вече 22 години творчество, а тя звучи все по-непреходно, нежно и ефирно с всеки изминал концерт. Когато става въпрос за изкуство, времето губи значение, само играе ролята на ветропоказател за новите поколения.С неизчерпаема любов към музиката, хората и живота, Белослава продължава със своето турне из България. Най-големите оперни и театрални сцени в общо 7 български града ще бъдат дом на магията, която Белослава създава заедно с Живко Петров, Антони Рикев, Росен Захариев - Роко и Димитър Семов.",
+                            Going = false,
                             Hour = "18:00",
                             ImageURL = "https://imgrabo.com/pics/guide/900x600/20220519140732_34740.jpeg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Белослава 22 ",
                             TownId = 1
                         },
@@ -316,9 +337,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 5,
                             Date = "19.12.2022",
                             Description = "Когато трябва да кажа нещо за „Ромео и Жулиета“ си давам сметка, че Любовта е най-ярката и водеща отправна точка, през която гледам живота си. Не намирам друг смисъл и друг отговор на въпросите относно битието ни на човеци...А любовта е тази, която винаги ни превръща в малки, невинни, треперещи деца, които не знаят какво да правят с ударите на сърцето и пулса, който имаме чувството, че целият свят чува как блъска кръвта в тялото ни. Ако трябва да сме честни пред света, ние имаме безкрайна нужда от любов, нужда, която се простира отвъд живота и достига до смъртта. Именно „Ромео и Жулиета“ е еманацията на това наше желание – най-щастливата трагедия в човешката култура. Да, ако трябва да сме честни, за нас е от изключително значение двамата млади веронци да умрат, за да имаме своя идеал за любов. Какво бихме правили, ако Ромео и Жулиета се спасят и станат, като всички нас?... Не! По неумолимия ход на Съдбата, щом искаме съвършена, страстна, романтична любов – тя ще умре, но ще бъде толкова красива, че ще ни прави щастливи завинаги!“Анастасия Събева",
+                            Going = false,
                             Hour = "18:30",
                             ImageURL = "https://theatre.peakview.bg/img/photos/BIG15706289201FB-event-RJ-02.jpg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Ромео и Жулиета",
                             TownId = 1
                         },
@@ -327,9 +350,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 6,
                             Date = "20.12.2022",
                             Description = "Автор: Братя Грим,Драматизация: Теодора ГеоргиеваРежисьор: Александра Петрова,Сценография: Десислава БанковаМузика: Дони - Добрин ВекиловПластика: Антоанета Добрева – НетиВидео и мултимедия: Петко ТанчевФотограф: Гергана ДамяноваПомощник-режисьор: Емилия ГеоргиеваУчастват: Александър Хаджиангелов, Рая Пеева, Красимир Недев, Кристина Янева, Севар Иванов, Светослав ДобревЛюбимата на всички деца приказка на Братя Грим оживява на сцената на Младежки театър. Освен досетливите и добри деца Хензел и Гретел, тук може да срещнете и нови приказни герои - техните приятели Елф и Гарван, както и Джиндифиловата вещица.Когато Хензел и Гретел се озовават в непознатата и тъмна гора, те трябва сами да се справят и да намерят пътя към дома. Там срещат Джинджифиловата вещица, която не им мисли доброто.И въпреки, че добрият Елф тайно ги пази, на финала те осъзнават, че това което им помага е надеждата и вярата в собствените им сили. „ Малките герои побеждават своите врагове. Големите герои побеждават себе си!” си казват те и продължават напред.",
+                            Going = false,
                             Hour = "17:00",
                             ImageURL = "https://theatre.peakview.bg/img/photos/BIG15117195521Hansel_Gretel_Damianova_8_web.jpg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Хензел и Гретел",
                             TownId = 1
                         },
@@ -338,9 +363,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 7,
                             Date = "19.11.2022",
                             Description = "Участие ще вземат едни от най-актуалните и обичани български артисти - Аня Пенчева, Мария Сапунджиева, Иво Аръков, Кирил Ефремов, Руслан Мъйнов, Ненчо Илчев, Албена Михова, Евгени Будинов и неповторимият Мариус Куркински, който в първите дни след обявяване на събитието бе гост-загадка на самия афиш. Ексклузивната актьорска вечер няма как да мине и без музикален съпровод, но изпълнителите за сега остават в загадка и ще се обявяват поетапно.В звездната актьорска вечер ще има много песни, модерно озвучаване и красиво осветление... и още...",
+                            Going = false,
                             Hour = "19:00",
                             ImageURL = "https://eportal.bg/assets/stagings/large/r_6253f844cf18c_d4192ae7f46cf.jpg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Еxclusive Actors Night",
                             TownId = 2
                         },
@@ -349,9 +376,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 8,
                             Date = "25.22.2022",
                             Description = "Концерт на живо С последните хитове на  Grafa.",
+                            Going = false,
                             Hour = "20:00",
                             ImageURL = "https://imgrabo.com/pics/guide/900x600/20220817094312_30940.jpeg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Grafa Live",
                             TownId = 2
                         },
@@ -360,9 +389,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 9,
                             Date = "20.11.2022",
                             Description = "Образователен спектакъл за най-малките! Въведете ги в света на операта - с приказна история с музика на Росини!Подходящ за деца от 3 години до 10 години и техните родители.Продължителност: 55 минути.Постановка - Симоне ГуераРежисьор - Матео МолианезиnКукли - Илариа КомисоПревод - Момчил КараивановСолисти и артисти - Светлана Иванова, Елин Стоянова, Ивелин Николов, Цветомира Цонева",
+                            Going = false,
                             Hour = "11:00",
                             ImageURL = "https://www.cross.bg/photo_new_gallery/2022/02/24/50ad63c9052e28a7f609922b44ef9609.jpg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Приказната Пепеляшка",
                             TownId = 2
                         },
@@ -371,9 +402,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 10,
                             Date = "01.12.2022",
                             Description = "По Карло КолодиДраматизация Рада МосковаПостановка и сценична среда - проф. Андрей АврамовМузикално ръководство - Евгени ГосподиновУчастват:Георги Ножделов, Цветомир Черкезов, Стефан Борисов, Жоро Райчев, Миленка Сотирова, Илина ИлиеваМили деца,Италианският писател Карло Колоди е написал историята за дървената кукла Пинокио много отдавна - през 1883г.По тази приказка е създадена пиеса, която вашите родители са гледали, когато са били на вашата възраст. Годините минават, децата порастват, стават майки и бащи, а историята за дървеното човече, което иска да стане истинско момче, продължава да се играе по цял свят. И така вече цели 135 години! Когато и вие станете майки и татковци, доведете децата си на това представление - Пинокио пак ще бъде тук, бъдете сигурни!",
+                            Going = false,
                             Hour = "11:00",
                             ImageURL = "https://imgrabo.com/pics/guide/900x600/20220324110331_98213.jpeg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Пинокио",
                             TownId = 4
                         },
@@ -382,9 +415,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 11,
                             Date = "25.11.2022",
                             Description = "по Братя ГримДраматизация: Веселин БойдевТекст на песните: Славчо МаленовРежисьор: Дарин ПетковСценография: Диана УзуноваМузика: Гергана ВасилеваАктьорски състав: Биляна Райнова, Елица Стоянова, Кирил Антонов, Латина Беровска, Татяна Андреева, Янчо ИвановПриказка за една малка принцеса и …ЖАБОК!Чрез веселите и необичайни ситуации, създадени от омагьосания Жабок, разбираме че, когато човек може да понесе отговорността на думите и обещанията си, тогава е готов да срещне и да познае истинската любов.",
+                            Going = false,
                             Hour = "12:00",
                             ImageURL = "http://theatre.art.bg/img/photos/BIG14008272153zabokyt-princ%20(1).jpg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Жабокът принц (куклен театър)",
                             TownId = 4
                         },
@@ -393,9 +428,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 12,
                             Date = "16.12.2022",
                             Description = "Постановка и режисура Силвия Томовапо хореографията на Мариус Петипа, Лев Иванов, Анастас Петров и Калина Богоева – редакция Силвия Томова /2017/Диригент Ивайло КринчевХудожник декори и костюми Денис ИвановКонсултант, изпълнител Първолета Чавдарова-ЛетицияСолисти и кордебалет на Държавна Опера-Стара ЗагораОркестър на Държавна опера Стара ЗагораДетско-юношеска студия за опера и балет на Държавна опера-Стара Загора",
+                            Going = false,
                             Hour = "19:00",
                             ImageURL = "https://static.bnr.bg/gallery/cf/cfafa1b78abda178ee7efd33dfd8491c.jpeg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Балетният спектакъл Лебедово езеро",
                             TownId = 4
                         },
@@ -404,9 +441,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 13,
                             Date = "17.12.2022",
                             Description = "музикално-поетичен спектакълРежисьор: Бойка ВелковаМузикална среда и музика: Теодосий СпасовХореография: Татяна СоколоваВизуална среда: Яна ДворецкаС: Бойка Велкова, Ивайло ЗахариевСпектакълът представлява обяснение в любов към музиката, танца, поезията и театърът на Европа. Включва избрани любовни поеми от най-големите европейски писатели, поети и мислители, символични за своята нация и епоха.",
+                            Going = false,
                             Hour = "19:00",
                             ImageURL = "https://theatre.peakview.bg/theatre/photos/BIG1569442896170385680_2698892923462698_1534574836855078912_n.jpg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Усещане за любов",
                             TownId = 5
                         },
@@ -415,9 +454,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 14,
                             Date = "19.12.2022",
                             Description = "Спектакълът се очертава като едно от големите музикални събития през новия творчески сезон във Варна. Не пропускайте да се насладите на хитовете на легендарната група.Тоника СВ от години е сред най-обичаните и слушани български групи, а песните им до една са се превърнали в шлагери - Здравей, как си приятелю,Един неразделен клас, Моя любов, Нека да е лято, Винаги двама и редица други.Организаторите загатват, че на концерта има голяма вероятност да чуем и съвсем нови песни на групата - първите такива от близо 20 години насам.",
+                            Going = false,
                             Hour = "20:00",
                             ImageURL = "https://imgrabo.com/pics/guide/900x600/20221006134600_14286.jpeg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Тоника СВ Live",
                             TownId = 5
                         },
@@ -426,9 +467,11 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 15,
                             Date = "06.12.2022",
                             Description = "Един моноспектакъл за чудесата, свободата, пътешествията, приятелите и вълшебствата, които са край нас! С приключенката Тарантела ще обиколите детския свят и ще преживеете фантастични истории, които няма къде другаде да чуете.",
+                            Going = false,
                             Hour = "12:00",
                             ImageURL = "http://static.bnr.bg/gallery/cr/23af6bd8a21f89f949b1732522b82242.jpg",
                             IsActiv = true,
+                            Maybe = false,
                             Name = "Магазин за приказки",
                             TownId = 5
                         });
@@ -2629,7 +2672,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = "630d5dda-7255-4ce9-a658-0eedfb698a5f",
                             AccessFailedCount = 0,
                             Avatar = "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg",
-                            ConcurrencyStamp = "94f31cc0-3d0d-4b18-8554-60207948a82a",
+                            ConcurrencyStamp = "006bf1a1-66c4-4eaa-8647-516c0bea2fcd",
                             Email = "Bobo561@abv.bg",
                             EmailConfirmed = true,
                             FirstName = "Borislav",
@@ -2638,12 +2681,27 @@ namespace MyWebProject.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "Bobo561@abv.bg",
                             NormalizedUserName = "Bobo561@abv.bg",
-                            PasswordHash = "AQAAAAEAACcQAAAAELMRk/Aam08ogxpY2wxBi7WAXCVoIzcupCEfFP+wjV3RzMgZVw2k2X7j6B+ILuj/aA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN0qjik/tVnin5ELxAtrDodX68lYgIKeCG6mFI6hVp+vtegnIyLBqge7Qql7cxiHBg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "11b47d04-46a5-4f2f-8b4f-ac7d8691c0f2",
+                            SecurityStamp = "aa240a96-a60d-4d4d-a666-ffaccc3c6d15",
                             TwoFactorEnabled = false,
                             UserName = "Bobo561@abv.bg"
                         });
+                });
+
+            modelBuilder.Entity("Cultural_eventsUsers", b =>
+                {
+                    b.HasOne("MyWebProject.Infrastructure.Data.Models.Cultural_events", null)
+                        .WithMany()
+                        .HasForeignKey("CulturalEventsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MyWebProject.Infrastructure.Data.Models.Users", null)
+                        .WithMany()
+                        .HasForeignKey("UserNameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -2704,10 +2762,6 @@ namespace MyWebProject.Infrastructure.Migrations
                         .HasForeignKey("TownId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("MyWebProject.Infrastructure.Data.Models.Users", null)
-                        .WithMany("CulturalEvents")
-                        .HasForeignKey("UsersId");
 
                     b.Navigation("Town");
                 });
@@ -2792,8 +2846,6 @@ namespace MyWebProject.Infrastructure.Migrations
 
             modelBuilder.Entity("MyWebProject.Infrastructure.Data.Models.Users", b =>
                 {
-                    b.Navigation("CulturalEvents");
-
                     b.Navigation("SightsVisited");
 
                     b.Navigation("UserPictures");
