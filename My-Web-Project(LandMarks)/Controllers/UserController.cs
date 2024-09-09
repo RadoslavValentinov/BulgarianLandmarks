@@ -2,12 +2,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Graph.Models.Security;
 using MyWebProject.Core.Models;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
-using System;
-using System.Text.Encodings.Web;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {

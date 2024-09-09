@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using MyWebProject.Core.Constants;
+using Microsoft.Graph.Models;
 
 namespace MyWebProject.Core.Models.CultureEventModel
 {
@@ -27,6 +28,8 @@ namespace MyWebProject.Core.Models.CultureEventModel
         [Required]
         public string TownName { get; set; } = null!;
 
+        public bool IsActive { get; set; } = true;
+
         [Required]
         [MaxLength(300)]
         public string ImageURL { get; set; } = null!;
@@ -34,5 +37,7 @@ namespace MyWebProject.Core.Models.CultureEventModel
         public bool Going { get; set; } = false;
 
         public bool Maybe { get; set; } = false;
+
+        public string? UserEvents { get; set; }
     }
 }

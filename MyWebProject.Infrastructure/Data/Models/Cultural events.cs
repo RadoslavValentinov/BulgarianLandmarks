@@ -27,8 +27,6 @@ namespace MyWebProject.Infrastructure.Data.Models
         public bool IsActiv { get; set; } = true;
 
        
-
-
         [ForeignKey(nameof(Town))]
         public int TownId { get; set; }
         public Town Town { get; set; } = null!;
@@ -40,6 +38,7 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         public List<Users> UserName { get; set; }
             = new List<Users>();
+
         public bool Going { get; set; } = false;
 
         public bool Maybe { get; set; } = false;

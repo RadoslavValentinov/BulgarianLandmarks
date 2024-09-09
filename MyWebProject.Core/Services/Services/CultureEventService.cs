@@ -1,37 +1,41 @@
 ﻿using Ganss.Xss;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graph.Models;
-using Microsoft.Graph.Security.Cases.EdiscoveryCases.Item.Custodians;
 using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
-using System.Security.Cryptography.X509Certificates;
-using System.Text.Encodings.Web;
+
 
 namespace MyWebProject.Core.Services.Services
 {
-    
+
     public class CultureEventService : ICultureEventService
     {
         private readonly IRepository repo;
         private readonly ILogger<CultureEventService> logger;
+        private readonly UserManager<Users>? user;
 
         public CultureEventService(IRepository _repo,
-            ILogger<CultureEventService> _logger)
+            ILogger<CultureEventService> _logger,
+            UserManager<Users> User)
         {
             repo = _repo;
             logger = _logger;
+            User = user!;
         }
 
+        [Authorize]
         public async Task<CultureEventViewModelByTownId> AddUserEventCollection(CultureEventViewModelByTownId model)
         {
+            var currentEvent = EventByTownId(model.Id).Result;
 
-
-
+            var set = await user!.FindByNameAsync(model.UserEvents);
+            //set.CulturalEvents.Add(currentEvent);
             return model;
         }
 
@@ -86,7 +90,7 @@ namespace MyWebProject.Core.Services.Services
                     Date = DateEvent,
                     Hour = HourEvent,
                     TownId = currenttown[0].Id,
-                    ImageURL = image,
+                    ImageURL = image
                 };
 
                 await repo.AddAsync(newEvent);
@@ -149,6 +153,7 @@ namespace MyWebProject.Core.Services.Services
                 currentEvent.Hour = HourEvent;
                 currentEvent.Town = currenttown[0];
                 currentEvent.ImageURL = image;
+                
 
                 repo.Update(currentEvent);
                 await repo.SaveChangesAsync();

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Graph.Models;
 using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Services.IServices;
 
@@ -31,14 +32,27 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> AddEventByUserCollection(int id)
+        public async Task<IActionResult> AddEventByUserCollection(int eventId)
         {
 
-            var currentEvent = await service.EventByTownId(id);
+            var currentEvent = await service.EventByTownId(eventId);
+
+            var model = new CultureEventViewModelByTownId(){
+                Id = currentEvent.Id,
+                Name = currentEvent.Name,
+                Description = currentEvent.Description,
+                Date = currentEvent.Date,
+                Hour = currentEvent.Hour,
+                TownName = currentEvent.TownName,
+                UserEvents = User?.Identity?.Name,
+            };
+
+
+            await service.AddUserEventCollection(model);
 
 
 
-            return Ok();
+            return ViewBag("Your choise to event succssessfuly added!");
         }
 
 
