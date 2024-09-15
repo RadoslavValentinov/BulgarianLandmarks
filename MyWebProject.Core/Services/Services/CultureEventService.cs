@@ -21,23 +21,13 @@ namespace MyWebProject.Core.Services.Services
         private readonly UserManager<Users>? user;
 
         public CultureEventService(IRepository _repo,
-            ILogger<CultureEventService> _logger,
-            UserManager<Users> User)
+            ILogger<CultureEventService> _logger)
         {
             repo = _repo;
             logger = _logger;
-            User = user!;
         }
 
-        [Authorize]
-        public async Task<CultureEventViewModelByTownId> AddUserEventCollection(CultureEventViewModelByTownId model)
-        {
-            var currentEvent = EventByTownId(model.Id).Result;
-
-            var set = await user!.FindByNameAsync(model.UserEvents);
-            //set.CulturalEvents.Add(currentEvent);
-            return model;
-        }
+       
 
         public async Task<IEnumerable<AllCultureEventViewModel>> AllEvent()
         {
