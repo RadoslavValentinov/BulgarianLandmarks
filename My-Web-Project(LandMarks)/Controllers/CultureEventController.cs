@@ -48,24 +48,39 @@ namespace My_Web_Project_LandMarks_.Controllers
         /// </summary>
         /// <param name="eventId"></param>
         /// <returns> Message to seccssusfuly added</returns>
-        
+
         [Authorize]
-        public async Task<IActionResult> AddEventByUserCollection(int eventId)
+        public async Task<IActionResult> AddEventByUserCollection(int eventId, string choiceBtn)
         {
 
             var currentEvent = await repo.GetByIdAsync<Cultural_events>(eventId);
-            currentEvent.Maybe = true;
+           
+            if (currentEvent != null)
+            {
+                if (choiceBtn == "Може би" && choiceBtn != null
+                    && string.IsNullOrEmpty(choiceBtn))
+                {
+                    currentEvent.Maybe = true;
+                }
+                else if (choiceBtn == "Ще присъствам" && choiceBtn != null
+                    && string.IsNullOrEmpty(choiceBtn))
+                {
+                    currentEvent.Going = true;
+                }
 
-            var currentUser = user.FindByNameAsync(User!.Identity!.Name!.ToUpper()).Result;
+                var currentUser = user.FindByNameAsync(User!.Identity!.Name!.ToUpper()).Result;
+                var checkCollection = currentEvent.UserName.FirstOrDefault(x => x.UserName == currentUser.UserName);
 
-            // 
+                currentUser!.CulturalEvents.Add(currentEvent);
 
-            currentUser.CulturalEvents.Add(currentEvent);
+                await repo.SaveChangesAsync();
 
-            await repo.SaveChangesAsync();
+                return View("GetAllEvent");
+
+            }
 
 
-            return Ok("Your choise to event succssessfuly added!");
+            return View("GetAllEvent");
         }
 
 

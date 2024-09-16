@@ -22,12 +22,12 @@
         <div class="row">
             @foreach (var item in all.Take(4))
             {
-               @*  next task add onclick event to a tag to clicked set color to light ,light ,light  green maybe *@
+                @*  next task add onclick event to a tag to clicked set color to light ,light ,light  green maybe *@
                 <div id="Custom" class="col">
-                    <img src="@item.ImageURL" alt="@item.Name"/>
+                    <img src="@item.ImageURL" alt="@item.Name" />
                     <div id="statistic">
-                        <a asp-controller="CultureEvent" asp-action="AddEventByUserCollection" asp-route-eventId="@item.Id"><i class="fa-regular fa-star"></i>Може би</a>
-                        <a href="#" onclick="changeColorTag(this)"><i class="fa-solid fa-circle-check"></i>Ще присъствам</a>
+                        <a href="@Url.Action("AddEventByUserCollection", "CultureEvent", new { eventId = item.Id, choiceBtn = "Може би" }, null)" onclick=" changeColorTag(this)"><i class="fa-regular fa-star"></i>Може би</a>
+                        <a href="@Url.Action("AddEventByUserCollection", "CultureEvent", new { eventId = item.Id, choiceBtn = "Ще присъствам" }, null)" onclick="changeColorTag(this)"><i class="fa-solid fa-circle-check"></i>Ще присъствам</a>
                     </div>
                     <h4>"@item.Name"</h4>
 
@@ -41,18 +41,19 @@
                 </div>
                 all.Remove(item);
                 count++;
+                }
+            </div>
+            <br />
             }
         </div>
-        <br />
-    }
-</div>
 
-
-@section scripts {
+        
+                        @section scripts {
     <script>
         function displayBlock() {
 
             let getDivId = document.getElementById('statistic');
+
 
             getDivId.style.display = 'block';
         }
@@ -70,4 +71,4 @@
 
         }
     </script>
-}
+                        }
