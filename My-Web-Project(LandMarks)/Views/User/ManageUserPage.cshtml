@@ -24,9 +24,15 @@
                         <a href="#security" class="nav-item nav-link has-icon " onclick=hiddenForm()>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feather feather-shield mr-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Security
                         </a>
+
                         <a id="Colpicture" class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="GetUserPictures">
                             <i class="fa-regular fa-image fa-xl"></i>
                             Your collection of picture
+                        </a>
+
+                         <a id="event" class="nav-item nav-link has-icon " onclick=hiddenForm()>
+                            <i class="fa-regular fa-calendar-plus fa-2xl"></i>
+                            Events
                         </a>
 
                     </nav>
@@ -46,6 +52,9 @@
                         </li>
                         <li class="nav-item">
                             <a id="pictures" asp-area="" asp-controller="Home" asp-action="GetUserPictures"  data-toggle="tab" class="nav-link has-icon"><i class="fa-regular fa-image  fa-xl"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="Events" data-toggle="tab" class="nav-link has-icon"><i class="fa-regular fa-calendar-plus"></i></a>
                         </li>
                     </ul>
                 </div>

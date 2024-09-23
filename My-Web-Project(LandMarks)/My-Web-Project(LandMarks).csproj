@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyWebProject.Core\MyWebProject.Core.csproj" />
+    <ProjectReference Include="..\MyWebProject.Infrastructure\MyWebProject.Infrastructure.csproj" />
   </ItemGroup>
 
  
