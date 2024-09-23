@@ -1,8 +1,14 @@
-﻿@model IEnumerable<AllCultureEventViewModel>
+﻿@using Microsoft.AspNetCore.Identity
+@using MyWebProject.Infrastructure.Data.Models
+@model IEnumerable<AllCultureEventViewModel>
+@inject SignInManager<Users> SignInManager
+
 
 @{
     var all = Model.OrderBy<AllCultureEventViewModel, string>(x => x.Town).ToList<AllCultureEventViewModel>();
 }
+
+
 
 <head>
     <link rel="stylesheet" href="~/css/All CSS file/EventsCustomCSS/AllEventCSS.css" asp-append-version="true" />
@@ -25,10 +31,15 @@
                 @*  next task add onclick event to a tag to clicked set color to light ,light ,light  green maybe *@
                 <div id="Custom" class="col">
                     <img src="@item.ImageURL" alt="@item.Name" />
-                    <div id="statistic">
-                        <a href="@Url.Action("AddEventByUserCollection", "CultureEvent", new { eventId = item.Id, choiceBtn = "Може би" }, null)" onclick=" changeColorTag(this)"><i class="fa-regular fa-star"></i>Може би</a>
-                        <a href="@Url.Action("AddEventByUserCollection", "CultureEvent", new { eventId = item.Id, choiceBtn = "Ще присъствам" }, null)" onclick="changeColorTag(this)"><i class="fa-solid fa-circle-check"></i>Ще присъствам</a>
-                    </div>
+
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <div id="statistic">
+                            <a id="chois1" href="@Url.Action("AddEventByUserCollection", "CultureEvent", new { eventId = item.Id, choiceBtn = "Може би" }, null)" onclick=" changeColorTag(this)"><i class="fa-regular fa-star"></i>Може би</a>
+                            <a id="chois1" href="@Url.Action("AddEventByUserCollection", "CultureEvent", new { eventId = item.Id, choiceBtn = "Ще присъствам" }, null)" onclick="changeColorTag(this)"><i class="fa-solid fa-circle-check"></i>Ще присъствам</a>
+                        </div>
+                    }
+
                     <h4>"@item.Name"</h4>
 
                     <p><i class="fa-regular fa-calendar-days"></i> @item.Date.Substring(0, 5)</p>
@@ -41,19 +52,18 @@
                 </div>
                 all.Remove(item);
                 count++;
-                }
-            </div>
-            <br />
             }
         </div>
+        <br />
+    }
+</div>
 
-        
-                        @section scripts {
+
+@section scripts {
     <script>
         function displayBlock() {
 
             let getDivId = document.getElementById('statistic');
-
 
             getDivId.style.display = 'block';
         }
@@ -71,4 +81,4 @@
 
         }
     </script>
-                        }
+}

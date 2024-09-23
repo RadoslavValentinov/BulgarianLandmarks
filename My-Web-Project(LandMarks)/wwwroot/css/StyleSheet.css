@@ -95,8 +95,8 @@ li h4 {
 #bodyDiv {
     text-align: center;
     z-index: 5;
-    width: 490px;
-    height: 590px;
+    width: 450px;
+    height: 610px;
     border: 1px solid gray;
     position: absolute;
     background-color: white;
@@ -129,8 +129,8 @@ li h4 {
 
 #Close {
     position: absolute;
-    top: 550px;
-    left: 210px;
+    top: 570px;
+    left: 190px;
     padding: 3px 5px;
 }
 

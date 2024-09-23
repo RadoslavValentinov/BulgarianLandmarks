@@ -38,6 +38,12 @@ namespace MyWebProject.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+
+            builder.Entity<Cultural_events>()
+                .HasMany(x => x.AllUsers)
+                .WithMany(x => x.CulturalEvents)
+                .UsingEntity(j=> j.ToTable("Cultural_eventsUsers"));
+
             builder.Entity<LandMark>()
                 .HasOne(x => x.Town)
                 .WithMany(x => x.Landmarks)
@@ -48,6 +54,8 @@ namespace MyWebProject.Infrastructure.Data
                 b.HasKey(e => e.Id);
                 b.Property(e => e.Id).ValueGeneratedOnAdd();
             });
+
+           
 
             builder.Entity<Pictures>()
             .HasOne(x => x.Journey)

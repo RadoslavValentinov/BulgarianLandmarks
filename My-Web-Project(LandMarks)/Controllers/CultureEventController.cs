@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Graph.Models;
 using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
+using System.Linq;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {
@@ -69,18 +71,25 @@ namespace My_Web_Project_LandMarks_.Controllers
                 }
 
                 var currentUser = user.FindByNameAsync(User!.Identity!.Name!.ToUpper()).Result;
-                var checkCollection = currentEvent.UserName.FirstOrDefault(x => x.UserName == currentUser.UserName);
 
-                currentUser!.CulturalEvents.Add(currentEvent);
+                var set = await repo.GetByIdAsync<Users>(currentUser.Id);
 
-                await repo.SaveChangesAsync();
+                
+                var check =  repo.AllReadonly<Cultural_events>().Where(x => x.AllUsers.Any(a => a.Id == currentUser.Id));
 
-                return View("GetAllEvent");
+
+                if (check.Any(a => a.Id == currentEvent.Id) == false) 
+                {
+                    currentUser!.CulturalEvents.Add(currentEvent);
+
+                    await repo.SaveChangesAsync();
+                }
+
+                return RedirectToAction("GetAllEvent");
 
             }
 
-
-            return View("GetAllEvent");
+            return RedirectToAction("GetAllEvent");
         }
 
 
