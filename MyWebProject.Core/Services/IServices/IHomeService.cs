@@ -1,4 +1,5 @@
-﻿using MyWebProject.Core.Models.PictureModel;
+﻿using MyWebProject.Core.Models.CultureEventModel;
+using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Models.SearchEngineModel;
 using MyWebProject.Infrastructure.Data.Models;
 using System;
@@ -13,8 +14,10 @@ namespace MyWebProject.Core.Services.IServices
     public interface IHomeService
     {
         Task<IEnumerable<Pictures>> AllPicture();
-        Task<IEnumerable<PicturesViewModel>> AllUserPicctures(string username);
+        Task<IEnumerable<PicturesViewModel>> AllUserPictures(string username);
 
         Task<IEnumerable> ShearchItem(string item);
+
+        Task<IEnumerable<AllCultureEventViewModel>> AllUserEvents(string userName);
     }
 }

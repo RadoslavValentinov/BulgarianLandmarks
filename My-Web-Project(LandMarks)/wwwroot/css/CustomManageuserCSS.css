@@ -11,3 +11,12 @@
 #event {
     padding-left: 17px;
 }
+
+.card-body .nav a:hover {
+    border-bottom: 1px solid gray;
+    color:darkgrey;
+}
+
+footer{
+    margin-top:0px;
+}

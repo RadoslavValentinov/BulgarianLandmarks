@@ -1,0 +1,43 @@
+﻿@using MyWebProject.Core.Models.CultureEventModel
+@model IEnumerable<AllCultureEventViewModel>
+
+
+<head>
+    <link rel="stylesheet" href="~/css/CustomCSSUserPicture.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/All CSS file/EventsCustomCSS/AllEventCSS.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" asp-append-version="true" />
+</head>
+
+
+@if (Model.Count() == 0 || Model == null)
+{
+    <h1>Все още нямате добавени събития...</h1>
+}
+else
+{
+    <h1>Вашата колекция от Събития</h1>
+
+
+
+
+    <div class="row">
+
+        @foreach (var item in Model.OrderByDescending(x=> x.Going).ToList())
+        {
+            <div id="Custom" class="col">
+                <img src="@item.ImageURL" alt="@item.Name" />
+
+                <h4>"@item.Name"</h4>
+
+                <p><i class="fa-regular fa-calendar-days"></i> @item.Date.Substring(0, 5)</p>
+
+                <p><i class="fa-regular fa-clock"></i> @item.Hour</p>
+
+                <p><i class="fa-solid fa-location-dot"></i>@item.Town</p>
+                <hr />
+                <a id="@item.Id" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="CultureEvent" asp-action="EventByTownId">Научи повече</a>
+            </div>
+        }
+
+    </div>
+}

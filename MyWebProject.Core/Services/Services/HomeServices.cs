@@ -1,6 +1,7 @@
 ﻿using Ganss.Xss;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Models.SearchEngineModel;
 using MyWebProject.Core.Services.IServices;
@@ -33,7 +34,7 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
-        public async Task<IEnumerable<PicturesViewModel>> AllUserPicctures(string userName)
+        public async Task<IEnumerable<PicturesViewModel>> AllUserPictures(string userName)
         {
             var result = await repo.All<Pictures>()
               .Where(x => x.UserName == userName)
@@ -41,6 +42,27 @@ namespace MyWebProject.Core.Services.Services
               {
                   Id = s.Id,
                   UrlImgAddres = s.UrlImgAddres
+              })
+              .ToListAsync();
+
+            return result;
+        }
+
+        public async Task<IEnumerable<AllCultureEventViewModel>> AllUserEvents(string userName)
+        {
+            var result = await repo.All<Cultural_events>()
+              .Where(x => x.AllUsers.Any(c=> c.UserName == userName))
+              .Select(s => new AllCultureEventViewModel()
+              {
+                  Id = s.Id,
+                  Name = s.Name,
+                  Description = s.Description,
+                  Date = s.Date,
+                  Hour = s.Hour,
+                  Town = s.Town.Name,
+                  ImageURL = s.ImageURL,
+                  Going = s.Going,
+                  Maybe = s.Maybe
               })
               .ToListAsync();
 

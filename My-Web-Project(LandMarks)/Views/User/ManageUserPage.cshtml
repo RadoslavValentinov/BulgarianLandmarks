@@ -30,8 +30,8 @@
                             Your collection of picture
                         </a>
 
-                         <a id="event" class="nav-item nav-link has-icon " onclick=hiddenForm()>
-                            <i class="fa-regular fa-calendar-plus fa-2xl"></i>
+                        <a id="event" class="nav-item nav-link has-icon " onclick=hiddenForm() asp-area="" asp-controller="Home" asp-action="GetUserEvents">
+                            <i class="fa-regular fa-calendar-plus fa-xl"></i>
                             Events
                         </a>
 
@@ -54,7 +54,7 @@
                             <a id="pictures" asp-area="" asp-controller="Home" asp-action="GetUserPictures"  data-toggle="tab" class="nav-link has-icon"><i class="fa-regular fa-image  fa-xl"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a id="Events" data-toggle="tab" class="nav-link has-icon"><i class="fa-regular fa-calendar-plus"></i></a>
+                            <a id="Events" data-toggle="tab" class="nav-link has-icon"> <i class="fa-regular fa-calendar-plus fa-xl"></i></a>
                         </li>
                     </ul>
                 </div>

@@ -32,11 +32,22 @@ namespace My_Web_Project_LandMarks_.Controllers
         {
             var userName =  User.Identity?.Name;
 
-            var all =  service.AllUserPicctures(userName ?? null!).Result;
+            var all =  service.AllUserEvents(userName ?? null!).Result;
            
             return View(all);
         }
 
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult GetUserEvents()
+        {
+            var userName = User.Identity?.Name;
+
+            var allEvents = service.AllUserEvents(userName ?? null!).Result;
+
+            return View(allEvents);
+        }
 
 
 
