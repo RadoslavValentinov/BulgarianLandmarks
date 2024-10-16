@@ -1,0 +1,23 @@
+﻿
+.rowFlex{
+    width:1200px;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    
+}
+
+#CustomEvent {
+    background-color: whitesmoke;
+    width: 250px;
+    height: 500px;
+    margin: 10px;
+    padding: 0px;
+}
+
+#CustomEvent img{
+    width:248px;
+    height:250px;
+}
+
+
