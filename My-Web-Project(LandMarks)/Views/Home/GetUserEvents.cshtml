@@ -3,12 +3,8 @@
 
 
 <head>
-<<<<<<< HEAD
     <link rel="stylesheet" href="~/css/All CSS file/EventsCustomCSS/CustomCssUserEvents.css" asp-append-version="true" />
-=======
-    <link rel="stylesheet" href="~/css/CustomCSSUserPicture.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/All CSS file/EventsCustomCSS/AllEventCSS.css" asp-append-version="true" />
->>>>>>> 588dc8ed9501939e1a4d4d8e5fa7727b53af6f1a
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" asp-append-version="true" />
 </head>
 
@@ -21,26 +17,15 @@ else
 {
     <h1>Вашата колекция от Събития</h1>
 
-<<<<<<< HEAD
     <div class="rowFlex">
 
-        @foreach (var item in Model.OrderByDescending(x=> x.Going).ToList())
+        @foreach (var item in Model.OrderByDescending(x => x.Going).ToList())
         {
-            @* how to get all event add new style file*@
             <div id="CustomEvent" class="col">
-=======
-
-
-
-    <div class="row">
-
-        @foreach (var item in Model.OrderByDescending(x=> x.Going).ToList())
-        {
-            <div id="Custom" class="col">
->>>>>>> 588dc8ed9501939e1a4d4d8e5fa7727b53af6f1a
                 <img src="@item.ImageURL" alt="@item.Name" />
 
                 <h4>"@item.Name"</h4>
+                <hr />
 
                 <p><i class="fa-regular fa-calendar-days"></i> @item.Date.Substring(0, 5)</p>
 

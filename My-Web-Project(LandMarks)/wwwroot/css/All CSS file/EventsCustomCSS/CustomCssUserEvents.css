@@ -13,10 +13,13 @@
     height: 500px;
     margin: 10px;
     padding: 0px;
+    text-align:center;
 }
 
+
+
 #CustomEvent img{
-    width:248px;
+    width:280px;
     height:250px;
 }
 

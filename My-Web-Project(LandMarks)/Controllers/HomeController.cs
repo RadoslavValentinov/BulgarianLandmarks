@@ -32,12 +32,8 @@ namespace My_Web_Project_LandMarks_.Controllers
         {
             var userName =  User.Identity?.Name;
 
-<<<<<<< HEAD
             var all =  service.AllUserPictures(userName ?? null!).Result;
-=======
-            var all =  service.AllUserEvents(userName ?? null!).Result;
->>>>>>> 588dc8ed9501939e1a4d4d8e5fa7727b53af6f1a
-           
+ 
             return View(all);
         }
 
