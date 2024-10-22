@@ -15,16 +15,17 @@
 }
 else
 {
-    <h1>Вашата колекция от Събития</h1>
+    <h1>Колекцията ви от Събития</h1>
+    <hr />
 
-    <div class="rowFlex">
+    <section class="rowFlex">
 
-        @foreach (var item in Model.OrderByDescending(x => x.Going).ToList())
+        @foreach (var item in Model)
         {
             <div id="CustomEvent" class="col">
                 <img src="@item.ImageURL" alt="@item.Name" />
 
-                <h4>"@item.Name"</h4>
+                <h4>"@item.Name.Substring(0,13)..."</h4>
                 <hr />
 
                 <p><i class="fa-regular fa-calendar-days"></i> @item.Date.Substring(0, 5)</p>
@@ -37,5 +38,5 @@ else
             </div>
         }
 
-    </div>
+    </section>
 }
