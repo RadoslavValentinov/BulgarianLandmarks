@@ -1,7 +1,8 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
 body {
-    background-color: rgba(215, 215, 217);
+    background: rgb(225,233,233);
+    background: radial-gradient(circle, rgba(225,233,233,1) 51%, rgba(212,211,208,0.9327380610447304) 96%);
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 0px;
 }
@@ -13,8 +14,9 @@ body {
 }
 
 h1 {
-    font-family: Arial, sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
+    text-align:center;
 }
 
 
@@ -141,6 +143,10 @@ li h4 {
 
 
 /* Option div */
+
+
+/* let change li to hover set all li other color   ...*/
+
 #allOptions {
     list-style: none;
     margin: 10px;
@@ -256,7 +262,7 @@ p {
     margin: 0px;
     padding: 0px;
     width: 360px;
-    height: 470px;
+    height: 475px;
     margin-left: 10px;
     border: 2px solid lightgray;
     border-radius: 5px;
@@ -270,7 +276,7 @@ p {
     margin: 0px;
     padding: 0px;
     width: 360px;
-    height: 470px;
+    height: 475px;
     margin-left: 10px;
     border: 2px solid lightgray;
     border-radius: 5px;
@@ -284,7 +290,7 @@ p {
     margin: 0px;
     padding: 0px;
     width: 360px;
-    height: 470px;
+    height: 475px;
     margin-left: 10px;
     border: 2px solid lightgray;
     border-radius: 5px;
@@ -318,6 +324,7 @@ p {
     height: 250px;
 }
 
+
 /*Title of all div*/
 
 .row h3 {
@@ -328,6 +335,7 @@ p {
 hr {
     margin: 0px;
 }
+
 
 
 /*hover effect for all card in index view*/
@@ -425,41 +433,45 @@ hr {
 
 #colbtn:hover {
     background-color: lightskyblue;
-    border: 1px solid gray;
+    border: 1px solid white;
+
 }
 
 #colbtn-middle:hover {
     background-color: lightskyblue;
-    border: 1px solid gray;
+    border: 1px solid white;
 }
 
 #colbtn-end:hover {
     background-color: lightskyblue;
-    border: 1px solid gray;
+    border: 1px solid white;
 }
 
 #btn-tw1:hover {
     background-color: lightskyblue;
-    border: 1px solid gray;
+    border: 1px solid white;
 }
 #btn-tw1-first:hover {
     background-color: lightskyblue;
-    border: 1px solid gray;
+    border: 1px solid white;
 }
 
 #set:hover {
     background-color: cornsilk;
-    color: black
+    color: black;
+    border: 1px solid white;
 }
 
 #set2:hover {
     background-color: cornsilk;
-    color: black
+    color: black;
+    border: 1px solid white;
 }
 
 #set3:hover {
     background-color: cornsilk;
-    color: black
+    color: black;
+    border: 1px solid white;
 }
 
 
