@@ -4,7 +4,7 @@
 
 #Custom img {
     width: 278px;
-    height: 150px;
+    height: 160px;
     object-fit:cover;
 }
 
@@ -13,7 +13,7 @@
     box-shadow: initial 10px 10px 10px initial;
     border-radius: 5px;
     max-width: 280px;
-    height: 405px;
+    height: 410px;
     background-color: whitesmoke;
     padding: 0px;
 }

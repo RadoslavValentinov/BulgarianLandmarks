@@ -1,5 +1,5 @@
 ﻿
-.btn {
+#btnPicture  {
     position: relative;
     left: 220px;
     top: 40px;
@@ -11,7 +11,7 @@ h2 {
     text-align: center;
 }
 
-form{
-    margin-bottom:200px;
+footer {
+    margin-top: 240px;
 }
 
