@@ -1,5 +1,6 @@
 ﻿body {
-    background-color: lightgray;
+    background: rgb(225,233,233);
+    background: linear-gradient(180deg, rgba(225,233,233,1) 54%, rgba(150,150,149,0.6694327389158788) 98%);
 }
 
 #place {
@@ -11,7 +12,7 @@
     position:relative;
     width:1000px;
     height:500px;
-    left:50px;
+    left:150px;
 }
 
 #place .rating{
@@ -19,8 +20,4 @@
 }
 
 
-.carousel-control-prev {
-    position:relative;
-    left: -15px;
-    top: 232px;   
-}
+

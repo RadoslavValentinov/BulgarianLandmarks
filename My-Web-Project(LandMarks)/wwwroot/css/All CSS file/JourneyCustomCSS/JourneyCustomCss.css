@@ -6,8 +6,9 @@
 
 #All img {
     padding: 0px;
-    width: 899px;
-    height: 398px
+    width: 900px;
+    height: 398px;
+    object-fit:cover;
 }
 
 /* size of container div */
@@ -19,11 +20,14 @@
 #All {
     background-color: whitesmoke;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
+    padding: 0px;
 }
 
     #All h6 {
-        padding-top:5px;
+        padding-top: 5px;
+        padding-left: 10px;
+        font-size:20px;
     }
 
     #All h3 {
@@ -32,14 +36,17 @@
 
     #All .rating {
         font-size:24px;
+        padding-left: 10px;
     }
 
     #All .startDate {
         font-size: 24px;
+        padding-left: 10px;
     }
 
     #All .day {
         font-size: 24px;
+        padding-left: 10px;
     }
 
 
