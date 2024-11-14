@@ -15,12 +15,15 @@ sample excursions as well as cultural events for the various cities (theatre pro
   <img src="https://github.com/user-attachments/assets/bff82ee1-d591-48ae-9ec4-a6dd08aa890b" width="400" />
 </div>
 
-<p>
-  In the navigation, right next to the name of the web application (Guide), there is a button for all options, if the user is not registered, some are missing
-  options as can be seen in the attached screenshots below. Registered users have options to suggest a landmark (User suggestion is added only after admin approval) for now users 
-  can add photos as a URL,
-  I intend to add functionality to upload pictures in a separate database as a byte array.
-</p>
+<div>
+    <p>
+      In the navigation, right next to the name of the web application (Guide), there is a button for all options, if the user is not registered, some are missing
+      options as can be seen in the attached screenshots below. Registered users have options to suggest a landmark (User suggestion is added only after admin approval) for now users 
+      can add photos as a URL,
+      I intend to add functionality to upload pictures in a separate database as a byte array.
+   </p>
+</div>
+
 <div>
   <img src="https://github.com/user-attachments/assets/d2d7266a-4d88-471e-9bc8-01a847810262" width="500" height="300" />
   <img src="https://github.com/user-attachments/assets/2e403a17-6a96-4a08-9e71-08e2d1da6298" width="500" height="300"/>
