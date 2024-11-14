@@ -1,7 +1,13 @@
 # My-Web-Project(LandMarks)
 
-This is my project about Bulgarian sights, nature, cities and excursions.
-The app currently has 2 areas, admin and user, and in the future a manager area will 
-be added to adjust everything that or filters, and soon everything that users will upload.
-The administrator area has the right to create a board and add new landmarks, Photos, Events, Journeys.
-My plans for the future are for users to be able to upload photos and to have chat between users in general and to suggest sights and places that they think other people can visit..
+
+Hello, this is my web project related to Bulgarian landmarks, cities as an option, 
+sample excursions as well as cultural events for the various cities (theatre productions, concerts, etc.) have been added.
+
+<h1>The main page</h1>
+![Екранна снимка 2024-11-14 211121](https://github.com/user-attachments/assets/a8be97ff-4837-4856-87ed-0cd8d2c0f343)
+![Екранна снимка 2024-11-14 211421](https://github.com/user-attachments/assets/d3d7caaa-a7b9-4c53-8848-8c90abc6e540)
+![Екранна снимка 2024-11-14 211344](https://github.com/user-attachments/assets/bff82ee1-d591-48ae-9ec4-a6dd08aa890b)
+![Екранна снимка 2024-11-14 211325](https://github.com/user-attachments/assets/2089d4df-340b-4130-a046-5c2480ebac11)
+![Екранна снимка 2024-11-14 211256](https://github.com/user-attachments/assets/ff96341f-d310-4fd8-8b32-4d1939f47900)
+![Екранна снимка 2024-11-14 211202](https://github.com/user-attachments/assets/e48e727e-2572-4bb6-a469-c3c8f626457c)
