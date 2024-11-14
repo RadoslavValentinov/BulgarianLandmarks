@@ -14,7 +14,10 @@ sample excursions as well as cultural events for the various cities (theatre pro
   <img src="https://github.com/user-attachments/assets/d3d7caaa-a7b9-4c53-8848-8c90abc6e540" width="400" />
   <img src="https://github.com/user-attachments/assets/bff82ee1-d591-48ae-9ec4-a6dd08aa890b" width="400" />
 </div>
+<hr>
 
+<br>
+<br>
 <div>
     <p>
       In the navigation, right next to the name of the web application (Guide), there is a button for all options, if the user is not registered, some are missing
