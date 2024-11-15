@@ -31,3 +31,13 @@ sample excursions as well as cultural events for the various cities (theatre pro
   <img src="https://github.com/user-attachments/assets/d2d7266a-4d88-471e-9bc8-01a847810262" width="500" height="300" />
   <img src="https://github.com/user-attachments/assets/2e403a17-6a96-4a08-9e71-08e2d1da6298" width="500" height="300"/>
 </div>
+<br>
+
+<p>
+  Right in the middle of the navigation bar is a field to search for information on the site.  In the right part of the navigation bar are the links for 
+  registration and login (You can see them on the first screenshot).
+  Directly below the navigation bar, several photos of Bulgaria's nature along the Rhodope region are visualized. The following are rankings for the most visited sights, cities and trips.
+</p>
+
+
+
