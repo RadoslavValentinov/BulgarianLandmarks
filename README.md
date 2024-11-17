@@ -47,7 +47,7 @@ sample excursions as well as cultural events for the various cities (theatre pro
     one way or another.
   </p>
 </section>
-
+<br>
 <section>
     <img src="https://github.com/user-attachments/assets/5a792f70-8657-4a55-8feb-fee5c2f540d5" width="400" />
     <br>
@@ -57,6 +57,21 @@ sample excursions as well as cultural events for the various cities (theatre pro
     <img src="https://github.com/user-attachments/assets/c330c282-90bc-4dd5-8645-d7f3588107cd" width="400" />
     <img src="https://github.com/user-attachments/assets/dc8fc5e8-2594-4f2e-b3b4-8c54803ca656" width="400" />
     <img src="https://github.com/user-attachments/assets/f777ecb9-2984-4452-b5d8-b29c1470af6c" width="400" /> 
-</section>
+    <br>
 
+    <p>
+      In the first photo, located on the right are the links for additional pages.
+    <p/>
+</section>
+<br>
+<section>
+   <img src="https://github.com/user-attachments/assets/d331b8da-5c4a-4ad8-9024-2b2c6b7f218f" width="400" />
+  <br>
+  <p>     
+     In the Sights section, twenty-five points of interest selected by me are placed.
+  </p>
+
+  https://github.com/user-attachments/assets/2b7b56cf-b35b-446e-9273-ae55624714a3
+
+</section>
 
