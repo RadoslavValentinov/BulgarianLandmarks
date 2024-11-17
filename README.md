@@ -48,6 +48,15 @@ sample excursions as well as cultural events for the various cities (theatre pro
   </p>
 </section>
 
-
+<section>
+    <img src="https://github.com/user-attachments/assets/5a792f70-8657-4a55-8feb-fee5c2f540d5" width="400" />
+    <br>
+    <p>
+       The first option that can be selected by the user is Cities, as I have currently selected only five.
+    </p>
+    <img src="https://github.com/user-attachments/assets/c330c282-90bc-4dd5-8645-d7f3588107cd" width="400" />
+    <img src="https://github.com/user-attachments/assets/dc8fc5e8-2594-4f2e-b3b4-8c54803ca656" width="400" />
+    <img src="https://github.com/user-attachments/assets/f777ecb9-2984-4452-b5d8-b29c1470af6c" width="400" /> 
+</section>
 
 
