@@ -1,3 +1,5 @@
+
+https://github.com/user-attachments/assets/5c3c8854-6e4d-46f6-ada8-c57fe063c11c
 # My-Web-Project(LandMarks)
 
 
@@ -71,3 +73,15 @@ sample excursions as well as cultural events for the various cities (theatre pro
 
 </section>
 
+<section>
+  <p>
+     The next lint is events (Cultural events selected by city). In the video you can see what the page looks like. 
+     For logged in users, a drop-down menu has been added with the option to add the event to the user's collection of events 
+     (The second clip shows the drop-down menu with the options).
+  </p>  
+
+  https://github.com/user-attachments/assets/386ee405-4b9d-48c8-856b-81f6df2c2d53
+
+  https://github.com/user-attachments/assets/6dda521e-51e0-4f82-ba26-0346c5703195
+ 
+</section>
