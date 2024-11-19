@@ -84,3 +84,24 @@ sample excursions as well as cultural events for the various cities (theatre pro
   https://github.com/user-attachments/assets/6dda521e-51e0-4f82-ba26-0346c5703195
  
 </section>
+
+<section>
+  <p>
+      In the "Interesting facts" section, 43 facts about Bulgaria have been collected, both for history, sights and everyday life.
+  </p>
+
+  https://github.com/user-attachments/assets/a4a90827-e0e6-48cf-924f-646585d497eb
+  
+</section>
+
+<section>
+  <p>
+    The next section is Trips (Selected trips such as the tests are taken from "Grabo").
+    The contacts and the email you will see are not active.
+  </p>
+
+ https://github.com/user-attachments/assets/a33792c1-a44f-4708-8995-a865bcaa6ce8
+
+  https://github.com/user-attachments/assets/6106a8cc-d3ac-45c2-87c7-855d9bfb6e76
+
+</section>
