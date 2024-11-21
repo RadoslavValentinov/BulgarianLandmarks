@@ -126,3 +126,16 @@ sample excursions as well as cultural events for the various cities (theatre pro
    <img src="https://github.com/user-attachments/assets/8d4339df-e86c-4405-bacb-a50cf7053161" width="400" />
 
 </section>
+<hr>
+<br>
+
+<section>
+  <p>
+    In the navigation bar to the right of the drop-down menu, there is a search field, you can search for sights, photos, events, cities, as well as everything       that is found as information in the application. After entering the content you are looking for, if there is a match, you will be redirected to the results       page. if no match is found, the message "No results were found for your search" will be displayed.
+  </p>
+
+  <img src="https://github.com/user-attachments/assets/417cb2f6-7ed2-4063-8a84-003a1f9a9414" width="400" />
+
+  https://github.com/user-attachments/assets/2929f15d-6fac-4e9c-954a-326740e4d116
+</section>
+
