@@ -121,8 +121,8 @@ sample excursions as well as cultural events for the various cities (theatre pro
     - I have an idea to add a non-  relational database and store them as a byte array ).
   </p>
 
-  ![Екранна снимка 2024-11-21 213922](https://github.com/user-attachments/assets/577e7f41-734a-46b9-9a3a-5ff19aadb89b)
-
-  ![Екранна снимка 2024-11-21 214041](https://github.com/user-attachments/assets/8d4339df-e86c-4405-bacb-a50cf7053161)
+   <img src="https://github.com/user-attachments/assets/577e7f41-734a-46b9-9a3a-5ff19aadb89b" width="400" />
+ 
+    <img src="https://github.com/user-attachments/assets/8d4339df-e86c-4405-bacb-a50cf7053161" width="400" />
 
 </section>
