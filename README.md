@@ -123,6 +123,6 @@ sample excursions as well as cultural events for the various cities (theatre pro
 
    <img src="https://github.com/user-attachments/assets/577e7f41-734a-46b9-9a3a-5ff19aadb89b" width="400" />
  
-    <img src="https://github.com/user-attachments/assets/8d4339df-e86c-4405-bacb-a50cf7053161" width="400" />
+   <img src="https://github.com/user-attachments/assets/8d4339df-e86c-4405-bacb-a50cf7053161" width="400" />
 
 </section>
