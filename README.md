@@ -105,3 +105,23 @@ sample excursions as well as cultural events for the various cities (theatre pro
   https://github.com/user-attachments/assets/6106a8cc-d3ac-45c2-87c7-855d9bfb6e76
 
 </section>
+
+<section>
+
+  <p>
+    For logged in users, there are two more options that they can access "Add Image" is the first option 
+    after the user adds the address of his image a message is displayed on the screen for successful addition and that the
+    image will be visible to other users after approval by an administrator will be and added to the user's collection.
+  </p>
+  <p>
+    Next section "Suggest a Landmark"
+    In it, the user can add a name, description and location of the proposed landmark,
+    he has to select a category from the dropdown menu as an option he can add a link to a photo or video of his choice
+    (At the moment images and video can only be added with links 
+    - I have an idea to add a non-  relational database and store them as a byte array ).
+  </p>
+
+  https://github.com/user-attachments/assets/750a21b7-c68e-4abb-bce9-618877014f49
+
+  https://github.com/user-attachments/assets/3afc7870-4788-454b-80fb-adf800d23b15
+</section>
