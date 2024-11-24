@@ -49,7 +49,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Date = "21.11.2022",
                     Hour = "18:00",
                     TownId = 3,
-                    ImageURL = "https://www.theatre-pleven.bg/predstavlenia/images/talasamcheto-tami/tami%20clean.jpg"
+                    ImageURL = "https://www.theater.bg/wp-content/uploads/2020/01/talasamcheto-tami.jpg"
                 },
                 new Cultural_events()
                 {
@@ -69,7 +69,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Date = "03.12.2022",
                     Hour = "19:00",
                     TownId = 3,
-                    ImageURL = "https://www.theatre-pleven.bg/predstavlenia/images/edin-maj-i-edna-jena/edin-maj-i-edna-jena.jpg"
+                    ImageURL = "https://imgrabo.com/pics/guide/20190902105930_21271.jpg"
                 },
                 new Cultural_events()
                 {
@@ -103,7 +103,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                      Date = "19.12.2022",
                      Hour = "18:30",
                      TownId = 1,
-                     ImageURL = "https://theatre.peakview.bg/img/photos/BIG15706289201FB-event-RJ-02.jpg"
+                     ImageURL = "https://cdn.artvibe.co/images/i/m1aaaaaaaaaaaaaaaaaaaaaaaaaaa252.jpg?s=xl"
                 },
                 new Cultural_events() 
                 {

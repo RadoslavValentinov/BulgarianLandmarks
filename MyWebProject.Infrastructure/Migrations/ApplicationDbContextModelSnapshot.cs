@@ -34,7 +34,7 @@ namespace MyWebProject.Infrastructure.Migrations
 
                     b.HasIndex("CulturalEventsId");
 
-                    b.ToTable("Cultural_eventsUsers");
+                    b.ToTable("Cultural_eventsUsers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -300,7 +300,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Description = "от Магда Борисоваnрежисьор: Ива Николовасценография и костюми: Константин Вълковкомпозитор: Ангел Бешевучастват: Асен Данков, Валентин Василев, Елица Анева, Камелия Хатиб, Мария Йорданова, Мариян Стефанов, Мариета Калъпова, Александър КъневМислите си, че е лесно да си таласъм ?Да поддържаш ужасяващия си вид, постоянно да си мръсен, рошав, сърдит?Да обитаваш мрачни места, да плашиш всички и да нямаш приятели?Трудно е, особено когато си малко симпатично таласъмче, което иска да бъде обичано…Един атрактивен, ярък и забавен спектакъл с много музика, невероятни костюми и чудесни актьори!",
                             Going = false,
                             Hour = "18:00",
-                            ImageURL = "https://www.theatre-pleven.bg/predstavlenia/images/talasamcheto-tami/tami%20clean.jpg",
+                            ImageURL = "https://www.theater.bg/wp-content/uploads/2020/01/talasamcheto-tami.jpg",
                             IsActiv = true,
                             Maybe = false,
                             Name = "Таласъмчето Тами",
@@ -313,7 +313,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Description = "Двама от най-дългогодишните и успешни актьори в плевенската трупа - Мариета Калъпова и Георги Ангелов ще ви потопят в една колкото забавна, толкова и тъжна история - трябва ви само ваучер!По Валентин Красногороврежисьор: Анастас Попдимитровсценограф: Мария Димановав ролите: Мариета Калъпова и Георги АнгеловЕдна и забавна, и тъжна история, наситена с много силни емоции и топлота.Мъж на средна възраст наема стая от една жена и се влюбва в нея. Уморен от скитническия живот, той иска да напусне завинаги цирка, в който работи от дълги години, да се ожени и да започне нов спокоен живот. Жената също е уморена да бъде сама. Щастието изглежда толкова близо...но дали е така? Героите решават много житейски ребуси и постоянно изненадват зрителя с ненадейни обрати.",
                             Going = false,
                             Hour = "19:00",
-                            ImageURL = "https://www.theatre-pleven.bg/predstavlenia/images/edin-maj-i-edna-jena/edin-maj-i-edna-jena.jpg",
+                            ImageURL = "https://imgrabo.com/pics/guide/20190902105930_21271.jpg",
                             IsActiv = true,
                             Maybe = false,
                             Name = "Един мъж и една жена",
@@ -339,7 +339,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Description = "Когато трябва да кажа нещо за „Ромео и Жулиета“ си давам сметка, че Любовта е най-ярката и водеща отправна точка, през която гледам живота си. Не намирам друг смисъл и друг отговор на въпросите относно битието ни на човеци...А любовта е тази, която винаги ни превръща в малки, невинни, треперещи деца, които не знаят какво да правят с ударите на сърцето и пулса, който имаме чувството, че целият свят чува как блъска кръвта в тялото ни. Ако трябва да сме честни пред света, ние имаме безкрайна нужда от любов, нужда, която се простира отвъд живота и достига до смъртта. Именно „Ромео и Жулиета“ е еманацията на това наше желание – най-щастливата трагедия в човешката култура. Да, ако трябва да сме честни, за нас е от изключително значение двамата млади веронци да умрат, за да имаме своя идеал за любов. Какво бихме правили, ако Ромео и Жулиета се спасят и станат, като всички нас?... Не! По неумолимия ход на Съдбата, щом искаме съвършена, страстна, романтична любов – тя ще умре, но ще бъде толкова красива, че ще ни прави щастливи завинаги!“Анастасия Събева",
                             Going = false,
                             Hour = "18:30",
-                            ImageURL = "https://theatre.peakview.bg/img/photos/BIG15706289201FB-event-RJ-02.jpg",
+                            ImageURL = "https://cdn.artvibe.co/images/i/m1aaaaaaaaaaaaaaaaaaaaaaaaaaa252.jpg?s=xl",
                             IsActiv = true,
                             Maybe = false,
                             Name = "Ромео и Жулиета",
@@ -2672,7 +2672,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = "630d5dda-7255-4ce9-a658-0eedfb698a5f",
                             AccessFailedCount = 0,
                             Avatar = "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg",
-                            ConcurrencyStamp = "82c7d90c-abde-4cb7-ac68-58751e656b69",
+                            ConcurrencyStamp = "9aa0d996-062c-445c-b27e-997bdd6442f3",
                             Email = "Bobo561@abv.bg",
                             EmailConfirmed = true,
                             FirstName = "Borislav",
@@ -2681,9 +2681,9 @@ namespace MyWebProject.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "Bobo561@abv.bg",
                             NormalizedUserName = "Bobo561@abv.bg",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGEMEaYRK6GjInMSL3xgCKTS+WsgxSgSIyID5MSZjF6e4o0yAfqzkn42J+TR4lX/fg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMwnKf6rCVT1aSJT0LD6WduhSmjMJgUhUKdF84FKXXgKNbS67nW6FZBYWFvKDNkhog==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5424967c-6270-426f-bb94-f58718686aad",
+                            SecurityStamp = "3da9ba27-15da-40e5-8a7b-79c461732be4",
                             TwoFactorEnabled = false,
                             UserName = "Bobo561@abv.bg"
                         });
