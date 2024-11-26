@@ -1,4 +1,4 @@
-
+![Екранна снимка 2024-11-26 205626](https://github.com/user-attachments/assets/54363f61-3853-42c9-9ce4-43d16e6ea5c0)
 # My-Web-Project(LandMarks)
 
 
@@ -138,4 +138,18 @@ sample excursions as well as cultural events for the various cities (theatre pro
 
   https://github.com/user-attachments/assets/2929f15d-6fac-4e9c-954a-326740e4d116
 </section>
+<br>
+<hr>
+<section>
 
+  <p>    
+    After the search field, there are links for registration and login, which are located at the right end of the navigation bar.
+    The login and registration form for each information input field has
+    validations. there can be no empty fields, and there are a few more requirements for entering passwords.
+  </p>
+
+  <img src="https://github.com/user-attachments/assets/bab9bec1-2295-4133-b4f8-35edda427276" width="450" />
+  <img src="https://github.com/user-attachments/assets/ab129bfc-3aea-4326-aa10-0d9b9b66c21b"width="450" />
+
+  
+</section>
