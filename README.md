@@ -1,4 +1,3 @@
-![Екранна снимка 2024-11-26 205626](https://github.com/user-attachments/assets/54363f61-3853-42c9-9ce4-43d16e6ea5c0)
 # My-Web-Project(LandMarks)
 
 
@@ -149,7 +148,22 @@ sample excursions as well as cultural events for the various cities (theatre pro
   </p>
 
   <img src="https://github.com/user-attachments/assets/bab9bec1-2295-4133-b4f8-35edda427276" width="450" />
-  <img src="https://github.com/user-attachments/assets/ab129bfc-3aea-4326-aa10-0d9b9b66c21b"width="450" />
+  <img src="https://github.com/user-attachments/assets/54363f61-3853-42c9-9ce4-43d16e6ea5c0" width="450" />
 
-  
+  <p>
+    After successful registration or login, the user is redirected to the main page and two new "Logout" 
+    links are visualized in the navigation bar on the far right. After clicking, the user who was logged in exits his account. 
+    The other link in (the case is logged in admin) is visualized greeting to the user.
+  </p>
+  <p>
+     It redirects to the user information section (which can be accessed from the links on the left).The options available are:
+     change of email, change of username as well as first and last name. In the next section is password change.
+    Two more links follow, the first is for the user's photo collection (pre-approved by the admin),the second link is a collection of events who has noted that he will visit.
+  </p>
+
+   <img src="https://github.com/user-attachments/assets/89675f42-814a-47d4-bfcc-e8c2e458799f" width="450" />
+   <img src="https://github.com/user-attachments/assets/e13a73fd-9d99-477f-93b3-d02486dbfd8d" width="450" />
+   <img src="https://github.com/user-attachments/assets/9d83efa8-d832-4058-b62d-3b07fd733e8e" width="450" />
+   <img src="https://github.com/user-attachments/assets/354a1549-0f4b-4b46-aa9b-165ba6e6e3c6" width="450" />
+   
 </section>
