@@ -1,8 +1,15 @@
 # My-Web-Project(LandMarks)
 
-
 Hello, this is my web project related to Bulgarian landmarks, cities as an option, 
 sample excursions as well as cultural events for the various cities (theatre productions, concerts, etc.) have been added.
+
+<p>
+  The application uses the .Net 6 platform. Asp .Net, MVC pattern, and EF core database were used for the development. 
+  The application has two areas, User and Administrator, and for both areas there are added roles. Users have rights only 
+  to view and add content only to their own collections after admin approval.
+  The administrator can add content such as adding sights, trips, events, cities, etc. as well as approves content 
+  uploaded by users and adds it to the database.
+</p>
 
 <h3>The main page</h1>
 
