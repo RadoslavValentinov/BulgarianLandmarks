@@ -1,9 +1,15 @@
-
 # My-Web-Project(LandMarks)
-
 
 Hello, this is my web project related to Bulgarian landmarks, cities as an option, 
 sample excursions as well as cultural events for the various cities (theatre productions, concerts, etc.) have been added.
+
+<p>
+  The application uses the .Net 6 platform. Asp .Net, MVC pattern, and EF core database were used for the development. 
+  The application has two areas, User and Administrator, and for both areas there are added roles. Users have rights only 
+  to view and add content only to their own collections after admin approval.
+  The administrator can add content such as adding sights, trips, events, cities, etc. as well as approves content 
+  uploaded by users and adds it to the database.
+</p>
 
 <h3>The main page</h1>
 
@@ -138,4 +144,33 @@ sample excursions as well as cultural events for the various cities (theatre pro
 
   https://github.com/user-attachments/assets/2929f15d-6fac-4e9c-954a-326740e4d116
 </section>
+<br>
+<hr>
+<section>
 
+  <p>    
+    After the search field, there are links for registration and login, which are located at the right end of the navigation bar.
+    The login and registration form for each information input field has
+    validations. there can be no empty fields, and there are a few more requirements for entering passwords.
+  </p>
+
+  <img src="https://github.com/user-attachments/assets/bab9bec1-2295-4133-b4f8-35edda427276" width="450" />
+  <img src="https://github.com/user-attachments/assets/54363f61-3853-42c9-9ce4-43d16e6ea5c0" width="450" />
+
+  <p>
+    After successful registration or login, the user is redirected to the main page and two new "Logout" 
+    links are visualized in the navigation bar on the far right. After clicking, the user who was logged in exits his account. 
+    The other link in (the case is logged in admin) is visualized greeting to the user.
+  </p>
+  <p>
+     It redirects to the user information section (which can be accessed from the links on the left).The options available are:
+     change of email, change of username as well as first and last name. In the next section is password change.
+    Two more links follow, the first is for the user's photo collection (pre-approved by the admin),the second link is a collection of events who has noted that he will visit.
+  </p>
+
+   <img src="https://github.com/user-attachments/assets/89675f42-814a-47d4-bfcc-e8c2e458799f" width="450" />
+   <img src="https://github.com/user-attachments/assets/e13a73fd-9d99-477f-93b3-d02486dbfd8d" width="450" />
+   <img src="https://github.com/user-attachments/assets/9d83efa8-d832-4058-b62d-3b07fd733e8e" width="450" />
+   <img src="https://github.com/user-attachments/assets/354a1549-0f4b-4b46-aa9b-165ba6e6e3c6" width="450" />
+   
+</section>
