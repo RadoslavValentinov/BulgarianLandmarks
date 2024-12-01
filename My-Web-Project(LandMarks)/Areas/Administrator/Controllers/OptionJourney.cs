@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Models.JourneyModel;
 using MyWebProject.Core.Services.IServices;
-using MyWebProject.Infrastructure.Data.Models;
 
 namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
 {
@@ -20,7 +19,7 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var all = await journey.GetAll();  
+            var all = await journey.GetAll();
 
             return View(all);
         }
@@ -52,8 +51,8 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
         public IActionResult Edit(int Id)
         {
             var currentJourney = journey.GetByIdNewModel(Id).Result;
-           
-            var model = new JourneyViewModel() 
+
+            var model = new JourneyViewModel()
             {
                 Id = Id,
                 Name = currentJourney.Name,

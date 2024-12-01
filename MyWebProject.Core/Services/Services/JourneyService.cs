@@ -6,8 +6,6 @@ using MyWebProject.Core.Models.JourneyModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
-using System;
-using System.Text.Encodings.Web;
 
 namespace MyWebProject.Core.Services.Services
 {
@@ -42,7 +40,7 @@ namespace MyWebProject.Core.Services.Services
 
             try
             {
-               
+
                 var journey = new Journeys()
                 {
                     Id = model.Id,
@@ -79,8 +77,8 @@ namespace MyWebProject.Core.Services.Services
 
         [Area("Administrator")]
         public async Task Delete(int id)
-        { 
-            
+        {
+
             var setersss = await repo.AllReadonly<Journeys>()
                     .Where(z => z.Id == id)
                     .Include(x => x.pictures)
@@ -122,7 +120,7 @@ namespace MyWebProject.Core.Services.Services
 
             try
             {
-               
+
                 if (model.Urladdress != null)
                 {
                     var pict = await repo.AllReadonly<Pictures>().FirstAsync(x => x.JourneyId == model.Id);

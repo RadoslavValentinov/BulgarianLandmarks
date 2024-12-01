@@ -31,13 +31,14 @@ namespace My_Web_Project_LandMarks_
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             })
            .AddRazorRuntimeCompilation()
-           
+
 
            .AddMvcOptions(options =>
            {
                options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
            });
-            builder.Services.ConfigureApplicationCookie(option =>{
+            builder.Services.ConfigureApplicationCookie(option =>
+            {
 
                 option.Cookie.SameSite = SameSiteMode.Strict;
                 option.LoginPath = "/User/Login";
@@ -55,7 +56,7 @@ namespace My_Web_Project_LandMarks_
             .AddDefaultUI()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
-        
+
 
             var app = builder.Build();
 
@@ -92,8 +93,8 @@ namespace My_Web_Project_LandMarks_
 
             });
 
-           
-            
+
+
             using (var scope = app.Services.CreateScope())
             {
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
@@ -106,7 +107,7 @@ namespace My_Web_Project_LandMarks_
                         await roleManager.CreateAsync(new IdentityRole(role));
                 }
             }
-           
+
             using (var scope = app.Services.CreateScope())
             {
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<Users>>();

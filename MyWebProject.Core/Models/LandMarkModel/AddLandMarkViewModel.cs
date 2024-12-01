@@ -13,17 +13,17 @@ namespace MyWebProject.Core.Models.LandMarkModel
         [MinLength(GlobalConstant.LandMarkConstant.NameMinLenght)]
         public string Name { get; set; } = null!;
 
-       
+
         [MinLength(GlobalConstant.LandMarkConstant.DescriptionMinLenght)]
         [MaxLength(GlobalConstant.LandMarkConstant.DescriptionMaxLenght)]
         public string Description { get; set; } = null!;
 
-       
+
         public decimal Rating { get; set; }
 
         public int CategoryId { get; set; }
 
-        public IEnumerable<CategoryViewModel> Category { get; set; } 
+        public IEnumerable<CategoryViewModel> Category { get; set; }
             = new List<CategoryViewModel>();
 
         [MaxLength(300)]

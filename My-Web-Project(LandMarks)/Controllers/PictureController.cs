@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Graph.Models;
 using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Services.IServices;
 
@@ -13,7 +11,7 @@ namespace My_Web_Project_LandMarks_.Controllers
     {
 
         private readonly IPictureService service;
-       
+
 
 
         public PictureController(IPictureService _service)

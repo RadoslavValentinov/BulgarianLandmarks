@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq.Expressions;
 
 

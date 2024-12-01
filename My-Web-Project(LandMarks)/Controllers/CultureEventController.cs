@@ -1,14 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.Graph.Models;
-using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
-using System.Linq;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {
@@ -56,7 +51,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         {
 
             var currentEvent = await repo.GetByIdAsync<Cultural_events>(eventId);
-           
+
             if (currentEvent != null)
             {
                 if (choiceBtn == "Може би" && choiceBtn != null
@@ -74,11 +69,11 @@ namespace My_Web_Project_LandMarks_.Controllers
 
                 var set = await repo.GetByIdAsync<Users>(currentUser.Id);
 
-                
-                var check =  repo.AllReadonly<Cultural_events>().Where(x => x.AllUsers.Any(a => a.Id == currentUser.Id));
+
+                var check = repo.AllReadonly<Cultural_events>().Where(x => x.AllUsers.Any(a => a.Id == currentUser.Id));
 
 
-                if (check.Any(a => a.Id == currentEvent.Id) == false) 
+                if (check.Any(a => a.Id == currentEvent.Id) == false)
                 {
                     currentUser!.CulturalEvents.Add(currentEvent);
 

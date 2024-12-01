@@ -24,14 +24,14 @@ namespace My_Web_Project_LandMarks_.ModelBinder
                 try
                 {
                     string decimalValue = resultValue.FirstValue;
-                    decimalValue.Replace(".",CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+                    decimalValue.Replace(".", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
                     decimalValue.Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
-                    actualResult = Convert.ToDecimal(decimalValue,CultureInfo.CurrentCulture);
+                    actualResult = Convert.ToDecimal(decimalValue, CultureInfo.CurrentCulture);
                     isSuccess = true;
                 }
                 catch (FormatException fex)
                 {
-                    bindingContext.ModelState.AddModelError(bindingContext.ModelName,fex,bindingContext.ModelMetadata);
+                    bindingContext.ModelState.AddModelError(bindingContext.ModelName, fex, bindingContext.ModelMetadata);
                 }
 
                 if (isSuccess)

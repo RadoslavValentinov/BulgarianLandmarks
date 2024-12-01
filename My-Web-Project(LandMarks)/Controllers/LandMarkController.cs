@@ -1,11 +1,7 @@
-﻿using Humanizer;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Graph.Models;
 using MyWebProject.Core.Models.LandMarkModel;
 using MyWebProject.Core.Services.IServices;
-using MyWebProject.Infrastructure.Data.Models;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {

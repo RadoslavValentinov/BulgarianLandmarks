@@ -12,7 +12,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
         }
 
 
-        private List<Category> Createcategories() 
+        private List<Category> Createcategories()
         {
             List<Category> Allcategories = new List<Category>()
             {
@@ -27,7 +27,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Id = 2,
                     Name="Culture"
                 },
-               
+
                 new Category
                 {
                     Id = 3,
@@ -47,7 +47,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                 },
 
                 new Category
-                { 
+                {
                     Id = 6,
                     Name="Town"
                 },

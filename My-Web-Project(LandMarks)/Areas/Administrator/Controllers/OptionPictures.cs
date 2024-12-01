@@ -112,7 +112,7 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
         {
             await service.Delete(Id);
 
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Index");
         }
     }
 }

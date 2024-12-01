@@ -1,7 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using MyWebProject.Core.Constants;
 using System.ComponentModel.DataAnnotations;
-using MyWebProject.Core.Constants;
-using Microsoft.Graph.Models;
 
 namespace MyWebProject.Core.Models.CultureEventModel
 {
@@ -15,7 +13,7 @@ namespace MyWebProject.Core.Models.CultureEventModel
         public string Name { get; set; } = null!;
 
         [Required]
-        [StringLength(maximumLength:GlobalConstant.CultureEventConstant.DescriptionMaxLenght,
+        [StringLength(maximumLength: GlobalConstant.CultureEventConstant.DescriptionMaxLenght,
             MinimumLength = GlobalConstant.CultureEventConstant.DescriptionMinLenght)]
         public string Description { get; set; } = null!;
 

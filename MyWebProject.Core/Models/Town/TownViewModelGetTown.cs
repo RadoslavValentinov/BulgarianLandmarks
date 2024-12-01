@@ -9,7 +9,7 @@ namespace MyWebProject.Core.Models.Town
         public int Id { get; set; }
 
         [Required]
-        [StringLength(maximumLength:GlobalConstant.TownConstant.townNameMaxLenght,
+        [StringLength(maximumLength: GlobalConstant.TownConstant.townNameMaxLenght,
             MinimumLength = GlobalConstant.TownConstant.townNameMinLenght)]
         public string Name { get; set; } = null!;
 
@@ -18,7 +18,7 @@ namespace MyWebProject.Core.Models.Town
            MinimumLength = GlobalConstant.TownConstant.townDescriptionMinLenght)]
         public string Description { get; set; } = null!;
 
-        public List<Pictures> Picture { get; set; } 
+        public List<Pictures> Picture { get; set; }
             = new List<Pictures>();
 
         public List<LandMark> Landmarks { get; set; }
@@ -26,7 +26,7 @@ namespace MyWebProject.Core.Models.Town
 
         public List<Cultural_events> cultural_Events { get; set; }
                 = new List<Cultural_events> { };
- 
+
         [MaxLength(200)]
         public string? Location { get; set; }
     }

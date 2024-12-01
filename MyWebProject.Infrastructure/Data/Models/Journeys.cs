@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyWebProject.Infrastructure.Data.Models
 {
@@ -14,7 +13,7 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         [Required]
         [MaxLength(2000)]
-        [MinLength (20)]
+        [MinLength(20)]
         public string Description { get; set; } = null!;
 
         [Required]

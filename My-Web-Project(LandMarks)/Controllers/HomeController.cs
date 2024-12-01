@@ -28,12 +28,12 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
         [Authorize]
-        public  IActionResult GetUserPictures()
+        public IActionResult GetUserPictures()
         {
-            var userName =  User.Identity?.Name;
+            var userName = User.Identity?.Name;
 
-            var all =  service.AllUserPictures(userName ?? null!).Result;
- 
+            var all = service.AllUserPictures(userName ?? null!).Result;
+
             return View(all);
         }
 

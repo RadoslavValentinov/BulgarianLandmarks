@@ -6,7 +6,6 @@ using MyWebProject.Core.Models.Town;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
-using System.Text.Encodings.Web;
 
 namespace MyWebProject.Core.Services.Services
 {
@@ -124,7 +123,7 @@ namespace MyWebProject.Core.Services.Services
             var sanitaize = new HtmlSanitizer();
 
             string nameTown = sanitaize.Sanitize(name);
-           
+
 
             return await repo.AllReadonly<Town>()
                 .Where(i => i.Name == nameTown)

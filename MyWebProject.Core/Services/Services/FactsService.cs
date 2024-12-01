@@ -42,7 +42,7 @@ namespace MyWebProject.Core.Services.Services
             {
                 Id = model.Id,
                 Description = description,
-                CategoryId= model.CategoryId
+                CategoryId = model.CategoryId
             };
 
 
@@ -63,13 +63,13 @@ namespace MyWebProject.Core.Services.Services
         {
 
             var facts = await repo.AllReadonly<InterestingFacts>()
-               .Include(x=>x.Category)
+               .Include(x => x.Category)
                .Select(f => new AllFactsViewModel()
                {
                    Id = f.Id,
                    Description = f.Description,
                    Category = f.Category.Name
-               }) 
+               })
                .ToListAsync();
 
             return facts;
@@ -87,7 +87,7 @@ namespace MyWebProject.Core.Services.Services
             }
             catch (ArgumentNullException an)
             {
-                logger.LogError(string.Format("Not deleted this fact, Plese try again later"), an); 
+                logger.LogError(string.Format("Not deleted this fact, Plese try again later"), an);
             }
         }
 

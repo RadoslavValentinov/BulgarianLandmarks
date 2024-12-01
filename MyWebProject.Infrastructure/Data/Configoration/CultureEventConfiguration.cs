@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Globalization;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MyWebProject.Infrastructure.Data.Models;
 
@@ -13,7 +12,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
         }
 
 
-        private  List<Cultural_events> AllEvent()
+        private List<Cultural_events> AllEvent()
         {
             List<Cultural_events> events = new List<Cultural_events>()
             {
@@ -105,7 +104,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                      TownId = 1,
                      ImageURL = "https://cdn.artvibe.co/images/i/m1aaaaaaaaaaaaaaaaaaaaaaaaaaa252.jpg?s=xl"
                 },
-                new Cultural_events() 
+                new Cultural_events()
                 {
                     Id = 6,
                     Name = "Хензел и Гретел",
@@ -143,7 +142,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId = 2,
                     ImageURL = "https://eportal.bg/assets/stagings/large/r_6253f844cf18c_d4192ae7f46cf.jpg"
                 },
-                new Cultural_events() 
+                new Cultural_events()
                 {
                     Id = 8,
                     Name = "Grafa Live",
@@ -153,7 +152,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 2,
                     ImageURL = "https://imgrabo.com/pics/guide/900x600/20220817094312_30940.jpeg"
                 },
-                new Cultural_events() 
+                new Cultural_events()
                 {
                     Id = 9,
                     Name = "Приказната Пепеляшка",
@@ -171,7 +170,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId = 2,
                     ImageURL = "https://www.cross.bg/photo_new_gallery/2022/02/24/50ad63c9052e28a7f609922b44ef9609.jpg"
                 },
-                new Cultural_events() 
+                new Cultural_events()
                 {
                     Id = 10,
                     Name = "Пинокио",
@@ -192,7 +191,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId = 4,
                     ImageURL = "https://imgrabo.com/pics/guide/900x600/20220324110331_98213.jpeg"
                 },
-                new Cultural_events() 
+                new Cultural_events()
                 {
                     Id = 11,
                     Name = "Жабокът принц (куклен театър)",
@@ -214,7 +213,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId = 4,
                     ImageURL = "http://theatre.art.bg/img/photos/BIG14008272153zabokyt-princ%20(1).jpg"
                 },
-                new Cultural_events() 
+                new Cultural_events()
                 {
                     Id = 12,
                     Name = "Балетният спектакъл Лебедово езеро",
@@ -231,7 +230,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId = 4,
                     ImageURL = "https://static.bnr.bg/gallery/cf/cfafa1b78abda178ee7efd33dfd8491c.jpeg"
                 },
-                new Cultural_events() 
+                new Cultural_events()
                 {
                     Id = 13,
                     Name = "Усещане за любов",
@@ -249,7 +248,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId = 5,
                     ImageURL = "https://theatre.peakview.bg/theatre/photos/BIG1569442896170385680_2698892923462698_1534574836855078912_n.jpg"
                 },
-                new Cultural_events() 
+                new Cultural_events()
                 {
                     Id = 14,
                     Name = "Тоника СВ Live",
@@ -265,7 +264,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId = 5,
                     ImageURL = "https://imgrabo.com/pics/guide/900x600/20221006134600_14286.jpeg"
                 },
-                new Cultural_events() 
+                new Cultural_events()
                 {
                     Id = 15,
                     Name = "Магазин за приказки",

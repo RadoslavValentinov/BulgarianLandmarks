@@ -18,7 +18,7 @@ namespace MyWebProject.Core.Models.Town
          MinimumLength = GlobalConstant.TownConstant.townDescriptionMinLenght)]
         public string Description { get; set; } = null!;
 
-        public List<Pictures> Picture { get; set; } 
+        public List<Pictures> Picture { get; set; }
             = new List<Pictures>();
 
         public List<LandMark> Landmarks { get; set; }

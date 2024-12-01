@@ -40,7 +40,7 @@ namespace TetstingAllProjects.TestServices
             service = new PictureService(repo, logger!);
 
 
-            Assert.ThrowsAsync<ArgumentNullException>(async ()=> await service.AddPicture(new AddPictureViewModel()));
+            Assert.ThrowsAsync<ArgumentNullException>(async () => await service.AddPicture(new AddPictureViewModel()));
         }
 
         [Test]
@@ -98,7 +98,7 @@ namespace TetstingAllProjects.TestServices
             Assert.That(getNewPicture.Id, Is.EqualTo(100));
             Assert.That(getNewPicture.UserName, Is.EqualTo("user"));
             Assert.That(getNewPicture.IsActive, Is.EqualTo(true));
-           
+
         }
 
 
@@ -110,7 +110,7 @@ namespace TetstingAllProjects.TestServices
 
             var allPictureService = await service.AllPicture();
 
-           var dbAllPicture = await repo.AllReadonly<Pictures>().ToListAsync();
+            var dbAllPicture = await repo.AllReadonly<Pictures>().ToListAsync();
 
             Assert.That(allPictureService.Count(), Is.EqualTo(dbAllPicture.Count()));
         }
@@ -198,7 +198,7 @@ namespace TetstingAllProjects.TestServices
             var repo = new Repository(context);
             service = new PictureService(repo, logger!);
 
-            Assert.ThrowsAsync<ArgumentNullException>(async ()=> await service.Delete(370));
+            Assert.ThrowsAsync<ArgumentNullException>(async () => await service.Delete(370));
         }
 
 
@@ -230,7 +230,7 @@ namespace TetstingAllProjects.TestServices
 
             var contains = new HtmlSanitizer();
 
-            
+
             Assert.That(getUpdatedPicture.UrlImgAddres, Is.EqualTo(contains.Sanitize("https://media.istockphoto.com/id/615112296/photo/sofia-in-orange.jpg?s=2048x2048&w=is&k=20&c=C1KyGCCex6kLGAWT9e_h_hvathr03dLSYHtMjHN1mVg=")));
             Assert.That(getUpdatedPicture.LandMark, Is.EqualTo(9));
             Assert.That(getUpdatedPicture.Town, Is.EqualTo(5));

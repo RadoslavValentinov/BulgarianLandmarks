@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Services.IServices;
-using MyWebProject.Infrastructure.Data.Models;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {
@@ -12,8 +11,8 @@ namespace My_Web_Project_LandMarks_.Controllers
         public Top10destinationController(ITop10Destination _service,
             IMysteryPlace _mpService)
         {
-            service= _service;
-            mpService= _mpService;
+            service = _service;
+            mpService = _mpService;
         }
 
         /// <summary>

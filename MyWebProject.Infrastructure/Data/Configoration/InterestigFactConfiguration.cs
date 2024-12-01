@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MyWebProject.Infrastructure.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWebProject.Infrastructure.Data.Configoration
 {
@@ -38,7 +33,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Пловдив има археологически останки, които показват, че хората са се заселили в района повече от 8000 години. " +
                     "За сравнение, Рим е млад приблизително 2800 години, а Атина е създадена преди 6000 години.",
                     CategoryId = 7
-                    
+
                 },
                 new InterestingFacts()
                 {

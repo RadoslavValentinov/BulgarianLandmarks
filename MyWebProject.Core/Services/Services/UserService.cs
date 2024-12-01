@@ -41,7 +41,7 @@ namespace MyWebProject.Core.Services.Services
 
             if (AllUsers == null)
             {
-                logger.LogError(string.Format("No register users"),new NullReferenceException());
+                logger.LogError(string.Format("No register users"), new NullReferenceException());
             }
 
             return AllUsers ?? null!;

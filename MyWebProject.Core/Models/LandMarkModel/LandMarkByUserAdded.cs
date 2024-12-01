@@ -1,6 +1,5 @@
 ﻿using MyWebProject.Core.Constants;
 using MyWebProject.Core.Models.Category;
-using MyWebProject.Infrastructure.Data.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyWebProject.Core.Models.LandMarkModel

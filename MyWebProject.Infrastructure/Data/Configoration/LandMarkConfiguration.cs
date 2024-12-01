@@ -42,8 +42,8 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 9.0m,
                     TownId = 1,
                     CategoryId = 6,
-                   
-                    
+
+
                 },
                 new LandMark()
                 {
@@ -57,7 +57,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 10.0m,
                     TownId = 1,
                     CategoryId = 6,
-                   
+
                 },
                 new LandMark()
                 {
@@ -72,7 +72,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 1,
                     CategoryId = 6,
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 5,
                     Name = "Античен театър",
@@ -87,7 +87,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 2,
                     CategoryId = 6,
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 6,
                     Name = "Регионален етнографски музей",
@@ -112,7 +112,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 2,
                     CategoryId= 6,
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 8,
                     Name = "Капана",
@@ -125,7 +125,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 2,
                     CategoryId= 6,
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 9,
                     Name = "Кайлъка",
@@ -142,7 +142,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 3,
                     CategoryId= 6,
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 10,
                     Name = "Панарамата",
@@ -165,7 +165,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 3,
                     CategoryId= 6,
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 11,
                     Name = "Регионален Исторически Мозей",
@@ -208,7 +208,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId = 4,
                     CategoryId= 6,
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 13,
                     Name = "Зоологическа градина",
@@ -221,7 +221,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 4,
                     CategoryId= 6,
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 14,
                     Name = "Артилерийски парк",
@@ -240,7 +240,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 4,
                     CategoryId= 6,
                 },
-                new LandMark()  
+                new LandMark()
                 {
                     Id = 15,
                     Name = "Регионален исторически музей",
@@ -261,7 +261,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 4,
                     CategoryId= 6,
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 16,
                     Name = "Бранителите на Стара Загора",
@@ -278,7 +278,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 4,
                     CategoryId= 6,
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 17,
                     Name = "Плаж Черноморец",
@@ -300,7 +300,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 5,
                     CategoryId= 6,
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 18,
                     Name = "Музей на изкуството на открито",
@@ -313,7 +313,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     TownId= 5,
                     CategoryId= 6,
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 19,
                     Name = "Малкият дворец",
@@ -351,7 +351,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     VideoURL ="https://www.youtube.com/embed/kOHCzCnsFkA?autoplay=1&mute=1"
 
                 },
-                new LandMark() 
+                new LandMark()
                 {
                     Id = 21,
                     Name = "Кръстова гора",
@@ -382,8 +382,8 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 9.7m,
                     CategoryId= 5,
                     VideoURL = "https://www.youtube.com/embed/Wk4CJC3-yms?autoplay=1&mute=1"
-                },   
-                new LandMark() 
+                },
+                new LandMark()
                 {
                     Id = 22,
                     Name = "Караджов камък",
@@ -404,12 +404,12 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Христов датира съществуването на светилището основно в два периода – първият в ранножелязната епоха, а вторият – от края на III в. до началото на IV в. (благодарение на нумизматичен материал, намерен край обекта). " +
                     "Разположението на светилището в района на Белинташ, обаче сочи по-ранна датировка, още в Новокаменната епоха и по-късното му преизползване от траките." +
                     "Както и при други древни светилища, тук се наблюдават няколко нива. Първото ниво се нарича Долна култова площадка, следват издълбани стъпала – преход към по-високата част, където в скалите има изсечени малки дупки.",
-                     Rating = 7.1m, 
+                     Rating = 7.1m,
                     CategoryId= 5,
                     VideoURL = "https://www.youtube.com/embed/dz4uhD5sD44?autoplay=1&mute=1"
                 },
-                new LandMark() 
-                { 
+                new LandMark()
+                {
                     Id = 23,
                     Name = "Дяволското Гърло",
                     Description = "Местонахождение" +

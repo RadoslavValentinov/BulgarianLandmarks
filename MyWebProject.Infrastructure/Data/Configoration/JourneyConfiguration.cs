@@ -13,7 +13,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
 
         private List<Journeys> Alljourneys()
         {
-            List<Journeys> journeys = new List<Journeys>() 
+            List<Journeys> journeys = new List<Journeys>()
             {
                 new Journeys
                 {
@@ -64,7 +64,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     StartDate = "13-09-2023",
                     Price = 59
                 },
-                new Journeys 
+                new Journeys
                 {
                     Id = 3,
                     Name = "Двудневна екскурзия до Перперикон, Татул, Кърджали, Каменни гъби  от София и Пловдив",
@@ -90,7 +90,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     StartDate = "24-06-2023",
                     Price = 129
                 },
-                new Journeys 
+                new Journeys
                 {
                     Id = 4,
                     Name = "Белоградчишките скали, пещерата Магура, пещерата Венеца и Видин от Пловдив",
@@ -114,7 +114,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     StartDate = "06-17-2023",
                     Price = 119
                 },
-                new Journeys 
+                new Journeys
                 {
                     Id = 5,
                     Name = "Екскурзия до Мелник и Рупите с посещение на Рилски и Роженски манастир от Пловдив",
@@ -137,7 +137,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     StartDate = "10-28-2023",
                     Price = 120
                 },
-                new Journeys 
+                new Journeys
                 {
                     Id = 6,
                     Name = "Eкскурзия до Плевен, Ловеч и Тетевен с посещение на пещера Съева дупка",
@@ -160,7 +160,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     StartDate ="30-09-2023",
                     Price = 119
                 },
-                new Journeys 
+                new Journeys
                 {
                     Id = 7,
                     Name = "Двудневна екскурзия до Каньона на Арда и Българският Стоунхендж",

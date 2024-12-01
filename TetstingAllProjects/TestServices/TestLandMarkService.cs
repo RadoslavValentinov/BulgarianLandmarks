@@ -7,11 +7,6 @@ using MyWebProject.Infrastructure.Data;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
 using NUnit.Framework.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TetstingAllProjects.TestServices
 {
@@ -69,7 +64,7 @@ namespace TetstingAllProjects.TestServices
 
             var getById = await service.GetById(100);
 
-            Assert.That(allLadmark.Count()+1, Is.EqualTo(getAllLandmark.Count()));
+            Assert.That(allLadmark.Count() + 1, Is.EqualTo(getAllLandmark.Count()));
             Assert.That(getById.Name, Is.EqualTo("Зоопарк Плевен"));
             Assert.That(getById.Description, Is.EqualTo("Зоопаркът е построен по шремето на социализмът... "));
         }
@@ -95,7 +90,7 @@ namespace TetstingAllProjects.TestServices
 
             var getById = await repo.GetByIdAsync<Landmark_suggestions>(100);
 
-            Assert.That(allLadmark.Count()+1, Is.EqualTo(getAllLandmark.Count()));
+            Assert.That(allLadmark.Count() + 1, Is.EqualTo(getAllLandmark.Count()));
             Assert.That(getById.Name, Is.EqualTo("Зоопарк Плевен"));
             Assert.That(getById.Description, Is.EqualTo("Зоопаркът е построен по шремето на социализмът... "));
         }
@@ -147,7 +142,7 @@ namespace TetstingAllProjects.TestServices
             var repo = new Repository(context);
             service = new LandMarkService(repo, logger!);
 
-            Assert.ThrowsAsync<ArgumentOutOfRangeException>(async ()=> await service.Delete(100));
+            Assert.ThrowsAsync<ArgumentOutOfRangeException>(async () => await service.Delete(100));
         }
 
 
@@ -169,7 +164,7 @@ namespace TetstingAllProjects.TestServices
                 CategoryId = 1,
                 ImageURL = "https://darik.bg/media/628/zoopark-kajlaka-me4kite-2.l.webp"
             });
-           
+
 
             await service.Delete(100);
 
@@ -186,7 +181,7 @@ namespace TetstingAllProjects.TestServices
             var repo = new Repository(context);
             service = new LandMarkService(repo, logger!);
 
-            Assert.ThrowsAsync<NullReferenceException>(async ()=> await service.Edit(new LandMarkViewModelAll()));
+            Assert.ThrowsAsync<NullReferenceException>(async () => await service.Edit(new LandMarkViewModelAll()));
         }
 
         [Test]
@@ -234,7 +229,7 @@ namespace TetstingAllProjects.TestServices
         }
 
 
-        
+
 
     }
 }

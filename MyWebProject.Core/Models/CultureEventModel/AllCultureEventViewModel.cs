@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using MyWebProject.Core.Constants;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MyWebProject.Core.Constants;
 
 namespace MyWebProject.Core.Models.CultureEventModel
 {

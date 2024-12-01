@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Models.FactOfBulgaria;
 using MyWebProject.Core.Services.IServices;
-using System.Diagnostics;
 
 namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
 {
@@ -21,7 +20,7 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
 
         public IActionResult Index()
         {
-            var setAll =  service.AllFacts().Result;
+            var setAll = service.AllFacts().Result;
 
             return View(setAll);
         }
@@ -41,7 +40,7 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
 
         [HttpPost]
         public async Task<IActionResult> AddFacts(FactOfCountry model)
-        
+
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +81,7 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
             return View(model);
         }
 
-       
+
         public async Task<IActionResult> Delete(int Id)
         {
             await service.Delete(Id);

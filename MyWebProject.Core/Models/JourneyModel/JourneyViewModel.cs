@@ -1,11 +1,5 @@
 ﻿using MyWebProject.Core.Constants;
-using MyWebProject.Infrastructure.Data.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWebProject.Core.Models.JourneyModel
 {
@@ -14,8 +8,8 @@ namespace MyWebProject.Core.Models.JourneyModel
         public int Id { get; set; }
 
         [Required]
-        [StringLength(maximumLength:GlobalConstant.JourneyConstant.NameMaxLenght,
-            MinimumLength =GlobalConstant.JourneyConstant.NameMinLenght)]
+        [StringLength(maximumLength: GlobalConstant.JourneyConstant.NameMaxLenght,
+            MinimumLength = GlobalConstant.JourneyConstant.NameMinLenght)]
         public string Name { get; set; } = null!;
 
         [Required]

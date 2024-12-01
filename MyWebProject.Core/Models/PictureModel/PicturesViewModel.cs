@@ -1,12 +1,5 @@
-﻿using MyWebProject.Infrastructure.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using MyWebProject.Core.Constants;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MyWebProject.Core.Constants;
 
 namespace MyWebProject.Core.Models.PictureModel
 {
@@ -23,7 +16,7 @@ namespace MyWebProject.Core.Models.PictureModel
         public bool IsActive { get; set; }
 
         public string? LandMark { get; set; }
-       
+
         public string? Town { get; set; }
 
         public string? Journey { get; set; }

@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MyWebProject.Core.Models.Category;
@@ -7,8 +6,6 @@ using MyWebProject.Core.Services.Services;
 using MyWebProject.Infrastructure.Data;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
-using NUnit.Framework;
-using System;
 
 namespace TetstingAllProjects.TestServices
 {
@@ -31,7 +28,7 @@ namespace TetstingAllProjects.TestServices
 
             context = new ApplicationDbContext(contextOptions);
 
-             
+
 
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
@@ -41,7 +38,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestNew_category()
         {
             var repo = new Repository(context);
-            services = new CategoryService(repo,logger);
+            services = new CategoryService(repo, logger);
 
             await repo.AddAsync(new Category()
             {
@@ -98,12 +95,12 @@ namespace TetstingAllProjects.TestServices
 
 
         [Test]
-        public  void TestMethod_Create_Aow_Exeption()
+        public void TestMethod_Create_Aow_Exeption()
         {
             var repo = new Repository(context);
             services = new CategoryService(repo, logger);
 
-             Assert.ThrowsAsync<NullReferenceException>(async () => await services.CreateCategory(new CreateCategoryViewModel() { Name = string.Empty }));
+            Assert.ThrowsAsync<NullReferenceException>(async () => await services.CreateCategory(new CreateCategoryViewModel() { Name = string.Empty }));
         }
 
 

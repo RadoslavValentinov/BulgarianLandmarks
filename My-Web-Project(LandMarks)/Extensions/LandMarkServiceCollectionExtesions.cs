@@ -1,8 +1,8 @@
-﻿using MyWebProject.Core.Services.IServices;
+﻿using Microsoft.AspNetCore.Identity.UI.Services;
+using My_Web_Project_LandMarks_.Models;
+using MyWebProject.Core.Services.IServices;
 using MyWebProject.Core.Services.Services;
 using MyWebProject.Infrastructure.Data.Common;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using My_Web_Project_LandMarks_.Models;
 
 namespace My_Web_Project_LandMarks_.Extensions
 {
@@ -14,7 +14,7 @@ namespace My_Web_Project_LandMarks_.Extensions
         /// </summary>
         /// <param name="all services"></param>
         /// <returns>service</returns>
-        public static IServiceCollection AddApplicationServiceApp(this IServiceCollection services) 
+        public static IServiceCollection AddApplicationServiceApp(this IServiceCollection services)
         {
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<IHomeService, HomeServices>();

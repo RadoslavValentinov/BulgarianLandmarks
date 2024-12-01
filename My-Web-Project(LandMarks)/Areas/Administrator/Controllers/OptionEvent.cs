@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Services.IServices;
-using MyWebProject.Infrastructure.Data.Common;
-using MyWebProject.Infrastructure.Data.Models;
 
 namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
 {
@@ -34,7 +32,7 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
         public IActionResult Edit(int Id)
         {
             var getEvent = events.EventByTownId(Id).Result;
-            
+
             var model = new CultureEventViewModelByTownId()
             {
                 Id = Id,

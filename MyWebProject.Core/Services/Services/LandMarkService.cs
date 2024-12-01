@@ -42,7 +42,7 @@ namespace MyWebProject.Core.Services.Services
 
             try
             {
-               
+
                 var land = new Landmark_suggestions()
                 {
                     Id = model.Id,
@@ -154,7 +154,7 @@ namespace MyWebProject.Core.Services.Services
 
             try
             {
-                
+
                 await repo.DeleteAsync<LandMark>(deletedItem[0].Id);
                 await repo.SaveChangesAsync();
             }

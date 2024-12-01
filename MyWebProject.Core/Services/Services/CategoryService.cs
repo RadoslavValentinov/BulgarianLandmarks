@@ -12,7 +12,7 @@ namespace MyWebProject.Core.Services.Services
     public class CategoryService : ICategoryService
     {
         private readonly IRepository repo;
-        private readonly ILogger<CategoryService> logger;   
+        private readonly ILogger<CategoryService> logger;
 
         public CategoryService(IRepository _repo,
             ILogger<CategoryService> _logger)

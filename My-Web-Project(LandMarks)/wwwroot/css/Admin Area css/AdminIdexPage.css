@@ -7,48 +7,73 @@ body {
     background: linear-gradient(180deg, rgba(202,214,214,0.3809173327534139) 54%, rgba(162,162,157,0.32209380334164917) 98%);
 }
 
-.navbar-brand{
-   font-size:20px;
+header .navbar {
+    background: rgb(202,214,214);
+    background: linear-gradient(360deg, rgba(202,214,214,0.3809173327534139) 0%, rgba(211,210,217,0.08679968569459029) 41%);
+    margin: 0px;
 }
 
-.container .myactionlink1 {
+    header .navbar .container-fluid a {
+        color: black;
+    }
+
+
+.navbar-brand {
+    font-size: 20px;
+}
+
+
+.containerLink .myactionlink1 {
     position: relative;
     left: 790px;
-    top: -95px;
+    top: -65px;
     text-decoration: none;
     color: firebrick;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.container .myactionlink2 {
+.containerLink .myactionlink2 {
     position: relative;
     left: 850px;
-    top: -95px;
+    top: -65px;
     margin: 10px;
     text-decoration: none;
-    color:firebrick;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: firebrick;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.container-fluid .navbar-brand{
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size:26px;
+body .container {
+    margin: 0px;
 }
+
+.container-fluid .navbar-brand {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 26px;
+}
+
 
 footer {
-    height: 160px;
-    width: auto;
-    height:auto;
-    margin-top: 120px;
+    position: relative;
+    top: 78px;
+    border-top: 1px solid gray;
     background-color: whitesmoke;
 }
-#selectOption .myactionlink {
-    max-width: 250px;
-    color: dimgray;
-    text-decoration:none;
-    padding:10px;
+
+#selectOption {
+    width: 300px;
+    height: 350px;
+    background-color: dimgrey;
+    border-radius: 6px;
+    padding: 10px;
 }
 
-    #selectOption .myactionlink:hover {
-       color: lightslategray;
+
+    #selectOption .myactionlink {
+        max-width: 250px;
+        text-decoration: none;
+        display: block;
     }
+
+        #selectOption .myactionlink:hover {
+            color: lightslategray;
+        }

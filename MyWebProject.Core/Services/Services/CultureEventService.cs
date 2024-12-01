@@ -1,10 +1,8 @@
 ﻿using Ganss.Xss;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Microsoft.Graph.Models;
 using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
@@ -27,7 +25,7 @@ namespace MyWebProject.Core.Services.Services
             logger = _logger;
         }
 
-       
+
 
         public async Task<IEnumerable<AllCultureEventViewModel>> AllEvent()
         {
@@ -71,7 +69,7 @@ namespace MyWebProject.Core.Services.Services
 
 
             try
-            { 
+            {
 
                 var newEvent = new Cultural_events()
                 {
@@ -143,7 +141,7 @@ namespace MyWebProject.Core.Services.Services
                 currentEvent.Hour = HourEvent;
                 currentEvent.Town = currenttown[0];
                 currentEvent.ImageURL = image;
-                
+
 
                 repo.Update(currentEvent);
                 await repo.SaveChangesAsync();
@@ -159,7 +157,7 @@ namespace MyWebProject.Core.Services.Services
 
         public async Task<CultureEventViewModelByTownId> EventByTownId(int id)
         {
-            
+
 
             try
             {

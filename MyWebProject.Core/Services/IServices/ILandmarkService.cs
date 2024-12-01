@@ -1,5 +1,4 @@
 ﻿using MyWebProject.Core.Models.Category;
-using MyWebProject.Core.Models.FactOfBulgaria;
 using MyWebProject.Core.Models.LandMarkModel;
 
 namespace MyWebProject.Core.Services.IServices

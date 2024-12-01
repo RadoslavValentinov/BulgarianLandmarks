@@ -1,17 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MyWebProject.Core.Models.LandMarkModel;
 using MyWebProject.Core.Models.Town;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Core.Services.Services;
 using MyWebProject.Infrastructure.Data;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TetstingAllProjects.TestServices
 {
@@ -48,7 +42,7 @@ namespace TetstingAllProjects.TestServices
             var targetTown = await service.TownsById(1);
 
             Assert.That(targetTown.Name, Is.EqualTo("София"));
-           
+
         }
 
         [Test]
@@ -94,14 +88,14 @@ namespace TetstingAllProjects.TestServices
                 Id = 100,
                 Name = "Русе",
                 Description = "Русе е край реюен град с добро... ",
-              
+
             });
 
             var getNewTown = await service.TownsById(100);
 
             var dbTown = await repo.AllReadonly<Town>().ToListAsync();
 
-            Assert.That(townCount.Count()+1, Is.EqualTo(dbTown.Count()));
+            Assert.That(townCount.Count() + 1, Is.EqualTo(dbTown.Count()));
 
             Assert.That(getNewTown.Name, Is.EqualTo("Русе"));
             Assert.That(getNewTown.Description, Is.EqualTo("Русе е край реюен град с добро... "));
@@ -114,7 +108,7 @@ namespace TetstingAllProjects.TestServices
             var repo = new Repository(context);
             service = new TownService(repo, logger!);
 
-            Assert.ThrowsAsync<ArgumentNullException>(async ()=> await service.CreateTown(new CreateTownViewModel()));
+            Assert.ThrowsAsync<ArgumentNullException>(async () => await service.CreateTown(new CreateTownViewModel()));
         }
 
 

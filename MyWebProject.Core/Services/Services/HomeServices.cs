@@ -51,7 +51,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<IEnumerable<AllCultureEventViewModel>> AllUserEvents(string userName)
         {
             var result = await repo.All<Cultural_events>()
-              .Where(x => x.AllUsers.Any(c=> c.UserName == userName))
+              .Where(x => x.AllUsers.Any(c => c.UserName == userName))
               .Select(s => new AllCultureEventViewModel()
               {
                   Id = s.Id,

@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MyWebProject.Infrastructure.Data.Configoration;
 using MyWebProject.Infrastructure.Data.Models;
-using System.Reflection.Emit;
 
 namespace MyWebProject.Infrastructure.Data
 {
@@ -42,7 +40,7 @@ namespace MyWebProject.Infrastructure.Data
             builder.Entity<Cultural_events>()
                 .HasMany(x => x.AllUsers)
                 .WithMany(x => x.CulturalEvents)
-                .UsingEntity(j=> j.ToTable("Cultural_eventsUsers"));
+                .UsingEntity(j => j.ToTable("Cultural_eventsUsers"));
 
             builder.Entity<LandMark>()
                 .HasOne(x => x.Town)
@@ -55,7 +53,7 @@ namespace MyWebProject.Infrastructure.Data
                 b.Property(e => e.Id).ValueGeneratedOnAdd();
             });
 
-           
+
 
             builder.Entity<Pictures>()
             .HasOne(x => x.Journey)

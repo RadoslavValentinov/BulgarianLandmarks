@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MyWebProject.Infrastructure.Data.Models;
-using static System.Net.WebRequestMethods;
 
 namespace MyWebProject.Infrastructure.Data.Configoration
 {
@@ -837,7 +836,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                 {
                     Id = 123,
                     UrlImgAddres = "https://www.andrey-andreev.com/wp-content/uploads/2016/10/IMGP7125.jpg",
-                    LandMarkId = 20,    
+                    LandMarkId = 20,
                 },
                 new Pictures()
                 {

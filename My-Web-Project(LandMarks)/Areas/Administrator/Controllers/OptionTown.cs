@@ -25,7 +25,7 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
             return View(getAll);
         }
 
-    
+
         public IActionResult SeeAllPicture(int Id)
         {
             var lendMarkPicture = town.TownsById(Id).Result;
@@ -43,7 +43,7 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
             return View(model);
         }
 
-      
+
         public IActionResult SeeAllLandMarks(int Id)
         {
             var lendMarkPicture = town.TownsById(Id).Result;

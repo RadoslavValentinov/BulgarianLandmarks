@@ -1,11 +1,6 @@
 ﻿using MyWebProject.Core.Constants;
 using MyWebProject.Core.Models.Category;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWebProject.Core.Models.FactOfBulgaria
 {

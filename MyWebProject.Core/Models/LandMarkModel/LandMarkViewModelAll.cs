@@ -1,13 +1,7 @@
 ﻿
-using MyWebProject.Infrastructure.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MyWebProject.Core.Constants;
+using MyWebProject.Infrastructure.Data.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyWebProject.Core.Models.LandMarkModel
 {
@@ -16,8 +10,8 @@ namespace MyWebProject.Core.Models.LandMarkModel
         public int Id { get; set; }
 
         [Required]
-        [StringLength(maximumLength:GlobalConstant.LandMarkConstant.NameMaxLenght,
-            MinimumLength =GlobalConstant.LandMarkConstant.NameMinLenght)]
+        [StringLength(maximumLength: GlobalConstant.LandMarkConstant.NameMaxLenght,
+            MinimumLength = GlobalConstant.LandMarkConstant.NameMinLenght)]
         public string Name { get; set; } = null!;
 
         [Required]

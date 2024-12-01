@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyWebProject.Core.Services.IServices;
-using MyWebProject.Infrastructure.Data.Common;
-using MyWebProject.Infrastructure.Data;
-using MyWebProject.Core.Services.Services;
-using MyWebProject.Infrastructure.Data.Models;
-using MyWebProject.Core.Models.CultureEventModel;
 using Microsoft.Extensions.Logging;
 using Moq;
+using MyWebProject.Core.Models.CultureEventModel;
+using MyWebProject.Core.Services.IServices;
+using MyWebProject.Core.Services.Services;
+using MyWebProject.Infrastructure.Data;
+using MyWebProject.Infrastructure.Data.Common;
+using MyWebProject.Infrastructure.Data.Models;
 
 namespace TetstingAllProjects.TestServices
 {

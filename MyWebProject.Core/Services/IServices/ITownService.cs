@@ -10,8 +10,8 @@ namespace MyWebProject.Core.Services.IServices
 
         Task<TownViewModelGetTown> TownsByName(string name);
 
-        Task <CreateTownViewModel> CreateTown(CreateTownViewModel model);
-        Task <TownViewModelGetTown> Edit(TownViewModelGetTown model);
+        Task<CreateTownViewModel> CreateTown(CreateTownViewModel model);
+        Task<TownViewModelGetTown> Edit(TownViewModelGetTown model);
 
         Task Delete(int id);
     }

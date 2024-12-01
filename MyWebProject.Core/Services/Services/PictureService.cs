@@ -1,10 +1,8 @@
 ﻿using Ganss.Xss;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Microsoft.Graph.Models;
 using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
@@ -17,8 +15,8 @@ namespace MyWebProject.Core.Services.Services
     {
 
         private readonly IRepository repo;
-        private readonly ILogger<PictureService> logger;    
-     
+        private readonly ILogger<PictureService> logger;
+
         public PictureService(IRepository _repo,
             ILogger<PictureService> _logger)
         {
@@ -83,9 +81,9 @@ namespace MyWebProject.Core.Services.Services
                 {
                     Id = model.Id,
                     UrlImgAddres = image,
-                    UserName =model.UserName,
+                    UserName = model.UserName,
                 };
-              
+
                 await repo.AddAsync(newPicture);
                 await repo.SaveChangesAsync();
 
@@ -157,7 +155,7 @@ namespace MyWebProject.Core.Services.Services
         {
             var deletedItem = await repo.GetByIdAsync<PictureByUser>(Id);
 
-            if (deletedItem == null) 
+            if (deletedItem == null)
             {
                 throw new NullReferenceException("This picture is not deleted");
             }

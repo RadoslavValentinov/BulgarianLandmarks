@@ -72,7 +72,7 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
             if (ModelState.IsValid)
             {
                 await service.EditCategory(model);
-                
+
                 return RedirectToAction("Index");
             }
 

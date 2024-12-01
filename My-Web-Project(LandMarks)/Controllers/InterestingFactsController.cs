@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyWebProject.Core.Models.FactOfBulgaria;
 using MyWebProject.Core.Services.IServices;
 
 namespace My_Web_Project_LandMarks_.Controllers
