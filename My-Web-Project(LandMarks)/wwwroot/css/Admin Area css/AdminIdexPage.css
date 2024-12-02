@@ -13,7 +13,7 @@ header .navbar {
     margin: 0px;
 }
 
-    header .navbar .container-fluid a {
+    header .navbar .container-fluid .navbar-brand {
         color: black;
     }
 
@@ -23,24 +23,6 @@ header .navbar {
 }
 
 
-.containerLink .myactionlink1 {
-    position: relative;
-    left: 790px;
-    top: -65px;
-    text-decoration: none;
-    color: firebrick;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.containerLink .myactionlink2 {
-    position: relative;
-    left: 850px;
-    top: -65px;
-    margin: 10px;
-    text-decoration: none;
-    color: firebrick;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
 
 body .container {
     margin: 0px;
@@ -51,10 +33,23 @@ body .container {
     font-size: 26px;
 }
 
+.container-fluid .myactionlink1 {
+    margin-left: auto;
+    margin-right: 30px;
+    text-decoration:none;
+    color:firebrick;
+}
+
+.container-fluid .myactionlink2 {
+    margin-right: 10px;
+    text-decoration: none;
+    color: firebrick;
+}
 
 footer {
     position: relative;
     top: 78px;
+    height: 180px;
     border-top: 1px solid gray;
     background-color: whitesmoke;
 }
@@ -70,7 +65,9 @@ footer {
 
     #selectOption .myactionlink {
         max-width: 250px;
+        max-height: 40px;
         text-decoration: none;
+        padding: 10px;
         display: block;
     }
 

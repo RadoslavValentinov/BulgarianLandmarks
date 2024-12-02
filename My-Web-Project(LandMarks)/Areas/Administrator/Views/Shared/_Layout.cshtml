@@ -12,6 +12,10 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="Administrator" asp-controller="HomeAdmin" asp-action="Index">Admin Panel</a>
+
+                <a> @Html.ActionLink("Wait for Approval landmark", "GetByUser", "OptionLandMark", null, new { @class = "myactionlink1" })</a>
+                <a> @Html.ActionLink("Wait for Approval Picture", "ByUserPicture", "OptionPictures", null, new { @class = "myactionlink2" })</a>
+
             </div>
         </nav>
     </header>
