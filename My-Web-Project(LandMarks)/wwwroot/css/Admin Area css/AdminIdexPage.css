@@ -7,12 +7,22 @@ body {
     background: linear-gradient(180deg, rgba(202,214,214,0.3809173327534139) 54%, rgba(162,162,157,0.32209380334164917) 98%);
 }
 
+
+    body .container {
+        margin: 0px;
+    }
+
+
+/* Header and Navbar */
+
 header .navbar {
     background: rgb(202,214,214);
     background: linear-gradient(360deg, rgba(202,214,214,0.3809173327534139) 0%, rgba(211,210,217,0.08679968569459029) 41%);
     margin: 0px;
 }
 
+<<<<<<< HEAD
+=======
     header .navbar .container-fluid .navbar-brand {
         color: black;
     }
@@ -27,10 +37,27 @@ header .navbar {
 body .container {
     margin: 0px;
 }
+>>>>>>> 83010da3c6911e086366d8598dc13c881fc6d88f
 
 .container-fluid .navbar-brand {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 26px;
+    color:black;
+    font-style:italic;
+    font-weight:bold;
+}
+
+.container-fluid .myactionlink1 {
+    margin-left: auto;
+    margin-right: 30px;
+    text-decoration: none;
+    color: firebrick;
+}
+
+.container-fluid .myactionlink2 {
+    margin-right: 10px;
+    text-decoration: none;
+    color: firebrick;
 }
 
 .container-fluid .myactionlink1 {
@@ -46,6 +73,10 @@ body .container {
     color: firebrick;
 }
 
+<<<<<<< HEAD
+
+/* Option Div all options */
+=======
 footer {
     position: relative;
     top: 78px;
@@ -53,6 +84,7 @@ footer {
     border-top: 1px solid gray;
     background-color: whitesmoke;
 }
+>>>>>>> 83010da3c6911e086366d8598dc13c881fc6d88f
 
 #selectOption {
     width: 300px;
@@ -60,6 +92,7 @@ footer {
     background-color: dimgrey;
     border-radius: 6px;
     padding: 10px;
+    margin-top:20px;
 }
 
 
@@ -69,8 +102,22 @@ footer {
         text-decoration: none;
         padding: 10px;
         display: block;
+        color:aliceblue;
     }
 
         #selectOption .myactionlink:hover {
             color: lightslategray;
         }
+
+
+/* Footer */
+
+#AdminPage {
+    position: relative;
+    top: 78px;
+    height: 210px;
+    border-top: 1px solid gray;
+    background-color: whitesmoke;
+    padding: 20px;
+    color:lightgray;
+}
