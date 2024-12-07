@@ -99,9 +99,9 @@ body .container {
     flex-direction: column;
     flex-wrap:wrap;
     position: relative;
-    left: 400px;
+    left: 450px;
     top: -344px;
-    width: 990px;
+    width: 700px;
     height: 400px;
     border: 1px solid gray;
     background-color: lightgray;
@@ -110,7 +110,7 @@ body .container {
 
     #statistics .opt {
         border: 1px solid white;
-        width: 25%;
+        width: 33.3333%;
         height: 33.3333%;
     }
 
@@ -120,12 +120,17 @@ body .container {
     }
 
     #statistics .opt:nth-child(odd){
-        background-color:red;
+        background-color:bisque;
     }
         #statistics .opt:nth-child(even) {
-            background-color: lightcyan;
+            background-color: blue;
         }
-    
+    #statistics .opt h3{
+
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-style:italic;
+        
+    }
 
 
 
