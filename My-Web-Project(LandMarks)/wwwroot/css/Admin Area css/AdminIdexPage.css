@@ -97,7 +97,7 @@ body .container {
 #statistics {
     display: flex;
     flex-direction: column;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     position: relative;
     left: 450px;
     top: -344px;
@@ -114,30 +114,33 @@ body .container {
         height: 33.3333%;
     }
 
-    #statistics .opt:hover{
-
-        transform:scale(1.1);
-    }
-
-    #statistics .opt:nth-child(odd){
-        background-color:bisque;
-    }
-        #statistics .opt:nth-child(even) {
-            background-color: blue;
+        #statistics .opt:hover {
+            transform: scale(1.1);
         }
-    #statistics .opt h3{
 
-        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        font-style:italic;
-        
-    }
+        #statistics .opt:nth-child(odd) {
+            background-color:lemonchiffon;
+        }
 
+        #statistics .opt:nth-child(even) {
+            background-color: lightskyblue;
+        }
+
+        #statistics .opt h3 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-style: italic;
+            padding: 5px;
+        }
+
+        #statistics .opt h5 {
+            padding: 5px;
+        }
 
 
 /* Footer */
 #AdminPage {
     position: relative;
-    top: 78px;
+    top: 378px;
     height: 210px;
     border-top: 1px solid gray;
     background-color: whitesmoke;

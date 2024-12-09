@@ -1,8 +1,9 @@
 ﻿
 
-h1{
+.container .pb-3 #title{
     margin-top: 20px;
     text-align:center;
+    width:100%;
 }
 
 img{
