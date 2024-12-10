@@ -1,6 +1,10 @@
-﻿using Ganss.Xss;
+﻿using AngleSharp.Common;
+using Ganss.Xss;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using MyWebProject.Core.Models.AdminHomeModel;
 using MyWebProject.Core.Models.CultureEventModel;
 using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Models.SearchEngineModel;
@@ -23,6 +27,26 @@ namespace MyWebProject.Core.Services.Services
             repo = _repo;
             logger = _logger;
         }
+
+
+
+        [Authorize]
+        [Area("Administrator")]
+        public AdminHomeModelAllData AllData(AdminHomeModelAllData model)
+        {
+            model.CountOfUsers =  repo.All<Users>().Count();
+            model.CountOfEvents = repo.All<Cultural_events>().Count();
+            model.CountOfFacts = repo.All<InterestingFacts>().Count();
+            model.CountOfCategory = repo.All<Category>().Count();
+            model.CountOfJourney = repo.All<Journeys>().Count();
+            model.CountOfTown = repo.All<Town>().Count();
+            model.CountOfLandmarks = repo.All<LandMark>().Count();
+            model.CountOfPictures = repo.All<Pictures>().Count();
+
+            return model;
+        }
+
+
 
         public async Task<IEnumerable<Pictures>> AllPicture()
         {
