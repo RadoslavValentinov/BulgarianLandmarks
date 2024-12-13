@@ -4,8 +4,7 @@
 
 
 <head>
-    <link rel="stylesheet" href="~/css/CustomAddPicturebyUser.css">
-    <link rel="stylesheet" href="~/js/CustomMessageByUser.js">
+    <link rel="stylesheet" href="~/css/CustomCSSUserPicture.css">
 </head>
 
 
@@ -15,25 +14,19 @@
 }
 else
 {
-    <table>
-        <tr>
-            <th>Image Url</th>
-            <th>User</th>
-            <th>Options</th>
 
-        <tr />
-            @foreach (var item in Model)
-            {
-            <tr>
-                <td>
-                    <img src="@item.UrlImgAddres" width="300" height="200" />
-                </td>
-                <td>@item.UserName</td>
-                <td>
-                        @Html.ActionLink("Add Picture", "AddPictureByUser", "OptionPictures", new AddPictureViewModel() { UrlImgAddres = item.UrlImgAddres, UserName = item.UserName }, new { id = "click" })
-                </td>
-            </tr>
-            }
-    </table>
+    @foreach (var item in Model)
+    {
+        <div id="cardsPictures">
+
+            <img src="@item.UrlImgAddres" width="300" height="200" />
+
+            <h4>@item.UserName</h4>
+
+            @Html.ActionLink("Add Picture", "AddPictureByUser", "OptionPictures", new AddPictureViewModel() { UrlImgAddres = item.UrlImgAddres, UserName = item.UserName }, new { id = "click" })
+
+            <a id="deleted" href="#">Delete</a>
+        </div>
+    }
 }
 

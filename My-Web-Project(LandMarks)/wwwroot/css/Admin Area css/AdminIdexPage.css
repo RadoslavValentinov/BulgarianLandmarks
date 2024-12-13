@@ -2,21 +2,14 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20PX;
-    height: auto;
     background: rgb(202,214,214);
     background: linear-gradient(180deg, rgba(202,214,214,0.3809173327534139) 54%, rgba(162,162,157,0.32209380334164917) 98%);
 }
 
-
-    body .container {
-        margin: 0px;
-    }
-
-.container .pb-3 {
-    width: 900px;
-    max-height: 355px;
+.container {
+    margin-bottom: 37px;
+    margin-left: 30px;
 }
-
 
 
 /* Header and Navbar */
@@ -38,11 +31,6 @@ header .navbar {
 }
 
 
-
-body .container {
-    margin: 0px;
-}
-
 .container-fluid .navbar-brand {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 26px;
@@ -63,6 +51,14 @@ body .container {
     text-decoration: none;
     color: firebrick;
 }
+
+
+#secttions {
+    display: flex;
+    justify-content: space-between;
+}
+
+
 
 
 /* Option Div all options */
@@ -98,10 +94,8 @@ body .container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    position: relative;
-    left: 450px;
-    top: -344px;
-    width: 700px;
+    margin-left: 200px;
+    width: 800px;
     height: 400px;
     border: 1px solid gray;
     background-color: lightgray;
@@ -119,11 +113,12 @@ body .container {
         }
 
         #statistics .opt:nth-child(odd) {
-            background-color:lemonchiffon;
+            background-color: lightgoldenrodyellow;
         }
 
         #statistics .opt:nth-child(even) {
             background-color: lightskyblue;
+            color: whitesmoke;
         }
 
         #statistics .opt h3 {
@@ -135,13 +130,9 @@ body .container {
         #statistics .opt h5 {
             padding: 5px;
         }
-
-
 /* Footer */
-#AdminPage {
-    position: relative;
-    top: 80px;
-    height: 210px;
+footer {
+    height: 205px;
     border-top: 1px solid gray;
     background-color: whitesmoke;
     padding: 20px;

@@ -7,69 +7,74 @@
 </head>
 
 
-<aside id="selectOption">
-    <a> @Html.ActionLink("Category options", "Index", "OptionCategory", null, new { @class = "myactionlink" }) </a>
-    <a> @Html.ActionLink("Event options", "Index", "OptionEvent", null, new { @class = "myactionlink" }) </a>
-    <a> @Html.ActionLink("Journey options", "Index", "OptionJourney", null, new { @class = "myactionlink" })</a>
-    <a> @Html.ActionLink("Land mark options", "Index", "OptionLandMark", null, new { @class = "myactionlink" })</a>
-    <a> @Html.ActionLink("Towns options", "Index", "OptionTown", null, new { @class = "myactionlink" })</a>
-    <a> @Html.ActionLink("Facts options", "Index", "OptionFacts", null, new { @class = "myactionlink" })</a>
-    <a> @Html.ActionLink("Pictures options", "Index", "OptionPictures", null, new { @class = "myactionlink" })</a>
-    <a> @Html.ActionLink("Users options", "AllUsers", "UsersOptions", null, new { @class = "myactionlink" })</a>
-</aside>
+<div id="secttions">
 
-<div id="statistics">
+    <aside id="selectOption">
+        <a> @Html.ActionLink("Category options", "Index", "OptionCategory", null, new { @class = "myactionlink" }) </a>
+        <a> @Html.ActionLink("Event options", "Index", "OptionEvent", null, new { @class = "myactionlink" }) </a>
+        <a> @Html.ActionLink("Journey options", "Index", "OptionJourney", null, new { @class = "myactionlink" })</a>
+        <a> @Html.ActionLink("Land mark options", "Index", "OptionLandMark", null, new { @class = "myactionlink" })</a>
+        <a> @Html.ActionLink("Towns options", "Index", "OptionTown", null, new { @class = "myactionlink" })</a>
+        <a> @Html.ActionLink("Facts options", "Index", "OptionFacts", null, new { @class = "myactionlink" })</a>
+        <a> @Html.ActionLink("Pictures options", "Index", "OptionPictures", null, new { @class = "myactionlink" })</a>
+        <a> @Html.ActionLink("Users options", "AllUsers", "UsersOptions", null, new { @class = "myactionlink" })</a>
+    </aside>
 
-    <div class="opt">
-        <h3>Users</h3>
-        <h5>Active: @Model.CountOfUsers</h5>
-        <h5>Not Active: 0</h5>
-    </div>
+    <div id="statistics">
 
-    <div class="opt">
-        <h3>Towns</h3>
-        <h5>Active: @Model.CountOfTown</h5>
-        <h5>Not Active: 0</h5>
-    </div>
-    <div class="opt">
-        <h3>LandMarks</h3>
-        <h5>Active: @Model.CountOfLandmarks</h5>
-        <h5>Not Active: 0</h5>
-    </div>
+        <div class="opt">
+            <h3>Users</h3>
+            <h5>Active: @Model.CountOfUsers</h5>
+            <h5>Not Active: 0</h5>
+        </div>
 
-    <div class="opt">
-        <h3>Events</h3>
-        <h5>Active: @Model.CountOfEvents</h5>
-        <h5>Not Active: 0</h5>
-    </div>
-    <div class="opt">
-        <h3>Journey</h3>
-        <h5>Active: @Model.CountOfJourney</h5>
-        <h5>Not Active: 0</h5>
-    </div>
+        <div class="opt">
+            <h3>Towns</h3>
+            <h5>Active: @Model.CountOfTown</h5>
+            <h5>Not Active: 0</h5>
+        </div>
+        <div class="opt">
+            <h3>LandMarks</h3>
+            <h5>Active: @Model.CountOfLandmarks</h5>
+            <h5>Not Active: 0</h5>
+        </div>
 
-    <div class="opt">
-        <h3>Category</h3>
-        <h5>Active: @Model.CountOfCategory</h5>
-        <h5>Not Active: 0</h5>
-    </div>
-    <div class="opt">
-        <h3>Pictures</h3>
-        <h5>Active: @Model.CountOfPictures</h5>
-        <h5>Not Active: 0</h5>
-    </div>
+        <div class="opt">
+            <h3>Events</h3>
+            <h5>Active: @Model.CountOfEvents</h5>
+            <h5>Not Active: 0</h5>
+        </div>
+        <div class="opt">
+            <h3>Journey</h3>
+            <h5>Active: @Model.CountOfJourney</h5>
+            <h5>Not Active: 0</h5>
+        </div>
 
-    <div class="opt">
-        <h3>Facts</h3>
-        <h5>Active: @Model.CountOfFacts</h5>
-        <h5>Not Active: 0</h5>
-    </div>
+        <div class="opt">
+            <h3>Category</h3>
+            <h5>Active: @Model.CountOfCategory</h5>
+            <h5>Not Active: 0</h5>
+        </div>
+        <div class="opt">
+            <h3>Pictures</h3>
+            <h5>Active: @Model.CountOfPictures</h5>
+            <h5>Not Active: 0</h5>
+        </div>
 
-    <div class="opt">
-        <h3>Item not active</h3>
-        <h5>Active: 0</h5>
-        <h5>Not Active: 0</h5>
+        <div class="opt">
+            <h3>Facts</h3>
+            <h5>Active: @Model.CountOfFacts</h5>
+            <h5>Not Active: 0</h5>
+        </div>
+
+        <div class="opt">
+            <h3>Item not active</h3>
+            <h5>Active: 0</h5>
+            <h5>Not Active: 0</h5>
+        </div>
+
     </div>
 
 </div>
+
 

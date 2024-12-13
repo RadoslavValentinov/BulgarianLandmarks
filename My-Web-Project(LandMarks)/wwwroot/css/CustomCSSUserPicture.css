@@ -1,5 +1,4 @@
 ﻿
-
 .container .pb-3 #title{
     margin-top: 20px;
     text-align:center;
@@ -7,14 +6,30 @@
     margin-bottom:300px;
 }
 
-img{
-    padding:10px;
-    margin-bottom:40px;
+.container .pb-3 #cardsPictures {
+    width: 301px;
+    height: 320px;
+    background-color: whitesmoke;
+    border: 1px solid gray;
 }
 
-img:hover{
-    transform: scale(1.5);
+#cardsPictures #click {
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid gray;
+    background-color:cornflowerblue;
+    color:white;
 }
-footer{
-    margin-top:380px;
+
+#cardsPictures #deleted {
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid gray;
+    background-color: cornflowerblue;
+    color: white;
+}
+
+#cardsPictures h4{
+    text-align:center;
+
 }
