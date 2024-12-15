@@ -42,8 +42,10 @@ tr:nth-child(even) {
     color: black;
 }
 
-.title {
+#title {
     text-align: center;
+    width: auto;
+    margin-bottom: 350px;
 }
 
 #create {

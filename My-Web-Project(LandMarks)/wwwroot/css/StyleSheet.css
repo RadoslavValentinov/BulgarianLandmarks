@@ -50,6 +50,12 @@ h1 {
     font-size: 20px;
 }
 
+    .navbar-nav .nav-item .nav-link {
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bold;
+    }
+
+
 
 /* Navigations and hidden div */
 

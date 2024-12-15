@@ -1,9 +1,9 @@
 ﻿
-.container .pb-3 #title{
+ #title {
     margin-top: 20px;
-    text-align:center;
-    width:100%;
-    margin-bottom:300px;
+    width: auto;
+    margin-bottom: 350px;
+    text-align: center;
 }
 
 .container .pb-3 #cardsPictures {
@@ -29,7 +29,6 @@
     color: white;
 }
 
-#cardsPictures h4{
-    text-align:center;
-
+#cardsPictures h4 {
+   text-align:center
 }
