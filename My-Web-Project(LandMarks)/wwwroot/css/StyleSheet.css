@@ -14,9 +14,9 @@ body {
 }
 
 h1 {
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
-    text-align:center;
+    text-align: center;
 }
 
 
@@ -33,13 +33,13 @@ h1 {
 
 .row {
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin-bottom: 39px;
 }
 
 .navbar-nav .nav-link {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    margin-left: 20px;
+    margin-left: 18px;
 }
 
 .navbar-nav {
@@ -51,7 +51,7 @@ h1 {
 }
 
     .navbar-nav .nav-item .nav-link {
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         font-weight: bold;
     }
 
@@ -64,6 +64,7 @@ h1 {
     height: 50px;
     position: relative;
     left: 150px;
+    margin-left: 150px;
 }
 
 .btn-1 {
@@ -440,7 +441,6 @@ hr {
 #colbtn:hover {
     background-color: lightskyblue;
     border: 1px solid white;
-
 }
 
 #colbtn-middle:hover {
@@ -457,6 +457,7 @@ hr {
     background-color: lightskyblue;
     border: 1px solid white;
 }
+
 #btn-tw1-first:hover {
     background-color: lightskyblue;
     border: 1px solid white;
@@ -487,14 +488,14 @@ hr {
 #allFacts h1 {
     margin: 0px;
     padding-left: 20px;
-    text-align:center;
+    text-align: center;
 }
 
 #allFacts {
     background-color: whitesmoke;
 }
 
-hr{
+hr {
     margin: 5px 0px;
 }
 
@@ -504,7 +505,7 @@ hr{
     background-image: url('https://m.netinfo.bg/media/images/49165/49165728/1280-840-plovdiv.jpg');
     object-fit: cover;
     opacity: 0.9;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
     #facts p img {
@@ -516,19 +517,18 @@ hr{
     }
 
     #facts p {
-        position:relative;
-        top:20px;
-        left:-250px;
+        position: relative;
+        top: 20px;
+        left: -250px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
         margin: 5px;
         width: 800px;
         color: white;
-        font-size:20px;
+        font-size: 20px;
     }
 
 #facts {
-   
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     padding: 10px;
@@ -540,7 +540,7 @@ hr{
     background-image: url('https://pzdnes.com/wp-content/uploads/2024/06/IMG_6543-scaled-1080x500_c.jpg');
     object-fit: cover;
     opacity: 0.8;
-    padding-top:20px;
+    padding-top: 20px;
 }
 
     #facts2 p img {
@@ -603,7 +603,7 @@ hr{
     left: 0px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
-    font-style:italic;
+    font-style: italic;
 }
 
     #redirect:hover {
@@ -622,7 +622,6 @@ footer {
     justify-content: space-around;
     width: auto;
     margin: 0px;
-    margin-top: 20px;
     padding: 0px;
     border-top: 1px solid gray;
     font-family: Arial, Helvetica, sans-serif;
@@ -844,6 +843,7 @@ footer {
 
 
     /* section Facts */
+
     #allFacts {
         max-width: 100%;
         display: flex;

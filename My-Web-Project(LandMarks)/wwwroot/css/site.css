@@ -1,12 +1,9 @@
-html {
-  font-size: 14px;
-}
 
 html {
-  position: relative;
-  min-height: 100%;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
-
 
 
 body {
