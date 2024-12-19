@@ -114,6 +114,7 @@ header .navbar {
 
         #statistics .opt:nth-child(odd) {
             background-color: lightgoldenrodyellow;
+            color:gray;
         }
 
         #statistics .opt:nth-child(even) {

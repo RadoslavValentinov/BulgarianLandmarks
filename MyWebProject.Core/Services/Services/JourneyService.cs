@@ -33,7 +33,7 @@ namespace MyWebProject.Core.Services.Services
             string image = sanitizer.Sanitize(model.Urladdress);
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(date)
-                    || string.IsNullOrWhiteSpace(image))
+            || string.IsNullOrWhiteSpace(image))
             {
                 throw new NullReferenceException("The field connot empty");
             }
@@ -114,7 +114,7 @@ namespace MyWebProject.Core.Services.Services
 
             if (current == null)
             {
-                throw new InvalidOperationException("\"Model not added some property is not valid\"");
+                throw new InvalidOperationException("Model not added some property is not valid");
             }
 
 
@@ -123,7 +123,7 @@ namespace MyWebProject.Core.Services.Services
 
                 if (model.Urladdress != null)
                 {
-                    var pict = await repo.AllReadonly<Pictures>().FirstAsync(x => x.JourneyId == model.Id);
+                    var pict = await repo.AllReadonly<Pictures>().FirstAsync(x => x.JourneyId == model.Id && x.IsActiv == true);
                     pict.UrlImgAddres = image;
 
                     current.Name = name;
@@ -180,7 +180,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<JourneyGetAllViewModel> GetById(int id)
         {
             return await repo.AllReadonly<Journeys>()
-                .Where(x => x.Id == id)
+                .Where(x => x.Id == id && x.IsActiv == true)
                 .Select(a => new JourneyGetAllViewModel()
                 {
                     Id = a.Id,
@@ -201,7 +201,7 @@ namespace MyWebProject.Core.Services.Services
             var pict = await repo.AllReadonly<Pictures>().FirstAsync(x => x.JourneyId == id);
 
             return await repo.AllReadonly<Journeys>()
-                .Where(x => x.Id == id)
+                .Where(x => x.Id == id && x.IsActiv == true)
                 .Select(a => new JourneyViewModel()
                 {
                     Id = a.Id,

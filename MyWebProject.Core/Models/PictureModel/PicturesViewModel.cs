@@ -20,5 +20,6 @@ namespace MyWebProject.Core.Models.PictureModel
         public string? Town { get; set; }
 
         public string? Journey { get; set; }
+        public string? UserName { get; set; }
     }
 }

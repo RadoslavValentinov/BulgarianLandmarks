@@ -16,5 +16,7 @@ namespace MyWebProject.Infrastructure.Data.Models
         [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
         public Category Category { get; set; } = null!;
+
+        public bool IsActive { get; set; } = true;
     }
 }

@@ -19,7 +19,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<IEnumerable<LandMarkViewModelAll>> AllLandMarkByTown()
         {
             var results = await repo.AllReadonly<LandMark>()
-                .Where(x => x.TownId != null && x.Rating >= 9)
+                .Where(x => x.TownId != null && x.Rating >= 9 && x.IsActiv == true)
                 .Select(l => new LandMarkViewModelAll()
                 {
                     Id = l.Id,
@@ -39,7 +39,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<IEnumerable<Top10ViewModelLandMark>> Get10TopLandMark()
         {
             var results = await repo.AllReadonly<LandMark>()
-                .Where(x => x.Rating >= 9.2m && x.Rating <= 10m)
+                .Where(x => x.Rating >= 9.2m && x.Rating <= 10m && x.IsActiv == true)
                 .Select(d => new Top10ViewModelLandMark
                 {
                     Id = d.Id,

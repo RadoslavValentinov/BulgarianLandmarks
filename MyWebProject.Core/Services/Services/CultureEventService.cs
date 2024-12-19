@@ -30,6 +30,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<IEnumerable<AllCultureEventViewModel>> AllEvent()
         {
             var all = await repo.AllReadonly<Cultural_events>()
+                .Where(z => z.IsActiv == true)
                 .Select(c => new AllCultureEventViewModel()
                 {
                     Id = c.Id,

@@ -64,6 +64,7 @@ namespace MyWebProject.Core.Services.Services
 
             var facts = await repo.AllReadonly<InterestingFacts>()
                .Include(x => x.Category)
+               .Where(z => z.IsActive == true)
                .Select(f => new AllFactsViewModel()
                {
                    Id = f.Id,
@@ -140,6 +141,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<IEnumerable<CategoryViewModel>> AllCategory()
         {
             var all = await repo.AllReadonly<Category>()
+                .Where(z => z.IsActive == true)
                 .Select(x => new CategoryViewModel()
                 {
                     Id = x.Id,

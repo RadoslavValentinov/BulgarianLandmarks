@@ -112,19 +112,20 @@ namespace My_Web_Project_LandMarks_.Controllers
                 return View(model);
             }
 
-            string Username = model.FirstName;
+            string Username = model.UserName;
             string first = model.FirstName;
             string last = model.LastName;
             string email = model.Email;
 
             var user = new Users()
             {
-                UserName = email,
+                UserName = Username,
                 FirstName = first,
                 LastName = last,
                 IsActiv = true,
                 Email = email,
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                Avatar = "https://static.vecteezy.com/system/resources/previews/009/330/731/non_2x/avatar-icon-profile-icon-member-login-isolated-login-icons-profile-icons-free-vector.jpg"
             };
 
             var registerUser = await userManager.CreateAsync(user, model.Password);

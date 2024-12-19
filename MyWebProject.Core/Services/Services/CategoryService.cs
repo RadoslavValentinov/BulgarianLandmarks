@@ -24,10 +24,11 @@ namespace MyWebProject.Core.Services.Services
         public async Task<IEnumerable<CategoryViewModel>> AllCategory()
         {
             var all = await repo.AllReadonly<Category>()
+               .Where(z => z.IsActive == true)
                .Select(x => new CategoryViewModel()
                {
                    Id = x.Id,
-                   Name = x.Name,
+                   Name = x.Name
                })
                .ToListAsync();
 

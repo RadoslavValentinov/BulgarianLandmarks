@@ -34,14 +34,29 @@ namespace MyWebProject.Core.Services.Services
         [Area("Administrator")]
         public AdminHomeModelAllData AllData(AdminHomeModelAllData model)
         {
-            model.CountOfUsers =  repo.All<Users>().Count();
-            model.CountOfEvents = repo.All<Cultural_events>().Count();
-            model.CountOfFacts = repo.All<InterestingFacts>().Count();
-            model.CountOfCategory = repo.All<Category>().Count();
-            model.CountOfJourney = repo.All<Journeys>().Count();
-            model.CountOfTown = repo.All<Town>().Count();
-            model.CountOfLandmarks = repo.All<LandMark>().Count();
-            model.CountOfPictures = repo.All<Pictures>().Count();
+            model.CountOfUsers =  repo.All<Users>().Where(z => z.IsActiv == true).Count();
+            model.NotActivUsers =  repo.All<Users>().Where(z => z.IsActiv == false).Count();
+
+            model.CountOfEvents = repo.All<Cultural_events>().Where(z => z.IsActiv == true).Count();
+            model.NotActiveEvents = repo.All<Cultural_events>().Where(z => z.IsActiv == false).Count();
+
+            model.CountOfFacts = repo.All<InterestingFacts>().Where(z => z.IsActive == true).Count();
+            model.NotActiveFacts = repo.All<InterestingFacts>().Where(z => z.IsActive == false).Count();
+
+            model.CountOfCategory = repo.All<Category>().Where(z => z.IsActive == true).Count();
+            model.NotActiveCategory = repo.All<Category>().Where(z => z.IsActive == false).Count();
+
+            model.CountOfJourney = repo.All<Journeys>().Where(z => z.IsActiv == true).Count();
+            model.NotActiveJourney = repo.All<Journeys>().Where(z => z.IsActiv == false).Count();
+
+            model.CountOfTown = repo.All<Town>().Where(z => z.IsActive == true).Count();
+            model.NotActiveTown = repo.All<Town>().Where(z => z.IsActive == false).Count();
+
+            model.CountOfLandmarks = repo.All<LandMark>().Where(z => z.IsActiv == true).Count();
+            model.NotActivLandMark = repo.All<LandMark>().Where(z => z.IsActiv == false).Count();
+
+            model.CountOfPictures = repo.All<Pictures>().Where(z => z.IsActiv == true).Count();
+            model.NotActivPictures = repo.All<Pictures>().Where(z => z.IsActiv == false).Count();
 
             return model;
         }
@@ -52,6 +67,7 @@ namespace MyWebProject.Core.Services.Services
         {
             var result = await repo.All<Pictures>()
                .Where(x => x.TownId == null && x.LandMarkId == null && x.JourneyId == null)
+               .Where(z => z.IsActiv == true)
                .ToListAsync();
 
             return result;
@@ -61,7 +77,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<IEnumerable<PicturesViewModel>> AllUserPictures(string userName)
         {
             var result = await repo.All<Pictures>()
-              .Where(x => x.UserName == userName)
+              .Where(x => x.UserName == userName && x.IsActiv == true)
               .Select(s => new PicturesViewModel()
               {
                   Id = s.Id,
@@ -105,7 +121,7 @@ namespace MyWebProject.Core.Services.Services
 
 
                 var searchTown = await repo.All<Town>()
-                    .Where(x => x.Name.Contains(srcitem))
+                    .Where(x => x.Name.Contains(srcitem) && x.IsActive == true)              
                      .Select(x => new SearchViewModel()
                      {
                          Name = x.Name,
@@ -123,7 +139,7 @@ namespace MyWebProject.Core.Services.Services
                 }
 
                 var searchLandmark = await repo.AllReadonly<LandMark>()
-                    .Where(l => l.Name.Contains(srcitem) || l.Description.Contains(srcitem))
+                    .Where(l => l.Name.Contains(srcitem) || l.Description.Contains(srcitem) && l.IsActiv == true)
                     .Select(x => new SearchViewModel()
                     {
                         Name = x.Name,
@@ -141,7 +157,7 @@ namespace MyWebProject.Core.Services.Services
                 }
 
                 var searchEvent = await repo.AllReadonly<Cultural_events>()
-                    .Where(e => e.Name.Contains(srcitem) || e.Description.Contains(srcitem))
+                    .Where(e => e.Name.Contains(srcitem) || e.Description.Contains(srcitem) && e.IsActiv == true)
                      .Select(x => new SearchViewModel()
                      {
                          Name = x.Name,
@@ -159,7 +175,7 @@ namespace MyWebProject.Core.Services.Services
                 }
 
                 var searchJourney = await repo.AllReadonly<Journeys>()
-                    .Where(e => e.Name.Contains(srcitem) || e.Description.Contains(srcitem))
+                    .Where(e => e.Name.Contains(srcitem) || e.Description.Contains(srcitem) && e.IsActiv == true)
                      .Select(x => new SearchViewModel()
                      {
                          Name = x.Name,

@@ -11,5 +11,7 @@ namespace MyWebProject.Core.Models.Category
         [StringLength(maximumLength: GlobalConstant.CategoryConstant.CategoryMaxLenght,
             MinimumLength = GlobalConstant.CategoryConstant.CategoryMinLenght)]
         public string Name { get; set; } = null!;
+
+
     }
 }

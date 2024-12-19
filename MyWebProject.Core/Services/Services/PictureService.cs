@@ -102,6 +102,7 @@ namespace MyWebProject.Core.Services.Services
                 .Include(x => x.LandMark)
                 .Include(x => x.Town)
                 .Include(x => x.Journey)
+                .Where(z => z.IsActiv == true)
                 .Select(x => new PicturesViewModel()
                 {
                     Id = x.Id,
@@ -109,7 +110,8 @@ namespace MyWebProject.Core.Services.Services
                     IsActive = x.IsActiv,
                     LandMark = x.LandMark!.Name,
                     Town = x.Town!.Name,
-                    Journey = x.Journey!.Name
+                    Journey = x.Journey!.Name,
+                    UserName= x.UserName
                 })
                 .ToListAsync();
 
@@ -125,7 +127,8 @@ namespace MyWebProject.Core.Services.Services
                 {
                     Id = x.Id,
                     UrlImgAddres = x.UrlImgAddres,
-                    UserName = x.UserName,
+                    UserName = x.UserName, 
+
                 })
                 .ToListAsync();
 
@@ -225,7 +228,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<AddPictureViewModel> GetById(int id)
         {
             return await repo.AllReadonly<Pictures>()
-                .Where(x => x.Id == id)
+                .Where(x => x.Id == id && x.IsActiv == true)
                 .Include(x => x.Town)
                 .Include(x => x.LandMark)
                 .Include(x => x.Journey)

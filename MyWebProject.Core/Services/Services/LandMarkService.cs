@@ -129,6 +129,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<IEnumerable<CategoryViewModel>> AllCategory()
         {
             var all = await repo.AllReadonly<Category>()
+           .Where(z => z.IsActive == true)
            .Select(x => new CategoryViewModel()
            {
                Id = x.Id,
@@ -217,6 +218,7 @@ namespace MyWebProject.Core.Services.Services
             var result = await repo.All<LandMark>()
                 .Include(x => x.Pictures)
                 .Include(x => x.Town)
+                .Where(x => x.IsActiv == true)
                 .Select(l => new LandMarkViewModelAll()
                 {
                     Id = l.Id,
@@ -238,7 +240,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<LandMarkViewModelAll> GetById(int id)
         {
             return await repo.AllReadonly<LandMark>()
-                .Where(l => l.Id == id)
+                .Where(l => l.Id == id && l.IsActiv == true)
                 .Select(x => new LandMarkViewModelAll()
                 {
                     Id = x.Id,

@@ -12,5 +12,7 @@ namespace MyWebProject.Infrastructure.Data.Models
         [MinLength(5)]
         public string Name { get; set; } = null!;
 
+
+        public bool IsActive { get; set; } = true;
     }
 }

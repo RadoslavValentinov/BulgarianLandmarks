@@ -19,7 +19,7 @@ namespace MyWebProject.Core.Services.Services
         {
 
             var mysterymodel = await repo.AllReadonly<LandMark>()
-                .Where(x => x.TownId == null && x.VideoURL != null)
+                .Where(x => x.TownId == null && x.VideoURL != null && x.IsActiv == true)
                 .Select(m => new MisteryModelView()
                 {
                     Id = m.Id,

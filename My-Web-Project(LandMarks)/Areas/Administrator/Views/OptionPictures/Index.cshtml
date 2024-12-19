@@ -19,6 +19,7 @@
         <th>LandMarkId</th>
         <th>TownId</th>
         <th>JourneyId</th>
+        <th>User</th>
         <th>Options</th>
     <tr />
         @foreach (var item in Model)
@@ -30,6 +31,7 @@
             <td>@item.LandMark</td>
             <td>@item.Town</td>
             <td>@item.Journey</td>
+            <td>@item.UserName</td>
             <td>
                 <a id="edit" class="btn btn-outline-warning" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionPictures" asp-action="EditPicture">Edit</a>
                 <a id="deleteBtn" asp-area="Administrator" asp-route-id="@item.Id" asp-controller="OptionPictures" asp-action="Delete" class="btn btn-danger">Delete</a>

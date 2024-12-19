@@ -24,5 +24,7 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         public List<Cultural_events> cultural_Events { get; set; }
                 = new List<Cultural_events> { };
+
+        public bool IsActive { get; set; } = true;
     }
 }

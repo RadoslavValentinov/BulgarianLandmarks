@@ -24,7 +24,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<TownViewModelGetTown> TownsById(int id)
         {
             return await repo.AllReadonly<Town>()
-                .Where(i => i.Id == id)
+                .Where(i => i.Id == id && i.IsActive == true)
                 .Select(x => new TownViewModelGetTown
                 {
                     Id = x.Id,
@@ -40,6 +40,7 @@ namespace MyWebProject.Core.Services.Services
         public async Task<IEnumerable<TownViewModelAll>> AllTowns()
         {
             return await repo.AllReadonly<Town>()
+                .Where(z => z.IsActive == true)
                 .Include(p => p.Picture)
                 .Include(x => x.Landmarks)
                 .Include(p => p.cultural_Events)
@@ -126,7 +127,7 @@ namespace MyWebProject.Core.Services.Services
 
 
             return await repo.AllReadonly<Town>()
-                .Where(i => i.Name == nameTown)
+                .Where(i => i.Name == nameTown && i.IsActive == true)
                 .Select(x => new TownViewModelGetTown
                 {
                     Id = x.Id,
