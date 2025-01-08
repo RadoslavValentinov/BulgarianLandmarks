@@ -19,7 +19,9 @@ h1 {
     text-align: center;
 }
 
-
+.container{
+    margin-bottom: 120px;
+}
 
 /* nav bar custom */
 
@@ -100,6 +102,8 @@ li h4 {
 }
 
 /* Size hidden div */
+
+
 
 #bodyDiv {
     text-align: center;
@@ -618,6 +622,7 @@ footer a:hover {
 }
 
 footer {
+    max-height: 240px;
     display: flex;
     justify-content: space-around;
     width: auto;

@@ -1079,7 +1079,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             CategoryId = 6,
                             Description = "Панорамата „Плевенска епопея 1877 г.“ е художествен музей в Плевен, построен в чест на 100-годишнината от Освобождението на Плевен от османско владичество.В първите 3 години след нейното откриване панорамата е посетена от 2,5 милиона души. Тя е сред почти 200-те паметници, построени от плевенчани в памет на загиналите руснаци, румънци и българи. Включена е в Стоте национални туристически обекта.Изградена е в района на „Скобелевия парк“, непосредствено до редута „Кованлък“, където по време на 3-та атака от Обсадата на Плевен се водят едни от най-тежките сражения. Автори на проекта са архитектите Иво Петров и Пламена Цачева, заедно с проектантски екип от 14 души.Автор на живописната част и главен изпълнител е Николай Овечкин (Военно студио „М. Греков“, Москва). Колектива е от 13 руски и български художници: Г. Талев, В.Щербаков, И. Кабанов, А. Чернишов, М. Ананиев, Н. Овечкин, Д. Дончев, В. Есаулов, В. Лемешев, Хр. Бояджиев, Г. Есаулов, В. Таутиев, Ю. Усипенко и А. Троценко.Архитектурното тяло на Панорамата е направено да изглежда повдигнато върху 4 щика, които олицетворяват силата на оръжието, донесло свободата. Щиковете носят 4 хоризонтално разположени пръстена, 3 от които символизират 3-те атаки срещу Плевен, а 4-тият пръстен е декоративно-пластичен фриз символизиращ обсадата на Плевен.Туристите могат да се изкачат по асансьори на 2 зрителни площадки на покрива на музея, откъдето могат да наблюдават историческите места: „Мъртвата долина“, редутите „Кованлък“ и „Исса ага“, Костницата в „Скобелевия парк“, Радишевските и Гривишките възвишения.Тържественото му откриване е на 10 декември 1977 г., в деня на стогодишнината от освобождението на Плевен.",
                             IsActiv = true,
-                            Name = "Панарамата",
+                            Name = "Панорама",
                             Rating = 9.9m,
                             TownId = 3
                         },
@@ -2737,7 +2737,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = "630d5dda-7255-4ce9-a658-0eedfb698a5f",
                             AccessFailedCount = 0,
                             Avatar = "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg",
-                            ConcurrencyStamp = "fcb111d1-a931-496e-ab14-afd1804d60ab",
+                            ConcurrencyStamp = "6dd0904f-f964-4f94-abae-9b44024f7091",
                             Email = "Bobo561@abv.bg",
                             EmailConfirmed = true,
                             FirstName = "Borislav",
@@ -2746,9 +2746,9 @@ namespace MyWebProject.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "Bobo561@abv.bg",
                             NormalizedUserName = "Bobo561@abv.bg",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFqDoafSMLe7FB9a05tcMs+JPue3VqwancDjWQKUHbHxCNE41djiP0drlc8tEX7i8A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEL3pj/T0eQaw8T4+R6rrqBRsGT9/V52GTM1I+z0WiUsuOn5XBIMofKAUfx7yDaR5cA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7283c863-599f-422b-977d-a3a0da0d047a",
+                            SecurityStamp = "acc185a7-5038-418e-8f83-9bff07b5e471",
                             TwoFactorEnabled = false,
                             UserName = "Bobo561@abv.bg"
                         });

@@ -1,5 +1,5 @@
 ﻿
- #title {
+#title {
     margin-top: 20px;
     width: auto;
     margin-bottom: 350px;
@@ -17,8 +17,8 @@
     text-decoration: none;
     padding: 10px 15px;
     border: 1px solid gray;
-    background-color:cornflowerblue;
-    color:white;
+    background-color: cornflowerblue;
+    color: white;
 }
 
 #cardsPictures #deleted {
@@ -30,5 +30,9 @@
 }
 
 #cardsPictures h4 {
-   text-align:center
+    text-align: center
+}
+
+#resize {
+    margin: 10px;
 }

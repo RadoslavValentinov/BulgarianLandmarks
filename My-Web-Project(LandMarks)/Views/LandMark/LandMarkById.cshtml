@@ -42,14 +42,13 @@
 </div>
 
 
-<div class="container">
+<div class="descript">
     <p class="text-black">@Model.Description</p>
     <br />
-    <a  href="https://bg.wikipedia.org/wiki/@Model.Name">Може да прочетете още...</a>
+    <a href="https://www.google.com/search?q=@Model.Name">Може да прочетете още...</a>
 </div>
-<br />
-<hr />
-<div class="container">
+
+<div class="secOptions">
     <div class="row">
         <h3 class="text-lg-start">Рейтинг: @Model.Rating</h3>
         @if (Model.TownName != null)
