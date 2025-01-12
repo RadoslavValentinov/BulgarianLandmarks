@@ -72,6 +72,16 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
 
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> UpRatting(int id)
+        {
+            var result = await service.UpRattingPoint(id);
+
+            return RedirectToAction("AllLandmark"); 
+        }
+
+
 
         /// <summary>
         ///  Adding the user-suggested landmark to the pending admin approval table

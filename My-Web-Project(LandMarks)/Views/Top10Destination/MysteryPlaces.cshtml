@@ -46,7 +46,96 @@
         <p>@item.Description</p>
         <br />
         <hr>
-        <p class="rating">Рейтинг: @item.Rating</p>
+        <style>
+            .checked {
+                color: orange;
+            }
+        </style>
+
+        @if (item.Rating == 0)
+        {
+            <p class="rating">
+
+                Рейтинг:
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                :@item.Rating
+            </p>
+        }
+
+        @if (item.Rating > 0 && item.Rating <= 2)
+        {
+            <p class="rating">
+
+                Рейтинг:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                :@item.Rating
+            </p>
+        }
+
+        @if (item.Rating > 2 && item.Rating <= 4)
+        {
+            <p class="rating">
+
+                Рейтинг:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star "></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                :@item.Rating
+            </p>
+        }
+
+        @if (item.Rating > 4 && item.Rating <= 6)
+        {
+            <p class="rating">
+
+                Рейтинг:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                :@item.Rating
+            </p>
+        }
+
+        @if (item.Rating > 6 && item.Rating <= 8)
+        {
+            <p class="rating">
+
+                Рейтинг:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                :@item.Rating
+            </p>
+        }
+
+        @if (item.Rating > 8 && item.Rating <= 10)
+        {
+            <p class="rating">
+
+                Рейтинг:
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                :@item.Rating
+            </p>
+        }
+
         <br>
         <hr>
         <br>
@@ -54,9 +143,10 @@
 
     <div>
 
-       <iframe src=@item.VideoUrl width="420" height="315" onpause="0"></iframe>
+        <iframe id="player" type="text/html" width="600" height="300"
+                src=@item.VideoUrl
+                frameborder="0">
+        </iframe>
 
     </div>
-    <hr />
 }
-

@@ -50,7 +50,100 @@
 
 <div class="secOptions">
     <div class="row">
-        <h3 class="text-lg-start">Рейтинг: @Model.Rating</h3>
+        <style>
+            .checked {
+                color: orange;
+            }
+        </style>
+        <div>
+            @if (Model.Rating == 0)
+            {
+                <p class="rating">
+
+                    Рейтинг:
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    :@Model.Rating
+                </p>
+            }
+
+            @if (Model.Rating > 0 && Model.Rating <= 2)
+            {
+                <p class="rating">
+
+                    Рейтинг:
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    :@Model.Rating
+                </p>
+            }
+
+            @if (Model.Rating > 2 && Model.Rating <= 4)
+            {
+                <p class="rating">
+
+                    Рейтинг:
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    :@Model.Rating
+                </p>
+            }
+
+            @if (Model.Rating > 4 && Model.Rating <= 6)
+            {
+                <p class="rating">
+
+                    Рейтинг:
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    :@Model.Rating
+                </p>
+            }
+
+            @if (Model.Rating > 6 && Model.Rating <= 8)
+            {
+                <p class="rating">
+
+                    Рейтинг:
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    :@Model.Rating
+                </p>
+            }
+
+            @if (Model.Rating > 8 && Model.Rating <= 10)
+            {
+                <p class="rating">
+
+                    Рейтинг:
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    :@Model.Rating
+                </p>
+            }
+
+            <a class="btn"  asp-controller="LandMark" asp-action="UpRatting" asp-route-id="@Model.Id">Гласувай</a>
+        </div>
+        
+
         @if (Model.TownName != null)
         {
             <br />
@@ -61,3 +154,15 @@
         }
     </div>
 </div>
+
+
+
+@section Scripts {
+
+    <script>
+        $("#btn").click(function () {
+            alert("Успешно гласувахте!");
+        });
+    </script>
+
+}

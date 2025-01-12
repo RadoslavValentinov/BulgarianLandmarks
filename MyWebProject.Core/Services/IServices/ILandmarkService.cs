@@ -22,5 +22,7 @@ namespace MyWebProject.Core.Services.IServices
 
         Task Delete(int id);
 
+        Task<bool> UpRattingPoint(int id);
+
     }
 }

@@ -70,6 +70,10 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
+
+
+        // This method remove all landmarks of landmarks suggesstation clean all result
+        [Authorize]
         [Area("Administrator")]
         public async Task<AddLandMarkViewModel> AddLandMark([FromBody] AddLandMarkViewModel model)
         {
@@ -117,11 +121,20 @@ namespace MyWebProject.Core.Services.Services
                 await repo.AddAsync(land);
                 await repo.SaveChangesAsync();
 
+                
+
             }
             catch (DbUpdateException de)
             {
                 logger.LogError(string.Format("Database not save info try again..."), de);
             }
+
+
+            // Not delete corect item 
+
+            var deletedItem = repo.All<Landmark_suggestions>().Where(x => x.Name == model.Name);
+            repo.Delete(deletedItem);
+            await repo.SaveChangesAsync();
 
             return model;
         }
@@ -150,7 +163,7 @@ namespace MyWebProject.Core.Services.Services
 
             if (deletedItem.Count == 0)
             {
-                throw new ArgumentOutOfRangeException("Journey not deleted ,item not found");
+                throw new ArgumentOutOfRangeException("LandMark not deleted ,item not found");
             }
 
             try
@@ -273,5 +286,28 @@ namespace MyWebProject.Core.Services.Services
             return result;
         }
 
+        public async Task<bool> UpRattingPoint(int id)
+        {
+
+            var foundId = await repo.GetByIdAsync<LandMark>(id);
+
+            if (foundId == null)
+            {
+                logger.LogError("Data is not correct");
+                return false;
+            }
+
+            if (foundId.Rating < 10)
+            {
+                foundId.Rating += 1.25m;
+
+                await repo.SaveChangesAsync();
+            }
+
+
+
+
+            return true;
+        }
     }
 }
