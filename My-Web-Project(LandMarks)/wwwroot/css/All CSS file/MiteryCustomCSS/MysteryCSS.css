@@ -6,6 +6,7 @@
 #place {
     font-family:Arial, Helvetica, sans-serif;
     letter-spacing: 1px;
+    margin-bottom: 0px;
 }
 
 #picture{
@@ -17,6 +18,10 @@
 
 #place .rating{
     font-size:32px;
+}
+
+#player{
+    margin-bottom: 50px;
 }
 
 

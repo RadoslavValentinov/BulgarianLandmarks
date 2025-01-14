@@ -56,6 +56,12 @@ namespace MyWebProject.Infrastructure.Data
 
 
             builder.Entity<Pictures>()
+                .HasOne(c => c.LandMark)
+                .WithMany(c => c.Pictures)
+            .OnDelete(DeleteBehavior.Cascade);
+
+
+            builder.Entity<Pictures>()
             .HasOne(x => x.Journey)
             .WithMany(a => a.pictures)
             .OnDelete(DeleteBehavior.Cascade);

@@ -140,7 +140,13 @@
                 </p>
             }
 
-            <a class="btn"  asp-controller="LandMark" asp-action="UpRatting" asp-route-id="@Model.Id">Гласувай</a>
+
+            @if (User.Identity!.IsAuthenticated)
+            {
+                 <a class="btn"  asp-controller="LandMark" asp-action="UpRatting" asp-route-id="@Model.Id">Гласувай</a>
+            }
+
+           
         </div>
         
 

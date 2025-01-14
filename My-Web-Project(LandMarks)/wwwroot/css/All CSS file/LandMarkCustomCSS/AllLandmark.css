@@ -1,16 +1,20 @@
-﻿body {
+﻿*{
+    box-sizing:border-box;
+}
+
+body {
     background-color: hsl(0, 0%, 90%);
 }
 
-#containerLand .card-group p{
-    padding:0px;
+
+.row{
+    flex-wrap:wrap;
 }
 
 #containerLand {
-    display: block;
     margin: 10px;
     padding: 0px;
-    width: 300px;
+    width: 380px;
     height: 330px;
     border: 1px solid lightgray;
     border-radius: 4px;
@@ -19,37 +23,19 @@
     overflow: hidden;
 }
 
-.card-group h4 {
-    margin-top: 5px;
-    margin-bottom:0px;
-    text-align: center;
-    font-size: 20px;
+#containerLand img{
+    width:378px;
+    height:300px;
 }
 
+#containerLand p{
+    padding:15px 10px;
+}
 
 #containerLand:hover {
-    height: 535px;
+    height: 530px;
     transition-duration: 1.5s;
 }
 
-p {
-    text-align: center;
-    margin: 0px;
-    padding: 5px;
-    height: 80px;
-}
 
-#containerLand img {
-    padding-left: 0px;
-    width: 417px;
-    height: 300px;
-    object-fit:cover;
-}
-
-#containerLand .btn {
-    position: relative;
-    bottom: -60px;
-    padding: 8px 168px 8px 168px;
-    text-align: center;
-}
 

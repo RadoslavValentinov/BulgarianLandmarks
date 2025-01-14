@@ -72,7 +72,6 @@ namespace MyWebProject.Core.Services.Services
 
 
 
-        // This method remove all landmarks of landmarks suggesstation clean all result
         [Authorize]
         [Area("Administrator")]
         public async Task<AddLandMarkViewModel> AddLandMark([FromBody] AddLandMarkViewModel model)
@@ -120,8 +119,8 @@ namespace MyWebProject.Core.Services.Services
 
                 await repo.AddAsync(land);
                 await repo.SaveChangesAsync();
+                await DeleteAuto(land.Name);
 
-                
 
             }
             catch (DbUpdateException de)
@@ -130,14 +129,11 @@ namespace MyWebProject.Core.Services.Services
             }
 
 
-            // Not delete corect item 
-
-            var deletedItem = repo.All<Landmark_suggestions>().Where(x => x.Name == model.Name);
-            repo.Delete(deletedItem);
-            await repo.SaveChangesAsync();
-
             return model;
         }
+
+
+
 
         public async Task<IEnumerable<CategoryViewModel>> AllCategory()
         {
@@ -152,6 +148,36 @@ namespace MyWebProject.Core.Services.Services
 
             return all;
         }
+
+
+        [Authorize]
+        public async Task DeleteAuto(string name)
+        {
+            var deletedItem = await repo.AllReadonly<Landmark_suggestions>()
+                    .Where(z => z.Name == name)
+                    .ToListAsync();
+
+            if (deletedItem.Count == 0)
+            {
+                throw new ArgumentOutOfRangeException("LandMark not deleted ,item not found");
+            }
+
+            try
+            {
+
+                await repo.DeleteAsync<Landmark_suggestions>(deletedItem[0].Id);
+                await repo.SaveChangesAsync();
+            }
+            catch (ArgumentOutOfRangeException ae)
+            {
+                logger.LogError(string.Format("LandMark not deleted"), ae);
+            }
+        }
+
+
+
+
+
 
         [Area("Administrator")]
         public async Task Delete(int id)
@@ -171,12 +197,15 @@ namespace MyWebProject.Core.Services.Services
 
                 await repo.DeleteAsync<LandMark>(deletedItem[0].Id);
                 await repo.SaveChangesAsync();
+
             }
             catch (ArgumentOutOfRangeException ae)
             {
-                logger.LogError(string.Format("Journey not deleted"), ae);
+                logger.LogError(string.Format("LandMark not deleted"), ae);
             }
         }
+
+
 
         [Area("Administrator")]
         public async Task<LandMarkViewModelAll> Edit(LandMarkViewModelAll model)
@@ -246,6 +275,14 @@ namespace MyWebProject.Core.Services.Services
                 })
                 .OrderBy(a => a.Id)
                 .ToListAsync();
+
+            if (result.Count == 0)
+            {
+                 logger.LogError("Collection is Empty");
+                 throw new Exception("Collection is Empty");
+            }
+
+
 
             return result;
         }

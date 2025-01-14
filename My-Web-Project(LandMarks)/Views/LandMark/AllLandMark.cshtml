@@ -14,44 +14,56 @@
     <br />
     <hr />
 
-    @for (int i = 0; i < Model.Count(); i += 2)
+
+<div class="row">
+    @foreach (var item in loopmodel)
     {
-        int count = 0;
-        <div class="row">
-            @foreach (var item in loopmodel.Take(3))
+
+        var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
+
+
+        <div id="containerLand">
+            <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
+            @if (item.Name.Length > 27)
             {
-                count++;
-
-                @if (loopmodel.Count() < 3)
-                {
-                    break;
-                }
-                @if (count > 0)
-                {
-                    loopmodel.Remove(item);
-                }
-
-                var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
-
-
-                <div id="containerLand" class="col" style="width: 18rem;">
-                    <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
-                    @if (item.Name.Length > 27)
-                    {
-                        <h4>@item.Name.Substring(0,25)...</h4>
-                    }
-                    else
-                    {
-                        <h4>@item.Name</h4>
-                    }
-                    <hr/>
-                    <div id="hideElement">
-                        <p>@item.Description.Substring(0,90)...</p>
-                        <a id="sub" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научете повече</a>
-                    </div>
-                </div>
+                <h4>@item.Name.Substring(0, 25)...</h4>
             }
+            else
+            {
+                <h4>@item.Name</h4>
+            }
+            <hr />
+            <div id="hideElement">
+                <p>@item.Description.Substring(0, 90)...</p>
+                <a id="sub" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научете повече</a>
+            </div>
         </div>
-        <br />
     }
 </div>
+
+</div>
+
+
+
+@*
+<div class="row">
+    @foreach (var item in loopmodel)
+    {
+        var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
+
+
+        @*  <p style="display=inline-block"> @item.TownName</p> *@
+@*
+<div id="cardsBox">
+    <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
+    <h4>@item.Name</h4>
+    <p>@item.Description.Substring(0, 120)...</p>
+    <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
+</div>
+
+    }
+</div>
+<br />
+
+<br />
+*@

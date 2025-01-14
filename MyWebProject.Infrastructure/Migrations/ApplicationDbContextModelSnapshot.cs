@@ -2737,7 +2737,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = "630d5dda-7255-4ce9-a658-0eedfb698a5f",
                             AccessFailedCount = 0,
                             Avatar = "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg",
-                            ConcurrencyStamp = "6dd0904f-f964-4f94-abae-9b44024f7091",
+                            ConcurrencyStamp = "0f99ad1e-15c6-47af-9a4c-b9989e53eb64",
                             Email = "Bobo561@abv.bg",
                             EmailConfirmed = true,
                             FirstName = "Borislav",
@@ -2746,9 +2746,9 @@ namespace MyWebProject.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "Bobo561@abv.bg",
                             NormalizedUserName = "Bobo561@abv.bg",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL3pj/T0eQaw8T4+R6rrqBRsGT9/V52GTM1I+z0WiUsuOn5XBIMofKAUfx7yDaR5cA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBuur6Fo4Irk8fDb95jg9bO2ePV7y63huW3RIPn2T2km5O2hOlZ/l8Nrs20HV9l2pQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "acc185a7-5038-418e-8f83-9bff07b5e471",
+                            SecurityStamp = "aaa35466-b80e-4dd8-a58f-7fdf94002ee1",
                             TwoFactorEnabled = false,
                             UserName = "Bobo561@abv.bg"
                         });
@@ -2873,7 +2873,8 @@ namespace MyWebProject.Infrastructure.Migrations
 
                     b.HasOne("MyWebProject.Infrastructure.Data.Models.LandMark", "LandMark")
                         .WithMany("Pictures")
-                        .HasForeignKey("LandMarkId");
+                        .HasForeignKey("LandMarkId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("MyWebProject.Infrastructure.Data.Models.Town", "Town")
                         .WithMany("Picture")
