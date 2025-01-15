@@ -334,11 +334,15 @@ namespace MyWebProject.Core.Services.Services
                 return false;
             }
 
-            if (foundId.Rating < 10)
+            if (foundId.Rating < 10 && foundId.Rating + 1.25m < 10)
             {
                 foundId.Rating += 1.25m;
 
                 await repo.SaveChangesAsync();
+            }
+            else if (foundId.Rating + 1.25m > 10)
+            {
+                foundId.Rating = 10;
             }
 
 
