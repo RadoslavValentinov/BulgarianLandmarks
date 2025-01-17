@@ -175,6 +175,9 @@ sample excursions as well as cultural events for the various cities (theatre pro
    
 </section>
 
+<br>
+<br>
+
 <section>
 
   <p>
@@ -188,7 +191,17 @@ sample excursions as well as cultural events for the various cities (theatre pro
      In the upper right navigation there are two links, the first ("Wait for Approval landmark") 
      contains information about proposed places or landmarks from registered users
    </p>
-  
+    <br>
+    <br>
+    <img src="https://github.com/user-attachments/assets/497415a0-3f9f-4317-99eb-d69d12ddd104" width="450" />
+     <img src="https://github.com/user-attachments/assets/54697b57-8f84-433a-9d80-0fcbbceae34b" width="450" />
+    <br>
+    <br>
+    <p>      
+      The first picture shows when no offers have been added. In the second picture you can
+      see that there is already a suggestion added by a user and it is visualized in a table name, 
+      description, image and after review by the admin and possibility to add.
+    </p>
 </section>
 
 
