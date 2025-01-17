@@ -174,3 +174,21 @@ sample excursions as well as cultural events for the various cities (theatre pro
    <img src="https://github.com/user-attachments/assets/354a1549-0f4b-4b46-aa9b-165ba6e6e3c6" width="450" />
    
 </section>
+
+<section>
+
+  <p>
+    Next is the admin panel, it is accessible only to a user with an administrator role and has the ability to add, 
+    correct and delete all available options in the application.
+    Below you will see the home page of the admin panel.
+  </p>
+   <img src="https://github.com/user-attachments/assets/a5523f0c-e97c-40f1-ab5b-dbdb7a9fe5e1" width="450" />
+
+   <p>
+     In the upper right navigation there are two links, the first ("Wait for Approval landmark") 
+     contains information about proposed places or landmarks from registered users
+   </p>
+  
+</section>
+
+
