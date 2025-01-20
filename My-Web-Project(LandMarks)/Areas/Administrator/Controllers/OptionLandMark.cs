@@ -54,7 +54,7 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
             return View(model);
         }
 
-
+        [HttpGet]
         public async Task<IActionResult> AddLandMarkByUser(AddLandMarkViewModel newModel)
         {
 

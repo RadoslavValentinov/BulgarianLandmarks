@@ -25,6 +25,7 @@ namespace MyWebProject.Core.Services.Services
 
 
         [Area("Administrator")]
+        [Authorize]
         public async Task<LandMarkByUserAdded> AddLandMarkOfUsers(LandMarkByUserAdded model)
         {
 
@@ -119,7 +120,18 @@ namespace MyWebProject.Core.Services.Services
 
                 await repo.AddAsync(land);
                 await repo.SaveChangesAsync();
-                await DeleteAuto(land.Name);
+
+
+
+
+                var clear = await repo.AllReadonly<Landmark_suggestions>().Where(x => x.Name == land.Name).ToListAsync();
+
+                if (clear.Count() > 0) 
+                {
+                    await DeleteAuto(clear[0].Name);
+                }
+
+                
 
 
             }
@@ -334,13 +346,13 @@ namespace MyWebProject.Core.Services.Services
                 return false;
             }
 
-            if (foundId.Rating < 10 && foundId.Rating + 1.25m < 10)
+            if (foundId.Rating < 10 && foundId.Rating + 1.00m < 10)
             {
-                foundId.Rating += 1.25m;
+                foundId.Rating += 1.00m;
 
                 await repo.SaveChangesAsync();
             }
-            else if (foundId.Rating + 1.25m > 10)
+            else if (foundId.Rating + 1.00m > 10)
             {
                 foundId.Rating = 10;
             }

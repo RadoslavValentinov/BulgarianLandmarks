@@ -1,71 +1,50 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-My_Web_Project_LandMarks_-E5D7032F-7CC1-40A8-A5A6-F0C758D54977</UserSecretsId>
     <RootNamespace>My_Web_Project_LandMarks_</RootNamespace>
   </PropertyGroup>
-
   <ItemGroup>
     <Content Remove="Views\Home\ContactUs.cshtml" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\MyWebProject.Core\MyWebProject.Core.csproj" />
     <ProjectReference Include="..\MyWebProject.Infrastructure\MyWebProject.Infrastructure.csproj" />
   </ItemGroup>
-
- 
-
   <ItemGroup>
-    <PackageReference Include="HtmlSanitizer" Version="8.0.692" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.18" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.18" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.18" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.18" />
-    <PackageReference Include="Microsoft.Configuration.ConfigurationBuilders.UserSecrets" Version="3.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.18" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.18">
+    <PackageReference Include="HtmlSanitizer" Version="8.1.870" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.12">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.18" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.18">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.12">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.18" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
     <PackageReference Include="SendGrid" Version="9.29.2" />
   </ItemGroup>
-
- 
-
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\Home\ContactUs.cshtml" />
   </ItemGroup>
-
- 
-
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Home\ContactUs.cshtml" />
   </ItemGroup>
-
- 
-
   <ItemGroup>
     <None Include="Views\Home\ContactUs.cshtml" />
   </ItemGroup>
-
- 
-
   <ItemGroup>
     <Content Update="Views\Shared\_LoginPartial.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>
-
 </Project>
