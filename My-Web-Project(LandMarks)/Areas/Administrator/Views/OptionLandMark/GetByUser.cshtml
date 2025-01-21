@@ -26,15 +26,17 @@ else
         <tr />
             @foreach (var item in Model)
             {
+
                 all.Name = item.Name;
                 all.Description = item.Description;
                 all.VideoURL = item.VideoURL;
-                all.VideoURL = item.ImageURL;
+                all.ImageURL = item.ImageURL;
 
             <tr>
                 <td>@item.Name</td>
                 <td>
-                    <textarea>@item.Description></textarea></td>
+                    <textarea>@item.Description></textarea>
+                </td>
                 <td>@item.CategoryId</td>
                     @if (item.VideoURL != null)
                     {
@@ -53,20 +55,17 @@ else
                     <td></td>
                     }
                 <td>
-                        @Html.ActionLink("Add", "AddLandMarkByUser", "OptionLandMark", new AddLandMarkViewModel()
-       {
-           Name = item.Name,
-           Description = item.Description,
-           VideoURL = item.VideoURL,
-           ImageURL = item.ImageURL,
-           CategoryId = item.CategoryId
-       }, new { id = "click" })
+                     
+                        @Html.ActionLink("Add", "AddLandMarkByUser", new 
+                        { Name = item.Name,
+                                 Description = item.Description,
+                                 VideoURL = item.VideoURL,
+                                 ImageURL = item.ImageURL,
+                                CategoryId = item.CategoryId
+                        })
 
                 </td>
             </tr>
             }
     </table>
 }
-
-
-

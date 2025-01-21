@@ -95,11 +95,10 @@ namespace MyWebProject.Core.Services.Services
             {
                 var land = new LandMark()
                 {
-                    Id = model.Id,
                     Name = name,
                     Description = description,
                     Rating = 0,
-                    Category = category,
+                    CategoryId = category.Id,
                 };
 
                 if (!string.IsNullOrWhiteSpace(videoUrl))
