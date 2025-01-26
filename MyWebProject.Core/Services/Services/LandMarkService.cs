@@ -24,9 +24,8 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
-        [Area("Administrator")]
         [Authorize]
-        public async Task<LandMarkByUserAdded> AddLandMarkOfUsers(LandMarkByUserAdded model)
+        public async Task<AddLandMarkViewModel> AddLandMarkOfUsers(AddLandMarkViewModel model)
         {
 
             var sanitizer = new HtmlSanitizer();
@@ -35,6 +34,7 @@ namespace MyWebProject.Core.Services.Services
             string description = sanitizer.Sanitize(model.Description);
             string videoUrl = sanitizer.Sanitize(model.VideoURL ?? null!);
             string image = sanitizer.Sanitize(model.ImageURL ?? null!);
+            string UserName = sanitizer.Sanitize(model.UserName ?? null!);
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description))
             {
@@ -52,6 +52,7 @@ namespace MyWebProject.Core.Services.Services
                     IsActive = true,
                     CategoryId = model.CategoryId,
                     ImageURL = image,
+                    UserName = UserName    
                 };
 
                 if (!string.IsNullOrWhiteSpace(videoUrl))
@@ -83,6 +84,7 @@ namespace MyWebProject.Core.Services.Services
             string description = sanitizer.Sanitize(model.Description);
             string videoUrl = sanitizer.Sanitize(model.VideoURL ?? null!);
             string image = sanitizer.Sanitize(model.ImageURL ?? null!);
+            string userName = sanitizer.Sanitize(model.UserName ?? null!);
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description))
             {
@@ -99,6 +101,7 @@ namespace MyWebProject.Core.Services.Services
                     Description = description,
                     Rating = 0,
                     CategoryId = category.Id,
+                    UserName = userName                
                 };
 
                 if (!string.IsNullOrWhiteSpace(videoUrl))
@@ -315,11 +318,11 @@ namespace MyWebProject.Core.Services.Services
         }
 
         [Authorize]
-        public async Task<IEnumerable<LandMarkByUserAdded>> GetAllByUser()
+        public async Task<IEnumerable<AddLandMarkViewModel>> GetAllByUser()
         {
             var result = await repo.All<Landmark_suggestions>()
                 .Where(l => l.IsActive == true)
-                .Select(l => new LandMarkByUserAdded()
+                .Select(l => new AddLandMarkViewModel()
                 {
                     Id = l.Id,
                     Name = l.Name,
@@ -328,6 +331,7 @@ namespace MyWebProject.Core.Services.Services
                     VideoURL = l.VideoURL,
                     CategoryId = l.CategoryId,
                     ImageURL = l.ImageURL,
+                    UserName = l.UserName
                 })
                 .ToListAsync();
 

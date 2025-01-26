@@ -17,10 +17,10 @@ namespace MyWebProject.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.18")
+                .HasAnnotation("ProductVersion", "8.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("Cultural_eventsUsers", b =>
                 {
@@ -70,7 +70,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -95,7 +95,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -176,7 +176,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -247,7 +247,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Date")
                         .IsRequired()
@@ -494,7 +494,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -823,7 +823,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int?>("Day")
                         .HasColumnType("int");
@@ -941,7 +941,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -964,6 +964,9 @@ namespace MyWebProject.Infrastructure.Migrations
 
                     b.Property<int?>("TownId")
                         .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UsersId")
                         .HasColumnType("nvarchar(450)");
@@ -1221,7 +1224,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -1243,6 +1246,9 @@ namespace MyWebProject.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("VideoURL")
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
@@ -1258,7 +1264,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -1283,7 +1289,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsActiv")
                         .HasColumnType("bit");
@@ -2594,7 +2600,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -2737,7 +2743,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = "630d5dda-7255-4ce9-a658-0eedfb698a5f",
                             AccessFailedCount = 0,
                             Avatar = "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg",
-                            ConcurrencyStamp = "0f99ad1e-15c6-47af-9a4c-b9989e53eb64",
+                            ConcurrencyStamp = "9a03812b-314c-41ec-9a71-401757e315ef",
                             Email = "Bobo561@abv.bg",
                             EmailConfirmed = true,
                             FirstName = "Borislav",
@@ -2746,9 +2752,9 @@ namespace MyWebProject.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "Bobo561@abv.bg",
                             NormalizedUserName = "Bobo561@abv.bg",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBuur6Fo4Irk8fDb95jg9bO2ePV7y63huW3RIPn2T2km5O2hOlZ/l8Nrs20HV9l2pQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBy/cKYozq9UQgJlhTaQJGOjnCsoosO9tpdRXmKebuUguEYIKIjjZC2GfxLL2OoERw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "aaa35466-b80e-4dd8-a58f-7fdf94002ee1",
+                            SecurityStamp = "2032a5b1-c1ca-468a-a71c-2c6f3f26c2e9",
                             TwoFactorEnabled = false,
                             UserName = "Bobo561@abv.bg"
                         });

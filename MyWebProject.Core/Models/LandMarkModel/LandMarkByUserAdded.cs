@@ -31,5 +31,7 @@ namespace MyWebProject.Core.Models.LandMarkModel
 
         [MaxLength(300)]
         public string? ImageURL { get; set; }
+
+        public string? UserName { get; set; }
     }
 }

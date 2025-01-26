@@ -32,5 +32,7 @@ namespace MyWebProject.Core.Models.LandMarkModel
 
         public List<Pictures> Pictures { get; set; }
             = new List<Pictures>();
+
+        public string? UserName { get; set; }
     }
 }

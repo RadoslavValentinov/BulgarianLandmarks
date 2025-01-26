@@ -63,7 +63,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         [Authorize]
         public async Task<IActionResult> AddUserSuggestions()
         {
-            var model = new LandMarkByUserAdded()
+            var model = new AddLandMarkViewModel()
             {
                 Category = await service.AllCategory()
             };
@@ -90,8 +90,10 @@ namespace My_Web_Project_LandMarks_.Controllers
         /// <returns>resdirect to index page of all landmarks</returns>
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> AddUserSuggestions(LandMarkByUserAdded model)
+        public async Task<IActionResult> AddUserSuggestions(AddLandMarkViewModel model)
         {
+
+            model.UserName = User.Identity?.Name;
             await service.AddLandMarkOfUsers(model);
 
             return RedirectToAction("AllLandmark");

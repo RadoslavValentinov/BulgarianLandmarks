@@ -23,6 +23,8 @@ namespace MyWebProject.Core.Models.LandMarkModel
 
         public int CategoryId { get; set; }
 
+        public bool IsActive { get; set; } = true;
+
         public IEnumerable<CategoryViewModel> Category { get; set; }
             = new List<CategoryViewModel>();
 
@@ -34,5 +36,7 @@ namespace MyWebProject.Core.Models.LandMarkModel
 
         public List<Pictures> Pictures { get; set; }
             = new List<Pictures>();
+
+        public string? UserName { get; set; }
     }
 }

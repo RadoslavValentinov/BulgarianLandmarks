@@ -6,7 +6,7 @@ namespace MyWebProject.Core.Services.IServices
     public interface ILandmarkService
     {
         Task<IEnumerable<LandMarkViewModelAll>> GetAllLandmark();
-        Task<IEnumerable<LandMarkByUserAdded>> GetAllByUser();
+        Task<IEnumerable<AddLandMarkViewModel>> GetAllByUser();
 
         Task<LandMarkViewModelAll> GetById(int id);
 
@@ -14,7 +14,7 @@ namespace MyWebProject.Core.Services.IServices
 
         Task<AddLandMarkViewModel> AddLandMark(AddLandMarkViewModel model);
 
-        Task<LandMarkByUserAdded> AddLandMarkOfUsers(LandMarkByUserAdded model);
+        Task<AddLandMarkViewModel> AddLandMarkOfUsers(AddLandMarkViewModel model);
 
         Task<LandMarkViewModelAll> Edit(LandMarkViewModelAll model);
 

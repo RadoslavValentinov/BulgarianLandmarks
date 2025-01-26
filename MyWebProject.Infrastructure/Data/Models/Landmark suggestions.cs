@@ -29,5 +29,7 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         [MaxLength(300)]
         public string? ImageURL { get; set; }
+
+        public string? UserName { get; set; }
     }
 }

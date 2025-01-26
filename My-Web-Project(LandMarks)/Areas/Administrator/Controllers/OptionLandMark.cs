@@ -62,13 +62,6 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
             {
                 await landmarks.AddLandMark(newModel);
 
-                var setValue = landmarks.GetAllByUser().Result.Where(x => x.Name == newModel.Name).ToList();
-                if (setValue.Count() > 0)
-                {
-                    setValue[0].IsActive = false;
-                }
-
-
                 return RedirectToAction("Index");
             }
 

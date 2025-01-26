@@ -1,8 +1,6 @@
-﻿@model IEnumerable<LandMarkByUserAdded>
+﻿@model IEnumerable<AddLandMarkViewModel>
 
-@{
-    var all = new AddLandMarkViewModel();
-}
+
 
 <head>
     <link rel="stylesheet" href="~/css/All CSS file/LandMarkCustomCSS/CustomLandmarkAddByUser.css">
@@ -22,15 +20,12 @@ else
             <th>Category</th>
             <th>Video Url</th>
             <th>image</th>
+            <th>User</th>
             <th>Options</th>
         <tr />
             @foreach (var item in Model)
             {
 
-                all.Name = item.Name;
-                all.Description = item.Description;
-                all.VideoURL = item.VideoURL;
-                all.ImageURL = item.ImageURL;
 
             <tr>
                 <td>@item.Name</td>
@@ -54,15 +49,20 @@ else
                     {
                     <td></td>
                     }
+
+                <td>@item.UserName</td>
                 <td>
-                     
-                        @Html.ActionLink("Add", "AddLandMarkByUser", new 
-                        { Name = item.Name,
-                                 Description = item.Description,
-                                 VideoURL = item.VideoURL,
-                                 ImageURL = item.ImageURL,
-                                CategoryId = item.CategoryId
-                        })
+
+                        @Html.ActionLink("Add", "AddLandMarkByUser", new
+                            {
+                                Name = item.Name,
+                                Description = item.Description,
+                                VideoURL = item.VideoURL,
+                                ImageURL = item.ImageURL,
+                                CategoryId = item.CategoryId,
+                                UserName = item.UserName
+
+                            })
 
                 </td>
             </tr>
