@@ -203,5 +203,20 @@ sample excursions as well as cultural events for the various cities (theatre pro
       description, image and after review by the admin and possibility to add.
     </p>
 </section>
+ <br>
+ <br>
 
+ <section>
+
+   <img src="https://github.com/user-attachments/assets/b84d4caa-b04b-442f-bf09-f4365e3e5cb3" width="450" />
+   <img src="https://github.com/user-attachments/assets/0d394fa9-aae5-4d22-a604-ba4824d95006" width="450" />
+
+   <br>
+   <br>
+   <p>
+     In the link "Pictures waiting for approval" pictures uploaded by the user and waiting for approval by the administrator 
+     are visualized. The pictures are visualized in a div. the user. The other button 
+     removes the photo from the database.
+   </p>
+ </section>
 
