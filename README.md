@@ -194,7 +194,7 @@ sample excursions as well as cultural events for the various cities (theatre pro
     <br>
     <br>
     <img src="https://github.com/user-attachments/assets/497415a0-3f9f-4317-99eb-d69d12ddd104" width="450" />
-     <img src="https://github.com/user-attachments/assets/54697b57-8f84-433a-9d80-0fcbbceae34b" width="450" />
+     <img src="https://github.com/user-attachments/assets/dcec747f-e457-4cbb-89d2-7c6b1b030506" width="450" />
     <br>
     <br>
     <p>      
@@ -203,5 +203,20 @@ sample excursions as well as cultural events for the various cities (theatre pro
       description, image and after review by the admin and possibility to add.
     </p>
 </section>
+ <br>
+ <br>
 
+ <section>
+
+   <img src="https://github.com/user-attachments/assets/b84d4caa-b04b-442f-bf09-f4365e3e5cb3" width="450" />
+   <img src="https://github.com/user-attachments/assets/0d394fa9-aae5-4d22-a604-ba4824d95006" width="450" />
+
+   <br>
+   <br>
+   <p>
+     In the link "Pictures waiting for approval" pictures uploaded by the user and waiting for approval by the administrator 
+     are visualized. The pictures are visualized in a div. the user. The other button 
+     removes the photo from the database.
+   </p>
+ </section>
 
