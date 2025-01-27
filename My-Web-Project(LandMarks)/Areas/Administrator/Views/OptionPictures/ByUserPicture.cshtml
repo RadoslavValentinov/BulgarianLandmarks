@@ -15,18 +15,22 @@
 else
 {
 
-    @foreach (var item in Model)
-    {
-        <div id="cardsPictures">
+    <div class="row">
 
-            <img src="@item.UrlImgAddres" width="300" height="200" />
+        @foreach (var item in Model)
+        {
+            <div id="cardsPictures" class="col">
 
-            <h4>@item.UserName</h4>
+                <img src="@item.UrlImgAddres" />
 
-            @Html.ActionLink("Add Picture", "AddPictureByUser", "OptionPictures", new AddPictureViewModel() { UrlImgAddres = item.UrlImgAddres, UserName = item.UserName }, new { id = "click" })
+                <h4>@item.UserName</h4>
+                <hr />
 
-            <a id="deleted" href="#">Delete</a>
-        </div>
-    }
+                @Html.ActionLink("Add Picture", "AddPictureByUser", "OptionPictures", new AddPictureViewModel() { UrlImgAddres = item.UrlImgAddres, UserName = item.UserName }, new { id = "click" })
+
+                <a id="deleted" href="#">Delete</a>
+            </div>
+        }
+    </div>
 }
 

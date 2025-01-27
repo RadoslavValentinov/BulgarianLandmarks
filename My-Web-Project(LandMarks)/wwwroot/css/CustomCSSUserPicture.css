@@ -6,12 +6,22 @@
     text-align: center;
 }
 
-.container .pb-3 #cardsPictures {
-    width: 301px;
-    height: 320px;
+.container #cardsPictures {
+    max-width: 310px;
+    height: 360px;
+    margin: 10px;
+    padding: 0px;
     background-color: whitesmoke;
     border: 1px solid gray;
 }
+
+
+    #cardsPictures img {
+        width: 308px;
+        height: 250px;
+    }
+
+
 
 #cardsPictures #click {
     text-decoration: none;
@@ -19,20 +29,19 @@
     border: 1px solid gray;
     background-color: cornflowerblue;
     color: white;
+    margin-left: 30px;
 }
 
-#cardsPictures #deleted {
-    text-decoration: none;
-    padding: 10px 20px;
-    border: 1px solid gray;
-    background-color: cornflowerblue;
-    color: white;
-}
+    #cardsPictures #deleted {
+        text-decoration: none;
+        padding: 10px 20px;
+        border: 1px solid gray;
+        background-color: cornflowerblue;
+        color: white;
+        margin-left: 10px;
+    }
 
-#cardsPictures h4 {
-    text-align: center
-}
-
-#resize {
-    margin: 10px;
-}
+    #cardsPictures h4 {
+        text-align: center;
+        margin-bottom: 5px;
+    }
