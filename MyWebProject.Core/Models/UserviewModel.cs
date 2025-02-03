@@ -13,5 +13,7 @@
 
         public bool IsActive { get; set; }
 
+        public DateTime LastActiveLog { get; set; }
+
     }
 }

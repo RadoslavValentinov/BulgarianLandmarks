@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Models;
+using MyWebProject.Core.Services.IServices;
+using MyWebProject.Core.Services.Services;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
 
@@ -18,12 +20,14 @@ namespace My_Web_Project_LandMarks_.Controllers
         private readonly IRepository repo;
         private ILogger<UserController> logger;
         private readonly IEmailSender emailSender;
+        private  IUserService service;
 
         public UserController(SignInManager<Users> _signInManager,
             UserManager<Users> _userManager,
             RoleManager<IdentityRole> _roleManager,
             IRepository _repo,
-            ILogger<UserController> _logger, IEmailSender _emailSender)
+            ILogger<UserController> _logger, IEmailSender _emailSender,
+            IUserService _service)
         {
             signInManager = _signInManager;
             userManager = _userManager;
@@ -31,6 +35,7 @@ namespace My_Web_Project_LandMarks_.Controllers
             repo = _repo;
             logger = _logger;
             emailSender = _emailSender;
+            service = _service;
         }
 
 
@@ -70,6 +75,7 @@ namespace My_Web_Project_LandMarks_.Controllers
 
                 if (results.Succeeded)
                 {
+                    await service.UpdateLastLoginAsync(user.Id);
                     return RedirectToAction("Index", "Home");
                 }
             }

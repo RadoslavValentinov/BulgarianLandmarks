@@ -33,9 +33,10 @@ namespace MyWebProject.Core.Services.Services
                 {
                     Avatar = u.Avatar ?? null!,
                     FullName = $"{u.FirstName} {u.LastName}",
-                    UserName = u.UserName,
-                    Email = u.Email,
-                    IsActive = u.IsActiv
+                    UserName = u.UserName!,
+                    Email = u.Email!,
+                    IsActive = u.IsActiv,
+                    LastActiveLog = u.LastActive
                 })
                 .ToListAsync();
 
@@ -45,6 +46,22 @@ namespace MyWebProject.Core.Services.Services
             }
 
             return AllUsers ?? null!;
+        }
+
+
+        public async Task UpdateLastLoginAsync(string userId)
+        {
+            var user = await repo.GetByIdAsync<Users>(userId);
+            if (user != null)
+            {
+                user.LastActive = DateTime.UtcNow;
+                repo.Update(user);
+                await repo.SaveChangesAsync();
+            }
+            else
+            {
+                logger.LogError($"User with ID {userId} not found.");
+            }
         }
     }
 }

@@ -3,7 +3,7 @@
 
 
 <head>
-    <link rel="stylesheet" href="~/css/All CSS file/LandMarkCustomCSS/CustomLandmarkAddByUser.css">
+    <link rel="stylesheet" href="~/css/All CSS file/LandMarkCustomCSS/CustomLandmarkAddByUser.css" asp-append-version=true>
 </head>
 
 
@@ -43,7 +43,7 @@ else
                     }
                     @if (item.ImageURL != null)
                     {
-                    <td><a href="@item.ImageURL">See Image</a></td>
+                    <td><a id="none" href="@item.ImageURL">See Image</a></td>
                     }
                     else
                     {
@@ -54,15 +54,14 @@ else
                 <td>
 
                         @Html.ActionLink("Add", "AddLandMarkByUser", new
-                            {
+                        {
                                 Name = item.Name,
                                 Description = item.Description,
                                 VideoURL = item.VideoURL,
                                 ImageURL = item.ImageURL,
                                 CategoryId = item.CategoryId,
                                 UserName = item.UserName
-
-                            })
+                        })
 
                 </td>
             </tr>

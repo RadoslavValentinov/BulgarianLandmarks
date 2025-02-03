@@ -4,16 +4,19 @@
     width: 90%;
 }
 
+
 th {
     background-color: white;
     text-align: center;
     padding: 8px;
     border: 1px solid black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style:italic;
 }
 
 td {
-    border: 1px solid black;
-    text-align: left;
+    border: 1px solid gray;
+    text-align: center;
     padding: 8px;
     font-family: Arial, Helvetica, sans-serif;
     white-space: nowrap;
@@ -21,26 +24,17 @@ td {
     vertical-align: inherit;
 }
 
+
+a {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
 tr:nth-child(even) {
     background-color: white;
 }
 
-#edit {
-    padding: 5px 45px 5px 45px;
-    background-color: yellow;
-    color: black;
-    margin-right: 40px;
-    position: relative;
-    right: -10px;
-}
 
-#deleteBtn {
-    position: relative;
-    right: 5px;
-    padding: 5px 45px 5px 45px;
-    background-color: red;
-    color: black;
-}
 
 #title {
     text-align: center;
@@ -48,18 +42,9 @@ tr:nth-child(even) {
     margin-bottom: 350px;
 }
 
-#create {
-    padding-bottom: 20px;
+footer{
+    width:100%;
+    position:fixed;
+    bottom: -12px;
 }
 
-    #create a {
-        text-decoration: none;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 18px;
-        color: mediumseagreen;
-    }
-
-#seen {
-    text-decoration: none;
-    color: cornflowerblue;
-}

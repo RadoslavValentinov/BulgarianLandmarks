@@ -6,8 +6,7 @@ using My_Web_Project_LandMarks_.ModelBinder;
 using My_Web_Project_LandMarks_.Models;
 using MyWebProject.Infrastructure.Data;
 using MyWebProject.Infrastructure.Data.Models;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.AspNetCore.Builder;
+
 
 namespace My_Web_Project_LandMarks_
 {

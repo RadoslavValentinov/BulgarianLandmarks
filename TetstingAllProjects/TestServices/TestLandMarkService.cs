@@ -77,7 +77,7 @@ namespace TetstingAllProjects.TestServices
 
             var allLadmark = await service.GetAllByUser();
 
-            await service.AddLandMarkOfUsers(new LandMarkByUserAdded()
+            object value = await service.AddLandMarkOfUsers(new AddLandMarkViewModel()
             {
                 Id = 100,
                 Name = "Зоопарк Плевен",
@@ -102,7 +102,7 @@ namespace TetstingAllProjects.TestServices
             var repo = new Repository(context);
             service = new LandMarkService(repo, logger!);
 
-            Assert.ThrowsAsync<NullReferenceException>(async () => await service.AddLandMarkOfUsers(new LandMarkByUserAdded()));
+            Assert.ThrowsAsync<NullReferenceException>(async () => await service.AddLandMarkOfUsers(new AddLandMarkViewModel()));
         }
 
 

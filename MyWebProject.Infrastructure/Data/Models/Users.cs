@@ -19,6 +19,10 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         public bool IsActiv { get; set; } = true;
 
+
+        public DateTime LastActive { get; set; }
+
+
         public List<LandMark> SightsVisited { get; set; }
             = new List<LandMark>();
 
