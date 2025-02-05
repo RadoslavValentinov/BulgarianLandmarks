@@ -3,6 +3,47 @@
     ViewData["Title"] = "Register";
 }
 
+
+<style>
+
+    .mb-3 {
+        padding-bottom: 5px;
+    }
+
+        .mb-3 .form-control {
+            border-radius: 10px;
+        }
+
+    .pb-3 {
+        padding-bottom: 0px;
+    }
+
+    #cont .container {
+        margin-bottom: 0px;
+    }
+
+    h1 {
+        margin-bottom: 5px;
+    }
+
+    hr {
+        margin-bottom: 5px;
+    }
+
+    .row {
+        margin: 0px;
+    }
+
+    footer {
+        width: 100%;
+        position: relative;
+        bottom: -47px;
+    }
+
+</style>
+
+
+
 <h1 class="text-center">@ViewData["Title"]</h1>
 
 <div class="row">
@@ -10,39 +51,33 @@
         <form id="registerForm" method="post">
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-       
+
             <div class="text-center mb-3">
-                <label asp-for="@Model.FirstName">FirstName</label>
                 <input class="form-control " autocomplete="Firstname" aria-required="true" placeholder="Enter your First name" asp-for="@Model.FirstName" />
                 <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
             </div>
 
             <div class="text-center mb-3">
-                <label asp-for="@Model.LastName">LastName</label>
                 <input class="form-control " autocomplete="Lastname" aria-required="true" placeholder="Enter your Last name" asp-for="@Model.LastName" />
                 <span asp-validation-for="@Model.LastName" class="text-danger"></span>
             </div>
 
             <div class="text-center mb-3">
-                <label asp-for="@Model.UserName">UserName</label>
                 <input class="form-control " autocomplete="username" aria-required="true" placeholder="Enter your User name" asp-for="@Model.UserName" />
                 <span asp-validation-for="@Model.UserName" class="text-danger"></span>
             </div>
 
             <div class="text-center mb-3">
-                <label asp-for="@Model.Email">Email</label>
                 <input class="form-control " autocomplete="email" aria-required="true" placeholder="Enter your Email" asp-for="@Model.Email" />
                 <span asp-validation-for="@Model.Email" class="text-danger"></span>
             </div>
 
             <div class="text-center mb-3">
-                <label asp-for="@Model.Password">Password</label>
                 <input class="form-control" type="password" autocomplete="new-password" aria-required="true" placeholder="Enter your password" asp-for="@Model.Password" />
                 <span asp-validation-for="@Model.Password" class="text-danger"></span>
             </div>
 
             <div class="text-center mb-3">
-                <label asp-for="@Model.ConfirmPassword">Confirm Password</label>
                 <input class="form-control" type="password" autocomplete="new-password" aria-required="true" placeholder="Confirm your password" asp-for="@Model.ConfirmPassword" />
                 <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
             </div>
