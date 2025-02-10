@@ -39,6 +39,11 @@
                         <span asp-validation-for="Journey" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
+                        <label for="pictureFile" class="form-label">Upload Picture</label>
+                        <input type="file" name="pictureFile" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
                         <input asp-area="Administrator" asp-controller="OptionPictures" asp-action="AddPicture" class="btn btn-primary" type="submit" method="post" />
                     </div>
                 </form>

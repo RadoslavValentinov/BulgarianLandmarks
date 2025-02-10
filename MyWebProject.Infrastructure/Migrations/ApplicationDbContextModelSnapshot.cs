@@ -1269,10 +1269,11 @@ namespace MyWebProject.Infrastructure.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<byte[]>("PictureData")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("UrlImgAddres")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -1290,6 +1291,9 @@ namespace MyWebProject.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<byte[]>("ArrayPicture")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("IsActiv")
                         .HasColumnType("bit");
@@ -2746,19 +2750,19 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = "630d5dda-7255-4ce9-a658-0eedfb698a5f",
                             AccessFailedCount = 0,
                             Avatar = "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg",
-                            ConcurrencyStamp = "2606b4c8-03ce-4dd4-a25c-6e4ac92d47a1",
+                            ConcurrencyStamp = "a1d9dac2-fc23-4b22-bd19-2c061d69aa6a",
                             Email = "Bobo561@abv.bg",
                             EmailConfirmed = true,
                             FirstName = "Borislav",
                             IsActiv = true,
-                            LastActive = new DateTime(2025, 2, 3, 19, 47, 45, 395, DateTimeKind.Local).AddTicks(9786),
+                            LastActive = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Ivanov",
                             LockoutEnabled = false,
                             NormalizedEmail = "Bobo561@abv.bg",
                             NormalizedUserName = "Bobo561@abv.bg",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPKQPWoEcK1WdM0Y8IcYnyEmTtvTWiZgebucdmzlkQLas6C4Pj3bhzn0nDWjXK81uA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAED80/S+3OKcY7LOshiDHjRRjkCEUBZ9X/iybspFW9xOm44S0qGkE69lxTvoJAljW4A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "786ea5ed-c04d-48c3-80cb-b8aa8f946b6f",
+                            SecurityStamp = "3d6d421c-69fe-4ae4-8f6e-479e47b09508",
                             TwoFactorEnabled = false,
                             UserName = "Bobo561@abv.bg"
                         });

@@ -16,18 +16,26 @@ else
 {
 
     <div class="row">
-
         @foreach (var item in Model)
         {
             <div id="cardsPictures" class="col">
-
-                <img src="@item.UrlImgAddres" />
+                @if (item.PictureData != null && item.PictureData.Length > 0)
+                {
+                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.PictureData)" alt="User Picture" />
+                }
+                else
+                {
+                    <img src="@item.UrlImgAddres" alt="User Picture" />
+                }
 
                 <h4>@item.UserName</h4>
                 <hr />
 
-                @Html.ActionLink("Add Picture", "AddPictureByUser", "OptionPictures", new AddPictureViewModel() { UrlImgAddres = item.UrlImgAddres, UserName = item.UserName }, new { id = "click" })
+              
 
+                @Html.ActionLink("Add Picture", "AddPictureByUser", "OptionPictures",
+                         new { PictureData = item.PictureData, UrlImgAddres = item.UrlImgAddres, UserName = item.UserName }, new { id = "click" })
+ 
                 <a id="deleted" href="#">Delete</a>
             </div>
         }

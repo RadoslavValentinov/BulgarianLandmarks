@@ -31,7 +31,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> AddPicture(AddPictureByUser model)
-        {
+          {
             if (ModelState.IsValid)
             {
                 await service.AddPictureByUser(model);
@@ -43,5 +43,29 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
 
+
+       
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> AddPictureByArray(AddPictureByUser model, IFormFile pictureFile)
+        {
+            if (ModelState.IsValid)
+            {
+                if (pictureFile != null && pictureFile.Length > 0)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await pictureFile.CopyToAsync(memoryStream);
+                        model.PictureData = memoryStream.ToArray();
+                    }
+                }
+
+                await service.PictureByByteArray(model);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View("AddPicture");
+        }
     }
 }

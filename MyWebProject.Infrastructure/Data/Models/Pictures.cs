@@ -30,5 +30,8 @@ namespace MyWebProject.Infrastructure.Data.Models
 
 
         public string? UserName { get; set; }
+
+
+        public byte[]? ArrayPicture { get; set; }
     }
 }

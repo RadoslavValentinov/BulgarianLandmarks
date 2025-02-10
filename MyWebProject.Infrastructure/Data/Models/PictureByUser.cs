@@ -6,13 +6,12 @@ namespace MyWebProject.Infrastructure.Data.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(300)]
-        [MinLength(20)]
-        public string UrlImgAddres { get; set; } = null!;
+        public string? UrlImgAddres { get; set; }
 
         public string UserName { get; set; } = null!;
 
         public bool IsActive { get; set; } = true;
+
+        public byte[]? PictureData { get; set; }
     }
 }

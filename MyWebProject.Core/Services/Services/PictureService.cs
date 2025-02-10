@@ -25,6 +25,24 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
+        [Authorize]
+        public async Task<AddPictureByUser> PictureByByteArray(AddPictureByUser model)
+        {
+            var picture = new PictureByUser
+            {
+                UserName = model.UserName,
+                IsActive = model.IsActive,
+                PictureData = model.PictureData 
+            };
+
+            await repo.AddAsync(picture);
+            await repo.SaveChangesAsync();
+
+            return model;
+        }
+
+
+
         [Area("Administrator")]
         public async Task<int> AddPicture(AddPictureViewModel model)
         {
@@ -35,23 +53,23 @@ namespace MyWebProject.Core.Services.Services
 
                 string image = sanitizer.Sanitize(model.UrlImgAddres);
 
-                if (string.IsNullOrWhiteSpace(image))
+                if (string.IsNullOrWhiteSpace(image) && model.PictureData != null)
                 {
-                    throw new ArgumentNullException("Pictures Url Connot by Empty");
+                    var newPicture = new Pictures()
+                    {
+                        Id = model.Id,
+                        UrlImgAddres = image,
+                        LandMarkId = model.LandMark,
+                        TownId = model.Town,
+                        JourneyId = model.Journey,
+                        UserName = model.UserName,
+                        ArrayPicture = model.PictureData
+                    };
+
+                    await repo.AddAsync(newPicture);
+                    await repo.SaveChangesAsync();
                 }
 
-                var newPicture = new Pictures()
-                {
-                    Id = model.Id,
-                    UrlImgAddres = image,
-                    LandMarkId = model.LandMark,
-                    TownId = model.Town,
-                    JourneyId = model.Journey,
-                    UserName = model.UserName
-                };
-
-                await repo.AddAsync(newPicture);
-                await repo.SaveChangesAsync();
 
             }
             catch (ArgumentNullException ae)
@@ -69,23 +87,22 @@ namespace MyWebProject.Core.Services.Services
             {
                 var sanitizer = new HtmlSanitizer();
 
-                string image = sanitizer.Sanitize(model.UrlImgAddres);
+                string image = sanitizer.Sanitize(model.UrlImgAddres!);
 
-                if (string.IsNullOrWhiteSpace(image))
+                if (string.IsNullOrWhiteSpace(image) && model.PictureData != null)
                 {
-                    throw new ArgumentNullException("Pictures Url Connot by Empty");
+
+                    var newPicture = new PictureByUser()
+                    {
+                        Id = model.Id,
+                        UrlImgAddres = image,
+                        UserName = model.UserName,
+                        PictureData = model.PictureData
+                    };
+
+                    await repo.AddAsync(newPicture);
+                    await repo.SaveChangesAsync();
                 }
-
-
-                var newPicture = new PictureByUser()
-                {
-                    Id = model.Id,
-                    UrlImgAddres = image,
-                    UserName = model.UserName,
-                };
-
-                await repo.AddAsync(newPicture);
-                await repo.SaveChangesAsync();
 
             }
             catch (ArgumentNullException ae)
@@ -111,7 +128,8 @@ namespace MyWebProject.Core.Services.Services
                     LandMark = x.LandMark!.Name,
                     Town = x.Town!.Name,
                     Journey = x.Journey!.Name,
-                    UserName= x.UserName
+                    UserName= x.UserName,
+                    PictureData = x.ArrayPicture
                 })
                 .ToListAsync();
 
@@ -128,7 +146,7 @@ namespace MyWebProject.Core.Services.Services
                     Id = x.Id,
                     UrlImgAddres = x.UrlImgAddres,
                     UserName = x.UserName, 
-
+                    PictureData = x.PictureData
                 })
                 .ToListAsync();
 
@@ -200,6 +218,7 @@ namespace MyWebProject.Core.Services.Services
                 }
                 editPictures.LandMarkId = model.LandMark;
 
+
                 if (model.Town != null)
                 {
                     var town = await repo.GetByIdAsync<Town>(model.Town);
@@ -238,7 +257,8 @@ namespace MyWebProject.Core.Services.Services
                     UrlImgAddres = x.UrlImgAddres,
                     LandMark = x.LandMarkId,
                     Town = x.TownId,
-                    Journey = x.JourneyId
+                    Journey = x.JourneyId,
+                    PictureData = x.ArrayPicture
                 })
                 .FirstAsync();
         }

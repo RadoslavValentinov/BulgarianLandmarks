@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Services.IServices;
@@ -43,10 +44,19 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
         }
 
 
-        public async Task<IActionResult> AddPictureByUser(AddPictureViewModel model)
+        public async Task<IActionResult> AddPictureByUser(AddPictureViewModel model, IFormFile pictureFile)
         {
+
             if (ModelState.IsValid)
             {
+                if (pictureFile != null && pictureFile.Length > 0)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await pictureFile.CopyToAsync(memoryStream);
+                        model.PictureData = memoryStream.ToArray();
+                    }
+                }
 
                 await service.AddPicture(model);
 
@@ -66,10 +76,20 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> AddPicture(AddPictureViewModel model)
+        public async Task<IActionResult> AddPicture(AddPictureViewModel model, IFormFile pictureFile)
         {
             if (ModelState.IsValid)
             {
+
+                if (pictureFile != null && pictureFile.Length > 0)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await pictureFile.CopyToAsync(memoryStream);
+                        model.PictureData = memoryStream.ToArray();
+                    }
+                }
+
                 await service.AddPicture(model);
 
                 return RedirectToAction("Index");
