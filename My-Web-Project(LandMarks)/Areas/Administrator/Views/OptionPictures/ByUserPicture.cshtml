@@ -18,6 +18,7 @@ else
     <div class="row">
         @foreach (var item in Model)
         {
+          
             <div id="cardsPictures" class="col">
                 @if (item.PictureData != null && item.PictureData.Length > 0)
                 {
@@ -34,7 +35,7 @@ else
               
 
                 @Html.ActionLink("Add Picture", "AddPictureByUser", "OptionPictures",
-                         new { PictureData = item.PictureData, UrlImgAddres = item.UrlImgAddres, UserName = item.UserName }, new { id = "click" })
+                         new { Id = item.Id }, htmlAttributes: null)
  
                 <a id="deleted" href="#">Delete</a>
             </div>

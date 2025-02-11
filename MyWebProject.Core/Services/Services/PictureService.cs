@@ -57,7 +57,7 @@ namespace MyWebProject.Core.Services.Services
                 {
                     var newPicture = new Pictures()
                     {
-                        Id = model.Id,
+                     
                         UrlImgAddres = image,
                         LandMarkId = model.LandMark,
                         TownId = model.Town,
@@ -243,6 +243,17 @@ namespace MyWebProject.Core.Services.Services
 
             return model;
         }
+
+        public async Task<PictureByUser> GetByUserId(int id)
+        {
+            return await repo.GetByIdAsync<PictureByUser>(id);
+        }
+
+
+
+
+
+
 
         public async Task<AddPictureViewModel> GetById(int id)
         {

@@ -26,7 +26,17 @@
         {
         <tr>
             <td>@item.Id</td>
-            <td><img src="@item.UrlImgAddres" width="300" height="200" /></td>
+            <td>
+                  @if (string.IsNullOrEmpty(item.UrlImgAddres) && item.PictureData != null)
+                  {
+                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.PictureData)" width="300" height="200" alt="User Picture" />
+                  }
+                  else
+                  {
+                    <img src="@item.UrlImgAddres" width="300" height="200" alt="User Picture" />
+                  }
+            </td>
+
             <td>@item.IsActive</td>
             <td>@item.LandMark</td>
             <td>@item.Town</td>

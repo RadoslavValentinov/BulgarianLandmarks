@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Services.IServices;
@@ -44,7 +43,50 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
         }
 
 
-        public async Task<IActionResult> AddPictureByUser(AddPictureViewModel model, IFormFile pictureFile)
+        public async Task<IActionResult> AddPictureByUser(int id)
+        {
+
+            var pictureFile = await service.GetByUserId(id);
+
+            var model = new AddPictureViewModel()
+            {
+                Id = pictureFile.Id,
+                UrlImgAddres = pictureFile.UrlImgAddres!,
+                PictureData = pictureFile.PictureData,
+                UserName = pictureFile.UserName,
+            };
+
+
+
+            if (pictureFile.PictureData != null && pictureFile.PictureData.Length > 0)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    memoryStream.Write(model.PictureData!, 0, model.PictureData!.Length); // Fix here
+                    model.PictureData = memoryStream.ToArray();
+                }
+            }
+
+            await service.AddPicture(model);
+
+            var all = service.AllPictureByUser();
+            var findUser = all.Result.Where(x => x.UserName == model.UserName).ToList();
+            if (findUser.Count > 0)
+            {
+                await service.DeleteByUser(findUser[0].Id);
+            }
+            else
+            {
+                return View(model);
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddPicture(AddPictureViewModel model, IFormFile pictureFile)
         {
 
             if (ModelState.IsValid)
@@ -72,30 +114,6 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
             return View(model);
         }
 
-
-
-
-        [HttpPost]
-        public async Task<IActionResult> AddPicture(AddPictureViewModel model, IFormFile pictureFile)
-        {
-            if (ModelState.IsValid)
-            {
-
-                if (pictureFile != null && pictureFile.Length > 0)
-                {
-                    using (var memoryStream = new MemoryStream())
-                    {
-                        await pictureFile.CopyToAsync(memoryStream);
-                        model.PictureData = memoryStream.ToArray();
-                    }
-                }
-
-                await service.AddPicture(model);
-
-                return RedirectToAction("Index");
-            }
-            return View(model);
-        }
 
         [HttpGet]
         public IActionResult EditPicture(int Id)

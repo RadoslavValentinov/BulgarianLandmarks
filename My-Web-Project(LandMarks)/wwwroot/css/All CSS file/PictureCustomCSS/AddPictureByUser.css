@@ -12,12 +12,21 @@ h2 {
 }
 
 footer {
-    margin-top: 240px;
+    margin-top: 125px;
 }
 
 form #UploadPicture {
-   
-    background-color:cornflowerblue;
+    background-color: cornflowerblue;
     color: whitesmoke;
-    
+    width: 500px;
+    border-radius: 20px;
+    padding: 5px;
+    position: relative;
+    left: 385px;
+    top: 50px;
 }
+
+#UploadPicture .row {
+    margin-bottom: 5px;
+}
+

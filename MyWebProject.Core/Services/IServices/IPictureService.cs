@@ -1,4 +1,5 @@
 ﻿using MyWebProject.Core.Models.PictureModel;
+using MyWebProject.Infrastructure.Data.Models;
 
 namespace MyWebProject.Core.Services.IServices
 {
@@ -11,6 +12,7 @@ namespace MyWebProject.Core.Services.IServices
         Task<IEnumerable<PicturesViewModel>> AllPicture();
         Task<IEnumerable<AddPictureByUser>> AllPictureByUser();
         Task<AddPictureViewModel> GetById(int id);
+        Task<PictureByUser> GetByUserId(int id);
         Task Delete(int Id);
         Task DeleteByUser(int Id);
     }
