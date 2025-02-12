@@ -7,10 +7,8 @@ namespace MyWebProject.Core.Models.PictureModel
     {
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(maximumLength: GlobalConstant.PictureConstant.pictureUrlImgMaxLenght,
-         MinimumLength = GlobalConstant.PictureConstant.pictureUrlImgMinLenght)]
-        public string UrlImgAddres { get; set; } = null!;
+       
+        public string? UrlImgAddres { get; set; }
 
         public bool IsActiv { get; set; } = true;
 

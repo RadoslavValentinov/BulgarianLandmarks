@@ -62,23 +62,13 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
             {
                 using (var memoryStream = new MemoryStream())
                 {
-                    memoryStream.Write(model.PictureData!, 0, model.PictureData!.Length); // Fix here
+                    memoryStream.Write(model.PictureData!, 0, model.PictureData!.Length);
                     model.PictureData = memoryStream.ToArray();
                 }
             }
 
             await service.AddPicture(model);
 
-            var all = service.AllPictureByUser();
-            var findUser = all.Result.Where(x => x.UserName == model.UserName).ToList();
-            if (findUser.Count > 0)
-            {
-                await service.DeleteByUser(findUser[0].Id);
-            }
-            else
-            {
-                return View(model);
-            }
 
             return RedirectToAction("Index");
         }
@@ -149,6 +139,14 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
         public async Task<IActionResult> Delete(int Id)
         {
             await service.Delete(Id);
+
+            return RedirectToAction("Index");
+        }
+
+
+        public async Task<IActionResult> DeleteByUser(int Id)
+        {
+            await service.DeleteByUser(Id);
 
             return RedirectToAction("Index");
         }

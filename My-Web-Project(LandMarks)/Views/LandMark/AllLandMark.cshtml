@@ -42,28 +42,3 @@
 </div>
 
 </div>
-
-
-
-@*
-<div class="row">
-    @foreach (var item in loopmodel)
-    {
-        var picture = item.Pictures.FirstOrDefault(x => x.LandMarkId == item.Id);
-
-
-        @*  <p style="display=inline-block"> @item.TownName</p> *@
-@*
-<div id="cardsBox">
-    <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
-    <h4>@item.Name</h4>
-    <p>@item.Description.Substring(0, 120)...</p>
-    <a class="btn btn-primary" asp-route-id="@item.Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
-</div>
-
-    }
-</div>
-<br />
-
-<br />
-*@
