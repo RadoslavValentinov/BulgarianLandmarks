@@ -1,5 +1,5 @@
 ﻿
-#btnPicture  {
+#btnPicture {
     position: relative;
     left: 220px;
     top: 40px;
@@ -12,21 +12,30 @@ h2 {
 }
 
 footer {
-    margin-top: 125px;
+    margin-top: 118px;
 }
 
 form #UploadPicture {
     background-color: cornflowerblue;
     color: whitesmoke;
-    width: 500px;
+    width: 560px;
     border-radius: 20px;
     padding: 5px;
     position: relative;
-    left: 385px;
+    left: 380px;
     top: 50px;
 }
 
 #UploadPicture .row {
     margin-bottom: 5px;
 }
+
+.col #btnUploadPic {
+    position: relative;
+    left: 150px;
+    top: 0px;
+    padding: 10px 70px 10px 70px;
+    border-radius: 6px;
+}
+
 

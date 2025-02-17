@@ -55,8 +55,7 @@
     @Html.AntiForgeryToken()
     <div id="UploadPicture">
         <div class="row">
-            <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-
+            <div class="col">
 
                 @Html.HiddenFor(m => m.UserName)
 
@@ -66,7 +65,7 @@
                 </div>
 
                 <div>
-                    <button id="btnPicture" type="submit" asp-area="" asp-controller="Picture" asp-action="AddPictureByArray">Upload</button>
+                    <button id="btnUploadPic" asp-area="" asp-controller="Picture" asp-action="AddPictureByArray">Upload</button>
                 </div>
 
             </div>
