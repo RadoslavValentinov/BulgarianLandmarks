@@ -126,7 +126,7 @@ sample excursions as well as cultural events for the various cities (theatre pro
     he has to select a category from the dropdown menu as an option he can add a link to a photo or video of his choice.
   </p>
 
-   <img src="https://github.com/user-attachments/assets/150570b0-a810-4ed4-9362-346133a9b510" />
+   <img src="https://github.com/user-attachments/assets/150570b0-a810-4ed4-9362-346133a9b510" width="400" />
  
    <img src="https://github.com/user-attachments/assets/8d4339df-e86c-4405-bacb-a50cf7053161" width="400" />
 
