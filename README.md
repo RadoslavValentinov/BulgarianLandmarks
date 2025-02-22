@@ -118,16 +118,15 @@ sample excursions as well as cultural events for the various cities (theatre pro
     For logged in users, there are two more options that they can access "Add Image" is the first option 
     after the user adds the address of his image a message is displayed on the screen for successful addition and that the
     image will be visible to other users after approval by an administrator will be and added to the user's collection.
+    1.1 - Add functionality for uploading photos from a user cata file and processing and saving them as a byte array.
   </p>
   <p>
     Next section "Suggest a Landmark"
     In it, the user can add a name, description and location of the proposed landmark,
-    he has to select a category from the dropdown menu as an option he can add a link to a photo or video of his choice
-    (At the moment images and video can only be added with links 
-    - I have an idea to add a non-  relational database and store them as a byte array ).
+    he has to select a category from the dropdown menu as an option he can add a link to a photo or video of his choice.
   </p>
 
-   <img src="https://github.com/user-attachments/assets/577e7f41-734a-46b9-9a3a-5ff19aadb89b" width="400" />
+   <img src="https://github.com/user-attachments/assets/150570b0-a810-4ed4-9362-346133a9b510" width="400" />
  
    <img src="https://github.com/user-attachments/assets/8d4339df-e86c-4405-bacb-a50cf7053161" width="400" />
 
