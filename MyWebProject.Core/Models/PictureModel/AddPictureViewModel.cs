@@ -7,7 +7,6 @@ namespace MyWebProject.Core.Models.PictureModel
     {
         public int Id { get; set; }
 
-       
         public string? UrlImgAddres { get; set; }
 
         public bool IsActiv { get; set; } = true;

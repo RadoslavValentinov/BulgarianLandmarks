@@ -2722,6 +2722,9 @@ namespace MyWebProject.Infrastructure.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<byte[]>("PictureOfFile")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -2750,7 +2753,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = "630d5dda-7255-4ce9-a658-0eedfb698a5f",
                             AccessFailedCount = 0,
                             Avatar = "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg",
-                            ConcurrencyStamp = "a1d9dac2-fc23-4b22-bd19-2c061d69aa6a",
+                            ConcurrencyStamp = "11d80076-e343-43ed-a3c7-cd744474b9b9",
                             Email = "Bobo561@abv.bg",
                             EmailConfirmed = true,
                             FirstName = "Borislav",
@@ -2760,9 +2763,9 @@ namespace MyWebProject.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "Bobo561@abv.bg",
                             NormalizedUserName = "Bobo561@abv.bg",
-                            PasswordHash = "AQAAAAIAAYagAAAAED80/S+3OKcY7LOshiDHjRRjkCEUBZ9X/iybspFW9xOm44S0qGkE69lxTvoJAljW4A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFo9UaQwkT9Bz7+TFS2Zbw68ZH7tqEv4fZ1CBo39zTBuciv0mWa0VruhAqu/aPJHnA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3d6d421c-69fe-4ae4-8f6e-479e47b09508",
+                            SecurityStamp = "bc4b0a58-e9a9-41ab-b3db-1b10c6671577",
                             TwoFactorEnabled = false,
                             UserName = "Bobo561@abv.bg"
                         });

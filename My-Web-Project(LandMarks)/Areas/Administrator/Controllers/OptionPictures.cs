@@ -43,6 +43,7 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
         }
 
 
+        [Authorize]
         public async Task<IActionResult> AddPictureByUser(int id)
         {
 

@@ -16,7 +16,7 @@ namespace MyWebProject.Core.Services.Services
     {
         private readonly IRepository repo;
         private readonly ILogger<CultureEventService> logger;
-        private readonly UserManager<Users>? user;
+        
 
         public CultureEventService(IRepository _repo,
             ILogger<CultureEventService> _logger)

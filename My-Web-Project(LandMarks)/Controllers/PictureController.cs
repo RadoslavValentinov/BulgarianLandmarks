@@ -67,5 +67,18 @@ namespace My_Web_Project_LandMarks_.Controllers
 
             return View("AddPicture");
         }
+
+
+
+
+        public async Task<IActionResult> AllPictureUploadByUser()
+        {
+            var model = await service.AllPictureOfUserUpload();
+
+            return View(model);
+        }
+
+
+
     }
 }

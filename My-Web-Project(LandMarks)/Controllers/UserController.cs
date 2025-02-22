@@ -40,7 +40,7 @@ namespace My_Web_Project_LandMarks_.Controllers
 
 
         /// <summary>
-        /// LogIn current user and loading model 
+        /// LogIn current user and write email and password 
         /// </summary>
         /// <returns>model of users data</returns>
         [HttpGet]
@@ -175,7 +175,7 @@ namespace My_Web_Project_LandMarks_.Controllers
             var model = new UserManegePageViewModel();
 
             var userGet = userManager.GetUserId(HttpContext.User);
-            var currerntUsers = userManager.FindByIdAsync(userGet).Result;
+            var currerntUsers = userManager.FindByIdAsync(userGet!).Result;
 
             if (currerntUsers != null)
             {
@@ -215,7 +215,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                     try
                     {
                         var userInfo = userManager.GetUserId(HttpContext.User);
-                        var userUpdate = userManager.FindByIdAsync(userInfo).Result;
+                        var userUpdate = userManager.FindByIdAsync(userInfo!).Result;
 
                         if (userUpdate != null)
                         {
@@ -251,19 +251,19 @@ namespace My_Web_Project_LandMarks_.Controllers
 
                         if (!string.IsNullOrEmpty(model.UserName))
                         {
-                            user.UserName = model.UserName;
+                            user!.UserName = model.UserName;
                         }
                         if (!string.IsNullOrEmpty(model.FirstName))
                         {
-                            user.FirstName = model.FirstName;
+                            user!.FirstName = model.FirstName;
                         }
                         if (!string.IsNullOrEmpty(model.LastName))
                         {
-                            user.LastName = model.LastName;
+                            user!.LastName = model.LastName;
                         }
                         if (!string.IsNullOrEmpty(model.Email))
                         {
-                            user.Email = model.Email;
+                            user!.Email = model.Email;
                         }
 
                         await userManager.UpdateAsync(user);

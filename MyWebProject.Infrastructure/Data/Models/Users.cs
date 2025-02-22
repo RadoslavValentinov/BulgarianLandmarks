@@ -31,5 +31,9 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         public List<Cultural_events> CulturalEvents { get; set; }
             = new List<Cultural_events>();
+
+
+        public byte[]? PictureOfFile { get; set; }
+
     }
 }

@@ -3,6 +3,8 @@
 {
     public class UserviewModel
     {
+        public byte[]? PictureOfFileAvatar { get; set; }
+
         public string Avatar { get; set; } = null!;
 
         public string FullName { get; set; } = null!;

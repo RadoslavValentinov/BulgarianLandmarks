@@ -1,8 +1,8 @@
 ﻿
-#descript{
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:20px;
-    letter-spacing:1.2px;
+#descript {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    letter-spacing: 1.2px;
 }
 
 .container .row #cardElement {
@@ -14,27 +14,28 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     background-color: whitesmoke;
-    border-radius:4px;
+    border-radius: 4px;
 }
 
-    #cardElement img {
-        padding: 0px;
-        width: 348px;
-        height: 200px;
-    }
+#cardElement img {
+    padding: 0px;
+    width: 348px;
+    height: 200px;
+}
 
-    #cardElement .btn {
-        position: relative;
-        bottom: -50px;
-        left: 0px;
-    }
-#cardElement #secText{
-    text-align:center;
+#cardElement .btn {
+    position: relative;
+    bottom: -50px;
+    left: 0px;
+}
+
+#cardElement #secText {
+    text-align: center;
 }
 
     #cardElement #secText p {
         padding: 0px;
-        margin:5px 0px;
+        margin: 5px 0px;
     }
 
 
@@ -42,10 +43,9 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
 }
+
 #eventss {
     position: relative;
     bottom: -50px;
     left: 50px;
 }
-
-

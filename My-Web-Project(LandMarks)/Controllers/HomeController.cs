@@ -16,6 +16,11 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
 
+        // May be used this controller to set all pictures of user uploaded
+
+
+
+
         /// <summary>
         /// The method takes a collection of all the photos in the database
         /// </summary>

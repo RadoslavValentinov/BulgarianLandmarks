@@ -51,7 +51,7 @@ namespace MyWebProject.Core.Services.Services
             {
                 var sanitizer = new HtmlSanitizer();
 
-                string image = sanitizer.Sanitize(model.UrlImgAddres);
+                string image = sanitizer.Sanitize(model.UrlImgAddres!);
 
                 if (string.IsNullOrWhiteSpace(image) && model.PictureData != null)
                 {
@@ -74,7 +74,7 @@ namespace MyWebProject.Core.Services.Services
             }
             catch (ArgumentNullException ae)
             {
-                logger.LogError(string.Format("Pictures not added"), ae);
+                logger.LogError(message: string.Format("Pictures not added"), ae);
             }
 
             return model.Id;
@@ -107,7 +107,7 @@ namespace MyWebProject.Core.Services.Services
             }
             catch (ArgumentNullException ae)
             {
-                logger.LogError(string.Format("Pictures not added"), ae);
+                logger.LogError(message: string.Format("Pictures not added"), ae);
             }
 
             return model;
@@ -167,7 +167,7 @@ namespace MyWebProject.Core.Services.Services
             }
             catch (ArgumentNullException ae)
             {
-                logger.LogError(string.Format("This picture is not deleted"), ae);
+                logger.LogError(message: string.Format("This picture is not deleted"), ae);
             }
         }
 
@@ -197,7 +197,7 @@ namespace MyWebProject.Core.Services.Services
         {
             var sanitizer = new HtmlSanitizer();
 
-            string Image = sanitizer.Sanitize(model.UrlImgAddres);
+            string Image = sanitizer.Sanitize(model.UrlImgAddres!);
 
             var editPictures = await repo.GetByIdAsync<Pictures>(model.Id);
 
@@ -252,9 +252,6 @@ namespace MyWebProject.Core.Services.Services
 
 
 
-
-
-
         public async Task<AddPictureViewModel> GetById(int id)
         {
             return await repo.AllReadonly<Pictures>()
@@ -272,6 +269,26 @@ namespace MyWebProject.Core.Services.Services
                     PictureData = x.ArrayPicture
                 })
                 .FirstAsync();
+        }
+
+
+        public async Task<IEnumerable< AddPictureViewModel>> AllPictureOfUserUpload()
+        {
+            var allPicture = await repo.AllReadonly<Pictures>()
+                .Where(x => x.UserName != null)
+                .Select(x => new AddPictureViewModel()
+                {
+                    Id = x.Id,
+                    UrlImgAddres = x.UrlImgAddres,
+                    LandMark = x.LandMarkId,
+                    Town = x.TownId,
+                    Journey = x.JourneyId,
+                    PictureData = x.ArrayPicture,
+                    UserName = x.UserName
+
+                }).ToListAsync();
+
+            return allPicture;
         }
     }
 }

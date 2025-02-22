@@ -6,6 +6,8 @@ namespace MyWebProject.Core.Models
 {
     public class UserManegePageViewModel
     {
+        public byte[]? PictureOfFileAvatar { get; set; }
+
         public string? Avatar { get; set; }
 
         [StringLength(GlobalConstant.UserConstant.FirstNameMaxLenght,
