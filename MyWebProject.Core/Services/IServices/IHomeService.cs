@@ -16,5 +16,7 @@ namespace MyWebProject.Core.Services.IServices
 
         Task<IEnumerable<AllCultureEventViewModel>> AllUserEvents(string userName);
         AdminHomeModelAllData AllData(AdminHomeModelAllData model);
+
+        Task<IEnumerable<AddPictureViewModel>> AllPictureOfUserUpload();
     }
 }

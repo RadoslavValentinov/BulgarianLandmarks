@@ -9,7 +9,6 @@ namespace MyWebProject.Core.Services.IServices
         Task<AddPictureByUser> AddPictureByUser(AddPictureByUser model);
         Task<AddPictureByUser> PictureByByteArray(AddPictureByUser model);
         Task<AddPictureViewModel> EditPicture(AddPictureViewModel model);
-        Task<IEnumerable<AddPictureViewModel>> AllPictureOfUserUpload();
         Task<IEnumerable<PicturesViewModel>> AllPicture();
         Task<IEnumerable<AddPictureByUser>> AllPictureByUser();
         Task<AddPictureViewModel> GetById(int id);

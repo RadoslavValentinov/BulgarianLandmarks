@@ -270,25 +270,5 @@ namespace MyWebProject.Core.Services.Services
                 })
                 .FirstAsync();
         }
-
-
-        public async Task<IEnumerable< AddPictureViewModel>> AllPictureOfUserUpload()
-        {
-            var allPicture = await repo.AllReadonly<Pictures>()
-                .Where(x => x.UserName != null)
-                .Select(x => new AddPictureViewModel()
-                {
-                    Id = x.Id,
-                    UrlImgAddres = x.UrlImgAddres,
-                    LandMark = x.LandMarkId,
-                    Town = x.TownId,
-                    Journey = x.JourneyId,
-                    PictureData = x.ArrayPicture,
-                    UserName = x.UserName
-
-                }).ToListAsync();
-
-            return allPicture;
-        }
     }
 }

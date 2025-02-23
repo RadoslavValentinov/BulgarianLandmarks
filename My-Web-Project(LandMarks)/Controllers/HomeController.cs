@@ -16,9 +16,6 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
 
-        // May be used this controller to set all pictures of user uploaded
-
-
 
 
         /// <summary>
@@ -27,7 +24,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         /// <returns>collection of photos</returns>
         public async Task<IActionResult> Index()
         {
-            var result = await service.AllPicture();
+            var result = await service.AllPictureOfUserUpload();
 
             return View(result);
         }

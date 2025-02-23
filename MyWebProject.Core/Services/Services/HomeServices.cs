@@ -1,5 +1,4 @@
-﻿using AngleSharp.Common;
-using Ganss.Xss;
+﻿using Ganss.Xss;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +25,26 @@ namespace MyWebProject.Core.Services.Services
         {
             repo = _repo;
             logger = _logger;
+        }
+
+
+        public async Task<IEnumerable<AddPictureViewModel>> AllPictureOfUserUpload()
+        {
+            var allPicture = await repo.AllReadonly<Pictures>()
+                .Where(x => x.UserName != null)
+                .Select(x => new AddPictureViewModel()
+                {
+                    Id = x.Id,
+                    UrlImgAddres = x.UrlImgAddres,
+                    LandMark = x.LandMarkId,
+                    Town = x.TownId,
+                    Journey = x.JourneyId,
+                    PictureData = x.ArrayPicture,
+                    UserName = x.UserName
+
+                }).ToListAsync();
+
+            return allPicture;
         }
 
 

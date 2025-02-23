@@ -1,4 +1,4 @@
-﻿@* @inject HttpClient clent *@
+﻿
 
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -28,8 +28,38 @@
     </button>
 </div>
 <br />
+<br />
+
+<div class="UserSection">
+    @model IEnumerable<MyWebProject.Core.Models.PictureModel.AddPictureViewModel>
 
 
+
+    <h3>Снимки добавени от потребители</h3>
+    <hr />
+    <br />
+
+    <div class="row">
+        @if (Model.Any())
+        {
+            foreach (var picture in Model)
+            {
+                <div class="col">
+                    @if (string.IsNullOrEmpty(picture.UrlImgAddres) && picture.PictureData != null)
+                    {
+                        <img id="userPic" src="data:image/jpeg;base64,@Convert.ToBase64String(picture.PictureData)" width="300" height="200" alt="User Picture" />
+                    }
+                    else
+                    {
+                        <img id="userPic" src="@picture.UrlImgAddres" width="300" height="200" alt="User Picture" />
+                    }
+
+                </div>
+            }
+        }
+    </div>
+
+</div>
 
 
 <br />

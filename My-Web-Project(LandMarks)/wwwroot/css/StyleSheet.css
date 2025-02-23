@@ -19,7 +19,7 @@ h1 {
     text-align: center;
 }
 
-.container{
+.container {
     margin-bottom: 120px;
 }
 
@@ -156,8 +156,6 @@ li h4 {
 /* Option div */
 
 
-/* let change li to hover set all li other color   ...*/
-
 #allOptions {
     list-style: none;
     margin: 10px;
@@ -231,10 +229,15 @@ li h4 {
 }
 
 
+#UserSection .row .col {
+    max-width: 310px;
+}
+
+
+
 
 
 /* Card Div */
-
 p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
@@ -632,7 +635,6 @@ footer {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     background-color: ghostwhite;
-  
 }
 
 /* div Title */
