@@ -19,6 +19,19 @@ namespace My_Web_Project_LandMarks_.Controllers
             service = _service;
         }
 
+
+
+        public  IActionResult UpLikeCount(int id)
+        {
+            var upCount =  service.UpLikeCount(id);
+
+            return RedirectToActionPreserveMethod("Index","Home");
+        }
+
+
+
+
+
         [HttpGet]
         [Authorize]
         public IActionResult AddPicture()

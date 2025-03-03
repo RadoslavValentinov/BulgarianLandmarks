@@ -1269,6 +1269,9 @@ namespace MyWebProject.Infrastructure.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<int>("LikeCount")
+                        .HasColumnType("int");
+
                     b.Property<byte[]>("PictureData")
                         .HasColumnType("varbinary(max)");
 
@@ -1304,6 +1307,9 @@ namespace MyWebProject.Infrastructure.Migrations
                     b.Property<int?>("LandMarkId")
                         .HasColumnType("int");
 
+                    b.Property<int>("LikeCount")
+                        .HasColumnType("int");
+
                     b.Property<int?>("TownId")
                         .HasColumnType("int");
 
@@ -1335,6 +1341,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 1,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://maxmediabg.com/wp-content/uploads/2020/03/1chubi34-390x260.jpg"
                         },
@@ -1342,6 +1349,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 2,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://m.netinfo.bg/media/images/37188/37188176/991-ratio-sofiia.jpg"
                         },
@@ -1349,6 +1357,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 3,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://img.capital.bg/shimg/zx952y526_4334206.jpg"
                         },
@@ -1356,6 +1365,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 4,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://m.mirela.bg/dynamic/i/articles/php/639/26639/3_2.jpg"
                         },
@@ -1363,6 +1373,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 5,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://m.mirela.bg/dynamic/i/districts/php/145/145/3_2.jpg"
                         },
@@ -1370,6 +1381,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 6,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://imotstatic3.focus.bg/imot/photosimotbg/1/634/big/1r164483548695634_w2.jpg"
                         },
@@ -1377,6 +1389,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 7,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://imotstatic2.focus.bg/imot/photosimotbg/1/684/big/1c166626756937684_4n.png"
                         },
@@ -1385,6 +1398,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 8,
                             IsActiv = true,
                             LandMarkId = 24,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/117/544e952b07460.jpg"
                         },
@@ -1393,6 +1407,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 9,
                             IsActiv = true,
                             LandMarkId = 24,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/117/544e9575970b4.jpg"
                         },
@@ -1401,6 +1416,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 10,
                             IsActiv = true,
                             LandMarkId = 25,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/823/544ab16468577.jpg"
                         },
@@ -1409,6 +1425,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 11,
                             IsActiv = true,
                             LandMarkId = 25,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/823/544ab1b74cfc3.jpg"
                         },
@@ -1417,6 +1434,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 12,
                             IsActiv = true,
                             LandMarkId = 25,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/823/544ab16468577.jpg"
                         },
@@ -1425,6 +1443,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 13,
                             IsActiv = true,
                             LandMarkId = 25,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/823/544ab1f946b6a.jpg"
                         },
@@ -1433,6 +1452,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 14,
                             IsActiv = true,
                             LandMarkId = 25,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/823/544ab1bf0358e.jpg"
                         },
@@ -1441,6 +1461,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 15,
                             IsActiv = true,
                             LandMarkId = 3,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/116/546babba66e8d.png"
                         },
@@ -1449,6 +1470,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 16,
                             IsActiv = true,
                             LandMarkId = 3,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/116/546babbae7785.png"
                         },
@@ -1457,6 +1479,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 17,
                             IsActiv = true,
                             LandMarkId = 3,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/116/546babbad4ec5.png"
                         },
@@ -1465,6 +1488,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 18,
                             IsActiv = true,
                             LandMarkId = 3,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/116/548592993d334.PNG"
                         },
@@ -1473,6 +1497,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 19,
                             IsActiv = true,
                             LandMarkId = 3,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/116/546babbaa32df.png"
                         },
@@ -1481,6 +1506,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 20,
                             IsActiv = true,
                             LandMarkId = 4,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/01/1569/547f5857deff9.jpg"
                         },
@@ -1489,6 +1515,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 21,
                             IsActiv = true,
                             LandMarkId = 4,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/01/1569/547f58706c334.jpg"
                         },
@@ -1497,6 +1524,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 22,
                             IsActiv = true,
                             LandMarkId = 4,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/01/1569/547f587c3df4b.jpg"
                         },
@@ -1505,6 +1533,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 23,
                             IsActiv = true,
                             LandMarkId = 4,
+                            LikeCount = 0,
                             TownId = 1,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/01/1569/547f58a1ecba2.jpg"
                         },
@@ -1512,6 +1541,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 24,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://www.chasingthedonkey.com/wp-content/uploads/2019/04/View-of-Plovdiv-Bulgaria_Depositphotos_175773698_l-2015.jpg"
                         },
@@ -1519,6 +1549,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 25,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = " https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/b7/ef/6d/photo6jpg.jpg?w=700&h=500&s=1"
                         },
@@ -1526,6 +1557,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 26,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://loveincorporated.blob.core.windows.net/contentimages/main/11258599-39a7-48a9-9b66-14dbac939b8b-plovdiv-bulgaria-european-capital-of-culture.jpg"
                         },
@@ -1533,6 +1565,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 27,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://loveincorporated.blob.core.windows.net/contentimages/main/11258599-39a7-48a9-9b66-14dbac939b8b-plovdiv-bulgaria-european-capital-of-culture.jpg"
                         },
@@ -1540,6 +1573,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 28,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://m.netinfo.bg/media/images/49165/49165728/1280-840-plovdiv.jpg"
                         },
@@ -1547,6 +1581,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 29,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://media.istockphoto.com/id/1187355956/photo/plovdiv-bulgaria-old-town-essen.jpg?s=612x612&w=0&k=20&c=UtZRG-CeeoffweNQBYDa41u-NHhwP0R8dhVqqCIv4P4="
                         },
@@ -1555,6 +1590,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 30,
                             IsActiv = true,
                             LandMarkId = 5,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://bghotelite.com/images/zabelejitelnosti/2/46/1.jpg"
                         },
@@ -1563,6 +1599,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 31,
                             IsActiv = true,
                             LandMarkId = 5,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://www.fixstay.com/uploads/images/original/173_3037.jpg"
                         },
@@ -1571,6 +1608,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 32,
                             IsActiv = true,
                             LandMarkId = 5,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://cdn.marica.bg/images/marica.bg/235/640_235462.jpeg"
                         },
@@ -1579,6 +1617,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 33,
                             IsActiv = true,
                             LandMarkId = 5,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://plovdivcitycard.com/wp-content/uploads/2018/12/antichen-teatar-plovdiv-5.jpg"
                         },
@@ -1587,6 +1626,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 34,
                             IsActiv = true,
                             LandMarkId = 6,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKxzDFhmlyXlHYSinCSzQMFqM1cc5toWXMZw&s"
                         },
@@ -1595,6 +1635,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 35,
                             IsActiv = true,
                             LandMarkId = 6,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "http://programata.bg/img/gallery/place_1830.jpg"
                         },
@@ -1603,6 +1644,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 36,
                             IsActiv = true,
                             LandMarkId = 6,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "http://www.museology.bg/UserFiles/pictures/18751F0F-22D9-114A-C3EE-05475898F312.jpg?cache&w=1200"
                         },
@@ -1611,6 +1653,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 37,
                             IsActiv = true,
                             LandMarkId = 6,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "http://www.museology.bg/UserFiles/pictures/4F7A3FA1-185C-6F17-1557-CC92D85FE50A.jpg?cache&w=1200"
                         },
@@ -1619,6 +1662,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 38,
                             IsActiv = true,
                             LandMarkId = 6,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "http://www.museology.bg/UserFiles/pictures/2409E12C-EABD-B889-0995-0A1916E16443.jpg?cache&w=1200"
                         },
@@ -1627,6 +1671,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 39,
                             IsActiv = true,
                             LandMarkId = 7,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVkOx63M2NLAshJkZ0FUIzOZyeNUglKdjNfg&s"
                         },
@@ -1635,6 +1680,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 40,
                             IsActiv = true,
                             LandMarkId = 7,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://static.bnr.bg/gallery/cr/medium/a29845363d1e62ac4e8c393b2c12a505.jpeg"
                         },
@@ -1643,6 +1689,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 41,
                             IsActiv = true,
                             LandMarkId = 7,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = " https://plovdivcitycard.com/wp-content/uploads/2018/12/plovdiv-nebet-tepe-1-1.jpg"
                         },
@@ -1651,6 +1698,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 42,
                             IsActiv = true,
                             LandMarkId = 7,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://trafficnews.bg/news/2020/01/07/nebet-tepeogradi-i-neiasna-sadba-064.jpg"
                         },
@@ -1659,6 +1707,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 43,
                             IsActiv = true,
                             LandMarkId = 8,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://imgrabo.com/pics/guide/900x600/20160503145650_69973.jpeg"
                         },
@@ -1667,6 +1716,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 44,
                             IsActiv = true,
                             LandMarkId = 8,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = " https://trafficnews.bg/news/2019/07/31/kapana-priz-kamarata-arhitektite-462.jpg"
                         },
@@ -1675,6 +1725,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 45,
                             IsActiv = true,
                             LandMarkId = 8,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://trafficnews.bg/news/2018/06/04/nai-vpechatliavashtite-momenti-kapana-194.jpg"
                         },
@@ -1683,6 +1734,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 46,
                             IsActiv = true,
                             LandMarkId = 8,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://www.desant.net/files/news/2018/09/28/tn/153813177946199.jpg"
                         },
@@ -1691,6 +1743,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 47,
                             IsActiv = true,
                             LandMarkId = 8,
+                            LikeCount = 0,
                             TownId = 2,
                             UrlImgAddres = "https://pura-vida.bg/wp-content/uploads/2019/05/55744519_2246577862231429_5065778359284269056_o.jpg"
                         },
@@ -1698,6 +1751,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 48,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://static.bulgarianproperties.com/town-images/big/64_1.jpg"
                         },
@@ -1705,6 +1759,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 49,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = " https://static.bnr.bg/sites/en/lifestyle/mapofbulgaria/publishingimages/81/2010-11-11-055_1.jpg"
                         },
@@ -1712,6 +1767,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 50,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = " https://static.bulgarianproperties.com/town-images/big/64_5.jpg"
                         },
@@ -1719,6 +1775,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 51,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/2a/a3/d1/caption.jpg?w=600&h=400&s=1"
                         },
@@ -1726,6 +1783,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 52,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/112659258.jpg?k=66024874663a5e42a1acc54ea649199a70e42364e075ec94b01bc1f5d9e860f3&o=&hp=1"
                         },
@@ -1734,6 +1792,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 53,
                             IsActiv = true,
                             LandMarkId = 9,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://imgrabo.com/pics/guide/900x600/20150617104801_37909.jpeg"
                         },
@@ -1742,6 +1801,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 54,
                             IsActiv = true,
                             LandMarkId = 9,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://geograf.bg/bg/system/files/textimage_store/styled_hashed/daily_picture_block/c1e6770bf38602a90610786873f89218.png"
                         },
@@ -1750,6 +1810,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 55,
                             IsActiv = true,
                             LandMarkId = 9,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://static.bnr.bg/sites/gallery/pictures/2012/07/24/12-07-24-92696.jpg"
                         },
@@ -1758,6 +1819,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 56,
                             IsActiv = true,
                             LandMarkId = 9,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://www.pleven.bg/uploads/posts/116.jpg"
                         },
@@ -1766,6 +1828,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 57,
                             IsActiv = true,
                             LandMarkId = 9,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://spiritofpleven.com/wp-content/uploads/2020/06/kailak3.jpg"
                         },
@@ -1774,6 +1837,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 58,
                             IsActiv = true,
                             LandMarkId = 9,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://mapio.net/images-p/35988727.jpg"
                         },
@@ -1782,6 +1846,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 59,
                             IsActiv = true,
                             LandMarkId = 10,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "http://pohod.org/wp-content/uploads/2019/10/768x432-2.jpg"
                         },
@@ -1790,6 +1855,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 60,
                             IsActiv = true,
                             LandMarkId = 10,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://p.nationalgeographic.bg/p/l/pleven_img_7856-4961-1140x0.jpg,"
                         },
@@ -1798,6 +1864,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 61,
                             IsActiv = true,
                             LandMarkId = 10,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://www.pleven.bg/uploads/posts/img_1642-panorama-plevenska-epopeya.jpg,"
                         },
@@ -1806,6 +1873,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 62,
                             IsActiv = true,
                             LandMarkId = 10,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-QNl2KNtRhkXHIXl7PJNSaPOy6Ls1LlxV6cVFpArPcAk8faES2EH77G8KmsQWOuvmCPI&usqp=CAU"
                         },
@@ -1814,6 +1882,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 63,
                             IsActiv = true,
                             LandMarkId = 10,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://bnt.bg/f/media_video/o/291/f19830a3db4c369da79aec3e34b3f2a5.jpeg?p=2"
                         },
@@ -1822,6 +1891,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 64,
                             IsActiv = true,
                             LandMarkId = 10,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://plevenzapleven.bg/wp-content/uploads/2017/06/panorama1.jpg"
                         },
@@ -1830,6 +1900,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 65,
                             IsActiv = true,
                             LandMarkId = 11,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Pleven_TodorBozhinov_%2862%29.jpg/1200px-Pleven_TodorBozhinov_%2862%29.jpg"
                         },
@@ -1838,6 +1909,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 66,
                             IsActiv = true,
                             LandMarkId = 11,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "http://www.rooms.bg/photos/99513_regionalen-istoricheski-muzei--pleven.jpg"
                         },
@@ -1846,6 +1918,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 67,
                             IsActiv = true,
                             LandMarkId = 11,
+                            LikeCount = 0,
                             TownId = 3,
                             UrlImgAddres = "https://visitpleven.com/wp-content/uploads/2018/02/obshtina-97.jpg"
                         },
@@ -1853,6 +1926,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 68,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://img.cms.bweb.bg/media/images/640x360/Oct2021/2112583865.webp"
                         },
@@ -1860,6 +1934,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 69,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://static.standartnews.com/storage/thumbnails/inner_article/5316/3371/4717/17-obshtina-stara-zagora9111.jpg"
                         },
@@ -1867,6 +1942,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 70,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://www.starazagora.bg/assets/images/about1.jpg"
                         },
@@ -1874,6 +1950,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 71,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo4CB2prf5WGzw30uEjCx7yg9KmANajYpqXQ&usqp=CAU"
                         },
@@ -1881,6 +1958,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 72,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://live.staticflickr.com/110/292456626_5a4a5f958a_b.jpg"
                         },
@@ -1888,6 +1966,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 73,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://st3.depositphotos.com/1009979/16756/i/1600/depositphotos_167565214-stock-photo-autumn-view-of-russian-church.jpg"
                         },
@@ -1895,6 +1974,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 74,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://static.bnr.bg/gallery/cr/04403cfe7ab0341dec055dea7b33c425.jpg"
                         },
@@ -1902,6 +1982,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 75,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://visitstarazagora.bg/storage/thumbs/IFdDHCNO7aJKeyhDbwUm5o2jfvpyvgSbms459zQV_1200_auto.jpeg"
                         },
@@ -1909,6 +1990,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 76,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRkvP_vYlsqXOTKeHPCGRuwldBZqXlyaKzwA&usqp=CAU"
                         },
@@ -1916,6 +1998,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 77,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://www.stara-zagora.net/wp-content/uploads/2019/03/ezero-zagorka-k.jpg"
                         },
@@ -1924,6 +2007,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 78,
                             IsActiv = true,
                             LandMarkId = 12,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://kilometri.bg/images_upload/location_uploads/dsc06057th.jpg"
                         },
@@ -1932,6 +2016,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 79,
                             IsActiv = true,
                             LandMarkId = 12,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://kilometri.bg/images_upload/istoricheski_zabelejitelnosti/dsc06057th.jpg"
                         },
@@ -1940,6 +2025,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 80,
                             IsActiv = true,
                             LandMarkId = 12,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://kilometri.bg/images_upload/istoricheski_zabelejitelnosti/dsc06049th.jpg"
                         },
@@ -1948,6 +2034,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 81,
                             IsActiv = true,
                             LandMarkId = 12,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://kilometri.bg/images_upload/istoricheski_zabelejitelnosti/dsc06044th.jpg"
                         },
@@ -1956,6 +2043,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 82,
                             IsActiv = true,
                             LandMarkId = 13,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://static.bnr.bg/gallery/cr/medium/0e3c753c81af2dd710b5196af7014f46.jpg"
                         },
@@ -1964,6 +2052,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 83,
                             IsActiv = true,
                             LandMarkId = 13,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://trafficnews.bg/news/2019/03/09/kade-da-otidem-zoologicheska-gradina-153.jpg"
                         },
@@ -1972,6 +2061,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 84,
                             IsActiv = true,
                             LandMarkId = 13,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://static.bnr.bg/gallery/b2/b2709596c4b7f36aae63e7e08af40d64.JPG"
                         },
@@ -1980,6 +2070,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 85,
                             IsActiv = true,
                             LandMarkId = 13,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://d3u845fx6txnqz.cloudfront.net/places/0445-park-The-Stara-Zagora-Zoo.jpg"
                         },
@@ -1988,6 +2079,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 86,
                             IsActiv = true,
                             LandMarkId = 13,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = " http://pochivkasdeca.eu/thumbs/files/data_0/119/Image/JHmQ-122.jpg&w=1360&h=900"
                         },
@@ -1996,6 +2088,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 87,
                             IsActiv = true,
                             LandMarkId = 14,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://gradat.bg/sites/default/files/styles/page_article_dynamic_width/public/mainimages/o_2858317_0.jpg?itok=JAURRqdP"
                         },
@@ -2004,6 +2097,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 88,
                             IsActiv = true,
                             LandMarkId = 14,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://gradat.bg/sites/default/files/styles/page_article_dynamic_width/public/mainimages/o_2858317_0.jpg?itok=JAURRqdP"
                         },
@@ -2012,6 +2106,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 89,
                             IsActiv = true,
                             LandMarkId = 14,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://imgrabo.com/pics/guide/900x600/20170801135019_22203.jpeg"
                         },
@@ -2020,6 +2115,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 90,
                             IsActiv = true,
                             LandMarkId = 14,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://www.infoz.bg/images/2016-02/new-park.jpg"
                         },
@@ -2028,6 +2124,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 91,
                             IsActiv = true,
                             LandMarkId = 14,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://stzagora.net/wp-content/uploads/2016/10/P1350288.jpg"
                         },
@@ -2036,6 +2133,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 92,
                             IsActiv = true,
                             LandMarkId = 14,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "http://starozagorskinovini.com/news//images/Obshtestvo/nov_park_121121.jpg"
                         },
@@ -2044,6 +2142,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 93,
                             IsActiv = true,
                             LandMarkId = 15,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://upload.wikimedia.org/wikipedia/commons/d/d2/Istoricheski_muzei.jpg"
                         },
@@ -2052,6 +2151,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 94,
                             IsActiv = true,
                             LandMarkId = 15,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://www.tracebg.com/sites/default/files/styles/projects_slider_700x340/public/2.JPG"
                         },
@@ -2060,6 +2160,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 95,
                             IsActiv = true,
                             LandMarkId = 15,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = " https://ilovebulgaria.eu/wp-content/uploads/2017/08/Regionalen_Istoricheski_muzei_Stara_Zagora_4.jpg"
                         },
@@ -2068,6 +2169,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 96,
                             IsActiv = true,
                             LandMarkId = 15,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://www.bestplacesinbulgaria.com/wp-content/uploads/2016/11/regional-history-museum-stara-zagora-04.jpg"
                         },
@@ -2076,6 +2178,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 97,
                             IsActiv = true,
                             LandMarkId = 15,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "http://www.starozagorci.com/common/images/2018-05/20180523-YONEUCOTVVF-1527068043.jpg"
                         },
@@ -2084,6 +2187,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 98,
                             IsActiv = true,
                             LandMarkId = 16,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/00/147/544eb32bb84eb.jpg"
                         },
@@ -2092,6 +2196,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 99,
                             IsActiv = true,
                             LandMarkId = 16,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "http://www.rooms.bg/photos/87341_memorialen-kompleks-branitelite-na-stara-zagora.jpg"
                         },
@@ -2100,6 +2205,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 100,
                             IsActiv = true,
                             LandMarkId = 16,
+                            LikeCount = 0,
                             TownId = 4,
                             UrlImgAddres = "https://www.bta.bg/upload/505665/0.jpg?l=1000&original=f81c7d1f570c084bbfb9f8032d487852924f21ac"
                         },
@@ -2107,6 +2213,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 101,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://www.chasingthedonkey.com/wp-content/uploads/2018/03/VARNA_CATHEDTRAL_shutterstock_511415530.jpg"
                         },
@@ -2114,6 +2221,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 102,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://www.varna.bg/upload/2785/_DSC0201.jpghttps://rossiwrites.com/wp-content/uploads/2015/08/A-bird-eyes-view-of-Varna-Bulgaria-known-as-the-Pearl-of-the-Black-Sea-www.rossiwrites.com_.jpg.webp"
                         },
@@ -2121,6 +2229,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 103,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://kongres-magazine.eu/wp-content/uploads/2020/03/varna-bulgaria_1054165976-1.jpg"
                         },
@@ -2128,6 +2237,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 104,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/4d/45/a5/varna.jpg?w=700&h=500&s=1"
                         },
@@ -2135,6 +2245,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 105,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://rossiwrites.com/wp-content/uploads/2020/12/Varna-Bulgaria-43-Reasons-to-Visit-the-Pearl-of-the-Black-Sea-rossiwrites.com_.jpg"
                         },
@@ -2142,6 +2253,7 @@ namespace MyWebProject.Infrastructure.Migrations
                         {
                             Id = 106,
                             IsActiv = true,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://c8.alamy.com/comp/2B3NG62/aerial-view-by-drone-of-state-opera-house-varna-bulgaria-europe-2B3NG62.jpg"
                         },
@@ -2150,6 +2262,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 107,
                             IsActiv = true,
                             LandMarkId = 17,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://beaches.bg/wp-content/uploads/2015/07/chernomorec-south-beach-11.jpg"
                         },
@@ -2158,6 +2271,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 108,
                             IsActiv = true,
                             LandMarkId = 17,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://visit.varna.bg/media/cache/c9/21/thumb2_Chernomorec_2.jpg"
                         },
@@ -2166,6 +2280,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 109,
                             IsActiv = true,
                             LandMarkId = 17,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://vila.bg/blog/wp-content/uploads/2021/03/chernomorets-1104.jpg"
                         },
@@ -2174,6 +2289,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 110,
                             IsActiv = true,
                             LandMarkId = 17,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://visit.varna.bg/media/cache/f8/3d/thumb7_Chernomorec_8.jpg"
                         },
@@ -2182,6 +2298,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 111,
                             IsActiv = true,
                             LandMarkId = 17,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/02/2733/5a4ba72b5dbe9.jpg"
                         },
@@ -2190,6 +2307,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 112,
                             IsActiv = true,
                             LandMarkId = 18,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://imgrabo.com/pics/guide/900x600/20150820120824_46242.jpeg"
                         },
@@ -2198,6 +2316,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 113,
                             IsActiv = true,
                             LandMarkId = 18,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "http://live.varna.bg/media/images/85/8c/images_scluptures46-2.jpg"
                         },
@@ -2206,6 +2325,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 114,
                             IsActiv = true,
                             LandMarkId = 18,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://sever.bg/pictures/544940_651_367_16x9.jpg"
                         },
@@ -2214,6 +2334,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 115,
                             IsActiv = true,
                             LandMarkId = 18,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://cache2.24chasa.bg/Images/Cache/232/Image_7012232_126_0.jpg"
                         },
@@ -2222,6 +2343,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 116,
                             IsActiv = true,
                             LandMarkId = 19,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://laval.blog.bg/photos/98387/original/radio-varna4.jpg"
                         },
@@ -2230,6 +2352,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 117,
                             IsActiv = true,
                             LandMarkId = 19,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://laval.blog.bg/photos/98387/radio-varna5.jpg"
                         },
@@ -2238,6 +2361,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 118,
                             IsActiv = true,
                             LandMarkId = 19,
+                            LikeCount = 0,
                             TownId = 5,
                             UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXsGeCydRCOzXaCaltcUJ8qqw1lg43qfHmFIpwbPbJm-qW1_BDBPpk3-0QbgVTPsbltWg&usqp=CAU"
                         },
@@ -2246,6 +2370,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 119,
                             IsActiv = true,
                             LandMarkId = 20,
+                            LikeCount = 0,
                             UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwEhU_6ooZTuDpb6y69FGOd6jJM9275mrHXkuqnMXOmA&s"
                         },
                         new
@@ -2253,6 +2378,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 120,
                             IsActiv = true,
                             LandMarkId = 20,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.panacomp.net/wp-content/uploads/2015/09/jesen-470x353.jpg"
                         },
                         new
@@ -2260,6 +2386,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 121,
                             IsActiv = true,
                             LandMarkId = 20,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.andrey-andreev.com/wp-content/uploads/2016/10/IMGP6871.jpg"
                         },
                         new
@@ -2267,6 +2394,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 122,
                             IsActiv = true,
                             LandMarkId = 20,
+                            LikeCount = 0,
                             UrlImgAddres = "https://i.ytimg.com/vi/mPQk6RbIn5U/maxresdefault.jpg"
                         },
                         new
@@ -2274,6 +2402,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 123,
                             IsActiv = true,
                             LandMarkId = 20,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.andrey-andreev.com/wp-content/uploads/2016/10/IMGP7125.jpg"
                         },
                         new
@@ -2281,6 +2410,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 124,
                             IsActiv = true,
                             LandMarkId = 20,
+                            LikeCount = 0,
                             UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR58FrJ9lNPdoslMywhV3SFM5bWQB0NBnGzLA&usqp=CAU"
                         },
                         new
@@ -2288,6 +2418,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 125,
                             IsActiv = true,
                             LandMarkId = 21,
+                            LikeCount = 0,
                             UrlImgAddres = "https://static.pochivka.bg/sights.bgstay.com/images/01/1476/547c2828109cc.jpg"
                         },
                         new
@@ -2295,6 +2426,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 126,
                             IsActiv = true,
                             LandMarkId = 21,
+                            LikeCount = 0,
                             UrlImgAddres = "https://static.bnr.bg/gallery/cr/70f38109927b95857ff02eea7a88940f.jpg"
                         },
                         new
@@ -2302,6 +2434,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 127,
                             IsActiv = true,
                             LandMarkId = 21,
+                            LikeCount = 0,
                             UrlImgAddres = "https://plovdivnow.bg/news/2019/05/03/krastova-gora-pazi-drevni-sakrovishta-342.jpg"
                         },
                         new
@@ -2309,6 +2442,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 128,
                             IsActiv = true,
                             LandMarkId = 21,
+                            LikeCount = 0,
                             UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIXVpZjOfWK7EA6x6dSojQ-53oY4TLtfTSgg&usqp=CAU"
                         },
                         new
@@ -2316,6 +2450,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 129,
                             IsActiv = true,
                             LandMarkId = 21,
+                            LikeCount = 0,
                             UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiKPVdP0WvcKdvs8bKrz4CE9izP_9LGxJUxg&usqp=CAU"
                         },
                         new
@@ -2323,6 +2458,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 130,
                             IsActiv = true,
                             LandMarkId = 22,
+                            LikeCount = 0,
                             UrlImgAddres = "https://upload.wikimedia.org/wikipedia/commons/c/ca/Karadzhov_kamik.jpg"
                         },
                         new
@@ -2330,6 +2466,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 131,
                             IsActiv = true,
                             LandMarkId = 22,
+                            LikeCount = 0,
                             UrlImgAddres = "https://mayaeye.com/thumbs/7/karadjov-kamak-prolet.jpg"
                         },
                         new
@@ -2337,6 +2474,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 132,
                             IsActiv = true,
                             LandMarkId = 22,
+                            LikeCount = 0,
                             UrlImgAddres = "https://kilometri.bg/images_upload/location_uploads/img_1606_karadzhov_kamak_th.jpg"
                         },
                         new
@@ -2344,6 +2482,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 133,
                             IsActiv = true,
                             LandMarkId = 22,
+                            LikeCount = 0,
                             UrlImgAddres = " https://bulgariatravel.org/wp-content/uploads/2016/248_005_Skalen_kompleks_Karadjov_Kamyk.jpg"
                         },
                         new
@@ -2351,6 +2490,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 134,
                             IsActiv = true,
                             LandMarkId = 23,
+                            LikeCount = 0,
                             UrlImgAddres = "https://i1.wp.com/time2travel.bg/wp-content/uploads/2015/10/1445788558DSC_0096-min-e1445805086310.jpg"
                         },
                         new
@@ -2358,6 +2498,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 135,
                             IsActiv = true,
                             LandMarkId = 23,
+                            LikeCount = 0,
                             UrlImgAddres = "https://bookvila.bg/img/210216042456-1.jpg"
                         },
                         new
@@ -2365,6 +2506,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 136,
                             IsActiv = true,
                             LandMarkId = 23,
+                            LikeCount = 0,
                             UrlImgAddres = "https://imgrabo.com/pics/guide/900x600/20160121173502_44587.jpeg"
                         },
                         new
@@ -2372,6 +2514,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 137,
                             IsActiv = true,
                             LandMarkId = 23,
+                            LikeCount = 0,
                             UrlImgAddres = "https://bookvila.bg/img/210216042456-1.jpg"
                         },
                         new
@@ -2379,6 +2522,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 138,
                             IsActiv = true,
                             LandMarkId = 23,
+                            LikeCount = 0,
                             UrlImgAddres = "https://static.bnr.bg/gallery/cr/269d267c9371608fe1bcd4fe8509fbc9.jpg"
                         },
                         new
@@ -2386,6 +2530,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 139,
                             IsActiv = true,
                             LandMarkId = 23,
+                            LikeCount = 0,
                             UrlImgAddres = "https://sunrisinglife.com/wp-content/uploads/2020/02/DSC00520.jpg"
                         },
                         new
@@ -2393,60 +2538,70 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 140,
                             IsActiv = true,
                             LandMarkId = 23,
+                            LikeCount = 0,
                             UrlImgAddres = "https://cqlo.info/dqvolskoto-gurlo/03.jpg"
                         },
                         new
                         {
                             Id = 141,
                             IsActiv = true,
+                            LikeCount = 0,
                             UrlImgAddres = "https://cdn.theculturetrip.com/wp-content/uploads/2017/03/scenic-2014114_1920.jpg"
                         },
                         new
                         {
                             Id = 142,
                             IsActiv = true,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.fodors.com/assets/destinations/711600/cityscape-amasra-black-sea-coast-turkey_980x650.jpg"
                         },
                         new
                         {
                             Id = 143,
                             IsActiv = true,
+                            LikeCount = 0,
                             UrlImgAddres = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt688Mal0ciMujR0G9dCT-p6Q-Zhi-VLCUpg&usqp=CAU"
                         },
                         new
                         {
                             Id = 144,
                             IsActiv = true,
+                            LikeCount = 0,
                             UrlImgAddres = "https://lh3.googleusercontent.com/xoW89NgIGGCxSNXqFpqinQ0SH8wD-68p643-JpoeTa7bbHxoJYP8t0L8vXVSO5raRQ"
                         },
                         new
                         {
                             Id = 145,
                             IsActiv = true,
+                            LikeCount = 0,
                             UrlImgAddres = "https://static.bnr.bg/gallery/cr/b0579ee84ca72f65f42176568bb7e86d.jpg"
                         },
                         new
                         {
                             Id = 146,
                             IsActiv = true,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.fujitsu.com/global/imagesgig5/Bulgaria_tcm100-6387997_tcm100-6286607-32.jpg"
                         },
                         new
                         {
                             Id = 147,
                             IsActiv = true,
+                            LikeCount = 0,
                             UrlImgAddres = "http://media-s3-us-east-1.ceros.com/euronews/images/2020/08/07/4f86c16a7084de523d28dca936735db2/heritage-sites-article-image.jpg"
                         },
                         new
                         {
                             Id = 148,
                             IsActiv = true,
+                            LikeCount = 0,
                             UrlImgAddres = "https://image.jimcdn.com/app/cms/image/transf/none/path/sa6549607c78f5c11/image/i8ff1f502e93fe6d5/version/1646389914/best-castles-in-bulgaria-tsarevets-fortress.jpg"
                         },
                         new
                         {
                             Id = 149,
                             IsActiv = true,
+                            LikeCount = 0,
                             UrlImgAddres = "https://images.unsplash.com/photo-1601152888642-f2f1b5ee0ca2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YnVsZ2FyaWF8ZW58MHx8MHx8&w=1000&q=80"
                         },
                         new
@@ -2454,6 +2609,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 150,
                             IsActiv = true,
                             JourneyId = 1,
+                            LikeCount = 0,
                             UrlImgAddres = " https://plovdivnow.bg/news/2019/06/24/izkachvane-vrah-chiliaka-predizvikva-862.jpg"
                         },
                         new
@@ -2461,6 +2617,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 151,
                             IsActiv = true,
                             JourneyId = 1,
+                            LikeCount = 0,
                             UrlImgAddres = "https://static.dir.bg/uploads/images/2021/04/14/2188234/1920x1080.jpg?_=1618417832"
                         },
                         new
@@ -2468,6 +2625,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 152,
                             IsActiv = true,
                             JourneyId = 1,
+                            LikeCount = 0,
                             UrlImgAddres = "https://planinazavseki.com/wp-content/uploads/2021/03/01_chilyaka-bezdiven.jpg"
                         },
                         new
@@ -2475,6 +2633,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 153,
                             IsActiv = true,
                             JourneyId = 2,
+                            LikeCount = 0,
                             UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_612_15005411781171.jpg"
                         },
                         new
@@ -2482,6 +2641,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 154,
                             IsActiv = true,
                             JourneyId = 2,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_gora_15005411781171.jpg"
                         },
                         new
@@ -2489,6 +2649,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 155,
                             IsActiv = true,
                             JourneyId = 2,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_BIG_10_148284126231_15005411781171.jpg"
                         },
                         new
@@ -2496,6 +2657,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 156,
                             IsActiv = true,
                             JourneyId = 3,
+                            LikeCount = 0,
                             UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_%D0%B3%D1%8A%D0%B1%D0%B81_148224303987.jpg"
                         },
                         new
@@ -2503,6 +2665,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 157,
                             IsActiv = true,
                             JourneyId = 3,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_%D0%B3%D1%8A%D0%B1%D0%B82_148224303987.jpg"
                         },
                         new
@@ -2510,6 +2673,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 158,
                             IsActiv = true,
                             JourneyId = 3,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_%D0%B3%D1%8A%D0%B1%D0%B87_148224303987.jpg"
                         },
                         new
@@ -2517,6 +2681,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 159,
                             IsActiv = true,
                             JourneyId = 4,
+                            LikeCount = 0,
                             UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_230fa6edf72005a8d908da1e616982c9_15385490602374.jpg"
                         },
                         new
@@ -2524,6 +2689,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 160,
                             IsActiv = true,
                             JourneyId = 4,
+                            LikeCount = 0,
                             UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_768x432_15385518432374.jpg"
                         },
                         new
@@ -2531,6 +2697,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 161,
                             IsActiv = true,
                             JourneyId = 4,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_45664_650__3_15385518432374.jpg"
                         },
                         new
@@ -2538,6 +2705,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 162,
                             IsActiv = true,
                             JourneyId = 5,
+                            LikeCount = 0,
                             UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_87d2badbd94d5fb45d320982ea3a1822_15426273282494.jpg"
                         },
                         new
@@ -2545,6 +2713,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 163,
                             IsActiv = true,
                             JourneyId = 5,
+                            LikeCount = 0,
                             UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_462_15426273282494.jpg"
                         },
                         new
@@ -2552,6 +2721,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 164,
                             IsActiv = true,
                             JourneyId = 5,
+                            LikeCount = 0,
                             UrlImgAddres = " https://www.globaltour.bg/img/PROGRAMI/BIG_768x432_15426273282494.jpg"
                         },
                         new
@@ -2559,6 +2729,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 165,
                             IsActiv = true,
                             JourneyId = 6,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_BIG_1_16125284163975_16179691444113.jpg"
                         },
                         new
@@ -2566,6 +2737,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 166,
                             IsActiv = true,
                             JourneyId = 6,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_BIG_lovech31_15221445172175_16179691444113.jpg"
                         },
                         new
@@ -2573,6 +2745,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 167,
                             IsActiv = true,
                             JourneyId = 6,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_BIG_5b85cee52d496682b13f9d8f55827de7fb875233_16136575244017_16179691444113.jpg"
                         },
                         new
@@ -2580,6 +2753,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 168,
                             IsActiv = true,
                             JourneyId = 7,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_110275501_10158488930782530_7946869728201616024_o_159941567292.jpg"
                         },
                         new
@@ -2587,6 +2761,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 169,
                             IsActiv = true,
                             JourneyId = 7,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_110167056_10158488896777530_5047544933329434040_o_159941567292.jpg"
                         },
                         new
@@ -2594,6 +2769,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = 170,
                             IsActiv = true,
                             JourneyId = 7,
+                            LikeCount = 0,
                             UrlImgAddres = "https://www.globaltour.bg/img/PROGRAMI/BIG_110101960_10158488900382530_9134956832801263166_o_159941567292.jpg"
                         });
                 });
@@ -2753,7 +2929,7 @@ namespace MyWebProject.Infrastructure.Migrations
                             Id = "630d5dda-7255-4ce9-a658-0eedfb698a5f",
                             AccessFailedCount = 0,
                             Avatar = "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg",
-                            ConcurrencyStamp = "11d80076-e343-43ed-a3c7-cd744474b9b9",
+                            ConcurrencyStamp = "af6c98a9-5d24-40fe-91d3-d4a5eaa80b04",
                             Email = "Bobo561@abv.bg",
                             EmailConfirmed = true,
                             FirstName = "Borislav",
@@ -2763,9 +2939,9 @@ namespace MyWebProject.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "Bobo561@abv.bg",
                             NormalizedUserName = "Bobo561@abv.bg",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFo9UaQwkT9Bz7+TFS2Zbw68ZH7tqEv4fZ1CBo39zTBuciv0mWa0VruhAqu/aPJHnA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOFdJFnam0Q3oMDP8Mg1VpxRF0XCmExALeOCbZStsMadKNWCGqd7VZAU+AKK2gte2g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bc4b0a58-e9a9-41ab-b3db-1b10c6671577",
+                            SecurityStamp = "e8e1fb61-9724-45d6-a0d1-983a6ba8e4b6",
                             TwoFactorEnabled = false,
                             UserName = "Bobo561@abv.bg"
                         });

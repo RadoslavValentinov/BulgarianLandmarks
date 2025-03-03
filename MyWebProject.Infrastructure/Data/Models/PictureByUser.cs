@@ -12,6 +12,8 @@ namespace MyWebProject.Infrastructure.Data.Models
 
         public bool IsActive { get; set; } = true;
 
+        public int LikeCount { get; set; }
+
         public byte[]? PictureData { get; set; }
     }
 }

@@ -40,6 +40,7 @@ namespace MyWebProject.Core.Services.Services
                     Town = x.TownId,
                     Journey = x.JourneyId,
                     PictureData = x.ArrayPicture,
+                    LikeCount = x.LikeCount,
                     UserName = x.UserName
 
                 }).ToListAsync();
@@ -100,7 +101,9 @@ namespace MyWebProject.Core.Services.Services
               .Select(s => new PicturesViewModel()
               {
                   Id = s.Id,
-                  UrlImgAddres = s.UrlImgAddres
+                  UrlImgAddres = s.UrlImgAddres,
+                  PictureData = s.ArrayPicture,
+                  LikeCount = s.LikeCount
               })
               .ToListAsync();
 

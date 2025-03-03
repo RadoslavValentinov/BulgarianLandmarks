@@ -5,6 +5,9 @@ namespace MyWebProject.Core.Services.IServices
 {
     public interface IPictureService
     {
+
+        Task<int> UpLikeCount(int id);
+
         Task<int> AddPicture(AddPictureViewModel model);
         Task<AddPictureByUser> AddPictureByUser(AddPictureByUser model);
         Task<AddPictureByUser> PictureByByteArray(AddPictureByUser model);

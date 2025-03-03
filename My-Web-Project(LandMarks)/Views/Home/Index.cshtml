@@ -1,5 +1,14 @@
 ﻿
 
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" asp-append-version="true" />
+</head>
+
+
+
+
+
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
@@ -45,18 +54,35 @@
             foreach (var picture in Model)
             {
                 <div class="col">
-                    @if (string.IsNullOrEmpty(picture.UrlImgAddres) && picture.PictureData != null)
-                    {
-                        <img id="userPic" src="data:image/jpeg;base64,@Convert.ToBase64String(picture.PictureData)" width="300" height="200" alt="User Picture" />
-                    }
-                    else
-                    {
-                        <img id="userPic" src="@picture.UrlImgAddres" width="300" height="200" alt="User Picture" />
-                    }
+
+
+                    @*Add property like count and set in picture model and click event ti i tag speed like not open picture *@
+
+
+                    <div id="constheight">
+                        @if (string.IsNullOrEmpty(picture.UrlImgAddres) && picture.PictureData != null)
+                        {
+                            <img id="userPic" src="data:image/jpeg;base64,@Convert.ToBase64String(picture.PictureData)" width="300" height="200" alt="User Picture" />
+                            <a id="hideoptions" asp-area="" asp-controller="Picture" asp-action="UpLikeCount" asp-route-id="@picture.Id">
+                                <i class="fa-regular fa-thumbs-up fa-xl"></i>
+                                <span>@picture.LikeCount</span>
+                            </a>
+                        }
+                        else
+                        {
+                            <img id="userPic" src="@picture.UrlImgAddres" width="300" height="200" alt="User Picture" />
+                            <a id="hideoptions" asp-area="" asp-controller="Picture" asp-action="UpLikeCount" asp-route-id="@picture.Id">
+                                <i class="fa-regular fa-thumbs-up fa-xl"></i>
+                               <span>@picture.LikeCount</span>
+                            </a>
+                        }
+                    </div>
+
 
                 </div>
             }
         }
+        <a asp-area="" asp-controller="" asp-action="">Разгледайте и останалите...</a>
     </div>
 
 </div>

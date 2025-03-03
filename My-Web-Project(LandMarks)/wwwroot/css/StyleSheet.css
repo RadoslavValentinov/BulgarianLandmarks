@@ -229,20 +229,44 @@ li h4 {
 }
 
 
-#UserSection .row .col {
+
+.UserSection h3 {
+    font-family: 'HP Simplified';
+    font-style: italic;
+}
+
+.UserSection .row .col {
     max-width: 310px;
+    overflow:hidden;
+}
+
+#constheight {
+    height: 200px;
+    overflow: hidden;
 }
 
 
+ 
+    #constheight:hover #hideoptions {
+        position: relative;
+        top: -30px;
+        left: 10px;
+        color:whitesmoke;
+    }
 
 
 
-/* Card Div */
-p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    padding-left: 20px;
-}
+
+    /*#userPic:hover {
+    transform: scale(1.10);
+    transition: 0.3s ease-in;
+}*/
+    /* Card Div */
+    p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        padding-left: 20px;
+    }
 
 .card-text {
     font-family: Arial, Helvetica, sans-serif;

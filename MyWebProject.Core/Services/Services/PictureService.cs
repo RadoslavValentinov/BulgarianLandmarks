@@ -7,6 +7,7 @@ using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
+using System.Threading.Tasks;
 
 namespace MyWebProject.Core.Services.Services
 {
@@ -32,7 +33,7 @@ namespace MyWebProject.Core.Services.Services
             {
                 UserName = model.UserName,
                 IsActive = model.IsActive,
-                PictureData = model.PictureData 
+                PictureData = model.PictureData
             };
 
             await repo.AddAsync(picture);
@@ -129,6 +130,7 @@ namespace MyWebProject.Core.Services.Services
                     Town = x.Town!.Name,
                     Journey = x.Journey!.Name,
                     UserName= x.UserName,
+                    LikeCount = x.LikeCount,
                     PictureData = x.ArrayPicture
                 })
                 .ToListAsync();
@@ -145,7 +147,8 @@ namespace MyWebProject.Core.Services.Services
                 {
                     Id = x.Id,
                     UrlImgAddres = x.UrlImgAddres,
-                    UserName = x.UserName, 
+                    UserName = x.UserName,
+                    LikeCount = x.LikeCount,
                     PictureData = x.PictureData
                 })
                 .ToListAsync();
@@ -266,9 +269,33 @@ namespace MyWebProject.Core.Services.Services
                     LandMark = x.LandMarkId,
                     Town = x.TownId,
                     Journey = x.JourneyId,
+                    LikeCount = x.LikeCount,
                     PictureData = x.ArrayPicture
                 })
                 .FirstAsync();
+        }
+
+        public async Task<int> UpLikeCount(int id)
+        {
+            var resultSearch = repo.GetByIdAsync<Pictures>(id).Result;
+
+            if (resultSearch == null)
+            {
+     
+               logger.LogError("No updated this picture,Id is not found");
+            }
+            else
+            {
+                resultSearch.LikeCount++;
+
+                repo.Update(resultSearch);
+
+                await repo.SaveChangesAsync();
+
+                return resultSearch.LikeCount;
+            }
+
+            return id;
         }
     }
 }

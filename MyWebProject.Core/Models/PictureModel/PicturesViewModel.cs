@@ -21,6 +21,7 @@ namespace MyWebProject.Core.Models.PictureModel
 
         public string? Journey { get; set; }
         public string? UserName { get; set; }
+        public int LikeCount { get; set; }
 
         public byte[]? PictureData { get; set; }
     }
