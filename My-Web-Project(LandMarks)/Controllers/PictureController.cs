@@ -44,7 +44,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> AddPicture(AddPictureByUser model)
-          {
+        {
             if (ModelState.IsValid)
             {
                 await service.AddPictureByUser(model);

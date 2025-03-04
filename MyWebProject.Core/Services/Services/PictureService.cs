@@ -275,6 +275,9 @@ namespace MyWebProject.Core.Services.Services
                 .FirstAsync();
         }
 
+
+
+        // not set end pictures count whyyyyyyy
         public async Task<int> UpLikeCount(int id)
         {
             var resultSearch = repo.GetByIdAsync<Pictures>(id).Result;
