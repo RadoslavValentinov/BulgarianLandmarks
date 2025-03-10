@@ -1,0 +1,21 @@
+﻿
+
+#cardsPictures{
+    width:350px;
+    height:290px;
+    margin:10px;
+    background-color:snow;
+    flex: 0;
+    padding: 0px;
+    border-radius: 6px;
+}
+
+#cardsPictures img{
+    width: 349px;
+    height:260px;
+}
+
+    #boxFlex{
+        display:flex;
+        justify-content:space-evenly;
+    }

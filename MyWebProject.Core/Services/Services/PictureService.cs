@@ -7,7 +7,8 @@ using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
-using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
+
 
 namespace MyWebProject.Core.Services.Services
 {
@@ -24,6 +25,40 @@ namespace MyWebProject.Core.Services.Services
             repo = _repo;
             logger = _logger;
         }
+
+
+
+        [Authorize]
+        public async Task<int> UpLikeCount(int id)
+        {
+         
+            try
+            {
+                var resultSearch =  repo.All<Pictures>().Where(x=> x.Id == id).FirstOrDefault();
+
+                if (resultSearch != null) 
+                {
+                    resultSearch!.LikeCount++;
+
+                    repo.Update(resultSearch);
+
+                    await repo.SaveChangesAsync();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"An error occurred while updating the picture data: {ex.Message}");
+                throw;
+            }
+
+            return id;
+
+        }
+
+
+
+
 
 
         [Authorize]
@@ -58,7 +93,7 @@ namespace MyWebProject.Core.Services.Services
                 {
                     var newPicture = new Pictures()
                     {
-                     
+
                         UrlImgAddres = image,
                         LandMarkId = model.LandMark,
                         TownId = model.Town,
@@ -129,7 +164,7 @@ namespace MyWebProject.Core.Services.Services
                     LandMark = x.LandMark!.Name,
                     Town = x.Town!.Name,
                     Journey = x.Journey!.Name,
-                    UserName= x.UserName,
+                    UserName = x.UserName,
                     LikeCount = x.LikeCount,
                     PictureData = x.ArrayPicture
                 })
@@ -137,6 +172,29 @@ namespace MyWebProject.Core.Services.Services
 
             return all;
         }
+
+
+
+        public async Task<IEnumerable<PicturesViewModel>> AllPictureUploadByUsers()
+        {
+            var all = await repo.AllReadonly<Pictures>()
+                .Where(z => z.UserName != null && z.IsActiv == true)
+                .Select(x => new PicturesViewModel()
+                {
+                    Id = x.Id,
+                    UrlImgAddres = x.UrlImgAddres,
+                    IsActive = x.IsActiv,
+                    UserName = x.UserName,
+                    LikeCount = x.LikeCount,
+                    PictureData = x.ArrayPicture
+                })
+                .ToListAsync();
+
+            return all;
+        }
+
+
+
 
         [Area("Administrator")]
         public async Task<IEnumerable<AddPictureByUser>> AllPictureByUser()
@@ -274,31 +332,6 @@ namespace MyWebProject.Core.Services.Services
                 })
                 .FirstAsync();
         }
-
-
-
-        // not set end pictures count whyyyyyyy
-        public async Task<int> UpLikeCount(int id)
-        {
-            var resultSearch = repo.GetByIdAsync<Pictures>(id).Result;
-
-            if (resultSearch == null)
-            {
-     
-               logger.LogError("No updated this picture,Id is not found");
-            }
-            else
-            {
-                resultSearch.LikeCount++;
-
-                repo.Update(resultSearch);
-
-                await repo.SaveChangesAsync();
-
-                return resultSearch.LikeCount;
-            }
-
-            return id;
-        }
     }
 }
+

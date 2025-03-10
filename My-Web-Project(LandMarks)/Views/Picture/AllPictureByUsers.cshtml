@@ -1,0 +1,33 @@
+﻿@using MyWebProject.Core.Models.PictureModel;
+@model IEnumerable<PicturesViewModel>
+
+
+<head>
+    <link rel="stylesheet" href="~/css/All CSS file/PictureCustomCSS/AllPictureUploadByUser.css">
+</head>
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div id="cardsPictures" class="col">
+            @if (item.PictureData != null && item.PictureData.Length > 0)
+            {
+                <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.PictureData)" alt="User Picture" />
+            }
+            else
+            {
+                <img src="@item.UrlImgAddres" alt="User Picture" />
+            }
+
+            <div id="boxFlex">
+                <h4>@item.UserName</h4>
+                <a id="hideoptions">
+                    <i class="fa-regular fa-thumbs-up fa-xl"></i>
+                    <span>@item.LikeCount</span>
+                </a>
+            </div>
+        </div>
+    }
+</div>

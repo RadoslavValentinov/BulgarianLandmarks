@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Models.PictureModel;
 using MyWebProject.Core.Services.IServices;
 
+
 namespace My_Web_Project_LandMarks_.Controllers
 {
     [Authorize]
@@ -21,15 +22,19 @@ namespace My_Web_Project_LandMarks_.Controllers
 
 
 
-        public  IActionResult UpLikeCount(int id)
+        public  async Task<IActionResult> UpLikeCount(int id)
         {
-            var upCount =  service.UpLikeCount(id);
+            var upCount = await service.UpLikeCount(id);
 
             return RedirectToActionPreserveMethod("Index","Home");
         }
 
-
-
+        [AllowAnonymous]
+        public async Task<IActionResult> AllPictureByUsers()
+        {
+            var model = await service.AllPictureUploadByUsers();
+            return View(model);
+        }
 
 
         [HttpGet]
