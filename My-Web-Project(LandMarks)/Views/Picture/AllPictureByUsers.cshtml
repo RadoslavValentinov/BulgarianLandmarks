@@ -1,6 +1,7 @@
 ﻿@using MyWebProject.Core.Models.PictureModel;
 @model IEnumerable<PicturesViewModel>
 
+@*  <i class="fa-solid fa-thumbs-up fa-xl"></i> *@
 
 <head>
     <link rel="stylesheet" href="~/css/All CSS file/PictureCustomCSS/AllPictureUploadByUser.css">
@@ -21,13 +22,27 @@
                 <img src="@item.UrlImgAddres" alt="User Picture" />
             }
 
-            <div id="boxFlex">
-                <h4>@item.UserName</h4>
-                <a id="hideoptions">
-                    <i class="fa-regular fa-thumbs-up fa-xl"></i>
-                    <span>@item.LikeCount</span>
-                </a>
-            </div>
+            @if (User.Identity!.Name != null)
+            {
+                <div id="boxFlex">
+                    <h5>User: @item.UserName</h5>
+                    <a id="hideoptions" asp-area="" asp-controller="Picture" asp-action="UpLikeCount" asp-route-id="@item.Id">
+                        <i class="fa-regular fa-thumbs-up fa-xl"></i>
+                        <span>@item.LikeCount</span>
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div id="boxFlex">
+                    <h5>User: @item.UserName</h5>
+                    <a id="hideoptions">
+                        <i class="fa-regular fa-thumbs-up fa-xl"></i>
+                        <span>@item.LikeCount</span>
+                    </a>
+                </div>
+            }
+
         </div>
     }
 </div>

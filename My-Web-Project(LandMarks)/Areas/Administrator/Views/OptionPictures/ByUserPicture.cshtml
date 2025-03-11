@@ -34,9 +34,10 @@ else
 
               
 
-                @Html.ActionLink("Add Picture", "AddPictureByUser", "OptionPictures",
-                         new { Id = item.Id }, htmlAttributes: null)
+                @* @Html.ActionLink("Add Picture", "AddPictureByUser", "OptionPictures",
+                         new { Id = item.Id }, htmlAttributes: null) *@
 
+                <a id="deleted" asp-route-id="@item.Id" asp-controller="OptionPictures" asp-action="AddPictureByUser" asp-route-id="@item.Id">Add Picture</a>
                 <a id="deleted" asp-route-id="@item.Id"  asp-controller="OptionPictures" asp-action="DeleteByUser">Delete</a>
             </div>
         }

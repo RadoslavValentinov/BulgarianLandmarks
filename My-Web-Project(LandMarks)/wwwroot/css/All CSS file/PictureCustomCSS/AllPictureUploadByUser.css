@@ -1,21 +1,41 @@
 ﻿
 
-#cardsPictures{
-    width:350px;
-    height:290px;
-    margin:10px;
-    background-color:snow;
+#cardsPictures {
+    width: 350px;
+    height: 300px;
+    margin: 10px;
+    background-color: snow;
     flex: 0;
     padding: 0px;
     border-radius: 6px;
 }
 
-#cardsPictures img{
-    width: 349px;
-    height:260px;
+    #cardsPictures img {
+        width: 348px;
+        height: 260px;
+        border-radius: 6px;
+    }
+
+#boxFlex {
+    padding: 8px 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
-    #boxFlex{
-        display:flex;
-        justify-content:space-evenly;
+#hideoptions {
+    text-decoration: none;
+}
+
+    #hideoptions i {
+        color: deepskyblue;
+    }
+
+    #hideoptions span {
+        padding-top: 17px;
+        font-size: 16px;
+        color: gray;
+    }
+
+    #hideoptions i:hover {
+        font-size:26px;
     }

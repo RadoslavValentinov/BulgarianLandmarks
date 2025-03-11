@@ -103,9 +103,13 @@ namespace MyWebProject.Core.Services.Services
                     };
 
                     await repo.AddAsync(newPicture);
-                    await repo.SaveChangesAsync();
-                }
 
+                    var deleteItem = repo.DeleteAsync<PictureByUser>(model.Id);
+
+
+                    await repo.SaveChangesAsync();
+
+                }
 
             }
             catch (ArgumentNullException ae)
@@ -232,6 +236,8 @@ namespace MyWebProject.Core.Services.Services
             }
         }
 
+
+
         [Area("Administrator")]
         public async Task DeleteByUser(int Id)
         {
@@ -252,6 +258,8 @@ namespace MyWebProject.Core.Services.Services
                 logger.LogError(string.Format("This picture is not deleted"), ex);
             }
         }
+
+
 
         [Area("Administrator")]
         public async Task<AddPictureViewModel> EditPicture(AddPictureViewModel model)
