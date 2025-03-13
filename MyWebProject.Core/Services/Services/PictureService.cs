@@ -129,7 +129,7 @@ namespace MyWebProject.Core.Services.Services
 
                 string image = sanitizer.Sanitize(model.UrlImgAddres!);
 
-                if (string.IsNullOrWhiteSpace(image) && model.PictureData != null)
+                if (!string.IsNullOrWhiteSpace(image) || model.PictureData != null)
                 {
 
                     var newPicture = new PictureByUser()

@@ -49,11 +49,9 @@
     <div class="row">
         @if (Model.Any())
         {
-            foreach (var picture in Model)
+            foreach (var picture in Model.OrderByDescending(p => p.LikeCount > 4).Take(6))
             {
                 <div class="col">
-
-                    @*  set in admin panel options to delete picture i wait to aprrove *@
 
                     @if (User.Identity!.Name != null)
                     {
