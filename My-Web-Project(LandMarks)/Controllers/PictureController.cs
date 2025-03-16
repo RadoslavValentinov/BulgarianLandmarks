@@ -22,6 +22,15 @@ namespace My_Web_Project_LandMarks_.Controllers
 
 
 
+
+        /// <summary>
+        /// The method aims to increase the likeCount property of a picture 
+        /// selected by a user. (Only for registered users). 
+        /// The method receives the ID of a picture.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Increase picture likeCount</returns>
+        [Authorize]
         public  async Task<IActionResult> UpLikeCount(int id)
         {
             var upCount = await service.UpLikeCount(id);
@@ -29,6 +38,13 @@ namespace My_Web_Project_LandMarks_.Controllers
             return RedirectToActionPreserveMethod("Index","Home");
         }
 
+
+
+        /// <summary>
+        ///  Method get all picture upload by users from database and send to view
+        /// </summary>
+        /// <returns>View index </returns>
+        [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> AllPictureByUsers()
         {
@@ -37,6 +53,11 @@ namespace My_Web_Project_LandMarks_.Controllers
         }
 
 
+        /// <summary>
+        /// Add picture by user Only URL address
+        /// </summary>
+        /// <returns>create page model</returns>
+        /// 
         [HttpGet]
         [Authorize]
         public IActionResult AddPicture()
@@ -46,6 +67,12 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(model);
         }
 
+
+        /// <summary>
+        ///   Send to service method  model and add picture by pictureUser scheme in database 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>Redirect to index page</returns>
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> AddPicture(AddPictureByUser model)
@@ -62,7 +89,13 @@ namespace My_Web_Project_LandMarks_.Controllers
 
 
 
-       
+        /// <summary>
+        /// Get picture upload by user and create byte array and send to service method.
+        /// Added byte array picture in database(UserPicture scheme)
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="pictureFile"></param>
+        /// <returns>message to succssessfuly upload picture</returns>
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> AddPictureByArray(AddPictureByUser model, IFormFile pictureFile)
