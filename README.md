@@ -106,7 +106,7 @@ sample excursions as well as cultural events for the various cities (theatre pro
     The contacts and the email you will see are not active.
   </p>
 
- https://github.com/user-attachments/assets/a33792c1-a44f-4708-8995-a865bcaa6ce8
+  https://github.com/user-attachments/assets/a33792c1-a44f-4708-8995-a865bcaa6ce8
 
   https://github.com/user-attachments/assets/6106a8cc-d3ac-45c2-87c7-855d9bfb6e76
 
@@ -217,5 +217,21 @@ sample excursions as well as cultural events for the various cities (theatre pro
      are visualized. The pictures are visualized in a div. the user. The other button 
      removes the photo from the database.
    </p>
+ </section>
+ <br>
+
+ <section>
+  
+  <p>
+    Reordering the index page to add a new functionality to visualize the most liked photos uploaded by users.
+    As you can see below in the attached video. Only registered users can like photos uploaded by 
+    users. The photos are arranged in descending order.
+  </p>
+
+  
+  https://github.com/user-attachments/assets/8c92f39b-8b2c-4f83-9fcc-6e6aea97b5c0
+
+
+   
  </section>
 
