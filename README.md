@@ -236,6 +236,9 @@ sample excursions as well as cultural events for the various cities (theatre pro
     the name of the user who uploaded the photo on the left and
     on the right the number of users who liked the photo, only registered users can like the user's photo. You can see everything below in the attached video.
   </p>
-   
+
+  https://github.com/user-attachments/assets/12fc452a-3074-4c7f-9c60-8fedccdb2cf8
+
+
  </section>
 
