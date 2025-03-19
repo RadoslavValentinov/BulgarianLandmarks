@@ -231,7 +231,11 @@ sample excursions as well as cultural events for the various cities (theatre pro
   
   https://github.com/user-attachments/assets/8c92f39b-8b2c-4f83-9fcc-6e6aea97b5c0
 
-
+  <p>
+    Directly below the photo collection is a link to the page of all photos uploaded by users. On the page you can see all photos uploaded by users,
+    the name of the user who uploaded the photo on the left and
+    on the right the number of users who liked the photo, only registered users can like the user's photo. You can see everything below in the attached video.
+  </p>
    
  </section>
 
