@@ -221,7 +221,7 @@ sample excursions as well as cultural events for the various cities (theatre pro
  <br>
 
  <section>
-  
+  <h3 style="text-aling= center"> New functional Index page - User pictures</h3>
   <p>
     Reordering the index page to add a new functionality to visualize the most liked photos uploaded by users.
     As you can see below in the attached video. Only registered users can like photos uploaded by 
