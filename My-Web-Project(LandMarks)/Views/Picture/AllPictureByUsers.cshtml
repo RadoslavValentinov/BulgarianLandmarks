@@ -9,7 +9,7 @@
 
 
 <div class="row">
-    @foreach (var item in Model)
+    @foreach (var item in Model.OrderByDescending(p => p.LikeCount))
     {
 
         <div id="cardsPictures" class="col">

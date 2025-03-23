@@ -11,7 +11,11 @@
 </head>
 
 @{
-    Model.UserName = User?.Identity?.Name ?? null!;
+    @if (User?.Identity?.Name != null)
+    {
+        Model.UserName = User?.Identity?.Name ?? null!;
+    }
+
 }
 
 
@@ -22,7 +26,7 @@
 {
 
     @Html.AntiForgeryToken()
-    
+
     <div id="formCreate">
         <div class="row">
             <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
@@ -60,8 +64,9 @@
                 @Html.HiddenFor(m => m.UserName)
 
                 <div class="mb-3">
-                    <label for="pictureFile" class="form-label">Upload Picture</label>
+                    <label asp-for ="PictureData" class="form-label">Upload Picture</label>
                     <input type="file" name="pictureFile" class="form-control" />
+                    <span asp-validation-for="PictureData" class="text-danger"></span>
                 </div>
 
                 <div>
@@ -85,10 +90,10 @@
             alert("След удобрение изобраежнието ще бъде добавено");
         });
     </script>
-  @*   <script>
-        $("#btnUploadPic").click(function () {
-            alert("След удобрение изобраежнието ще бъде добавено");
-        });
-    </script> *@
+@*   <script>
+                    $("#btnUploadPic").click(function () {
+                        alert("След удобрение изобраежнието ще бъде добавено");
+                    });
+                </script> *@
 }
 

@@ -1,17 +1,31 @@
-﻿
+﻿* {
+    box-sizing: border-box;
+}
+
+/*.row::after {
+    content:none;
+    clear: both;
+    display: table;
+}
+.rowb::before {
+    content: "";
+    clear: both;
+    display: table;
+}
+*/
 
 #cardsPictures {
     width: 350px;
     height: 300px;
     margin: 10px;
+  /*  flex:0;*/
     background-color: snow;
-    flex: 0;
     padding: 0px;
     border-radius: 6px;
 }
 
     #cardsPictures img {
-        width: 348px;
+        width: 414px;
         height: 260px;
         border-radius: 6px;
     }
