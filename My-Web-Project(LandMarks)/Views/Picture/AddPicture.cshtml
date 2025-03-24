@@ -65,7 +65,7 @@
 
                 <div class="mb-3">
                     <label asp-for ="PictureData" class="form-label">Upload Picture</label>
-                    <input type="file" name="pictureFile" class="form-control" />
+                    <input asp-for="PictureData" type="file" name="pictureFile" class="form-control" />
                     <span asp-validation-for="PictureData" class="text-danger"></span>
                 </div>
 

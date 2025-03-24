@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using MyWebProject.Infrastructure.Data.Configoration;
 using MyWebProject.Infrastructure.Data.Models;
+using System.Reflection.Emit;
 
 namespace MyWebProject.Infrastructure.Data
 {
@@ -65,6 +66,15 @@ namespace MyWebProject.Infrastructure.Data
             .HasOne(x => x.Journey)
             .WithMany(a => a.pictures)
             .OnDelete(DeleteBehavior.Cascade);
+
+
+            builder.Entity<Pictures>()
+            .Property(p => p.Id)
+            .ValueGeneratedOnAdd();
+
+            builder.Entity<PictureByUser>()
+                .Property(p => p.Id)
+                .ValueGeneratedOnAdd();
 
 
 

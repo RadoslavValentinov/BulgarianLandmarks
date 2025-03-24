@@ -2,17 +2,6 @@
     box-sizing: border-box;
 }
 
-/*.row::after {
-    content:none;
-    clear: both;
-    display: table;
-}
-.rowb::before {
-    content: "";
-    clear: both;
-    display: table;
-}
-*/
 
 #cardsPictures {
     width: 350px;
