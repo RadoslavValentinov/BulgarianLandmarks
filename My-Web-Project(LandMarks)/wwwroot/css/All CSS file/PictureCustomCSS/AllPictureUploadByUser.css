@@ -7,14 +7,14 @@
     width: 350px;
     height: 300px;
     margin: 10px;
-  /*  flex:0;*/
+    flex: 0;
     background-color: snow;
     padding: 0px;
     border-radius: 6px;
 }
 
     #cardsPictures img {
-        width: 414px;
+        width: 350px;
         height: 260px;
         border-radius: 6px;
     }

@@ -49,8 +49,9 @@
     <div class="row">
         @if (Model.Any())
         {
-            foreach (var picture in Model.OrderByDescending(p => p.LikeCount > 4).Take(6))
+            foreach (var picture in Model.OrderByDescending(p => p.LikeCount).Take(6))
             {
+                @* location of every landmark to database and set new property to cordinate  *@
                 <div class="col">
 
                     @if (User.Identity!.Name != null)
