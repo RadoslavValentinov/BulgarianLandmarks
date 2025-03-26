@@ -421,7 +421,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
 <<<<<<< HEAD
 =======
 //< script async defer
-//    src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyByeXZQLDlqOPxcx6dpPdiqHfxE5E8KJh0&callback=initMap" >
+//    src = "https://maps.googleapis.com/maps/api/js?key=A&callback=initMap" >
 ////</ script >
 >>>>>>> 727e98d64d694b4f376b8be735ec69b0a61d8d4d
 
