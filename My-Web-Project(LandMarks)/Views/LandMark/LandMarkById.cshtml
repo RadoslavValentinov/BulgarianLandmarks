@@ -143,15 +143,17 @@
 
             @if (User.Identity!.IsAuthenticated)
             {
-                 <a class="btn"  asp-controller="LandMark" asp-action="UpRatting" asp-route-id="@Model.Id">Гласувай</a>
+                <a class="btn" asp-controller="LandMark" asp-action="UpRatting" asp-route-id="@Model.Id">Гласувай</a>
             }
 
-           
+
         </div>
-        
+
 
         @if (Model.TownName != null)
         {
+            <br />
+            <br />
             <br />
             <hr />
             <h3 class="text-md-start">Град: @Model.TownName</h3>
@@ -163,12 +165,30 @@
 
 
 
-@section Scripts {
 
-    <script>
-        $("#btn").click(function () {
-            alert("Успешно гласувахте!");
-        });
+<div class="row">
+
+
+    <div>
+        <div id="map-@Model.Id" style="height: 400px; width: 100%;"></div>
+        <script>
+            function initMap() {
+                var location = { lat: @Model.Latitude, lng: @Model.Longitude };
+                var map = new google.maps.Map(document.getElementById('map-@Model.Id'), {
+                    zoom: 15,
+                    center: location
+                });
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+            }
+        </script>
+    </div>
+
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=MY_API_KEY&callback=initMap">
     </script>
 
-}
+</div>

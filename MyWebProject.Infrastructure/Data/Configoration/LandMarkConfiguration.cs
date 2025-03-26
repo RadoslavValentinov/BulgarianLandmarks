@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MyWebProject.Infrastructure.Data.Models;
 
+
 namespace MyWebProject.Infrastructure.Data.Configoration
 {
     public class LandMarkConfiguration : IEntityTypeConfiguration<LandMark>
@@ -348,7 +349,9 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "че образуват още поне три легнали по гръб мъжки тела.",
                     Rating = 10m,
                     CategoryId= 5,
-                    VideoURL ="https://www.youtube.com/embed/kOHCzCnsFkA?autoplay=1&mute=1"
+                    VideoURL ="https://www.youtube.com/embed/kOHCzCnsFkA?autoplay=1&mute=1",
+                    Latitude = 41.847830,
+                    Longitude = 24.967233
 
                 },
                 new LandMark()
@@ -381,7 +384,10 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Те успели обаче да скрият кръста в подземното манастирско скривалище.",
                     Rating = 9.7m,
                     CategoryId= 5,
-                    VideoURL = "https://www.youtube.com/embed/Wk4CJC3-yms?autoplay=1&mute=1"
+                    VideoURL = "https://www.youtube.com/embed/Wk4CJC3-yms?autoplay=1&mute=1",
+                    Latitude = 41.840717,
+                    Longitude = 24.919390
+
                 },
                 new LandMark()
                 {
@@ -406,7 +412,17 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Както и при други древни светилища, тук се наблюдават няколко нива. Първото ниво се нарича Долна култова площадка, следват издълбани стъпала – преход към по-високата част, където в скалите има изсечени малки дупки.",
                      Rating = 7.1m,
                     CategoryId= 5,
-                    VideoURL = "https://www.youtube.com/embed/dz4uhD5sD44?autoplay=1&mute=1"
+                    VideoURL = "https://www.youtube.com/embed/dz4uhD5sD44?autoplay=1&mute=1",
+                    Latitude = 41.847830,
+                    Longitude = 24.967233
+                    // добави локацията за всички лендмарки и визуализираи в вю модела
+
+
+//< script async defer
+//    src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyByeXZQLDlqOPxcx6dpPdiqHfxE5E8KJh0&callback=initMap" >
+////</ script >
+
+
                 },
                 new LandMark()
                 {
@@ -430,7 +446,10 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     "Дяволското гърло дава начало на различни легенди от времето на траките. Една от тях говори, че именно тук Орфей се спуска в подземното царство на Хадес, за да спаси любимата си – Евридика.",
                      Rating = 6.1m,
                      CategoryId= 5,
-                     VideoURL = "https://www.youtube.com/embed/6FmeTFGhofA?autoplay=1&mute=1"
+                     VideoURL = "https://www.youtube.com/embed/6FmeTFGhofA?autoplay=1&mute=1",
+                     Latitude = 41.615490,
+                     Longitude = 24.379531
+
                 }
             };
 

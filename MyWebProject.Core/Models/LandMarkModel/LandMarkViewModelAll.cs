@@ -34,5 +34,8 @@ namespace MyWebProject.Core.Models.LandMarkModel
             = new List<Pictures>();
 
         public string? UserName { get; set; }
+
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }
