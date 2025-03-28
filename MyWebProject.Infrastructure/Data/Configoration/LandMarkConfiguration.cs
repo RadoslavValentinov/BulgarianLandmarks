@@ -415,16 +415,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     VideoURL = "https://www.youtube.com/embed/dz4uhD5sD44?autoplay=1&mute=1",
                     Latitude = 41.847830,
                     Longitude = 24.967233
-                    // добави локацията за всички лендмарки и визуализираи в вю модела
-
-
-<<<<<<< HEAD
-=======
-//< script async defer
-//    src = "https://maps.googleapis.com/maps/api/js?key=A&callback=initMap" >
-////</ script >
->>>>>>> 727e98d64d694b4f376b8be735ec69b0a61d8d4d
-
 
                 },
                 new LandMark()
