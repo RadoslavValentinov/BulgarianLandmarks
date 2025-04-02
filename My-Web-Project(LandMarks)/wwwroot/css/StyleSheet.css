@@ -242,13 +242,15 @@ li h4 {
 }
 
 #constheight {
-    height: 200px;
+    height: 220px;
     overflow: hidden;
 }
 
 #userPic {
     border-radius: 6px;
-    width:220px;
+    width: 190px;
+    height: 220px;
+    object-fit:cover;
 }
 
 

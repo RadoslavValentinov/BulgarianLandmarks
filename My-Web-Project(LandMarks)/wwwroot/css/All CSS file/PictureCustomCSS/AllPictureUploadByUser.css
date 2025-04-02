@@ -16,10 +16,10 @@
     #cardsPictures img {
         width: 350px;
         height: 260px;
-        border-radius: 6px;
+        object-fit:cover;
     }
 
-#boxFlex {
+ #boxFlex {
     padding: 8px 10px;
     display: flex;
     justify-content: space-between;
