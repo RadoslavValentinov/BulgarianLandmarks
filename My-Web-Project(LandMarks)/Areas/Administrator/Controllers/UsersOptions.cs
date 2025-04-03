@@ -19,7 +19,11 @@ namespace My_Web_Project_LandMarks_.Areas.Administrator.Controllers
         }
 
 
-
+        /// <summary>
+        /// Retrieves all users based on the provided model.
+        /// </summary>
+        /// <param name="model">The model containing user data.</param>
+        /// <returns>View with a collection of all users.</returns>
         [HttpGet]
         public async Task<IActionResult> AllUsers(UserviewModel model)
         {

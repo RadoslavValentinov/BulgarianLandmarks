@@ -144,7 +144,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                 //        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode("www.google.com")}'>clicking here</a>.");
                 if (role != null)
                 {
-                    await userManager.AddToRoleAsync(user, role.Name);
+                    await userManager.AddToRoleAsync(user, role.Name!);
 
                     return RedirectToAction("Login", "User");
                 }
@@ -266,7 +266,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                             user!.Email = model.Email;
                         }
 
-                        await userManager.UpdateAsync(user);
+                        await userManager.UpdateAsync(user!);
                     }
                     catch (ArgumentException ae)
                     {
