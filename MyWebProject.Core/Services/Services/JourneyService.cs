@@ -22,6 +22,12 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
+        /// <summary>
+        /// Creates a new journey.
+        /// </summary>
+        /// <param name="model">The model containing the journey data.</param>
+        /// <returns>The created journey model.</returns>
+        /// <exception cref="NullReferenceException">Thrown when any required field is null or whitespace.</exception>
         [Area("Administrator")]
         public async Task<JourneyViewModel> Create(JourneyViewModel model)
         {
@@ -35,12 +41,11 @@ namespace MyWebProject.Core.Services.Services
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(date)
             || string.IsNullOrWhiteSpace(image))
             {
-                throw new NullReferenceException("The field connot empty");
+                throw new NullReferenceException("The field cannot be empty");
             }
 
             try
             {
-
                 var journey = new Journeys()
                 {
                     Id = model.Id,
@@ -52,7 +57,6 @@ namespace MyWebProject.Core.Services.Services
                     Price = model.Price,
                 };
 
-
                 var pic = new Pictures()
                 {
                     UrlImgAddres = image,
@@ -61,24 +65,28 @@ namespace MyWebProject.Core.Services.Services
 
                 journey.pictures.Add(pic);
 
-
                 await repo.AddAsync(journey);
                 await repo.SaveChangesAsync();
-
             }
             catch (NullReferenceException ne)
             {
-                logger.LogError(string.Format("Journry not added in database"), ne);
-                throw new NullReferenceException("The field connot empty");
+                logger.LogError(string.Format("Journey not added in database"), ne);
+                throw new NullReferenceException("The field cannot be empty");
             }
 
             return model;
         }
 
+
+        /// <summary>
+        /// Deletes a journey by its id.
+        /// </summary>
+        /// <param name="id">The id of the journey to delete.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when the journey is not found.</exception>
         [Area("Administrator")]
         public async Task Delete(int id)
         {
-
             var setersss = await repo.AllReadonly<Journeys>()
                     .Where(z => z.Id == id)
                     .Include(x => x.pictures)
@@ -86,7 +94,7 @@ namespace MyWebProject.Core.Services.Services
 
             if (setersss.Count == 0)
             {
-                throw new ArgumentOutOfRangeException("Item to deleted Not Found!");
+                throw new ArgumentOutOfRangeException("Item to delete not found!");
             }
 
             try
@@ -100,6 +108,13 @@ namespace MyWebProject.Core.Services.Services
             }
         }
 
+
+        /// <summary>
+        /// Edits an existing journey.
+        /// </summary>
+        /// <param name="model">The model containing the updated journey data.</param>
+        /// <returns>The updated journey model.</returns>
+        /// <exception cref="InvalidOperationException">Thrown when the journey is not found or the model is not valid.</exception>
         [Area("Administrator")]
         public async Task<JourneyViewModel> Edit(JourneyViewModel model)
         {
@@ -114,13 +129,11 @@ namespace MyWebProject.Core.Services.Services
 
             if (current == null)
             {
-                throw new InvalidOperationException("Model not added some property is not valid");
+                throw new InvalidOperationException("Model not added, some property is not valid");
             }
-
 
             try
             {
-
                 if (model.Urladdress != null)
                 {
                     var pict = await repo.AllReadonly<Pictures>().FirstAsync(x => x.JourneyId == model.Id && x.IsActiv == true);
@@ -149,13 +162,17 @@ namespace MyWebProject.Core.Services.Services
             }
             catch (InvalidOperationException ie)
             {
-                logger.LogError(string.Format("Model not added some property is not valid"), ie);
+                logger.LogError(string.Format("Model not added, some property is not valid"), ie);
             }
-
 
             return model;
         }
 
+
+        /// <summary>
+        /// Retrieves all active journeys.
+        /// </summary>
+        /// <returns>A collection of active journeys.</returns>
         public async Task<IEnumerable<JourneyGetAllViewModel>> GetAll()
         {
             var all = await repo.AllReadonly<Journeys>()
@@ -169,14 +186,19 @@ namespace MyWebProject.Core.Services.Services
                     StartDate = x.StartDate,
                     Day = x.Day,
                     Price = x.Price,
-                    pictures = x.pictures.Where(p => p.JourneyId == x.Id)
-                   .ToList(),
+                    pictures = x.pictures.Where(p => p.JourneyId == x.Id).ToList(),
                 })
                 .ToListAsync();
 
             return all;
         }
 
+
+        /// <summary>
+        /// Retrieves a journey by its id.
+        /// </summary>
+        /// <param name="id">The id of the journey.</param>
+        /// <returns>The journey model.</returns>
         public async Task<JourneyGetAllViewModel> GetById(int id)
         {
             return await repo.AllReadonly<Journeys>()
@@ -193,9 +215,14 @@ namespace MyWebProject.Core.Services.Services
                     pictures = a.pictures.Where(a => a.JourneyId == id).ToList(),
                 })
                 .FirstAsync();
-
         }
 
+
+        /// <summary>
+        /// Retrieves a journey by its id and returns a new model.
+        /// </summary>
+        /// <param name="id">The id of the journey.</param>
+        /// <returns>The journey model with additional data.</returns>
         public async Task<JourneyViewModel> GetByIdNewModel(int id)
         {
             var pict = await repo.AllReadonly<Pictures>().FirstAsync(x => x.JourneyId == id);

@@ -24,10 +24,15 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
+        /// <summary>
+        /// Adds a new landmark suggested by a user.
+        /// </summary>
+        /// <param name="model">The model containing the landmark data.</param>
+        /// <returns>The added landmark model.</returns>
+        /// <exception cref="NullReferenceException">Thrown when the name or description is null or whitespace.</exception>
         [Authorize]
         public async Task<AddLandMarkViewModel> AddLandMarkOfUsers(AddLandMarkViewModel model)
         {
-
             var sanitizer = new HtmlSanitizer();
 
             string name = sanitizer.Sanitize(model.Name);
@@ -38,12 +43,11 @@ namespace MyWebProject.Core.Services.Services
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description))
             {
-                throw new NullReferenceException("Name and Description connot by Null or Empty");
+                throw new NullReferenceException("Name and Description cannot be null or empty");
             }
 
             try
             {
-
                 var land = new Landmark_suggestions()
                 {
                     Id = model.Id,
@@ -52,7 +56,7 @@ namespace MyWebProject.Core.Services.Services
                     IsActive = true,
                     CategoryId = model.CategoryId,
                     ImageURL = image,
-                    UserName = UserName    
+                    UserName = UserName
                 };
 
                 if (!string.IsNullOrWhiteSpace(videoUrl))
@@ -72,8 +76,12 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
-
-
+        /// <summary>
+        /// Adds a new landmark.
+        /// </summary>
+        /// <param name="model">The model containing the landmark data.</param>
+        /// <returns>The added landmark model.</returns>
+        /// <exception cref="NullReferenceException">Thrown when the name or description is null or whitespace.</exception>
         [Authorize]
         [Area("Administrator")]
         public async Task<AddLandMarkViewModel> AddLandMark([FromBody] AddLandMarkViewModel model)
@@ -88,7 +96,7 @@ namespace MyWebProject.Core.Services.Services
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description))
             {
-                throw new NullReferenceException("Name and Description connot by Null or Empty");
+                throw new NullReferenceException("Name and Description cannot be null or empty");
             }
 
             var category = repo.GetByIdAsync<Category>(model.CategoryId).Result;
@@ -101,7 +109,7 @@ namespace MyWebProject.Core.Services.Services
                     Description = description,
                     Rating = 0,
                     CategoryId = category.Id,
-                    UserName = userName                
+                    UserName = userName
                 };
 
                 if (!string.IsNullOrWhiteSpace(videoUrl))
@@ -123,32 +131,26 @@ namespace MyWebProject.Core.Services.Services
                 await repo.AddAsync(land);
                 await repo.SaveChangesAsync();
 
-
-
-
                 var clear = await repo.AllReadonly<Landmark_suggestions>().Where(x => x.Name == land.Name).ToListAsync();
 
-                if (clear.Count() > 0) 
+                if (clear.Count() > 0)
                 {
                     await DeleteAuto(clear[0].Name);
                 }
-
-                
-
-
             }
             catch (DbUpdateException de)
             {
                 logger.LogError(string.Format("Database not save info try again..."), de);
             }
 
-
             return model;
         }
 
 
-
-
+        /// <summary>
+        /// Retrieves all active categories.
+        /// </summary>
+        /// <returns>A collection of active categories.</returns>
         public async Task<IEnumerable<CategoryViewModel>> AllCategory()
         {
             var all = await repo.AllReadonly<Category>()
@@ -164,6 +166,12 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
+        /// <summary>
+        /// Deletes a landmark suggestion by its name.
+        /// </summary>
+        /// <param name="name">The name of the landmark suggestion to delete.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when the landmark suggestion is not found.</exception>
         [Authorize]
         public async Task DeleteAuto(string name)
         {
@@ -173,12 +181,11 @@ namespace MyWebProject.Core.Services.Services
 
             if (deletedItem.Count == 0)
             {
-                throw new ArgumentOutOfRangeException("LandMark not deleted ,item not found");
+                throw new ArgumentOutOfRangeException("LandMark not deleted, item not found");
             }
 
             try
             {
-
                 await repo.DeleteAsync<Landmark_suggestions>(deletedItem[0].Id);
                 await repo.SaveChangesAsync();
             }
@@ -189,10 +196,12 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
-
-
-
-
+        /// <summary>
+        /// Deletes a landmark by its id.
+        /// </summary>
+        /// <param name="id">The id of the landmark to delete.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when the landmark is not found.</exception>
         [Area("Administrator")]
         public async Task Delete(int id)
         {
@@ -203,15 +212,13 @@ namespace MyWebProject.Core.Services.Services
 
             if (deletedItem.Count == 0)
             {
-                throw new ArgumentOutOfRangeException("LandMark not deleted ,item not found");
+                throw new ArgumentOutOfRangeException("LandMark not deleted, item not found");
             }
 
             try
             {
-
                 await repo.DeleteAsync<LandMark>(deletedItem[0].Id);
                 await repo.SaveChangesAsync();
-
             }
             catch (ArgumentOutOfRangeException ae)
             {
@@ -220,7 +227,12 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
-
+        /// <summary>
+        /// Edits an existing landmark.
+        /// </summary>
+        /// <param name="model">The model containing the updated landmark data.</param>
+        /// <returns>The updated landmark model.</returns>
+        /// <exception cref="NullReferenceException">Thrown when the name or description is null or whitespace.</exception>
         [Area("Administrator")]
         public async Task<LandMarkViewModelAll> Edit(LandMarkViewModelAll model)
         {
@@ -231,16 +243,15 @@ namespace MyWebProject.Core.Services.Services
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description))
             {
-                throw new NullReferenceException("Name and Description connot by Null or Empty");
+                throw new NullReferenceException("Name and Description cannot be null or empty");
             }
 
             var landUpdated = await repo.GetByIdAsync<LandMark>(model.Id);
 
             if (landUpdated == null)
             {
-                throw new NullReferenceException("Model is not vaid");
+                throw new NullReferenceException("Model is not valid");
             }
-
 
             try
             {
@@ -253,12 +264,18 @@ namespace MyWebProject.Core.Services.Services
             }
             catch (NullReferenceException ne)
             {
-                logger.LogError(string.Format("Model is not vaid"), ne);
+                logger.LogError(string.Format("Model is not valid"), ne);
             }
 
             return model;
         }
 
+
+        /// <summary>
+        /// Checks if a landmark exists by its id.
+        /// </summary>
+        /// <param name="id">The id of the landmark.</param>
+        /// <returns>True if the landmark exists, otherwise false.</returns>
         public async Task<bool> ExistById(int id)
         {
             var results = await repo.GetByIdAsync<LandMark>(id);
@@ -269,6 +286,12 @@ namespace MyWebProject.Core.Services.Services
             return false;
         }
 
+
+        /// <summary>
+        /// Retrieves all active landmarks.
+        /// </summary>
+        /// <returns>A collection of active landmarks.</returns>
+        /// <exception cref="Exception">Thrown when the collection is empty.</exception>
         public async Task<IEnumerable<LandMarkViewModelAll>> GetAllLandmark()
         {
             var result = await repo.All<LandMark>()
@@ -292,15 +315,19 @@ namespace MyWebProject.Core.Services.Services
 
             if (result.Count == 0)
             {
-                 logger.LogError("Collection is Empty");
-                 throw new Exception("Collection is Empty");
+                logger.LogError("Collection is Empty");
+                throw new Exception("Collection is Empty");
             }
-
-
 
             return result;
         }
 
+
+        /// <summary>
+        /// Retrieves a landmark by its id.
+        /// </summary>
+        /// <param name="id">The id of the landmark.</param>
+        /// <returns>The landmark model.</returns>
         public async Task<LandMarkViewModelAll> GetById(int id)
         {
             return await repo.AllReadonly<LandMark>()
@@ -317,6 +344,11 @@ namespace MyWebProject.Core.Services.Services
                 }).FirstAsync();
         }
 
+
+        /// <summary>
+        /// Retrieves all active landmark suggestions by users.
+        /// </summary>
+        /// <returns>A collection of active landmark suggestions by users.</returns>
         [Authorize]
         public async Task<IEnumerable<AddLandMarkViewModel>> GetAllByUser()
         {
@@ -338,9 +370,14 @@ namespace MyWebProject.Core.Services.Services
             return result;
         }
 
+
+        /// <summary>
+        /// Increases the rating of a landmark by its id.
+        /// </summary>
+        /// <param name="id">The id of the landmark.</param>
+        /// <returns>True if the rating was successfully increased, otherwise false.</returns>
         public async Task<bool> UpRattingPoint(int id)
         {
-
             var foundId = await repo.GetByIdAsync<LandMark>(id);
 
             if (foundId == null)
@@ -352,16 +389,12 @@ namespace MyWebProject.Core.Services.Services
             if (foundId.Rating < 10 && foundId.Rating + 1.00m < 10)
             {
                 foundId.Rating += 1.00m;
-
                 await repo.SaveChangesAsync();
             }
             else if (foundId.Rating + 1.00m > 10)
             {
                 foundId.Rating = 10;
             }
-
-
-
 
             return true;
         }

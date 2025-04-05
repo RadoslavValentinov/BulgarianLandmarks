@@ -21,6 +21,12 @@ namespace MyWebProject.Core.Services.Services
             logger = _logger;
         }
 
+
+        /// <summary>
+        /// Retrieves a town by its id.
+        /// </summary>
+        /// <param name="id">The id of the town.</param>
+        /// <returns>The town model.</returns>
         public async Task<TownViewModelGetTown> TownsById(int id)
         {
             return await repo.AllReadonly<Town>()
@@ -37,6 +43,11 @@ namespace MyWebProject.Core.Services.Services
                 .FirstAsync();
         }
 
+
+        /// <summary>
+        /// Retrieves all active towns.
+        /// </summary>
+        /// <returns>A collection of active towns.</returns>
         public async Task<IEnumerable<TownViewModelAll>> AllTowns()
         {
             return await repo.AllReadonly<Town>()
@@ -57,6 +68,12 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
+        /// <summary>
+        /// Creates a new town.
+        /// </summary>
+        /// <param name="model">The model containing the town data.</param>
+        /// <returns>The created town model.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the name or description is null or whitespace.</exception>
         [Area("Administrator")]
         public async Task<CreateTownViewModel> CreateTown(CreateTownViewModel model)
         {
@@ -65,9 +82,9 @@ namespace MyWebProject.Core.Services.Services
             string name = sanitizer.Sanitize(model.Name);
             string description = sanitizer.Sanitize(model.Description);
 
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description))
             {
-                throw new ArgumentNullException("Field is Requared conntot by Empty");
+                throw new ArgumentNullException("Field is required and cannot be empty");
             }
 
             try
@@ -87,10 +104,16 @@ namespace MyWebProject.Core.Services.Services
                 logger.LogError(string.Format("Model is not valid"), de);
             }
 
-
             return model;
         }
 
+
+        /// <summary>
+        /// Deletes a town by its id.
+        /// </summary>
+        /// <param name="id">The id of the town to delete.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when the town is not found.</exception>
         [Area("Administrator")]
         public async Task Delete(int id)
         {
@@ -103,9 +126,8 @@ namespace MyWebProject.Core.Services.Services
 
             if (currenttown.Count == 0)
             {
-                throw new ArgumentOutOfRangeException("Id is Not Found");
+                throw new ArgumentOutOfRangeException("Id is not found");
             }
-
 
             try
             {
@@ -116,15 +138,19 @@ namespace MyWebProject.Core.Services.Services
             {
                 logger.LogError(string.Format("Not deleted this town"), ex);
             }
-
         }
 
+
+        /// <summary>
+        /// Retrieves a town by its name.
+        /// </summary>
+        /// <param name="name">The name of the town.</param>
+        /// <returns>The town model.</returns>
         public async Task<TownViewModelGetTown> TownsByName(string name)
         {
-            var sanitaize = new HtmlSanitizer();
+            var sanitizer = new HtmlSanitizer();
 
-            string nameTown = sanitaize.Sanitize(name);
-
+            string nameTown = sanitizer.Sanitize(name);
 
             return await repo.AllReadonly<Town>()
                 .Where(i => i.Name == nameTown && i.IsActive == true)
@@ -141,6 +167,12 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
+        /// <summary>
+        /// Edits an existing town.
+        /// </summary>
+        /// <param name="model">The model containing the updated town data.</param>
+        /// <returns>The updated town model.</returns>
+        /// <exception cref="NullReferenceException">Thrown when the town is not found.</exception>
         [Area("Administrator")]
         public async Task<TownViewModelGetTown> Edit(TownViewModelGetTown model)
         {

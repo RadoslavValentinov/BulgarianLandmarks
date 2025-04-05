@@ -15,9 +15,13 @@ namespace MyWebProject.Core.Services.Services
             repo = _repo;
         }
 
+
+        /// <summary>
+        /// Retrieves all mystery places that have no associated town and have a video URL.
+        /// </summary>
+        /// <returns>A collection of mystery places.</returns>
         public async Task<IEnumerable<MisteryModelView>> MysteryPlaces()
         {
-
             var mysterymodel = await repo.AllReadonly<LandMark>()
                 .Where(x => x.TownId == null && x.VideoURL != null && x.IsActiv == true)
                 .Select(m => new MisteryModelView()

@@ -21,6 +21,12 @@ namespace MyWebProject.Core.Services.Services
             logger = _logger;
         }
 
+
+
+        /// <summary>
+        /// Retrieves all active categories.
+        /// </summary>
+        /// <returns>A collection of active categories.</returns>
         public async Task<IEnumerable<CategoryViewModel>> AllCategory()
         {
             var all = await repo.AllReadonly<Category>()
@@ -35,6 +41,13 @@ namespace MyWebProject.Core.Services.Services
             return all;
         }
 
+
+        /// <summary>
+        /// Creates a new category.
+        /// </summary>
+        /// <param name="model">The model containing the category data.</param>
+        /// <returns>The created category model.</returns>
+        /// <exception cref="NullReferenceException">Thrown when the category name is null or whitespace.</exception>
         [Area("Administrator")]
         public async Task<CreateCategoryViewModel> CreateCategory(CreateCategoryViewModel model)
         {
@@ -44,7 +57,7 @@ namespace MyWebProject.Core.Services.Services
 
             if (string.IsNullOrWhiteSpace(NameOfCategory))
             {
-                throw new NullReferenceException("Name conot null and whritespace");
+                throw new NullReferenceException("Name cannot be null or whitespace");
             }
 
             var newCategory = new Category()
@@ -59,21 +72,27 @@ namespace MyWebProject.Core.Services.Services
             }
             catch (Exception ex)
             {
-                logger.LogError(string.Format("Place try again later"), ex);
+                logger.LogError(string.Format("Please try again later"), ex);
             }
 
             return model;
         }
 
+
+        /// <summary>
+        /// Deletes a category by its id.
+        /// </summary>
+        /// <param name="id">The id of the category to delete.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="NullReferenceException">Thrown when the category is not found.</exception>
         [Area("Administrator")]
         public async Task Delete(int id)
         {
-
             var catDeleted = await repo.GetByIdAsync<Category>(id);
 
             if (catDeleted == null)
             {
-                throw new NullReferenceException("Тhe category you want to delete was not found!");
+                throw new NullReferenceException("The category you want to delete was not found!");
             }
 
             try
@@ -83,10 +102,17 @@ namespace MyWebProject.Core.Services.Services
             }
             catch (Exception ex)
             {
-                logger.LogError(string.Format("Тhe category Not deleted"), ex);
+                logger.LogError(string.Format("The category was not deleted"), ex);
             }
         }
 
+
+        /// <summary>
+        /// Edits an existing category.
+        /// </summary>
+        /// <param name="model">The model containing the updated category data.</param>
+        /// <returns>The updated category model.</returns>
+        /// <exception cref="NullReferenceException">Thrown when the category name is null or whitespace.</exception>
         [Area("Administrator")]
         public async Task<CategoryViewModel> EditCategory(CategoryViewModel model)
         {
@@ -99,7 +125,7 @@ namespace MyWebProject.Core.Services.Services
                 var currentCategory = await repo.GetByIdAsync<Category>(model.Id);
                 if (string.IsNullOrWhiteSpace(nameCategory))
                 {
-                    throw new NullReferenceException("Name conot null and whritespace");
+                    throw new NullReferenceException("Name cannot be null or whitespace");
                 }
 
                 currentCategory.Name = nameCategory;
@@ -109,12 +135,18 @@ namespace MyWebProject.Core.Services.Services
             }
             catch (ArgumentException ex)
             {
-                logger.LogError(string.Format("Place try again later"), ex);
+                logger.LogError(string.Format("Please try again later"), ex);
             }
 
             return model;
         }
 
+
+        /// <summary>
+        /// Retrieves a category by its id.
+        /// </summary>
+        /// <param name="id">The id of the category.</param>
+        /// <returns>The category model.</returns>
         public async Task<CategoryViewModel> GetById(int id)
         {
             return await repo.AllReadonly<Category>()

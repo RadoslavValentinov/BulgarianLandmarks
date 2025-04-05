@@ -19,7 +19,6 @@ namespace MyWebProject.Core.Services.Services
         private readonly IRepository repo;
         private readonly ILogger<HomeServices> logger;
 
-
         public HomeServices(IRepository _repo,
             ILogger<HomeServices> _logger)
         {
@@ -28,6 +27,10 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
+        /// <summary>
+        /// Retrieves all pictures uploaded by users.
+        /// </summary>
+        /// <returns>A collection of pictures uploaded by users.</returns>
         public async Task<IEnumerable<AddPictureViewModel>> AllPictureOfUserUpload()
         {
             var allPicture = await repo.AllReadonly<Pictures>()
@@ -42,20 +45,23 @@ namespace MyWebProject.Core.Services.Services
                     PictureData = x.ArrayPicture,
                     LikeCount = x.LikeCount,
                     UserName = x.UserName
-
                 }).ToListAsync();
 
             return allPicture;
         }
 
 
-
+        /// <summary>
+        /// Retrieves all data for the admin home model.
+        /// </summary>
+        /// <param name="model">The admin home model containing the data.</param>
+        /// <returns>The updated admin home model with all data counts.</returns>
         [Authorize]
         [Area("Administrator")]
         public AdminHomeModelAllData AllData(AdminHomeModelAllData model)
         {
-            model.CountOfUsers =  repo.All<Users>().Where(z => z.IsActiv == true).Count();
-            model.NotActivUsers =  repo.All<Users>().Where(z => z.IsActiv == false).Count();
+            model.CountOfUsers = repo.All<Users>().Where(z => z.IsActiv == true).Count();
+            model.NotActivUsers = repo.All<Users>().Where(z => z.IsActiv == false).Count();
 
             model.CountOfEvents = repo.All<Cultural_events>().Where(z => z.IsActiv == true).Count();
             model.NotActiveEvents = repo.All<Cultural_events>().Where(z => z.IsActiv == false).Count();
@@ -82,7 +88,10 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
-
+        /// <summary>
+        /// Retrieves all pictures that are not associated with a town, landmark, or journey.
+        /// </summary>
+        /// <returns>A collection of pictures.</returns>
         public async Task<IEnumerable<Pictures>> AllPicture()
         {
             var result = await repo.All<Pictures>()
@@ -94,6 +103,11 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
+        /// <summary>
+        /// Retrieves all pictures uploaded by a specific user.
+        /// </summary>
+        /// <param name="userName">The username of the user.</param>
+        /// <returns>A collection of pictures uploaded by the user.</returns>
         public async Task<IEnumerable<PicturesViewModel>> AllUserPictures(string userName)
         {
             var result = await repo.All<Pictures>()
@@ -110,6 +124,12 @@ namespace MyWebProject.Core.Services.Services
             return result;
         }
 
+
+        /// <summary>
+        /// Retrieves all cultural events associated with a specific user.
+        /// </summary>
+        /// <param name="userName">The username of the user.</param>
+        /// <returns>A collection of cultural events associated with the user.</returns>
         public async Task<IEnumerable<AllCultureEventViewModel>> AllUserEvents(string userName)
         {
             var result = await repo.All<Cultural_events>()
@@ -132,6 +152,11 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
+        /// <summary>
+        /// Searches for items based on the provided search string.
+        /// </summary>
+        /// <param name="item">The search string.</param>
+        /// <returns>A collection of search results.</returns>
         public async Task<IEnumerable> ShearchItem(string item)
         {
             List<SearchViewModel> search = new List<SearchViewModel>();
@@ -141,9 +166,8 @@ namespace MyWebProject.Core.Services.Services
                 var sanitizer = new HtmlSanitizer();
                 string srcitem = sanitizer.Sanitize(item.ToLower());
 
-
                 var searchTown = await repo.All<Town>()
-                    .Where(x => x.Name.Contains(srcitem) && x.IsActive == true)              
+                    .Where(x => x.Name.Contains(srcitem) && x.IsActive == true)
                      .Select(x => new SearchViewModel()
                      {
                          Name = x.Name,
