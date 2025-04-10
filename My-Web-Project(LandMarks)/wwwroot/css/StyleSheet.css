@@ -275,13 +275,46 @@ li h4 {
     }
 
 
+/* div news page */
+
+
+#news{
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+}
+
 #weather {
     width: 350px;
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
+
 }
+
+
+#eventsSlide {
+    width: 350px;
+    height: 205px;
+    background-color: #f0f0f0;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+#eventsSlide:hover{
+    height:220px;
+}
+
+
+#jorneyNews {
+    width: 350px;
+    height: 205px;
+    background-color: #f0f0f0;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
 
 
 
