@@ -38,6 +38,21 @@ namespace MyWebProject.Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
 
+            builder.Entity<LandMark>()
+                .Property(l => l.Rating)
+                .HasPrecision(18, 2);
+
+
+            builder.Entity<Journeys>()
+                .Property(l => l.Price)
+                .HasPrecision(18, 2);
+
+            builder.Entity<Journeys>()
+                .Property(l => l.Rating)
+                .HasPrecision(18, 2);
+
+
+
             builder.Entity<Cultural_events>()
                 .HasMany(x => x.AllUsers)
                 .WithMany(x => x.CulturalEvents)
