@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
+using Newtonsoft.Json;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {
@@ -97,6 +98,8 @@ namespace My_Web_Project_LandMarks_.Controllers
         {
             var model = await service.AllEvent();
 
+
+            // other way to get the data json return
             return View(model);
         }
 

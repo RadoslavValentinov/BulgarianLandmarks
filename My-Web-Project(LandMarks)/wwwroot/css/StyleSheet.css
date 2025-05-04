@@ -1,5 +1,9 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
+*{
+    box-sizing:border-box;
+}
+
 body {
     background: rgb(225,233,233);
     background: radial-gradient(circle, rgba(225,233,233,1) 51%, rgba(212,211,208,0.9327380610447304) 96%);
@@ -294,17 +298,45 @@ li h4 {
 }
 
 
-#eventsSlide {
+
+
+#eventCarousel #slideCarosel img {
+    object-fit: cover;
+    width: 350px;
+    height: 210px;
+    border-radius: 6px;
+}
+
+#eventCarousel #slideCarosel {
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+
+.event-card {
+    width: 350px;
+    height: 205px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.event-image {
+    object-fit:cover;
+    width: 350px;
+    height: 205px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#eventsSlides {
     width: 350px;
     height: 205px;
     background-color: #f0f0f0;
     margin-top: 20px;
     border-radius: 10px;
 }
-
-#eventsSlide:hover{
-    height:220px;
+#eventCarousel .carousel-inner {
+    transition: transform 0.2s ease-in-out, opacity 0.6s ease-in-out;
 }
+
 
 
 #jorneyNews {
