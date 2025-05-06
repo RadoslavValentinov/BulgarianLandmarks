@@ -8,6 +8,7 @@
 <div id="news">
 
     <div id="weather">
+        <h3>Времето</h3>
         <div class="UQt4rd">
             <g-img class="ESCdRb" id="ewzi8b">
                 <img id="dimg_kyDxZ4GQOOGJ7NYP_L6JkQY_1"
@@ -60,22 +61,47 @@
 
     <div id="eventsSlides">
 
-        <h1>Събития Новини</h1>
-        <hr />
+        <h3>Екскурзий</h3>
+        @inject MyWebProject.Core.Services.IServices.IJourneyServise _journeyService
 
-
+        @{
+            var journey = _journeyService.GetAll();
+        }
+        <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+            <div id="slideCarosel" class="carousel-inner">
+                @foreach (var journeyItem in await journey)
+                {
+                    <div class="carousel-item @(journeyItem == journey.Result.First() ? "active" : "")">
+                        <div class="event-card">
+                            @{
+                                var getPictures = journeyItem.pictures.FirstOrDefault(s=> s.JourneyId == journeyItem.Id);
+                            }
+                            <img src="@getPictures!.UrlImgAddres" width="300" height="250" alt="@journeyItem.Name" class="event-image d-block mx-auto" />
+                        </div>
+                    </div>
+                }
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
 
     </div>
 
 
     <div id="eventsSlide">
-
+        <h3>Събития</h3>
         @inject MyWebProject.Core.Services.IServices.ICultureEventService _cultureEventService
 
         @{
             var events = _cultureEventService.AllEvent();
         }
-        <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+        <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
             <div id="slideCarosel" class="carousel-inner">
                 @foreach (var eventItem in await events)
                 {
@@ -103,7 +129,7 @@
 <br />
 
 
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="https://housemilka.com/wp-content/uploads/yagodina-1305d2.jpg" class="d-block w-100" alt="Орлово око">
