@@ -244,7 +244,7 @@ sample excursions as well as cultural events for the various cities (theatre pro
  <br>
  <br>
  
- <div>
+<section>
       <h4>Update main page</h4>
       <br>
       <br>
@@ -257,4 +257,4 @@ sample excursions as well as cultural events for the various cities (theatre pro
       The second div (in the middle "eventsSlides") visualizes pictures of all excursions offered in the application.
       The third div ("eventsSlide") visualizes pictures of all cultural events via a carousel.
     </p>
- </div>
+</section>
