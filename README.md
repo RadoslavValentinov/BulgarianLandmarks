@@ -251,6 +251,6 @@ sample excursions as well as cultural events for the various cities (theatre pro
       The first div "weather" shows the current temperature (weather forecast) by taking the user's location. 
       The second div (in the middle "eventsSlides") visualizes pictures of all excursions offered in the application.
       The third div ("eventsSlide") visualizes pictures of all cultural events via a carousel.
-   </p>
+    </p>
  </section>
 
