@@ -241,8 +241,13 @@ sample excursions as well as cultural events for the various cities (theatre pro
 
 
  </section>
-
+ <br>
+ <br>
+ 
  <div>
+      <h4>Update main page</h4>
+      <br>
+      <br>
       <img src="https://github.com/user-attachments/assets/765a33d7-46fe-4c2d-86b5-168f5c097ceb" width="450" />
     
 
