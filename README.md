@@ -242,9 +242,9 @@ sample excursions as well as cultural events for the various cities (theatre pro
 
  </section>
 
- <section>
-  
-    https://github.com/user-attachments/assets/765a33d7-46fe-4c2d-86b5-168f5c097ceb
+ <div>
+      <img src="https://github.com/user-attachments/assets/765a33d7-46fe-4c2d-86b5-168f5c097ceb" width="450" />
+    
 
     <p>
       Adding functionality to the home page including three div elements.
@@ -252,5 +252,4 @@ sample excursions as well as cultural events for the various cities (theatre pro
       The second div (in the middle "eventsSlides") visualizes pictures of all excursions offered in the application.
       The third div ("eventsSlide") visualizes pictures of all cultural events via a carousel.
     </p>
- </section>
-
+ </div>
