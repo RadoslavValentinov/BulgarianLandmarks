@@ -27,8 +27,8 @@ h1 {
     margin-bottom: 120px;
 }
 
-/* nav bar custom */
 
+/* nav bar custom */
 .navbar-brand {
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
@@ -324,7 +324,6 @@ li h4 {
     object-fit:cover;
     width: 350px;
     height: 205px;
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
