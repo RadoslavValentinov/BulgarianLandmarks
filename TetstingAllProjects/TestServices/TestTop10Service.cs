@@ -12,7 +12,7 @@ namespace TetstingAllProjects.TestServices
     [TestFixture]
     public class TestTop10Service
     {
-        private ITop10Destination services;
+        private Top10Destination? services;
         private ApplicationDbContext context;
 
 
@@ -56,7 +56,7 @@ namespace TetstingAllProjects.TestServices
                 .ToListAsync();
 
 
-            Assert.That(allService.Count(), Is.EqualTo(dbAll.Count()));
+            Assert.That(allService.Count(), Is.EqualTo(dbAll.Count));
         }
 
         [Test]
@@ -86,7 +86,7 @@ namespace TetstingAllProjects.TestServices
                 .ToListAsync();
 
 
-            Assert.That(allService.Count(), Is.EqualTo(dbAll.Count()));
+            Assert.That(allService.Count(), Is.EqualTo(dbAll.Count));
         }
 
 

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MyWebProject.Core.Services.IServices;
 using MyWebProject.Core.Services.Services;
 using MyWebProject.Infrastructure.Data;
 using MyWebProject.Infrastructure.Data.Common;
@@ -11,16 +10,13 @@ namespace TetstingAllProjects.TestServices
     [TestFixture]
     public class TestHomeServices
     {
-
-        private IHomeService service;
+        private HomeServices? service;
         private ApplicationDbContext context;
-        private readonly ILogger<HomeServices> logger;
-
+        private readonly ILogger<HomeServices>? logger;
 
         [SetUp]
         public void Setup()
         {
-
             var contextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
                  .UseInMemoryDatabase("LandDB")
                  .Options;
@@ -31,12 +27,11 @@ namespace TetstingAllProjects.TestServices
             context.Database.EnsureCreated();
         }
 
-
         [Test]
         public async Task Test_Method_AllPicture_Return_Collection_Corectly()
         {
             var repo = new Repository(context);
-            service = new HomeServices(repo, logger);
+            service = new HomeServices(repo, logger!);
 
             var allServicePicture = await service.AllPicture();
 
@@ -44,10 +39,8 @@ namespace TetstingAllProjects.TestServices
                 .Where(x => x.TownId == null && x.LandMarkId == null && x.JourneyId == null)
                 .ToArrayAsync();
 
-
-            Assert.That(allServicePicture.Count(), Is.EqualTo(allDBPicture.Count()));
+            Assert.That(allServicePicture.Count(), Is.EqualTo(allDBPicture.Length));
         }
-
 
         [TearDown]
         public void TearDown()

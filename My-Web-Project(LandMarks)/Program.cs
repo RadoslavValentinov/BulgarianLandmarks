@@ -14,6 +14,7 @@ namespace My_Web_Project_LandMarks_
     {
         public static async Task Main(string[] args)
         {
+         
             var builder = WebApplication.CreateBuilder(args);
 
 
@@ -90,8 +91,6 @@ namespace My_Web_Project_LandMarks_
             app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
-
-
 
 
 

@@ -18,11 +18,11 @@ namespace My_Web_Project_LandMarks_.Controllers
         private readonly UserManager<Users> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IRepository repo;
-        private ILogger<UserController> logger;
+        private readonly ILogger<UserController> logger;
         private readonly IEmailSender emailSender;
-        private  IUserService service;
+        private readonly IUserService service;
 
-        public UserController(SignInManager<Users> _signInManager,
+        protected UserController(SignInManager<Users> _signInManager,
             UserManager<Users> _userManager,
             RoleManager<IdentityRole> _roleManager,
             IRepository _repo,
@@ -247,7 +247,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                     try
                     {
                         var userId = userManager.GetUserId(HttpContext.User);
-                        var user = userManager.FindByIdAsync(userId).Result;
+                        var user = userManager.FindByIdAsync(userId!).Result;
 
                         if (!string.IsNullOrEmpty(model.UserName))
                         {

@@ -69,7 +69,7 @@ namespace MyWebProject.Core.Services.Services
             }
             catch (Exception ex)
             {
-                logger.LogError(string.Format("Model is not valid"), ex);
+                logger.LogError(message: string.Format("Model is not valid"), ex);
             }
 
             return model;
@@ -105,6 +105,7 @@ namespace MyWebProject.Core.Services.Services
             {
                 var land = new LandMark()
                 {
+                    Id = model.Id,
                     Name = name,
                     Description = description,
                     Rating = 0,
@@ -133,7 +134,7 @@ namespace MyWebProject.Core.Services.Services
 
                 var clear = await repo.AllReadonly<Landmark_suggestions>().Where(x => x.Name == land.Name).ToListAsync();
 
-                if (clear.Count() > 0)
+                if (clear.Count > 0)
                 {
                     await DeleteAuto(clear[0].Name);
                 }
@@ -255,6 +256,7 @@ namespace MyWebProject.Core.Services.Services
 
             try
             {
+                landUpdated.Id = model.Id;
                 landUpdated!.Name = name;
                 landUpdated.Description = description;
                 landUpdated.Rating = model.Rating;
@@ -328,9 +330,10 @@ namespace MyWebProject.Core.Services.Services
         /// </summary>
         /// <param name="id">The id of the landmark.</param>
         /// <returns>The landmark model.</returns>
+        /// <exception cref="InvalidOperationException">Thrown when the landmark is not found.</exception>
         public async Task<LandMarkViewModelAll> GetById(int id)
         {
-            return await repo.AllReadonly<LandMark>()
+            var landmark = await repo.AllReadonly<LandMark>()
                 .Where(l => l.Id == id && l.IsActiv == true)
                 .Select(x => new LandMarkViewModelAll()
                 {
@@ -341,7 +344,14 @@ namespace MyWebProject.Core.Services.Services
                     TownName = x.Town!.Name,
                     VideoUrl = x.VideoURL,
                     Pictures = x.Pictures.Where(p => p.LandMarkId == x.Id).ToList()
-                }).FirstAsync();
+                }).FirstOrDefaultAsync();
+
+            if (landmark == null)
+            {
+                throw new InvalidOperationException($"Landmark with ID {id} not found.");
+            }
+
+            return landmark;
         }
 
 

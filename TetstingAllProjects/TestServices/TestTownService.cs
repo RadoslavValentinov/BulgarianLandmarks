@@ -12,7 +12,7 @@ namespace TetstingAllProjects.TestServices
     [TestFixture]
     public class TestTownService
     {
-        private ITownService? service;
+        private TownService? service;
         private ApplicationDbContext context;
         private readonly ILogger<TownService>? logger;
 
@@ -53,8 +53,11 @@ namespace TetstingAllProjects.TestServices
 
             var targetTown = await service.TownsByName("Плевен");
 
-            Assert.That(targetTown.Name, Is.EqualTo("Плевен"));
-            Assert.That(targetTown.Id, Is.EqualTo(3));
+            Assert.Multiple(() =>
+            {
+                Assert.That(targetTown.Name, Is.EqualTo("Плевен"));
+                Assert.That(targetTown.Id, Is.EqualTo(3));
+            });
         }
 
 
@@ -69,8 +72,7 @@ namespace TetstingAllProjects.TestServices
 
             var townsDb = await repo.AllReadonly<Town>().ToListAsync();
 
-            Assert.That(townByService.Count(), Is.EqualTo(townsDb.Count()));
-
+            Assert.That(townByService.Count(), Is.EqualTo(townsDb.Count));
         }
 
 
@@ -88,17 +90,18 @@ namespace TetstingAllProjects.TestServices
                 Id = 100,
                 Name = "Русе",
                 Description = "Русе е край реюен град с добро... ",
-
             });
 
             var getNewTown = await service.TownsById(100);
 
             var dbTown = await repo.AllReadonly<Town>().ToListAsync();
 
-            Assert.That(townCount.Count() + 1, Is.EqualTo(dbTown.Count()));
-
-            Assert.That(getNewTown.Name, Is.EqualTo("Русе"));
-            Assert.That(getNewTown.Description, Is.EqualTo("Русе е край реюен град с добро... "));
+            Assert.Multiple(() =>
+            {
+                Assert.That(townCount.Count() + 1, Is.EqualTo(dbTown.Count)); // Fixed: Replaced Enumerable.Count() with Count property
+                Assert.That(getNewTown.Name, Is.EqualTo("Русе"));
+                Assert.That(getNewTown.Description, Is.EqualTo("Русе е край реюен град с добро... "));
+            });
         }
 
 
@@ -142,8 +145,7 @@ namespace TetstingAllProjects.TestServices
 
             await service.Delete(100);
 
-
-            Assert.That(all.Count(), Is.EqualTo(dbTown.Count() - 1));
+            Assert.That(all.Count(), Is.EqualTo(dbTown.Count - 1)); // Fixed: Replaced Enumerable.Count() with Count property
         }
 
         [Test]
@@ -157,7 +159,6 @@ namespace TetstingAllProjects.TestServices
                 Id = 100,
                 Name = "Русе",
                 Description = "Русе е край реюен град с добро... ",
-
             });
 
             await service.Edit(new TownViewModelGetTown()
@@ -169,8 +170,11 @@ namespace TetstingAllProjects.TestServices
 
             var getUpdated = await service.TownsById(100);
 
-            Assert.That(getUpdated.Name, Is.EqualTo("Созопол"));
-            Assert.That(getUpdated.Description, Is.EqualTo("Созопол е край морски град с добро... "));
+            Assert.Multiple(() =>
+            {
+                Assert.That(getUpdated.Name, Is.EqualTo("Созопол"));
+                Assert.That(getUpdated.Description, Is.EqualTo("Созопол е край морски град с добро... "));
+            });
         }
 
         [Test]

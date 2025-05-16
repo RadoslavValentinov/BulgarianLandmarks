@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Moq;
 using MyWebProject.Core.Models.LandMarkModel;
 using MyWebProject.Core.Services.IServices;
 using MyWebProject.Core.Services.Services;
@@ -64,9 +65,12 @@ namespace TetstingAllProjects.TestServices
 
             var getById = await service.GetById(100);
 
-            Assert.That(allLadmark.Count() + 1, Is.EqualTo(getAllLandmark.Count()));
-            Assert.That(getById.Name, Is.EqualTo("Зоопарк Плевен"));
-            Assert.That(getById.Description, Is.EqualTo("Зоопаркът е построен по шремето на социализмът... "));
+            Assert.Multiple(() =>
+            {
+                Assert.That(allLadmark.Count() + 1, Is.EqualTo(getAllLandmark.Count()));
+                Assert.That(getById.Name, Is.EqualTo("Зоопарк Плевен"));
+                Assert.That(getById.Description, Is.EqualTo("Зоопаркът е построен по шремето на социализмът... "));
+            });
         }
 
         [Test]
@@ -90,11 +94,13 @@ namespace TetstingAllProjects.TestServices
 
             var getById = await repo.GetByIdAsync<Landmark_suggestions>(100);
 
-            Assert.That(allLadmark.Count() + 1, Is.EqualTo(getAllLandmark.Count()));
-            Assert.That(getById.Name, Is.EqualTo("Зоопарк Плевен"));
-            Assert.That(getById.Description, Is.EqualTo("Зоопаркът е построен по шремето на социализмът... "));
+            Assert.Multiple(() =>
+            {
+                Assert.That(allLadmark.Count() + 1, Is.EqualTo(getAllLandmark.Count()));
+                Assert.That(getById.Name, Is.EqualTo("Зоопарк Плевен"));
+                Assert.That(getById.Description, Is.EqualTo("Зоопаркът е построен по шремето на социализмът... "));
+            });
         }
-
 
         [Test]
         public void Method_AddNewUser_LandMark_Throw_Exeption_To_Model_Property_Is_Empty()
@@ -223,13 +229,29 @@ namespace TetstingAllProjects.TestServices
 
             var getUpdated = await service.GetById(100);
 
-            Assert.That(getUpdated.Name, Is.EqualTo("Зоопарк Стара Загора"));
-            Assert.That(getUpdated.Description, Is.EqualTo("Зоопаркът е изшестен с разнообразието от вишотни... "));
-            Assert.That(getUpdated.Rating, Is.EqualTo(9.9));
+            Assert.Multiple(() =>
+            {
+                Assert.That(getUpdated.Name, Is.EqualTo("Зоопарк Стара Загора"));
+                Assert.That(getUpdated.Description, Is.EqualTo("Зоопаркът е изшестен с разнообразието от вишотни... "));
+                Assert.That(getUpdated.Rating, Is.EqualTo(9.9));
+            });
         }
 
 
+        [Test]
+        public  void DeleteAuto_ThrowsArgumentOutOfRangeException_WhenNotFound()
+        {
+           
+            var mockRepo = new Mock<IRepository>();
+            var mockLogger = new Mock<ILogger<LandMarkService>>();
+            var testName = "NonExistentLandmark";
 
+            mockRepo.Setup(r => r.AllReadonly<Landmark_suggestions>())
+                .Returns(new List<Landmark_suggestions>().AsQueryable());
 
+            var service = new LandMarkService(mockRepo.Object, mockLogger.Object);
+
+            Assert.ThrowsAsync<InvalidOperationException>(() => service.DeleteAuto(testName));
+        }
     }
 }

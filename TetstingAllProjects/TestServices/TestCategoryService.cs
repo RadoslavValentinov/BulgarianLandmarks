@@ -12,23 +12,18 @@ namespace TetstingAllProjects.TestServices
     [TestFixture]
     public class TestCategoryService
     {
-        private IRepository repository;
-        private ICategoryService services;
+        private CategoryService? services;
         private ApplicationDbContext context;
-        private ILogger<CategoryService> logger;
-
+        private readonly ILogger<CategoryService>? logger;
 
         [SetUp]
         public void Setup()
         {
-
             var contextOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
                  .UseInMemoryDatabase("LandDB")
                  .Options;
 
             context = new ApplicationDbContext(contextOptions);
-
-
 
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
@@ -38,7 +33,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestNew_category()
         {
             var repo = new Repository(context);
-            services = new CategoryService(repo, logger);
+            services = new CategoryService(repo, logger!);
 
             await repo.AddAsync(new Category()
             {
@@ -51,22 +46,20 @@ namespace TetstingAllProjects.TestServices
             Assert.That(all.Count(), Is.EqualTo(9));
         }
 
-
         [Test]
         public void TestMethod_Create_Added_Trow_Exeption_Empty_Model()
         {
             var repo = new Repository(context);
-            services = new CategoryService(repo, logger);
+            services = new CategoryService(repo, logger!);
 
             Assert.ThrowsAsync<NullReferenceException>(async () => await services.CreateCategory(new CreateCategoryViewModel()));
         }
-
 
         [Test]
         public async Task TestMethod_Create_Added_New_Category_Correctly()
         {
             var repo = new Repository(context);
-            services = new CategoryService(repo, logger);
+            services = new CategoryService(repo, logger!);
 
             var model = new CreateCategoryViewModel()
             {
@@ -86,31 +79,29 @@ namespace TetstingAllProjects.TestServices
         public void TestMethod_Create_Added_Trow_Exeption()
         {
             var repo = new Repository(context);
-            services = new CategoryService(repo, logger);
+            services = new CategoryService(repo, logger!);
 
-            Assert.ThrowsAsync<NullReferenceException>(async () => await services.CreateCategory(new CreateCategoryViewModel() { Name = null }));
-            Assert.ThrowsAsync<NullReferenceException>(async () => await services.CreateCategory(new CreateCategoryViewModel() { Name = " " }));
-
+            Assert.Multiple(() =>
+            {
+                Assert.ThrowsAsync<NullReferenceException>(async () => await services.CreateCategory(new CreateCategoryViewModel() { Name = null! }));
+                Assert.ThrowsAsync<NullReferenceException>(async () => await services.CreateCategory(new CreateCategoryViewModel() { Name = " " }));
+            });
         }
-
 
         [Test]
         public void TestMethod_Create_Aow_Exeption()
         {
             var repo = new Repository(context);
-            services = new CategoryService(repo, logger);
+            services = new CategoryService(repo, logger!);
 
             Assert.ThrowsAsync<NullReferenceException>(async () => await services.CreateCategory(new CreateCategoryViewModel() { Name = string.Empty }));
         }
-
-
-
 
         [Test]
         public async Task TestMethod_Edit_Set_New_Value_Correctly()
         {
             var repo = new Repository(context);
-            services = new CategoryService(repo, logger);
+            services = new CategoryService(repo, logger!);
 
             await repo.AddAsync(new Category()
             {
@@ -126,7 +117,6 @@ namespace TetstingAllProjects.TestServices
                 Name = "NewName"
             });
 
-
             var dbHouse = await repo.GetByIdAsync<Category>(9);
 
             Assert.That(dbHouse.Name, Is.EqualTo("NewName"));
@@ -136,7 +126,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethod_Edit_Method_Throw_Exeption()
         {
             var repo = new Repository(context);
-            services = new CategoryService(repo, logger);
+            services = new CategoryService(repo, logger!);
 
             await repo.AddAsync(new Category()
             {
@@ -146,17 +136,15 @@ namespace TetstingAllProjects.TestServices
 
             await repo.SaveChangesAsync();
 
-            Assert.ThrowsAsync<NullReferenceException>(async () => await services.EditCategory(new CategoryViewModel() { Id = 9, Name = null }));
+            Assert.ThrowsAsync<NullReferenceException>(async () => await services.EditCategory(new CategoryViewModel() { Id = 9, Name = null! }));
             Assert.ThrowsAsync<NullReferenceException>(async () => await services.EditCategory(new CategoryViewModel() { Id = 9, Name = " " }));
         }
-
-        //Test if deleted item is null
 
         [Test]
         public async Task Test_Delete_Category()
         {
             var repo = new Repository(context);
-            services = new CategoryService(repo, logger);
+            services = new CategoryService(repo, logger!);
 
             await repo.AddAsync(new Category()
             {
@@ -168,22 +156,23 @@ namespace TetstingAllProjects.TestServices
 
             var itemDelite = await repo.GetByIdAsync<Category>(9);
 
-
             await services.Delete(itemDelite.Id);
 
             var allCategory = await services.AllCategory();
             var Delite = await repo.GetByIdAsync<Category>(9);
 
-            Assert.That(allCategory.Count(), Is.EqualTo(8));
-            Assert.That(Delite, Is.EqualTo(null));
+            Assert.Multiple(() =>
+            {
+                Assert.That(allCategory.Count(), Is.EqualTo(8));
+                Assert.That(Delite, Is.EqualTo(null));
+            });
         }
 
-
         [Test]
-        public async Task TestDeleteIfCategoryIsNull()
+        public void TestDeleteIfCategoryIsNull()
         {
             var repo = new Repository(context);
-            services = new CategoryService(repo, logger);
+            services = new CategoryService(repo, logger!);
 
             Assert.ThrowsAsync<NullReferenceException>(async () => await services.Delete(16));
         }
