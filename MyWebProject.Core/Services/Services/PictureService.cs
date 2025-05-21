@@ -90,10 +90,11 @@ namespace MyWebProject.Core.Services.Services
                 var sanitizer = new HtmlSanitizer();
                 string image = sanitizer.Sanitize(model.UrlImgAddres!);
 
-                if (string.IsNullOrWhiteSpace(image) && model.PictureData != null)
+                if (!string.IsNullOrWhiteSpace(image) || model.PictureData != null || !string.IsNullOrEmpty(image))
                 {
                     var newPicture = new Pictures()
                     {
+                        Id = model.Id,
                         UrlImgAddres = image,
                         LandMarkId = model.LandMark,
                         TownId = model.Town,
@@ -105,6 +106,10 @@ namespace MyWebProject.Core.Services.Services
                     await repo.AddAsync(newPicture);
                     var deleteItem = repo.DeleteAsync<PictureByUser>(model.Id);
                     await repo.SaveChangesAsync();
+                }
+                else
+                {
+                    throw new ArgumentNullException("This picture is not added");
                 }
             }
             catch (ArgumentNullException ae)
@@ -142,6 +147,10 @@ namespace MyWebProject.Core.Services.Services
 
                     await repo.AddAsync(newPicture);
                     await repo.SaveChangesAsync();
+                }
+                else
+                {
+                    throw new ArgumentNullException("This picture is not added");
                 }
             }
             catch (ArgumentNullException ae)

@@ -70,12 +70,14 @@ namespace TetstingAllProjects.TestServices
 
             var getNewPicture = await service.GetById(200);
             var url = new HtmlSanitizer();
-
-            Assert.That(getNewPicture.UrlImgAddres, Is.EqualTo(url.Sanitize("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMOmtDqIJ11kMRKmRhlQngs6fuiDKj9fibe2z8p6Vl&s")));
-            Assert.That(getNewPicture.Id, Is.EqualTo(200));
-            Assert.That(getNewPicture.LandMark, Is.EqualTo(4));
-            Assert.That(getNewPicture.Town, Is.EqualTo(2));
-            Assert.That(getNewPicture.Journey, Is.EqualTo(5));
+            Assert.Multiple(() =>
+            {
+                Assert.That(getNewPicture.UrlImgAddres, Is.EqualTo(url.Sanitize("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMOmtDqIJ11kMRKmRhlQngs6fuiDKj9fibe2z8p6Vl&s")));
+                Assert.That(getNewPicture.Id, Is.EqualTo(200));
+                Assert.That(getNewPicture.LandMark, Is.EqualTo(4));
+                Assert.That(getNewPicture.Town, Is.EqualTo(2));
+                Assert.That(getNewPicture.Journey, Is.EqualTo(5));
+            });
         }
 
         [Test]
@@ -148,12 +150,12 @@ namespace TetstingAllProjects.TestServices
             await service.Delete(200);
 
             var dbAllPicture = await repo.AllReadonly<Pictures>().ToListAsync();
-
-
-            Assert.That(allPictureService.Count(), Is.EqualTo(dbAllPicture.Count()));
-            Assert.That(await repo.GetByIdAsync<Pictures>(200), Is.EqualTo(null));
+            Assert.Multiple(async () =>
+            {
+                Assert.That(allPictureService.Count(), Is.EqualTo(dbAllPicture.Count()));
+                Assert.That(await repo.GetByIdAsync<Pictures>(200), Is.EqualTo(null));
+            });
         }
-
 
         [Test]
         public async Task TestMethod_DeleteByUser_Remove_PictureByUser_Successfully()
