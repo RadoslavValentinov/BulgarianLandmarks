@@ -150,7 +150,8 @@ namespace MyWebProject.Core.Services.Services
                 }
                 else
                 {
-                    throw new ArgumentNullException("This picture is not added");
+                    ArgumentNullException argumentNullException = new("This picture is not added");
+                    throw argumentNullException;
                 }
             }
             catch (ArgumentNullException ae)
