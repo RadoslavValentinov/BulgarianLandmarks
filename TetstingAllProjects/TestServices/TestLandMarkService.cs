@@ -253,5 +253,13 @@ namespace TetstingAllProjects.TestServices
 
             Assert.ThrowsAsync<InvalidOperationException>(() => service.DeleteAuto(testName));
         }
+
+
+
+
+
+
+
+
     }
 }

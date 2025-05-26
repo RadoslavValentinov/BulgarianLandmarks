@@ -136,16 +136,20 @@ namespace MyWebProject.Core.Services.Services
             {
                 if (model.Urladdress != null)
                 {
-                    var pict = await repo.AllReadonly<Pictures>().FirstAsync(x => x.JourneyId == model.Id && x.IsActiv == true);
-                    pict.UrlImgAddres = image;
 
-                    current.Name = name;
-                    current.Description = description;
-                    current.Rating = model.Rating;
-                    current.StartDate = date;
-                    current.Day = model.Day;
-                    current.Price = model.Price;
-                    current.pictures.Add(pict);
+                    var pict = repo.AllReadonly<Pictures>().FirstOrDefault(x => x.JourneyId == model.Id && x.IsActiv == true);
+                    if (pict != null)
+                    {
+                        pict.UrlImgAddres = image;
+
+                        current.Name = name;
+                        current.Description = description;
+                        current.Rating = model.Rating;
+                        current.StartDate = date;
+                        current.Day = model.Day;
+                        current.Price = model.Price;
+                        current.pictures.Add(pict!);
+                    }
                 }
                 else
                 {
@@ -157,7 +161,7 @@ namespace MyWebProject.Core.Services.Services
                     current.Price = model.Price;
                 }
 
-                repo.Update<Journeys>(current);
+                repo.Update(current);
                 await repo.SaveChangesAsync();
             }
             catch (InvalidOperationException ie)

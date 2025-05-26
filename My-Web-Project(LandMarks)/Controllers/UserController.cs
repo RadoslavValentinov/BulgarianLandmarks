@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Models;
 using MyWebProject.Core.Services.IServices;
-using MyWebProject.Core.Services.Services;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
 
@@ -22,7 +21,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         private readonly IEmailSender emailSender;
         private readonly IUserService service;
 
-        protected UserController(SignInManager<Users> _signInManager,
+        public UserController(SignInManager<Users> _signInManager,
             UserManager<Users> _userManager,
             RoleManager<IdentityRole> _roleManager,
             IRepository _repo,

@@ -1,7 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -29,6 +29,8 @@ h1 {
 
 
 /* nav bar custom */
+
+
 .navbar-brand {
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
@@ -254,14 +256,21 @@ li h4 {
     border-radius: 6px;
     width: 190px;
     height: 220px;
-    object-fit:cover;
+    object-fit: cover;
+    transition: 0.5s;
+    filter: brightness(1);
 }
+
+    #userPic:hover {
+        filter: brightness(0.6);
+        transform: translateZ(120px) rotateY(25deg);
+    }
 
 
 #constheight:hover #hideoptions {
     position: relative;
     top: -30px;
-    left: 10px;
+    left: 20px;
     color: white;
     text-decoration: none;
 }
@@ -282,10 +291,10 @@ li h4 {
 /* div news page */
 
 
-#news{
-    display:flex;
-    justify-content:space-evenly;
-    align-items:center;
+#news {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #weather {
@@ -294,7 +303,6 @@ li h4 {
     padding: 20px;
     border-radius: 10px;
     margin-top: 28px;
-
 }
 
 
@@ -317,11 +325,11 @@ li h4 {
     width: 350px;
     height: 205px;
     text-align: center;
-    border-radius:6px;
+    border-radius: 6px;
 }
 
 .event-image {
-    object-fit:cover;
+    object-fit: cover;
     width: 350px;
     height: 205px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -347,6 +355,7 @@ li h4 {
     background-color: #f0f0f0;
     border-radius: 10px;
 }
+
 #eventCarousel .carousel-inner {
     transition: transform 0.2s ease-in-out, opacity 0.4s ease-in-out;
 }
