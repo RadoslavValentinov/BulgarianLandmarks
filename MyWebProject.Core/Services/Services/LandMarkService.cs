@@ -393,7 +393,7 @@ namespace MyWebProject.Core.Services.Services
             if (foundId == null)
             {
                 logger.LogError("Data is not correct");
-                return false;
+                throw new NullReferenceException("Data is not correct");
             }
 
             if (foundId.Rating < 10 && foundId.Rating + 1.00m < 10)

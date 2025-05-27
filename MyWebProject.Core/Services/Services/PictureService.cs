@@ -22,6 +22,7 @@ namespace MyWebProject.Core.Services.Services
             logger = _logger;
         }
 
+
         /// <summary>
         /// Increments the like count of a picture by its ID.
         /// </summary>
@@ -32,7 +33,7 @@ namespace MyWebProject.Core.Services.Services
         {
             try
             {
-                var resultSearch = repo.All<Pictures>().Where(x => x.Id == id).FirstOrDefault();
+                var resultSearch = repo.All<Pictures>().Where(x => x.Id == id).First();
 
                 if (resultSearch != null)
                 {
@@ -43,10 +44,10 @@ namespace MyWebProject.Core.Services.Services
                     await repo.SaveChangesAsync();
                 }
             }
-            catch (Exception ex)
+            catch (ArgumentNullException ex)
             {
                 logger.LogError($"An error occurred while updating the picture data: {ex.Message}");
-                throw;
+                throw new ArgumentNullException();
             }
 
             return id;
@@ -62,17 +63,24 @@ namespace MyWebProject.Core.Services.Services
         [Authorize]
         public async Task<AddPictureByUser> PictureByByteArray(AddPictureByUser model)
         {
-            var picture = new PictureByUser
+            if (model == null || string.IsNullOrWhiteSpace(model.UserName) || model.PictureData == null)
             {
-                UserName = model.UserName,
-                IsActive = model.IsActive,
-                PictureData = model.PictureData
-            };
+                throw new ArgumentNullException("Model, UserName or PictureData cannot be null");
+            }
+            else
+            {
+                var picture = new PictureByUser
+                {
+                    UserName = model.UserName,
+                    IsActive = model.IsActive,
+                    PictureData = model.PictureData
+                };
 
-            await repo.AddAsync(picture);
-            await repo.SaveChangesAsync();
+                await repo.AddAsync(picture);
+                await repo.SaveChangesAsync();
 
-            return model;
+                return model;
+            }
         }
 
 
@@ -214,6 +222,11 @@ namespace MyWebProject.Core.Services.Services
                 })
                 .ToListAsync();
 
+            if (all == null || !all.Any())
+            {
+                throw new NullReferenceException("No pictures found uploaded by users.");
+            }
+
             return all;
         }
 
@@ -350,6 +363,16 @@ namespace MyWebProject.Core.Services.Services
         /// <returns>The picture uploaded by the user.</returns>
         public async Task<PictureByUser> GetByUserId(int id)
         {
+            var searchUser = await repo.AllReadonly<PictureByUser>()
+                .Where(x => x.Id == id && x.IsActive == true)
+                .FirstOrDefaultAsync();
+
+            if (id <= 0 || searchUser == null)
+            {
+                throw new ArgumentException("Invalid picture ID.");
+            }
+
+
             return await repo.GetByIdAsync<PictureByUser>(id);
         }
 

@@ -21,6 +21,7 @@ namespace MyWebProject.Core.Services.IServices
         Task<IEnumerable<CategoryViewModel>> AllCategory();
 
         Task Delete(int id);
+        Task DeleteAuto(string name);
 
         Task<bool> UpRattingPoint(int id);
 

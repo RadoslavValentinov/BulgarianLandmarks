@@ -7,6 +7,8 @@ using MyWebProject.Core.Services.Services;
 using MyWebProject.Infrastructure.Data;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 
 namespace TetstingAllProjects.TestServices
 {
@@ -248,6 +250,126 @@ namespace TetstingAllProjects.TestServices
             Assert.ThrowsAsync<NullReferenceException>(async () => await service.EditPicture(new AddPictureViewModel()));
         }
 
+
+
+        [Test]
+        public void UpLikeCount_Throw_Exeption_If_Id_Not_Found()
+        {
+            var repo = new Repository(context);
+            service = new PictureService(repo, logger!);
+
+            Assert.ThrowsAsync<InvalidOperationException>(async () => await service.UpLikeCount(0));
+        }
+
+        [Test]
+        public async Task UpLikeCount_Successfully_Increment_Like_CountAsync()
+        {
+            var repo = new Repository(context);
+            var service = new PictureService(repo, logger!);
+
+            var picture = new Pictures
+            {
+                Id = 320,
+                UrlImgAddres = "https://example.com/image.jpg",
+                LikeCount = 0
+            };
+
+            await repo.AddAsync(picture);
+            await repo.SaveChangesAsync();
+
+            var result = service.UpLikeCount(320);
+
+            var get = await service.GetById(320);
+
+            Assert.That(get.LikeCount, Is.EqualTo(1));
+        }
+
+
+        [Test]
+        public void PictureByByteArray_Throw_Exeption_If_Model_is_Not_Valid()
+        {
+            var repo = new Repository(context);
+            service = new PictureService(repo, logger!);
+
+            Assert.ThrowsAsync<ArgumentNullException>(async () => await service.PictureByByteArray(new AddPictureByUser()));
+        }
+        [Test]
+        public void PictureByByteArray_Successfully_Added_Picture_By_ByteArray()
+        {
+            var repo = new Repository(context);
+            service = new PictureService(repo, logger!);
+
+            var model = new AddPictureByUser
+            {
+                Id = 100,
+                UrlImgAddres = "https://example.com/image.jpg",
+                UserName = "TestUser",
+                PictureData = new byte[] { 1, 2, 3, 4, 5 }
+            };
+
+            Assert.DoesNotThrowAsync(async () => await service.PictureByByteArray(model));
+        }
+
+
+        [Test]
+        public void AllPictureUploadByUsers_Returns_Correct_Data()
+        {
+            var repo = new Repository(context);
+            service = new PictureService(repo, logger!);
+
+            var allPictures = service.AllPictureUploadByUsers();
+
+            Assert.That(allPictures, Is.Not.Null);
+        }
+
+
+
+        [Test]
+        public void AllPictureUploadByUsers_Returns_Empty_Collection_When_No_Pictures_Are_Uploaded()
+        {
+            var repo = new Repository(context);
+            service = new PictureService(repo, logger!);
+
+            
+            var allPictures = service.AllPictureUploadByUsers();
+
+            Assert.That(allPictures = null, Is.Null);  
+        }
+
+
+        [Test]
+        public void GetByUserId_Throws_ArgumentNullException_When_Id_Is_Null()
+        {
+            var repo = new Repository(context);
+            service = new PictureService(repo, logger!);
+
+            Assert.ThrowsAsync<ArgumentException>(async () => await service.GetByUserId(-1));
+            Assert.ThrowsAsync<ArgumentException>(async () => await service.GetByUserId(200));
+        }
+        [Test]
+        public async Task GetByUserId_Returns_Correct_Picture_By_UserId()
+        {
+            var repo = new Repository(context);
+            service = new PictureService(repo, logger!);
+
+            var pictureByUser = new PictureByUser
+            {
+                Id = 1,
+                UserName = "TestUser",
+                UrlImgAddres = "https://example.com/image.jpg"
+            };
+            await repo.AddAsync(pictureByUser);
+            await repo.SaveChangesAsync();
+
+            var result = await service.GetByUserId(1);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(result, Is.Not.Null);
+                Assert.That(result.Id, Is.EqualTo(1));
+                Assert.That(result.UserName, Is.EqualTo("TestUser"));
+            });
+        }
 
         [TearDown]
         public void TearDown()

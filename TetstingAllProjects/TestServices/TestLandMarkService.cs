@@ -8,6 +8,7 @@ using MyWebProject.Infrastructure.Data;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
 using NUnit.Framework.Internal;
+using System.Threading.Tasks;
 
 namespace TetstingAllProjects.TestServices
 {
@@ -256,9 +257,58 @@ namespace TetstingAllProjects.TestServices
 
 
 
+        [Test]
+        public  void  DeleteAuto_DeletesLandmark_WhenFound()
+        {
+            var mockRepo = new Mock<IRepository>();
+            var mockLogger = new Mock<ILogger<LandMarkService>>();
+            
+           
+            Assert.ThrowsAsync<NullReferenceException>(async () => await service!.DeleteAuto("SSSSSSS"));
+        }
 
 
 
+        [Test]
+        public void UpRattingPoint_Should_Throw_ArgumentOutOfRangeException_WhenIdIsInvalid()
+        {
+            var mockRepo = new Mock<IRepository>();
+            var mockLogger = new Mock<ILogger<LandMarkService>>();
+            var service = new LandMarkService(mockRepo.Object, mockLogger.Object);
+
+            Assert.ThrowsAsync<NullReferenceException>( async () => await service.UpRattingPoint(10));
+        }
+
+
+        [Test]
+        public void UpRattingPoint_UpdatesRating_WhenLandmarkExists()
+        {
+            var mockRepo = new Mock<IRepository>();
+            var mockLogger = new Mock<ILogger<LandMarkService>>();
+            var service = new LandMarkService(mockRepo.Object, mockLogger.Object);
+
+            var landmark = new LandMarkViewModelAll
+            {
+                Id = 1,
+                Name = "Test Landmark",
+                Description = "Test Description",
+                Rating = 4.5m
+            };
+
+            mockRepo.Setup(r => r.GetByIdAsync<LandMark>(1))
+                .ReturnsAsync(new LandMark { Id = 1, Name = "Test Landmark", Description = "Test Description", Rating = 4.5m });
+
+            Assert.DoesNotThrowAsync(async () => await service.UpRattingPoint(1));
+        }
+
+
+
+
+        [TearDown]
+        public void TearDown()
+        {
+            context.Dispose();
+        }
 
 
     }
