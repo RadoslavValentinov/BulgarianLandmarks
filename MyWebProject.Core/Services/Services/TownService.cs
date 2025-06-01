@@ -152,6 +152,11 @@ namespace MyWebProject.Core.Services.Services
 
             string nameTown = sanitizer.Sanitize(name);
 
+            if (nameTown == null)
+            {
+                throw new NullReferenceException();
+            }
+
             return await repo.AllReadonly<Town>()
                 .Where(i => i.Name == nameTown && i.IsActive == true)
                 .Select(x => new TownViewModelGetTown

@@ -60,6 +60,15 @@ namespace TetstingAllProjects.TestServices
             });
         }
 
+        [Test]
+        public void TownsByName_Returns_Empty_Collection_When_No_Data()
+        {
+            var repo = new Repository(context);
+            service = new TownService(repo, logger!);
+
+            Assert.ThrowsAsync<InvalidOperationException>(async () => await service.TownsByName(null!));
+        }
+
 
 
         [Test]
