@@ -62,15 +62,15 @@ namespace MyWebProject.Core.Services.Services
         public async Task UpdateLastLoginAsync(string userId)
         {
             var user = await repo.GetByIdAsync<Users>(userId);
-            if (user != null)
+            try
             {
                 user.LastActive = DateTime.UtcNow;
                 repo.Update(user);
                 await repo.SaveChangesAsync();
             }
-            else
+            catch (NullReferenceException)
             {
-                logger.LogError($"User with ID {userId} not found.");
+                throw new NullReferenceException($"User with ID not found.");
             }
         }
     }
