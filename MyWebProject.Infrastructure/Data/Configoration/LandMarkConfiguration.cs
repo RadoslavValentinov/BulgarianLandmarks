@@ -416,6 +416,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Latitude = 41.847830,
                     Longitude = 24.967233
 <<<<<<< HEAD
+<<<<<<< HEAD
                    
 =======
                     // добави локацията за всички лендмарки и визуализираи в вю модела
@@ -428,6 +429,9 @@ namespace MyWebProject.Infrastructure.Data.Configoration
 ////</ script >
 >>>>>>> 727e98d64d694b4f376b8be735ec69b0a61d8d4d
 >>>>>>> parent of e662d54 (Update Google Maps API script tag with new key)
+=======
+                   
+>>>>>>> 9f9439357e164ba652feef51377b69f5e4fc611f
 
 
                 },
