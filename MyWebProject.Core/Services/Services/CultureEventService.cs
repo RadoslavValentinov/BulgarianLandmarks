@@ -8,12 +8,15 @@ using MyWebProject.Core.Services.IServices;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
 
+
 namespace MyWebProject.Core.Services.Services
 {
+
     public class CultureEventService : ICultureEventService
     {
         private readonly IRepository repo;
         private readonly ILogger<CultureEventService> logger;
+        
 
         public CultureEventService(IRepository _repo,
             ILogger<CultureEventService> _logger)
@@ -23,10 +26,7 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
-        /// <summary>
-        /// Retrieves all active cultural events.
-        /// </summary>
-        /// <returns>A collection of active cultural events.</returns>
+
         public async Task<IEnumerable<AllCultureEventViewModel>> AllEvent()
         {
             var all = await repo.AllReadonly<Cultural_events>()
@@ -46,13 +46,6 @@ namespace MyWebProject.Core.Services.Services
             return all;
         }
 
-
-        /// <summary>
-        /// Creates a new cultural event.
-        /// </summary>
-        /// <param name="model">The model containing the cultural event data.</param>
-        /// <returns>The created cultural event model.</returns>
-        /// <exception cref="ArgumentException">Thrown when the town is not found.</exception>
         [Area("Administrator")]
         public async Task<CultureEventViewModelByTownId> Create(CultureEventViewModelByTownId model)
         {
@@ -64,16 +57,21 @@ namespace MyWebProject.Core.Services.Services
             string HourEvent = sanitizer.Sanitize(model.Hour);
             string image = sanitizer.Sanitize(model.ImageURL);
 
+
             var currenttown = repo.AllReadonly<Town>()
                   .Where(x => x.Name == model.TownName).ToList();
 
+
             if (currenttown.Count == 0)
             {
-                throw new ArgumentException("Town cannot be null");
+                throw new ArgumentException("Town connot by null");
             }
+
+
 
             try
             {
+
                 var newEvent = new Cultural_events()
                 {
                     Name = NameEvent,
@@ -86,22 +84,16 @@ namespace MyWebProject.Core.Services.Services
 
                 await repo.AddAsync(newEvent);
                 await repo.SaveChangesAsync();
+
             }
             catch (ArgumentException ar)
             {
-                logger.LogError(string.Format("Model not added successfully"), ar);
+                logger.LogError(string.Format("Model not added succssesfuly"), ar);
             }
 
             return model;
         }
 
-
-        /// <summary>
-        /// Deletes a cultural event by its id.
-        /// </summary>
-        /// <param name="id">The id of the cultural event to delete.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
-        /// <exception cref="NullReferenceException">Thrown when the cultural event is not found.</exception>
         [Area("Administrator")]
         public async Task Delete(int id)
         {
@@ -115,14 +107,7 @@ namespace MyWebProject.Core.Services.Services
             repo.Delete(currentEvent);
             await repo.SaveChangesAsync();
         }
-        
 
-        /// <summary>
-        /// Edits an existing cultural event.
-        /// </summary>
-        /// <param name="model">The model containing the updated cultural event data.</param>
-        /// <returns>The updated cultural event model.</returns>
-        /// <exception cref="NullReferenceException">Thrown when the town is not found or the model is not valid.</exception>
         [Area("Administrator")]
         public async Task<CultureEventViewModelByTownId> Edit(CultureEventViewModelByTownId model)
         {
@@ -158,26 +143,23 @@ namespace MyWebProject.Core.Services.Services
                 currentEvent.Town = currenttown[0];
                 currentEvent.ImageURL = image;
 
+
                 repo.Update(currentEvent);
                 await repo.SaveChangesAsync();
+
             }
             catch (ArgumentNullException an)
             {
-                logger.LogError(string.Format("Not changed successfully"), an);
+                logger.LogError(string.Format("Not changed sevad"), an);
             }
 
             return model;
         }
 
-
-        /// <summary>
-        /// Retrieves a cultural event by its id.
-        /// </summary>
-        /// <param name="id">The id of the cultural event.</param>
-        /// <returns>The cultural event model.</returns>
-        /// <exception cref="ArgumentNullException">Thrown when the cultural event is not found.</exception>
         public async Task<CultureEventViewModelByTownId> EventByTownId(int id)
         {
+
+
             try
             {
                 var allEvent = await repo.AllReadonly<Cultural_events>()
@@ -197,7 +179,7 @@ namespace MyWebProject.Core.Services.Services
             }
             catch (Exception)
             {
-                throw new ArgumentNullException("Not Found Events");
+                throw new ArgumentNullException("Not Fount Events");
             }
         }
     }

@@ -16,11 +16,6 @@ namespace MyWebProject.Core.Services.Services
             repo = _repo;
         }
 
-
-        /// <summary>
-        /// Retrieves all landmarks that are associated with a town, have a rating of 9 or higher, and are active.
-        /// </summary>
-        /// <returns>A collection of landmarks that meet the criteria.</returns>
         public async Task<IEnumerable<LandMarkViewModelAll>> AllLandMarkByTown()
         {
             var results = await repo.AllReadonly<LandMark>()
@@ -32,7 +27,8 @@ namespace MyWebProject.Core.Services.Services
                     Description = l.Description,
                     Rating = l.Rating,
                     TownName = l.Town!.Name,
-                    Pictures = l.Pictures.Where(p => p.LandMarkId == l.Id).ToList(),
+                    Pictures = l.Pictures.Where(p => p.LandMarkId == l.Id)
+                    .ToList(),
                 })
                 .OrderBy(x => x.Name)
                 .ToListAsync();
@@ -40,11 +36,6 @@ namespace MyWebProject.Core.Services.Services
             return results;
         }
 
-
-        /// <summary>
-        /// Retrieves the top 10 landmarks that have a rating between 9.2 and 10 and are active.
-        /// </summary>
-        /// <returns>A collection of the top 10 landmarks that meet the criteria.</returns>
         public async Task<IEnumerable<Top10ViewModelLandMark>> Get10TopLandMark()
         {
             var results = await repo.AllReadonly<LandMark>()
@@ -57,7 +48,8 @@ namespace MyWebProject.Core.Services.Services
                     Rating = d.Rating,
                     TownName = d.Town!.Name,
                     Category = d.Category.Name,
-                    Pictures = d.Pictures.Where(z => z.LandMarkId == d.Id).ToList(),
+                    Pictures = d.Pictures.Where(z => z.LandMarkId == d.Id)
+                    .ToList(),
                 })
                 .OrderByDescending(x => x.Rating)
                 .Take(10)

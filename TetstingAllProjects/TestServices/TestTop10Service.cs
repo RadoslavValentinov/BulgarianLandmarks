@@ -12,7 +12,7 @@ namespace TetstingAllProjects.TestServices
     [TestFixture]
     public class TestTop10Service
     {
-        private Top10Destination? services;
+        private ITop10Destination services;
         private ApplicationDbContext context;
 
 
@@ -56,24 +56,8 @@ namespace TetstingAllProjects.TestServices
                 .ToListAsync();
 
 
-            Assert.That(allService.Count(), Is.EqualTo(dbAll.Count));
+            Assert.That(allService.Count(), Is.EqualTo(dbAll.Count()));
         }
-
-
-        [Test]
-        public void AllLandMarkByTown_Returns_Empty_Collection_When_No_Data()
-        {
-            var repo = new Repository(context);
-            services = new Top10Destination(repo);
-
-           
-            var allService = services.AllLandMarkByTown();
-            allService = null;
-
-            Assert.That(allService, Is.EqualTo(null));
-        }
-
-
 
         [Test]
         public async Task TestMethod_Get10TopLandMark_Return_Data_Correctly()
@@ -102,21 +86,7 @@ namespace TetstingAllProjects.TestServices
                 .ToListAsync();
 
 
-            Assert.That(allService.Count(), Is.EqualTo(dbAll.Count));
-        }
-
-
-        [Test]
-        public void Get10TopLandMark_Returns_Empty_Collection_When_No_Data()
-        {
-            var repo = new Repository(context);
-            services = new Top10Destination(repo);
-
-
-            var allServiceInfo = services.Get10TopLandMark();
-            allServiceInfo = null;
-
-            Assert.That(allServiceInfo, Is.EqualTo(null));
+            Assert.That(allService.Count(), Is.EqualTo(dbAll.Count()));
         }
 
 

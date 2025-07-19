@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using MyWebProject.Core.Models;
 using MyWebProject.Core.Services.IServices;
+using MyWebProject.Core.Services.Services;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
 
@@ -17,9 +18,9 @@ namespace My_Web_Project_LandMarks_.Controllers
         private readonly UserManager<Users> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IRepository repo;
-        private readonly ILogger<UserController> logger;
+        private ILogger<UserController> logger;
         private readonly IEmailSender emailSender;
-        private readonly IUserService service;
+        private  IUserService service;
 
         public UserController(SignInManager<Users> _signInManager,
             UserManager<Users> _userManager,
@@ -143,7 +144,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                 //        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode("www.google.com")}'>clicking here</a>.");
                 if (role != null)
                 {
-                    await userManager.AddToRoleAsync(user, role.Name!);
+                    await userManager.AddToRoleAsync(user, role.Name);
 
                     return RedirectToAction("Login", "User");
                 }
@@ -246,7 +247,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                     try
                     {
                         var userId = userManager.GetUserId(HttpContext.User);
-                        var user = userManager.FindByIdAsync(userId!).Result;
+                        var user = userManager.FindByIdAsync(userId).Result;
 
                         if (!string.IsNullOrEmpty(model.UserName))
                         {
@@ -265,7 +266,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                             user!.Email = model.Email;
                         }
 
-                        await userManager.UpdateAsync(user!);
+                        await userManager.UpdateAsync(user);
                     }
                     catch (ArgumentException ae)
                     {

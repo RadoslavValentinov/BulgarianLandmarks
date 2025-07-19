@@ -1,9 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
-* {
-    box-sizing: border-box;
-}
-
 body {
     background: rgb(225,233,233);
     background: radial-gradient(circle, rgba(225,233,233,1) 51%, rgba(212,211,208,0.9327380610447304) 96%);
@@ -27,9 +23,7 @@ h1 {
     margin-bottom: 120px;
 }
 
-
 /* nav bar custom */
-
 
 .navbar-brand {
     font-size: 30px;
@@ -248,127 +242,32 @@ li h4 {
 }
 
 #constheight {
-    height: 220px;
+    height: 200px;
     overflow: hidden;
 }
 
-#userPic {
-    border-radius: 6px;
-    width: 190px;
-    height: 220px;
-    object-fit: cover;
-    transition: 0.5s;
-    filter: brightness(1);
-}
 
-    #userPic:hover {
-        filter: brightness(0.6);
-        transform: translateZ(120px) rotateY(25deg);
+
+    #constheight:hover #hideoptions {
+        position: relative;
+        top: -30px;
+        left: 10px;
+        color: white;
+        text-decoration: none;
     }
-
-
-#constheight:hover #hideoptions {
-    position: relative;
-    top: -30px;
-    left: 20px;
-    color: white;
-    text-decoration: none;
-}
 
 #redirForAll {
     text-decoration: none;
     color: lightcoral;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    padding-left: 15px;
+    padding-left:15px;
 }
 
     #redirForAll:hover {
         color: coral;
     }
 
-
-/* div news page */
-
-
-#news {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-#weather {
-    width: 350px;
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 28px;
-}
-
-
-.carousel-inner {
-    transition: 0.6s;
-}
-
-#eventCarousel #slideCarosel img {
-    object-fit: cover;
-    width: 350px;
-    height: 210px;
-    border-radius: 6px;
-}
-
-#eventCarousel #slideCarosel {
-    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
-}
-
-.event-card {
-    width: 350px;
-    height: 205px;
-    text-align: center;
-    border-radius: 6px;
-}
-
-.event-image {
-    object-fit: cover;
-    width: 350px;
-    height: 205px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#eventsSlide, #eventsSlides, h3 {
-    margin: 0px;
-    text-align: center;
-}
-
-
-#eventsSlide {
-    width: 350px;
-    height: 205px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-}
-
-
-#eventsSlides {
-    width: 350px;
-    height: 205px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-}
-
-#eventCarousel .carousel-inner {
-    transition: transform 0.2s ease-in-out, opacity 0.4s ease-in-out;
-}
-
-
-
-#jorneyNews {
-    width: 350px;
-    height: 205px;
-    background-color: #f0f0f0;
-    margin-top: 20px;
-    border-radius: 10px;
-}
 
 
 

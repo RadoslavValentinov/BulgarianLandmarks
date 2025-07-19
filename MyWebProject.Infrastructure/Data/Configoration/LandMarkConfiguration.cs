@@ -28,8 +28,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                        Rating = 7.4m,
                        TownId = 1,
                        CategoryId = 6,
-                       Latitude = 42.685442,
-                       Longitude = 23.318862
 
                  },
                 new LandMark()
@@ -45,8 +43,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 9.0m,
                     TownId = 1,
                     CategoryId = 6,
-                    Latitude = 42.696651,
-                    Longitude = 23.326785
+
 
                 },
                 new LandMark()
@@ -61,8 +58,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 10.0m,
                     TownId = 1,
                     CategoryId = 6,
-                    Latitude = 42.696027,
-                    Longitude = 23.332913
+
                 },
                 new LandMark()
                 {
@@ -76,8 +72,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 9.1m,
                     TownId= 1,
                     CategoryId = 6,
-                     Latitude = 42.695096,
-                     Longitude = 23.325961
                 },
                 new LandMark()
                 {
@@ -93,8 +87,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating= 5.9m,
                     TownId= 2,
                     CategoryId = 6,
-                    Latitude = 42.147381,
-                    Longitude = 24.751178
                 },
                 new LandMark()
                 {
@@ -106,8 +98,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 4.9m,
                     TownId= 2,
                     CategoryId= 6,
-                    Latitude = 42.150127,
-                    Longitude = 24.753069
                 },
                 new LandMark()
                 {
@@ -122,8 +112,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 9.3m,
                     TownId= 2,
                     CategoryId= 6,
-                    Latitude = 42.151381,
-                    Longitude = 24.752292
                 },
                 new LandMark()
                 {
@@ -137,8 +125,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 10m,
                     TownId= 2,
                     CategoryId= 6,
-                    Latitude = 42.148759,
-                    Longitude = 24.750241
                 },
                 new LandMark()
                 {
@@ -156,8 +142,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 10.0m,
                     TownId= 3,
                     CategoryId= 6,
-                    Latitude = 43.389086,
-                    Longitude = 24.622723
                 },
                 new LandMark()
                 {
@@ -181,8 +165,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 9.9m,
                     TownId= 3,
                     CategoryId= 6,
-                    Latitude = 43.398946,
-                    Longitude = 24.606428
                 },
                 new LandMark()
                 {
@@ -202,8 +184,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 9.9m,
                     TownId= 3,
                     CategoryId= 6,
-                    Latitude = 43.404625,
-                    Longitude = 24.618089
                 },
                 new LandMark()
                 {
@@ -228,8 +208,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 9.1m,
                     TownId = 4,
                     CategoryId= 6,
-                    Latitude = 42.427248,
-                    Longitude = 25.624807
                 },
                 new LandMark()
                 {
@@ -243,8 +221,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating= 10,
                     TownId= 4,
                     CategoryId= 6,
-                    Latitude = 42.438219,
-                    Longitude = 25.612443
                 },
                 new LandMark()
                 {
@@ -264,8 +240,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating= 10m,
                     TownId= 4,
                     CategoryId= 6,
-                    Latitude = 42.418472,
-                    Longitude = 25.611815
                 },
                 new LandMark()
                 {
@@ -287,8 +261,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 7.4m,
                     TownId= 4,
                     CategoryId= 6,
-                    Latitude = 42.42662350410259,
-                    Longitude = 25.62776866761652
                 },
                 new LandMark()
                 {
@@ -306,8 +278,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 6.1m,
                     TownId= 4,
                     CategoryId= 6,
-                    Latitude = 42.433431,
-                    Longitude = 25.654270
                 },
                 new LandMark()
                 {
@@ -330,8 +300,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 10m,
                     TownId= 5,
                     CategoryId= 6,
-                    Latitude = 42.448161,
-                    Longitude = 227.636515
                 },
                 new LandMark()
                 {
@@ -345,8 +313,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 9.5m,
                     TownId= 5,
                     CategoryId= 6,
-                    Latitude = 43.208069,
-                    Longitude = 27.915213
                 },
                 new LandMark()
                 {
@@ -362,8 +328,6 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     Rating = 5.8m,
                     TownId= 5,
                     CategoryId= 6,
-                    Latitude = 43.211539,
-                    Longitude = 27.931649
                 },
                 new LandMark()
                 {
@@ -451,6 +415,8 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     VideoURL = "https://www.youtube.com/embed/dz4uhD5sD44?autoplay=1&mute=1",
                     Latitude = 41.847830,
                     Longitude = 24.967233
+                   
+
 
                 },
                 new LandMark()

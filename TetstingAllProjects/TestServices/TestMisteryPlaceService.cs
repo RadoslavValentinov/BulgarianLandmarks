@@ -10,7 +10,7 @@ namespace TetstingAllProjects.TestServices
 {
     public class TestMisteryPlaceService
     {
-        private MysteryPlace? services;
+        private IMysteryPlace services;
         private ApplicationDbContext context;
 
 

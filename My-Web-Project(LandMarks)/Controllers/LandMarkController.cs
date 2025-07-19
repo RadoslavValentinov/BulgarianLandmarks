@@ -10,16 +10,18 @@ namespace My_Web_Project_LandMarks_.Controllers
     {
         private readonly ILandmarkService service;
 
+
         public LandMarkController(ILandmarkService _service)
         {
             service = _service;
         }
 
+
         /// <summary>
-        /// The method searches for a landmark by the given id.
+        /// The method searches for prominence by the given id
         /// </summary>
-        /// <param name="id">The id of the landmark.</param>
-        /// <returns>Returns a landmark with the given id.</returns>
+        /// <param name="id"></param>
+        /// <returns>returns a landmark with the given id</returns>
         [HttpGet]
         public async Task<IActionResult> LandMarkById(int id)
         {
@@ -33,10 +35,11 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(model);
         }
 
+
         /// <summary>
-        /// The method retrieves all landmarks.
+        /// The method rattles all sights
         /// </summary>
-        /// <returns>Collection of landmarks.</returns>
+        /// <returns>Collection of landmarks</returns>
         [HttpGet]
         public async Task<IActionResult> AllLandmark()
         {
@@ -50,11 +53,12 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(allLandMark);
         }
 
+
         /// <summary>
         /// The method loads a view for the user to add a landmark 
-        /// as the model loads the categories preloaded dropdown menu.
+        /// as the model loads the categories preloaded dropdown menu
         /// </summary>
-        /// <returns>View of field to write of user.</returns>
+        /// <returns>View of field to write of useer</returns>
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> AddUserSuggestions()
@@ -67,29 +71,28 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(model);
         }
 
-        /// <summary>
-        /// The method increases the rating of a landmark by its id.
-        /// </summary>
-        /// <param name="id">The id of the landmark.</param>
-        /// <returns>Redirects to the AllLandmark action.</returns>
+
         [Authorize]
         [HttpGet]
         public async Task<IActionResult> UpRatting(int id)
         {
             var result = await service.UpRattingPoint(id);
 
-            return RedirectToAction("AllLandmark");
+            return RedirectToAction("AllLandmark"); 
         }
 
+
+
         /// <summary>
-        /// Adds the user-suggested landmark to the pending admin approval table.
+        ///  Adding the user-suggested landmark to the pending admin approval table
         /// </summary>
-        /// <param name="model">The model containing the landmark data.</param>
-        /// <returns>Redirects to the AllLandmark action.</returns>
+        /// <param name="model"></param>
+        /// <returns>resdirect to index page of all landmarks</returns>
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> AddUserSuggestions(AddLandMarkViewModel model)
         {
+
             model.UserName = User.Identity?.Name;
             await service.AddLandMarkOfUsers(model);
 

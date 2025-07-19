@@ -10,10 +10,10 @@ namespace My_Web_Project_LandMarks_.Extensions
     public static class LandMarkServiceCollectionExtesions
     {
         /// <summary>
-        /// Registers all services in the inversion of control container.
+        /// The method contains the registration of all servers in an inversion control container
         /// </summary>
-        /// <param name="services">The service collection to add the services to.</param>
-        /// <returns>The updated service collection.</returns>
+        /// <param name="all services"></param>
+        /// <returns>service</returns>
         public static IServiceCollection AddApplicationServiceApp(this IServiceCollection services)
         {
             services.AddScoped<IRepository, Repository>();

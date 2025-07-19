@@ -1,135 +1,13 @@
 ﻿
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" asp-append-version="true" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 
-<div id="news">
-
-    <div id="weather">
-        <h3>Времето</h3>
-        <div class="UQt4rd">
-            <g-img class="ESCdRb" id="ewzi8b">
-                <img id="dimg_kyDxZ4GQOOGJ7NYP_L6JkQY_1"
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+
-                /AAAAjdJREFUeNrtmsGtgzAMhjtCRmAERsgIHYFjjx2BERiBE
-                ToCI+TaG2+DbJBnKj8pD1Eaiv8AwpX+C1Ap/hzHjpNLCOFyZl0UgAJQAApAASgABaAAFIACODEA9C/83AypIrUkRwpv5Pib4dsCNp5cAMgIS3rMGPxJw3/
-                t4QDQoEtSt8LwsTpJEFAAAONjNUM4HSIEOO7vJC8Mwa2FkHU
-                RZBDSM2KAWu4CwPP5LEgtyZMCy/OzIgKBgGA2BUAGliPDxxreldFM2EU4JAOgwRtSPeHdmj0/Z3z8fcEQasT
-                CiATgEgxMURvNAkR2sOIA2MtBSH60KNbC4dAhAHhBACFDdrBiADj2A0DI7PA4AgB0dihWAaBBXUk92Hhk
-                dqi+BsDGh8ySzg7tGgD9BgC88FrgvgKQIeY/ZgepxXB3m6EFm6bm7ADqQwDggSLUHQVA2KG6P50JQJ+a96UBuC08OwqRerOWGPftkUa7Oc/ 
-                GrTBKo5b0mEivwzOLAlABjb8v6EY1CXVGgwCAampUqZ5NNP5fuS1aB6w
-                87Zn1PG+XpStOKw3AIro5IONfM0e8EhRsZFxz7EYRACRmgQc0YPMAENrAdJk6UBgAKwojz/W/
-                yQUgXgilARguS5dUd2Yir+foPzSQ7TAfifdLOjZvzhSzQID0A3gmuJTDzIQzRXg4IC9IvFsY68jzWxr/qgvQV2TsRJ
-                1gwMXOIuW+JNWhjtx2DWCDE6fvAOhNUQWgABSAAlAACkABKAAFoABOp1+6Bd0LJ+BorgAAAABJRU5ErkJggg=="
-                class="YQ4gaf zr758c" height="60" width="60" alt="Главно слънчево" data-csiid="kyDxZ4GQOOGJ7NYP_L6JkQY_1"
-                data-atf="1">
-            </g-img><div jscontroller="e0Sh5" class="Ab33Nc" aria-level="3" role="heading" jsaction="rcuQ6b:npT2md">
-                <div>
-                    <div class="vk_bk TylWce SGNhVe">
-                        <span class="wob_t q8U8x" id="wob_tm" style="display:inline">18</span><span class="wob_t" id="wob_ttm" style="display:none">65</span>
-                    </div><div jscontroller="e0Sh5" class="vk_bk wob-unit" jsaction="rcuQ6b:npT2md">
-                        <span class="wob_t" style="display:inline" aria-label="°Celsius"
-                        aria-disabled="true" role="button">°C</span><a class="wob_t" href="#" style="display:none;text-decoration:none" data-lams="" data-metric="true"
-                        data-url="/setprefs?fheit=0&amp;sig=0_sKhrc1AjCP-K43qaiPzkR10RaFI=&amp;
-                        prev=https://www.google.com/search%3Fq%3Dweather%2Bforecast%26sca_esv%3Df0c6dc04cbd61ad9%26sxsrf%3DAHTn8zpZO9pCLB04zHOiuPNba1f_g28S4g:1743855753562%26source%3Dhp%26ei%3DiSDxZ4yRHfKM7NYPm7XL8QU%26iflsig%3DACkRmUkAAAAAZ_EumaahSNRqqrS1BYpj_CSnAnS-QgfF%26oq%3Dwheather%2B%2Bforc%26gs_lp%3DEgdnd3Mtd2l6Ig53aGVhdGhlciAgZm9yYyoCCAAyDxAAGIAEGMkDGAoYRhiAAjILEAAYgAQYkgMYigUyBxAAGIAEGAoyBxAAGIAEGAoyBxAAGIAEGAoyBxAAGIAEGAoyBxAAGIAEGAoyBxAAGIAEGAoyBxAAGIAEGAoyBxAAGIAEGApI0kZQAFjZMHAAeACQAQCYAZ4BoAGiD6oBBDAuMTS4AQPIAQD4AQGYAg6gAvkPwgIEECMYJ8ICChAjGIAEGCcYigXCAhAQABiABBixAxhDGIMBGIoFwgIKEAAYgAQYQxiKBcICCxAAGIAEGLEDGIMBwgIREC4YgAQYsQMY0QMYxwEYigXCAg4QLhiABBixAxjRAxjHAcICBRAAGIAEwgIIEAAYgAQYsQPCAg4QLhiABBixAxiDARjUAsICCBAuGIAEGLEDwgILEC4YgAQYsQMYgwHCAgoQLhiABBhDGIoFwgIQEAAYgAQYsQMYgwEYyQMYCsICDRAAGIAEGLEDGIMBGArCAgUQLhiABMICCBAuGIAEGMsBwgIKEAAYgAQYChjLAcICEhAAGIAEGLEDGIMBGAoYRhiAAsICChAAGIAEGMkDGAqYAwCSBwQwLjE0oAe-lAGyBwQwLjE0uAf5Dw%26sclient%3Dgws-wiz"
-                        role="button" jsaction="ytDzMd" data-ved="2ahUKEwjBpeT68MCMAxXhBNsEHXxfImIQ-lt6BAgVEAI">
-                            <span aria-label="°Celsius">°C</span>
-                        </a><span class="Az4ne"></span><a class="wob_t" href="#"
-                        style="display:inline;text-decoration:none;margin-left:-1px" data-lams="" data-metric="false"
-                        data-url="/setprefs?fheit=1&amp;sig=0_sKhrc1AjCP-K43qaiPzkR10RaFI=&amp;
-                        prev=https://www.google.com/search%3Fq%3Dweather%2Bforecast%26sca_esv%3Df0c6dc04cbd61ad9%26sxsrf%3DAHTn8zpZO9pCLB04zHOiuPNba1f_g28S4g:1743855753562%26source%3Dhp%26ei%3DiSDxZ4yRHfKM7NYPm7XL8QU%26iflsig%3DACkRmUkAAAAAZ_EumaahSNRqqrS1BYpj_CSnAnS-QgfF%26oq%3Dwheather%2B%2Bforc%26gs_lp%3DEgdnd3Mtd2l6Ig53aGVhdGhlciAgZm9yYyoCCAAyDxAAGIAEGMkDGAoYRhiAAjILEAAYgAQYkgMYigUyBxAAGIAEGAoyBxAAGIAEGAoyBxAAGIAEGAoyBxAAGIAEGAoyBxAAGIAEGAoyBxAAGIAEGAoyBxAAGIAEGAoyBxAAGIAEGApI0kZQAFjZMHAAeACQAQCYAZ4BoAGiD6oBBDAuMTS4AQPIAQD4AQGYAg6gAvkPwgIEECMYJ8ICChAjGIAEGCcYigXCAhAQABiABBixAxhDGIMBGIoFwgIKEAAYgAQYQxiKBcICCxAAGIAEGLEDGIMBwgIREC4YgAQYsQMY0QMYxwEYigXCAg4QLhiABBixAxjRAxjHAcICBRAAGIAEwgIIEAAYgAQYsQPCAg4QLhiABBixAxiDARjUAsICCBAuGIAEGLEDwgILEC4YgAQYsQMYgwHCAgoQLhiABBhDGIoFwgIQEAAYgAQYsQMYgwEYyQMYCsICDRAAGIAEGLEDGIMBGArCAgUQLhiABMICCBAuGIAEGMsBwgIKEAAYgAQYChjLAcICEhAAGIAEGLEDGIMBGAoYRhiAAsICChAAGIAEGMkDGAqYAwCSBwQwLjE0oAe-lAGyBwQwLjE0uAf5Dw%26sclient%3Dgws-wiz"
-                        role="button" jsaction="ytDzMd" data-ved="2ahUKEwjBpeT68MCMAxXhBNsEHXxfImIQ-1t6BAgVEAM"><span aria-label="°Fahrenheit">°F</span></a>
-                        <span class="wob_t" style="display:none;margin-left:-1px" aria-label="°Fahrenheit" aria-disabled="true" role="button">°F</span>
-                    </div>
-                </div>
-            </div><div class="wtsRwe">
-                <div>Валежи: <span id="wob_pp">25%</span></div><div>Влажност: <span id="wob_hm">58%</span></div><div>
-                    Вятър:
-                    <span>
-                        <span class="wob_t" id="wob_ws">
-                            16 км/ч
-
-                        </span><span class="wob_t" style="display:none" id="wob_tws">10 мили/ч</span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
-    <div id="eventsSlides">
 
-        <h3>Екскурзий</h3>
-        @inject MyWebProject.Core.Services.IServices.IJourneyServise _journeyService
-
-        @{
-            var journey = _journeyService.GetAll();
-        }
-        <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-            <div id="slideCarosel" class="carousel-inner">
-                @foreach (var journeyItem in await journey)
-                {
-                    <div class="carousel-item @(journeyItem == journey.Result.First() ? "active" : "")">
-                        <div class="event-card">
-                            @{
-                                var getPictures = journeyItem.pictures.FirstOrDefault(s=> s.JourneyId == journeyItem.Id);
-                            }
-                            <img src="@getPictures!.UrlImgAddres" width="300" height="250" alt="@journeyItem.Name" class="event-image d-block mx-auto" />
-                        </div>
-                    </div>
-                }
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-    </div>
-
-
-    <div id="eventsSlide">
-        <h3>Събития</h3>
-        @inject MyWebProject.Core.Services.IServices.ICultureEventService _cultureEventService
-
-        @{
-            var events = _cultureEventService.AllEvent();
-        }
-        <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-            <div id="slideCarosel" class="carousel-inner">
-                @foreach (var eventItem in await events)
-                {
-                    <div class="carousel-item @(eventItem == events.Result.First() ? "active" : "")">
-                        <div class="event-card">
-                            <img src="@eventItem.ImageURL" width="300" height="250" alt="@eventItem.Name" class="event-image d-block mx-auto" />
-                        </div>
-                    </div>
-                }
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
-
-</div>
-
-<br />
-<br />
-
-
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="https://housemilka.com/wp-content/uploads/yagodina-1305d2.jpg" class="d-block w-100" alt="Орлово око">
@@ -173,6 +51,7 @@
         {
             foreach (var picture in Model.OrderByDescending(p => p.LikeCount).Take(6))
             {
+                @* location of every landmark to database and set new property to cordinate  *@
                 <div class="col">
 
                     @if (User.Identity!.Name != null)
@@ -396,60 +275,6 @@
 
 
 
-
-@section Scripts {
-    <script>
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition, showError);
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
-
-        function showPosition(position) {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            getWeather(lat, lon);
-        }
-
-        function showError(error) {
-            switch(error.code) {
-                case error.PERMISSION_DENIED:
-                    alert("User denied the request for Geolocation.");
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    alert("Location information is unavailable.");
-                    break;
-                case error.TIMEOUT:
-                    alert("The request to get user location timed out.");
-                    break;
-                case error.UNKNOWN_ERROR:
-                    alert("An unknown error occurred.");
-                    break;
-            }
-        }
-
-        function getWeather(lat, lon) {
-            const apiKey = '**********************';
-            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${'**********************'}&units=metric`;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    const weatherDiv = document.getElementById('weather');
-                    weatherDiv.innerHTML = `
-                        <h3>Weather Information</h3>
-                        <p>Location: ${data.name}</p>
-                        <p>Temperature: ${data.main.temp} °C</p>
-                        <p>Weather: ${data.weather[0].description}</p>
-                    `;
-                })
-                .catch(error => console.error('Error fetching weather data:', error));
-        }
-
-        window.onload = getLocation;
-    </script>
-}
-
-
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11887.948034179386!2d24.95793666016359!3d41.8501064399136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13
+.1!3m3!1m2!1s0x14ad1ee5ebbcd7fb%3A0x6193b36e1608f15b!2z0JHQtdC70LjQvdGC0LDRiA!5e0!3m2!1sbg!2sbg!4v1742929331613!5m2!1sbg!2sbg" width="600" height="450" style="border:0;"
+allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

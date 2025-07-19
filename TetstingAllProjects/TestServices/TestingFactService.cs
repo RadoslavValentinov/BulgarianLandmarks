@@ -12,9 +12,9 @@ namespace TetstingAllProjects.TestServices
     [TestFixture]
     public class TestingFactService
     {
-        private FactsService? service;
+        private IFactsService? service;
         private ApplicationDbContext context;
-        private readonly ILogger<FactsService>? logger;
+        private readonly ILogger<FactsService> logger;
 
 
         [SetUp]
@@ -37,7 +37,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethodAdd_Insert_In_Database_Fact_Corectly()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo, logger!);
+            service = new FactsService(repo, logger);
 
             await repo.AddAsync(new InterestingFacts()
             {
@@ -47,12 +47,11 @@ namespace TetstingAllProjects.TestServices
             });
 
             var getNewFact = await repo.GetByIdAsync<InterestingFacts>(100);
-            Assert.Multiple(() =>
-            {
-                Assert.That(getNewFact.Description, Is.EqualTo("Fact of bulgarian history and natural"));
-                Assert.That(getNewFact.CategoryId, Is.EqualTo(8));
-            });
+
+            Assert.That(getNewFact.Description, Is.EqualTo("Fact of bulgarian history and natural"));
+            Assert.That(getNewFact.CategoryId, Is.EqualTo(8));
         }
+
 
         [Test]
         public void Test_MethodAdd_Throw_Exeption_is_Moidel_NotValid()
@@ -87,7 +86,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethodAdd_Insert_In_Database_Fact_Corectly_By_Service()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo, logger!);
+            service = new FactsService(repo, logger);
 
             await service.AddFacts(new FactOfCountry()
             {
@@ -98,11 +97,9 @@ namespace TetstingAllProjects.TestServices
 
 
             var getNewFact = await service.GetFactById(100);
-            Assert.Multiple(() =>
-            {
-                Assert.That(getNewFact.Description, Is.EqualTo("Fact of bulgarian history and natural"));
-                Assert.That(getNewFact.CategoryId, Is.EqualTo(8));
-            });
+
+            Assert.That(getNewFact.Description, Is.EqualTo("Fact of bulgarian history and natural"));
+            Assert.That(getNewFact.CategoryId, Is.EqualTo(8));
         }
 
         [Test]
@@ -122,7 +119,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Method_AllFacts_Return_Data_Corectly()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo, logger!);
+            service = new FactsService(repo, logger);
 
             var allFactsOService = await service.AllFacts();
 
@@ -135,7 +132,7 @@ namespace TetstingAllProjects.TestServices
         public async Task TestMethod_Delete_Remove_Corectly_Facts()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo, logger!);
+            service = new FactsService(repo, logger);
 
             var all = await service.AllFacts();
 
@@ -158,7 +155,7 @@ namespace TetstingAllProjects.TestServices
         public void TestMethod_Delete_Throw_Exeption_If_Not_Found_ID()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo, logger!);
+            service = new FactsService(repo, logger);
 
             Assert.ThrowsAsync<ArgumentNullException>(async () => await service.Delete(-1));
         }
@@ -167,7 +164,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Edit_Method_Update_Proparty_of_Fact_Corectly()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo, logger!);
+            service = new FactsService(repo, logger);
 
             await repo.AddAsync(new InterestingFacts()
             {
@@ -188,18 +185,16 @@ namespace TetstingAllProjects.TestServices
             });
 
             var updatedFact = await repo.GetByIdAsync<InterestingFacts>(100);
-            Assert.Multiple(() =>
-            {
-                Assert.That(updatedFact.Description, Is.EqualTo("Bulgaria has been used for over 1, 300 years"));
-                Assert.That(updatedFact.CategoryId, Is.EqualTo(8));
-            });
+
+            Assert.That(updatedFact.Description, Is.EqualTo("Bulgaria has been used for over 1, 300 years"));
+            Assert.That(updatedFact.CategoryId, Is.EqualTo(8));
         }
 
         [Test]
         public async Task Test_Edit_Method_Throw_Exeption_If_InputModel_is_Not_Valid()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo, logger!);
+            service = new FactsService(repo, logger);
 
             await repo.AddAsync(new InterestingFacts()
             {
@@ -229,7 +224,7 @@ namespace TetstingAllProjects.TestServices
         public async Task Test_Edit_Method_Throw_Exeption_If_Save_Database()
         {
             var repo = new Repository(context);
-            service = new FactsService(repo, logger!);
+            service = new FactsService(repo, logger);
 
             await repo.AddAsync(new InterestingFacts()
             {

@@ -24,11 +24,6 @@ namespace MyWebProject.Core.Services.Services
         }
 
 
-        /// <summary>
-        /// Retrieves all users.
-        /// </summary>
-        /// <param name="model">The model containing user data.</param>
-        /// <returns>A collection of all users.</returns>
         [Authorize]
         [Area("Administrator")]
         public async Task<IEnumerable<UserviewModel>> GetAllUsers(UserviewModel model)
@@ -47,30 +42,25 @@ namespace MyWebProject.Core.Services.Services
 
             if (AllUsers == null)
             {
-                logger.LogError(string.Format("No registered users"), new NullReferenceException());
+                logger.LogError(string.Format("No register users"), new NullReferenceException());
             }
 
             return AllUsers ?? null!;
         }
 
 
-        /// <summary>
-        /// Updates the last login time for a user.
-        /// </summary>
-        /// <param name="userId">The ID of the user.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task UpdateLastLoginAsync(string userId)
         {
             var user = await repo.GetByIdAsync<Users>(userId);
-            try
+            if (user != null)
             {
                 user.LastActive = DateTime.UtcNow;
                 repo.Update(user);
                 await repo.SaveChangesAsync();
             }
-            catch (NullReferenceException)
+            else
             {
-                throw new NullReferenceException($"User with ID not found.");
+                logger.LogError($"User with ID {userId} not found.");
             }
         }
     }
