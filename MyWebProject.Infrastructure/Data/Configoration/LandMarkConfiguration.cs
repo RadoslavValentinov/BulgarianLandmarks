@@ -415,6 +415,9 @@ namespace MyWebProject.Infrastructure.Data.Configoration
                     VideoURL = "https://www.youtube.com/embed/dz4uhD5sD44?autoplay=1&mute=1",
                     Latitude = 41.847830,
                     Longitude = 24.967233
+<<<<<<< HEAD
+                   
+=======
                     // добави локацията за всички лендмарки и визуализираи в вю модела
 
 
@@ -424,6 +427,7 @@ namespace MyWebProject.Infrastructure.Data.Configoration
 //    src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyByeXZQLDlqOPxcx6dpPdiqHfxE5E8KJh0&callback=initMap" >
 ////</ script >
 >>>>>>> 727e98d64d694b4f376b8be735ec69b0a61d8d4d
+>>>>>>> parent of e662d54 (Update Google Maps API script tag with new key)
 
 
                 },
