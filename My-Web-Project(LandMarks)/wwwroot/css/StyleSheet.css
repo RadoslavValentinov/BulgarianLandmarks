@@ -231,20 +231,41 @@ li h4 {
 
 /* User picture section */
 
+.UserSection {
+    padding: 10px;
+    background-color: ghostwhite;
+    border: 1px solid;
+    border-image: linear-gradient(to right, #C5C3D1 0%, #A8A7AF 100%) 1;
+    border-radius: 24px 14px;
+}
+
 .UserSection h3 {
     font-family: 'HP Simplified';
     font-style: italic;
 }
 
 .UserSection .row .col {
-    max-width: 310px;
+    max-width: 200px;
     overflow: hidden;
+}
+.UserSection .row
+{
+    margin-left: 0px;
 }
 
 #constheight {
+    width: 220px;
     height: 200px;
     overflow: hidden;
+    transition: 0.5s;
+    object-fit: cover;
+    filter: brightness(1)
 }
+
+    #constheight:hover {
+        filter: brightness(0.6);
+        transform: translateZ(120px) rotateY(25deg);
+    }
 
 
 
