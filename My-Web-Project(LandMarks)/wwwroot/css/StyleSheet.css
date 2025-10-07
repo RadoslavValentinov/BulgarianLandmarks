@@ -228,13 +228,34 @@ li h4 {
     color: gray;
 }
 
+/* Scroll button */
+
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    z-index: 99;
+    background: gray;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20%;
+    width: 60px;
+    height: 55px;
+}
+#scrollToTopBtn:hover{
+    transform:scale(1.1);
+}
+
+
+
+
 
 /* User picture section */
 
 .UserSection {
     padding: 10px;
     background-color: ghostwhite;
-    border: 1px solid;
     border-image: linear-gradient(to right, #C5C3D1 0%, #A8A7AF 100%) 1;
     border-radius: 24px 14px;
 }

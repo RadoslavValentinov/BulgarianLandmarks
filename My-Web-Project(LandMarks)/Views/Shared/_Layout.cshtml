@@ -116,6 +116,22 @@
         <img id="posImg" src="https://cdn.freebiesupply.com/logos/large/2x/bulgaria-logo-png-transparent.png" width="250" height="170" alt="Bulgaria" />
 
     </footer>
+
+    @* scroll page of the top *@
+
+    <button id="scrollToTopBtn" title="Върни най-горе">
+        <i class='fa fa-arrow-up'style='font-size:36px;'></i>
+    </button>
+    <script>
+        
+        window.onscroll = function() {
+            document.getElementById("scrollToTopBtn").style.display = (window.scrollY > 200) ? "block" : "none";
+        };
+        
+        document.getElementById("scrollToTopBtn").onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
