@@ -67,7 +67,7 @@ namespace My_Web_Project_LandMarks_.Controllers
 
                 var currentUser = user.FindByNameAsync(User!.Identity!.Name!.ToUpper()).Result;
 
-                var set = await repo.GetByIdAsync<Users>(currentUser.Id);
+                var set = await repo.GetByIdAsync<Users>(currentUser!.Id);
 
 
                 var check = repo.AllReadonly<Cultural_events>().Where(x => x.AllUsers.Any(a => a.Id == currentUser.Id));

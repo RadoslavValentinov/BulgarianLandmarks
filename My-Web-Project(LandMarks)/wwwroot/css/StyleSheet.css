@@ -111,6 +111,7 @@ li h4 {
     width: 450px;
     height: 610px;
     border: 1px solid gray;
+    border-radius:20px;
     position: absolute;
     background-color: white;
     top: 40px;
@@ -139,6 +140,7 @@ li h4 {
 
 
 /* Button close div */
+
 
 #Close {
     position: absolute;
@@ -181,7 +183,7 @@ li h4 {
     #allOptions a:hover {
         font-size: 20px;
         border-block-end: 1px solid lightgray;
-        transition-duration: 1s;
+        transition: 1s;
     }
 
 #advent hr {
