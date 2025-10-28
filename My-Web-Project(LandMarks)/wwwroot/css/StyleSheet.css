@@ -1,5 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
+
 body {
     background: rgb(225,233,233);
     background: radial-gradient(circle, rgba(225,233,233,1) 51%, rgba(212,211,208,0.9327380610447304) 96%);
@@ -1102,4 +1103,5 @@ footer {
                 height: 400px;
                 margin: 5px;
             }
+
 }

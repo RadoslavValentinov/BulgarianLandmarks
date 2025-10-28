@@ -147,6 +147,9 @@ namespace My_Web_Project_LandMarks_.Controllers
                     
                     await userManager.AddToRoleAsync(user, role.Name!);
 
+                    TempData["ToastMessage"] = "Регистрацията беше успешна.";
+                    TempData["ToastType"] = "success";
+
                     return RedirectToAction("Login", "User");
                 }
 

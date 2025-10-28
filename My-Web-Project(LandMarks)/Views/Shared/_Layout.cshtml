@@ -93,7 +93,7 @@
         </nav>
 
     </header>
-    <div id="cont"  class="container">
+    <div id="cont" class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -117,17 +117,27 @@
 
     </footer>
 
+    @* Global Bootstrap toast container *@
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index:1080;">
+        <div id="globalToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="4000">
+            <div class="d-flex">
+                <div id="globalToastBody" class="toast-body"></div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
     @* scroll page of the top *@
 
     <button id="scrollToTopBtn" title="Върни най-горе">
-        <i class='fa fa-arrow-up'style='font-size:36px;'></i>
+        <i class="fa fa-arrow-up"></i>
     </button>
     <script>
-        
+
         window.onscroll = function() {
             document.getElementById("scrollToTopBtn").style.display = (window.scrollY > 200) ? "block" : "none";
         };
-        
+
         document.getElementById("scrollToTopBtn").onclick = function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
@@ -135,6 +145,30 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+         
+          var message = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["ToastMessage"] ?? ""));
+          var type = @Html.Raw(System.Text.Json.JsonSerializer.Serialize((TempData["ToastType"] ?? "info").ToString()!.ToLower()));
+
+          if (message) {
+            var toastEl = document.getElementById('globalToast');
+            var body = document.getElementById('globalToastBody');
+
+            var map = { info: 'text-bg-primary', success: 'text-bg-success', warning: 'text-bg-warning', error: 'text-bg-danger' };
+            toastEl.classList.remove('text-bg-primary','text-bg-success','text-bg-warning','text-bg-danger');
+            toastEl.classList.add(map[type.replace(/"/g,"")] || map.info);
+
+           
+            body.textContent = message.replace(/^"(.*)"$/, '$1');
+
+            var toast = new bootstrap.Toast(toastEl);
+            toast.show();
+          }
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
