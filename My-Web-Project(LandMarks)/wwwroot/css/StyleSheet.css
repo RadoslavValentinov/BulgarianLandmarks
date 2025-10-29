@@ -1,5 +1,33 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
+/* Hide vertical scrollbar but keep scrolling (apply to <body> or any scrollable container) */
+.hide-vertical-scroll,
+html.hide-vertical-scroll,
+body.hide-vertical-scroll {
+    overflow-y: auto !important; /* allow vertical scrolling */
+    overflow-x: hidden; /* keep horizontal behaviour predictable */
+    -ms-overflow-style: none; /* IE 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+
+    /* Chrome, Edge, Safari (WebKit/Blink) */
+    .hide-vertical-scroll::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+
+    .hide-vertical-scroll::-webkit-scrollbar-thumb {
+        background: transparent;
+    }
+
+#cont {
+    margin: 0px;
+    padding: 0px;
+}
+
+nav .navbar {
+    margin-bottom:0px;
+}
 
 body {
     background: rgb(225,233,233);
@@ -8,11 +36,22 @@ body {
     margin-top: 0px;
 }
 
-.carousel-inner img {
-    width: 800px;
-    height: 600px;
-    border-radius: 6px;
+.carousel-control-next {
+    right: -160px;
+    top:10px;
 }
+
+.carousel-inner {
+    position: relative;
+    width: 117%;
+    overflow: hidden;
+}
+
+    .carousel-inner img {
+        width: 800px;
+        height: 600px;
+        border-radius: 6px;
+    }
 
 h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -25,6 +64,10 @@ h1 {
 }
 
 /* nav bar custom */
+
+nav .navbar  {
+    margin: 0px;
+}
 
 .navbar-brand {
     font-size: 30px;
@@ -80,7 +123,6 @@ h1 {
 
 nav {
     padding: 10px;
-    margin-bottom: 20px;
     width: auto;
 }
 
@@ -112,7 +154,7 @@ li h4 {
     width: 450px;
     height: 610px;
     border: 1px solid gray;
-    border-radius:20px;
+    border-radius: 20px;
     position: absolute;
     background-color: white;
     top: 40px;
@@ -246,9 +288,10 @@ li h4 {
     width: 60px;
     height: 55px;
 }
-#scrollToTopBtn:hover{
-    transform:scale(1.1);
-}
+
+    #scrollToTopBtn:hover {
+        transform: scale(1.1);
+    }
 
 
 
@@ -263,19 +306,19 @@ li h4 {
     border-radius: 24px 14px;
 }
 
-.UserSection h3 {
-    font-family: 'HP Simplified';
-    font-style: italic;
-}
+    .UserSection h3 {
+        font-family: 'HP Simplified';
+        font-style: italic;
+    }
 
-.UserSection .row .col {
-    max-width: 200px;
-    overflow: hidden;
-}
-.UserSection .row
-{
-    margin-left: 0px;
-}
+    .UserSection .row .col {
+        max-width: 200px;
+        overflow: hidden;
+    }
+
+    .UserSection .row {
+        margin-left: 0px;
+    }
 
 #constheight {
     width: 220px;
@@ -293,20 +336,20 @@ li h4 {
 
 
 
-    #constheight:hover #hideoptions {
-        position: relative;
-        top: -30px;
-        left: 10px;
-        color: white;
-        text-decoration: none;
-    }
+        #constheight:hover #hideoptions {
+            position: relative;
+            top: -30px;
+            left: 10px;
+            color: white;
+            text-decoration: none;
+        }
 
 #redirForAll {
     text-decoration: none;
     color: lightcoral;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    padding-left:15px;
+    padding-left: 15px;
 }
 
     #redirForAll:hover {
@@ -1103,5 +1146,4 @@ footer {
                 height: 400px;
                 margin: 5px;
             }
-
 }

@@ -11,9 +11,11 @@
     <script src="/js/ViewoptionsDiv.js" asp-append-version="true"></script>
     <script src="/js/CloseHiddenDiv.js" asp-append-version="true"></script>
 </head>
-<body>
+
+<body class="hide-vertical-scroll">
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
 
             <div class="titleAndMenu">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Пътеводител</a>
@@ -117,7 +119,7 @@
 
     </footer>
 
-    @* Global Bootstrap toast container *@
+
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index:1080;">
         <div id="globalToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="4000">
             <div class="d-flex">
@@ -130,8 +132,21 @@
     @* scroll page of the top *@
 
     <button id="scrollToTopBtn" title="Върни най-горе">
-        <i class="fa fa-arrow-up"></i>
+        <i class="fa fa-arrow-up fa-xl"></i>
     </button>
+
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @* hide scroll bar *@
+    <script>
+        document.documentElement.classList.add('hide-vertical-scroll');
+        document.body.classList.add('hide-vertical-scroll');
+    </script>
+
+    @* button to scroll page of the top *@
     <script>
 
         window.onscroll = function() {
@@ -142,13 +157,11 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
     </script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
+    @* Message to seccssesfuly registration  *@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-         
+
           var message = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["ToastMessage"] ?? ""));
           var type = @Html.Raw(System.Text.Json.JsonSerializer.Serialize((TempData["ToastType"] ?? "info").ToString()!.ToLower()));
 
@@ -160,7 +173,7 @@
             toastEl.classList.remove('text-bg-primary','text-bg-success','text-bg-warning','text-bg-danger');
             toastEl.classList.add(map[type.replace(/"/g,"")] || map.info);
 
-           
+
             body.textContent = message.replace(/^"(.*)"$/, '$1');
 
             var toast = new bootstrap.Toast(toastEl);
@@ -171,4 +184,6 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
+
