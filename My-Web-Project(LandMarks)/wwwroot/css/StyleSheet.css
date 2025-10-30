@@ -6,7 +6,7 @@ html.hide-vertical-scroll,
 body.hide-vertical-scroll {
     overflow-y: auto !important; /* allow vertical scrolling */
     overflow-x: hidden; /* keep horizontal behaviour predictable */
-    -ms-overflow-style: none; /* IE 10+ */
+    -ms-overflow-style: none; /* IE 10++ */
     scrollbar-width: none; /* Firefox */
 }
 
@@ -300,10 +300,12 @@ li h4 {
 /* User picture section */
 
 .UserSection {
-    padding: 10px;
+    padding: 5px;
     background-color: ghostwhite;
     border-image: linear-gradient(to right, #C5C3D1 0%, #A8A7AF 100%) 1;
     border-radius: 24px 14px;
+    margin-left: 20px;
+    width:112%;
 }
 
     .UserSection h3 {
@@ -312,7 +314,7 @@ li h4 {
     }
 
     .UserSection .row .col {
-        max-width: 200px;
+        max-width: 240px;
         overflow: hidden;
     }
 
@@ -362,6 +364,25 @@ li h4 {
 
 
 /* Card Div */
+
+#LandmarksSection {
+    position: relative;
+    left: 115px; 
+}
+#TownSection {
+    position: relative;
+    left: 115px;
+}
+#JourneySection {
+    position: relative;
+    left: 115px;
+}
+#FactsSection {
+    position: relative;
+    left: 115px;
+}
+
+
 p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
