@@ -57,6 +57,20 @@
         border:2px solid #fff;
     }
 
+    #forgotpass {
+        display: block;
+        text-decoration: none;
+        color: white;
+        padding: 5px;
+    }
+
+    #register {
+        display: block;
+        text-decoration: none;
+        color: white;
+        padding: 5px;
+    }
+
     footer {
         display: none;
     }
@@ -85,9 +99,21 @@
                     <input asp-for="@Model.Password" type="password" class="form-control" autocomplete="current-password" aria-required="true" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
+
+                <a id="forgotpass" href="#">Forgot your password?</a>
+                <a id="register" asp-area="" asp-controller="User" asp-action="Register">Don't have an account? Register</a>
+
                 <div class="text-center">
                     <button id="login-submit" type="submit" class="btn btn-primary">Sign In</button>
                 </div>
+
+                <div class="text-center">
+                    <a class="btn btn-light external-btn" href="@Url.Action("ExternalLogin", "User", new { provider = "Google", returnUrl = "googleReturnUrl" })" title="Sign in with Google">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" style="height:20px" />
+                        Sign in with Google
+                    </a>
+                </div>
+
             </form>
         </section>
     </div>

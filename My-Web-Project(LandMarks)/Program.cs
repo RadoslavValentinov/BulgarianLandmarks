@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -58,6 +59,20 @@ namespace My_Web_Project_LandMarks_
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
+            builder.Services.AddAuthentication()
+                .AddGoogle(options =>
+                    {
+                        var clientId = builder.Configuration["Authentication:Google:ClientId"];
+                        var clientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+
+                        if (string.IsNullOrEmpty(clientId))
+                            throw new InvalidOperationException("Google ClientId is not configured.");
+                        if (string.IsNullOrEmpty(clientSecret))
+                            throw new InvalidOperationException("Google ClientSecret is not configured.");
+
+                        options.ClientId = clientId;
+                        options.ClientSecret = clientSecret;
+                    });
 
 
             var app = builder.Build();

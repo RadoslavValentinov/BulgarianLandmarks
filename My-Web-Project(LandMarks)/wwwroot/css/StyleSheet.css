@@ -1,6 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
-/* Hide vertical scrollbar but keep scrolling (apply to <body> or any scrollable container) */
+/* Hide vertical scrollbar but keep scrolling (apply to <body> or any scrollable container) comment */
+
 .hide-vertical-scroll,
 html.hide-vertical-scroll,
 body.hide-vertical-scroll {
@@ -300,7 +301,7 @@ li h4 {
 /* User picture section */
 
 .UserSection {
-    padding: 5px;
+    padding: 10px;
     background-color: ghostwhite;
     border-image: linear-gradient(to right, #C5C3D1 0%, #A8A7AF 100%) 1;
     border-radius: 24px 14px;
@@ -502,22 +503,21 @@ hr {
 .col-sm-1:hover {
     transform: scale(1.02);
     transition: 0.5s ease-in;
-    border-left: 2px solid gray;
-    border-bottom: 2px solid gray;
+    box-shadow: 5px 10px #888888;
 }
 
 .col-sm-2:hover {
     transform: scale(1.02);
     transition: 0.5s ease-in;
-    border-left: 2px solid gray;
-    border-bottom: 2px solid gray;
+    box-shadow: 5px 10px #888888;
+
 }
 
 .col-sm-3:hover {
     transform: scale(1.02);
     transition: 0.5s ease-in;
-    border-left: 2px solid gray;
-    border-bottom: 2px solid gray;
+    box-shadow: 5px 10px #888888;
+
 }
 
 /*button by custom css style by Id */

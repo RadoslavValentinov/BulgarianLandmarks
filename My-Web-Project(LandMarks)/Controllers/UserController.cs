@@ -7,6 +7,7 @@ using MyWebProject.Core.Services.IServices;
 using MyWebProject.Core.Services.Services;
 using MyWebProject.Infrastructure.Data.Common;
 using MyWebProject.Infrastructure.Data.Models;
+using System.Security.Claims;
 
 namespace My_Web_Project_LandMarks_.Controllers
 {
@@ -20,7 +21,7 @@ namespace My_Web_Project_LandMarks_.Controllers
         private readonly IRepository repo;
         private readonly ILogger<UserController> logger;
         private readonly IEmailSender emailSender;
-        private  IUserService service;
+        private IUserService service;
 
         public UserController(SignInManager<Users> _signInManager,
             UserManager<Users> _userManager,
@@ -85,6 +86,123 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(model);
         }
 
+        // POST: start external login (Google)
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public IActionResult ExternalLogin(string provider, string returnUrl = null!)
+        {
+            
+            var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "User", new { returnUrl });
+            var properties = signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+            return Challenge(properties, provider);
+        }
+
+        
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null!, string remoteError = null!)
+        {
+            if (remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"Error from external provider: {remoteError}");
+                return View("Login");
+            }
+
+            var info = await signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                
+                return RedirectToAction(nameof(Login));
+            }
+
+            
+            var signInResult = await signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+            if (signInResult.Succeeded)
+            {
+                var existingUserId = userManager.GetUserId(User);
+                
+                var user = await userManager.FindByLoginAsync(info.LoginProvider, info.ProviderKey);
+                if (user != null)
+                {
+                    await service.UpdateLastLoginAsync(user.Id);
+                }
+                return RedirectToLocal(returnUrl);
+            }
+            else
+            {
+                
+                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+                if (email != null)
+                {
+                    var user = await userManager.FindByEmailAsync(email);
+                    if (user == null)
+                    {
+                        user = new Users
+                        {
+                            UserName = email,
+                            Email = email,
+                            EmailConfirmed = true,
+                            IsActiv = true,
+                            Avatar = "https://static.vecteezy.com/system/resources/previews/009/330/731/non_2x/avatar-icon-profile-icon-member-login-isolated-login-icons-profile-icons-free-vector.jpg"
+                        };
+
+                        var createResult = await userManager.CreateAsync(user);
+                        if (createResult.Succeeded)
+                        {
+                            
+                            var role = await roleManager.FindByNameAsync("User");
+                            if (role != null)
+                            {
+                                await userManager.AddToRoleAsync(user, role.Name!);
+                            }
+                        }
+                        else
+                        {
+                            
+                            foreach (var error in createResult.Errors)
+                            {
+                                ModelState.AddModelError(string.Empty, error.Description);
+                            }
+                            return View("Login");
+                        }
+                    }
+
+                    
+                    var addLoginResult = await userManager.AddLoginAsync(user, info);
+                    if (!addLoginResult.Succeeded)
+                    {
+                        foreach (var error in addLoginResult.Errors)
+                        {
+                            ModelState.AddModelError(string.Empty, error.Description);
+                        }
+                        return View("Login");
+                    }
+
+                   
+                    await signInManager.SignInAsync(user, isPersistent: false);
+                    await service.UpdateLastLoginAsync(user.Id);
+
+                    return RedirectToLocal(returnUrl);
+                }
+
+                
+                ModelState.AddModelError(string.Empty, "Email claim not received from external provider.");
+                return View("Login");
+            }
+        }
+
+        private IActionResult RedirectToLocal(string returnUrl)
+        {
+            if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+
+
 
         /// <summary>
         /// Loads the registration view model
@@ -144,7 +262,7 @@ namespace My_Web_Project_LandMarks_.Controllers
                 //        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode("www.google.com")}'>clicking here</a>.");
                 if (role != null)
                 {
-                    
+
                     await userManager.AddToRoleAsync(user, role.Name!);
 
                     TempData["ToastMessage"] = "Регистрацията беше успешна.";
