@@ -86,6 +86,19 @@ namespace My_Web_Project_LandMarks_.Controllers
             return View(model);
         }
 
+
+        // only for test local
+        //[HttpGet]
+        //[AllowAnonymous]
+        //public IActionResult ExternalLogin(string provider, string returnUrl = null)
+        //{
+        //    var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "User", new { returnUrl });
+        //    var properties = signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+        //    return Challenge(properties, provider);
+        //}
+
+
+
         // POST: start external login (Google)
         [HttpPost]
         [AllowAnonymous]

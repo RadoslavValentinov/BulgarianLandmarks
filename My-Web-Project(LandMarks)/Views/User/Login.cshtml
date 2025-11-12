@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="text-center">
-                    <a class="btn btn-light external-btn" href="@Url.Action("ExternalLogin", "User", new { provider = "Google", returnUrl = "googleReturnUrl" })" title="Sign in with Google">
+                    <a class="btn btn-light external-btn" href="@Url.Action("ExternalLogin", "User", new { provider = "Google", returnUrl = Url.Action("Index", "Home")})" title="Sign in with Google">
                         <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" style="height:20px" />
                         Sign in with Google
                     </a>
