@@ -5,30 +5,32 @@
     <link rel="stylesheet" href="~/css/All CSS file/TownCustomCSS/AllTownsCss.css" asp-append-version="true" />
 </head>
 
-@foreach (var pic in Model)
-{
-    var picture = pic.Picture.FirstOrDefault(x => x.TownId != null);
+<div id="allTown">
 
-    <div id="containerTown">
-        <img src="@picture?.UrlImgAddres" alt="Town" />
+    <div id="Info">
+        <h3>Може да видите още...</h3>
+        <hr />
+        <ul type="none">
+            <li> @Html.ActionLink("Мистериозни места", "MysteryPlaces", "Top10destination", null, new { @class = "myactionlink" })</li>
+            <li> @Html.ActionLink("Забележителностите с най-висок рейтинг", "Get10Landmark", "Top10destination", null, new { @class = "myactionlink" })</li>
+            <li> @Html.ActionLink("Забележителностите на България", "AllLandmark", "LandMark", null, new { @class = "myactionlink" })</li>
+            <li> @Html.ActionLink("Екскурзии и почивки", "GetAll", "Journey", null, new { @class = "myactionlink" })</li>
+            <li> @Html.ActionLink("Културни събития", "GetAllEvent", "CultureEvent", null, new { @class = "myactionlink" })</li>
+        </ul>
+    </div>
+
+    @foreach (var pic in Model)
+    {
+        var picture = pic.Picture.FirstOrDefault(x => x.TownId != null);
+
+        <div id="containerTown">
+            <img src="@picture?.UrlImgAddres" alt="Town" />
             <div id="texts">
                 <h4>@pic.Name</h4>
                 <hr>
-                <p>@pic.Description.Substring(0,380)...</p>
+                <p>@pic.Description.Substring(0, 380)...</p>
                 <a class="btn btn-primary" asp-controller="Town" asp-action="GetTown" asp-route-id="@pic.Id" method="post">Към Градът</a>
             </div>
-    </div>
-}
-
-
-<div id="Info">
-    <h3>Може да видите още...</h3>
-    <hr />
-    <ul>
-        <li> @Html.ActionLink("Мистериозни места","MysteryPlaces","Top10destination",null,new {@class="myactionlink"})</li>
-        <li> @Html.ActionLink("Забележителностите с най-висок рейтинг","Get10Landmark","Top10destination",null,new {@class="myactionlink"})</li>
-        <li> @Html.ActionLink("Забележителностите на България","AllLandmark","LandMark",null,new {@class="myactionlink"})</li>
-        <li> @Html.ActionLink("Екскурзии и почивки","GetAll","Journey",null,new {@class="myactionlink"})</li>
-        <li> @Html.ActionLink("Културни събития","GetAllEvent","CultureEvent",null,new {@class="myactionlink"})</li>
-    </ul>
+        </div>
+    }
 </div>

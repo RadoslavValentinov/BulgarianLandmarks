@@ -3,6 +3,12 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#allTown {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
 h4 {
     font-style: italic;
     font-size: 28px;
@@ -20,14 +26,14 @@ h3 {
 /* div town container */
 
 #containerTown {
-    position: relative;
-    left: -100px;
     padding: 0px;
     width: 900px;
     height: 400px;
     margin: 20px;
     border: 2px solid black;
+    border-radius:20px;
     background-color: ghostwhite;
+    overflow:hidden;
 }
 
     #containerTown img {
@@ -38,14 +44,28 @@ h3 {
         margin-right: 10px;
     }
 
+
+
 /* navigatin menu */
 
 #Info {
-    float: right;
-    position: relative;
-    top: -2100px;
-    left: 60px;
+    margin-top: 20px;
+    text-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
+
+    #Info ul {
+        display: flex;
+        justify-content: space-evenly;
+        text-decoration: none;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size:medium;
+        font-style:italic;
+        font-size:16px;
+    }
+
 
 hr {
     margin-bottom: 10px;
@@ -60,22 +80,12 @@ hr {
         color: lightcoral;
     }
 
-#Info ul {
-    padding-left: 0px;
-}
-
-#Info ul li {
-    padding-bottom: 10px;
-    position: relative;
-    left: 10px;
-    padding: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:16px;
-}
 
 
 
 /* all button */
+
+
 .btn {
     position: relative;
     bottom: -30px;
@@ -84,6 +94,80 @@ hr {
 }
 
 
-footer{
-    width:100%;
+footer {
+    width: 100%;
+}
+
+
+#containerTown:nth-child(odd) {
+    margin-left: 100px;
+}
+
+
+
+
+@media (max-width: 767px)
+{
+
+    #allTown #Info ul {
+        display:block;
+        padding: 5px;
+    }
+
+    #containerTown:nth-child(odd) {
+        margin-left: 0px;
+    }
+    #containerTown:nth-child(even) {
+        margin-left: 0px;
+    }
+
+
+    #containerTown{
+        width:auto;
+        height: 685px;
+    }
+
+    #containerTown img{
+        width:100%;
+        float:none;
+        height:150px;
+    }
+
+        #containerTown .btn {
+            position: relative;
+            bottom: -25px;
+            left: 65px;
+            padding: 8px 50px 8px 50px;
+        }
+
+}
+
+@media (min-width: 1024px) and (max-width: 1365px) {
+    #allTown {
+        grid-template-columns: 300px 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    #containerTown {
+        gap: 18px;
+        padding: 16px;
+    }
+
+        #containerTown img {
+            width: 260px;
+            height: 160px;
+        }
+
+    #texts h4 {
+        font-size: 21px;
+    }
+
+    #texts p {
+        font-size: 15px;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 }

@@ -504,21 +504,23 @@ hr {
     transform: scale(1.02);
     transition: 0.5s ease-in;
     box-shadow: 5px 10px #888888;
+    opacity:0.9;
 }
 
 .col-sm-2:hover {
     transform: scale(1.02);
     transition: 0.5s ease-in;
     box-shadow: 5px 10px #888888;
-
+    opacity: 0.9;
 }
 
 .col-sm-3:hover {
     transform: scale(1.02);
     transition: 0.5s ease-in;
     box-shadow: 5px 10px #888888;
-
+    opacity: 0.9;
 }
+
 
 /*button by custom css style by Id */
 
