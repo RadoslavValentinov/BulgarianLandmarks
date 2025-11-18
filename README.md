@@ -4,11 +4,38 @@ Hello, this is my web project related to Bulgarian landmarks, cities as an optio
 sample excursions as well as cultural events for the various cities (theatre productions, concerts, etc.) have been added.
 
 <p>
-  The application uses the .Net 6 platform. Asp .Net, MVC pattern, and EF core database were used for the development. 
+  The application uses the .Net 6(Update to .Net 8) platform. Asp .Net, MVC pattern, and EF core database were used for the development. 
   The application has two areas, User and Administrator, and for both areas there are added roles. Users have rights only 
   to view and add content only to their own collections after admin approval.
   The administrator can add content such as adding sights, trips, events, cities, etc. as well as approves content 
   uploaded by users and adds it to the database.
+</p>
+
+<p>
+  # Bulgarian Landmarks struct info
+
+Short description
+A web application for browsing and managing Bulgarian landmarks. Built with ASP.NET Core (MVC with Razor views), Identity for authentication, role-based authorization and support for external login via Google OAuth.
+
+Key features
+- Local user registration, login and profile management
+- Role seeding: `Administrator`, `User`, `Menager` on startup
+- External login with Google (OAuth)
+- EF Core + SQL Server for persistent storage
+- Simple responsive UI with Razor views
+
+Technologies
+- .NET 8 / .NET 9 (project-targeted TFMs in workspace)
+- ASP.NET Core MVC with Razor views
+- Entity Framework Core (SQL Server)
+- ASP.NET Core Identity
+- Google OAuth (external authentication)
+
+Getting started (development)
+Prerequisites
+- .NET 8 SDK (or .NET 9 if you use that project)
+- SQL Server (LocalDB or full SQL Server)
+- Visual Studio 2022 (recommended) or `dotnet` CLI
 </p>
 
 <h3>The main page</h1>
