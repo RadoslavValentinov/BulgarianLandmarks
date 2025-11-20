@@ -27,7 +27,7 @@ body.hide-vertical-scroll {
 }
 
 nav .navbar {
-    margin-bottom:0px;
+    margin-bottom: 0px;
 }
 
 body {
@@ -39,7 +39,7 @@ body {
 
 .carousel-control-next {
     right: -160px;
-    top:10px;
+    top: 10px;
 }
 
 .carousel-inner {
@@ -66,7 +66,7 @@ h1 {
 
 /* nav bar custom */
 
-nav .navbar  {
+nav .navbar {
     margin: 0px;
 }
 
@@ -306,7 +306,7 @@ li h4 {
     border-image: linear-gradient(to right, #C5C3D1 0%, #A8A7AF 100%) 1;
     border-radius: 24px 14px;
     margin-left: 20px;
-    width:113%;
+    width: 113%;
 }
 
     .UserSection h3 {
@@ -368,16 +368,19 @@ li h4 {
 
 #LandmarksSection {
     position: relative;
-    left: 115px; 
+    left: 115px;
 }
+
 #TownSection {
     position: relative;
     left: 115px;
 }
+
 #JourneySection {
     position: relative;
     left: 115px;
 }
+
 #FactsSection {
     position: relative;
     left: 115px;
@@ -504,7 +507,7 @@ hr {
     transform: scale(1.02);
     transition: 0.5s ease-in;
     box-shadow: 5px 10px #888888;
-    opacity:0.9;
+    opacity: 0.9;
 }
 
 .col-sm-2:hover {
@@ -832,220 +835,31 @@ footer {
 }
 
 
-@media (min-width: 768px) {
-
-    body {
-        max-width: auto;
-    }
-
-    .rowNav {
-        left: 20px;
-    }
 
 
-    .row {
-        max-width: auto;
-        justify-content: space-between;
-        margin-left: 10px;
-    }
 
-    .col-sm-1 {
-        max-width: 100%;
-        margin: 0px;
-        margin-top: 15px;
-        margin-left: 5px;
-    }
-
-    .col-sm-2 {
-        max-width: 100%;
-        margin: 0px;
-        margin-top: 15px;
-        margin-left: 15px;
-    }
-
-    .col-sm-3 {
-        max-width: 100%;
-        margin: 0px;
-        max-width: 100%;
-        margin-top: 15px;
-        margin-left: 15px;
-    }
-
-    .container {
-        max-width: auto;
-        margin-bottom: 20px;
-    }
-
-    #carouselExampleControls {
-        max-width: 100%;
-    }
+/* Media Queries for responsive design */
 
 
-    /* section Facts */
 
-    #allFacts {
-        max-width: 100%;
+
+@media (max-width: 767px) {
+
+
+    /*Navigation*/
+
+
+    header .navbar {
         display: flex;
-        flex-direction: column;
-    }
-
-        #allFacts .row {
-            height: 400px;
-            max-width: 100%;
-            margin: 0px;
-            padding: 0px;
-            justify-content: center;
-        }
-
-            #allFacts .row p img {
-                margin: 0px;
-                display: block;
-                left: -20px;
-                float: right;
-                width: 360px;
-            }
-
-        #allFacts #facts2 {
-            left: 0px;
-            height: 300px;
-        }
-
-            #allFacts #facts2 p img {
-                margin: 5px;
-                display: block;
-                float: left;
-            }
-
-            #allFacts #facts2 p {
-                height: 300px;
-                margin: 5px;
-            }
-}
-
-@media (min-width: 600px) and (max-width: 768px) {
-
-    /* body and navigation */
-    body {
-        max-width: auto;
-    }
-
-    .titleAndMenu {
-        display: flex;
-        align-items: center;
-    }
-
-    .navbar {
-        width: auto;
-        height: 150px;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar-brand {
-        margin-right: 5px;
-        padding-right: 5px;
-    }
-
-    .navbar-nav {
-        margin: 0px;
-    }
-
-    .rowNav {
-        left: 5px;
-    }
-
-    .fa-bars {
-        margin-left: 20px;
-    }
-
-    .pb-3 {
-        width: 100%;
-    }
-
-    #cont {
-        margin: 0px;
-        max-width: 100%;
-        padding: 0px;
-    }
-
-
-    /* card elements */
-
-    .row {
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
+        align-content: center;
+        align-items: baseline;
     }
 
-    .col-sm-1 {
-        max-width: 70%;
-        margin: 0px;
-        margin-top: 15px;
-        margin-left: 5px;
-    }
-
-    .col-sm-2 {
-        max-width: 70%;
-        margin: 0px;
-        margin-top: 15px;
-        margin-left: 5px;
-    }
-
-    .col-sm-3 {
-        margin: 0px;
-        max-width: 100%;
-        margin-top: 15px;
-        margin-left: 10px;
-    }
-
-
-
-
-    /* section Facts */
-
-    #allFacts {
-        max-width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-        #allFacts .row {
-            height: 400px;
-            max-width: 100%;
-            margin: 0px;
-            padding: 0px;
-            justify-content: center;
+        header .navbar .rowNav {
+            margin-left: 0px;
         }
-
-            #allFacts .row p img {
-                margin: 0px;
-                display: block;
-                left: -20px;
-                float: right;
-                width: 360px;
-            }
-
-        #allFacts #facts2 {
-            left: 0px;
-            height: 300px;
-        }
-
-            #allFacts #facts2 p img {
-                margin: 5px;
-                display: block;
-                float: left;
-            }
-
-            #allFacts #facts2 p {
-                height: 300px;
-                margin: 5px;
-            }
-}
-
-
-@media (max-width:600px) {
-
-
-    /* navigation */
 
     header .navbar {
         width: auto;
@@ -1073,13 +887,16 @@ footer {
             align-items: center;
         }
 
+
+
+        .navbar-nav .nav-item a {
+            margin-left: 0px;
+            padding-left: 10px;
+        }
+
+
     .rowNav {
         left: -20px;
-    }
-
-    .navbar-nav .nav-item a {
-        margin-left: 0px;
-        padding-left: 10px;
     }
 
     .fa-bars {
@@ -1099,74 +916,118 @@ footer {
     }
 
 
-    /* body and card element*/
 
-    body {
-        width: auto;
-    }
+    /*User section*/
 
-    .row {
-        justify-content: space-between;
-        margin-left: 10px;
-    }
-
-    .col-sm-1 {
+    #UserSection {
+        margin-left: 0px;
+        overflow: hidden;
         max-width: 100%;
-        margin: 0px;
-        margin-top: 15px;
-        margin-left: 10px;
     }
 
-    .col-sm-2 {
-        max-width: 100%;
-        margin: 0px;
-        margin-top: 15px;
-        margin-left: 10px;
-    }
-
-    .col-sm-3 {
-        margin: 0px;
-        max-width: 100%;
-        margin-top: 15px;
-        margin-left: 10px;
-    }
-
-
-    #allFacts {
-        max-width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-        #allFacts .row {
-            height: 650px;
+        #UserSection .row {
             max-width: 100%;
-            margin: 0px;
-            padding: 0px;
-            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
-            #allFacts .row p img {
-                margin: 0px;
-                display: block;
-                left: -20px;
-                float: none;
-                width: 360px;
+            #UserSection .row #constheight img {
+                width: 100%;
             }
 
-        #allFacts #facts2 {
-            left: 0px;
-            height: 450px;
+
+
+
+    /*small screens card div position*/
+
+    #LandmarksSection {
+        position: relative;
+        left: 20px;
+    }
+
+    #TownSection {
+        position: relative;
+        left: 20px;
+    }
+
+    #JourneySection {
+        position: relative;
+        left: 20px;
+    }
+
+    #FactsSection {
+        position: relative;
+        left: 0px;
+        max-width: 100%;
+    }
+
+
+    #carouselExampleControls {
+        max-width: 100%;
+    }
+
+
+
+    /* section Facts */
+
+    #allFacts #facts p {
+        position: unset;
+        left: 0px;
+        width: 100%;
+        height: auto;
+        font-size: 16px;
+    }
+
+        #allFacts #facts p img {
+            margin-right: 30px;
+            float: none;
         }
 
-            #allFacts #facts2 p img {
-                margin: 5px;
-                display: block;
+    #facts {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #facts2 {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #allFacts #facts2 p {
+        position: relative;
+        left: 0px;
+    }
+
+        #allFacts #facts2 p img {
+            float: none;
+            left: 10px;
+            width: 100px;
+        }
+
+    #facts3 {
+        max-width: 100%;
+        height: auto;
+    }
+
+        #facts3 p {
+            top: 0px;
+            left: 10px;
+            font-size: 16px;
+            color: black;
+        }
+
+            #facts3 p img {
                 float: none;
+                width: 100%;
+                height: auto;
             }
 
-            #allFacts #facts2 p {
-                height: 400px;
-                margin: 5px;
-            }
+
+    /*footer*/
+
+    #copy {
+        width: 200%;
+    }
 }

@@ -142,7 +142,10 @@ footer {
 
 }
 
-@media (min-width: 1024px) and (max-width: 1365px) {
+
+/*check query*/
+
+/*@media (min-width: 1024px) and (max-width: 1365px) {
     #allTown {
         grid-template-columns: 300px 1fr;
         padding: 20px;
@@ -171,3 +174,4 @@ footer {
         overflow: hidden;
     }
 }
+*/
