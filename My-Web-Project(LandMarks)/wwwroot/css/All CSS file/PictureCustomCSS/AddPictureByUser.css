@@ -1,4 +1,5 @@
 ﻿
+
 #btnPicture {
     position: relative;
     left: 220px;
@@ -11,14 +12,17 @@ h2 {
     text-align: center;
 }
 
-footer {
-    margin-top: 118px;
+#formCreate{
+     width: auto;
+    height: 200px;
 }
+
 
 form #UploadPicture {
     background-color: cornflowerblue;
     color: whitesmoke;
-    width: 560px;
+    width: 550px;
+    height: 200px;
     border-radius: 20px;
     padding: 5px;
     position: relative;
@@ -39,3 +43,6 @@ form #UploadPicture {
 }
 
 
+footer {
+    display: none;
+}

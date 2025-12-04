@@ -676,7 +676,7 @@ hr {
     #facts p {
         position: relative;
         top: 20px;
-        left: -250px;
+        left: 40px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
         margin: 5px;
@@ -737,7 +737,7 @@ hr {
     #facts3 p {
         position: relative;
         top: 20px;
-        left: -240px;
+        left: 40px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
         width: 800px;
@@ -1029,5 +1029,109 @@ footer {
 
     #copy {
         width: 200%;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #allTown {
+        grid-template-columns: 260px 1fr; 
+        padding: 16px;
+        gap: 16px;
+    }
+
+    #Info {
+        padding: 14px;
+        border-radius: 8px;
+    }
+
+    
+    #containerTown {
+        display: flex;
+        flex-direction: row;
+        gap: 14px;
+        padding: 14px;
+        align-items: flex-start;
+    }
+
+        #containerTown img {
+            width: 200px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+    #texts {
+        flex: 1;
+    }
+
+        #texts h4 {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        #texts p {
+            font-size: 14px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        #texts .btn {
+            display: inline-block;
+            width: auto;
+            padding: 8px 12px;
+        }
+}
+
+
+
+@media (min-width: 1024px) and (max-width: 1365px) {
+    #allTown {
+        grid-template-columns: 300px 1fr;
+        padding: 20px;
+        gap: 20px;
+        max-width: 1200px;
+    }
+
+    #Info {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    #containerTown {
+        display: flex;
+        flex-direction: row;
+        gap: 18px;
+        padding: 16px;
+        margin-bottom: 18px;
+        align-items: flex-start;
+    }
+
+        #containerTown img {
+            width: 260px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+    #texts h4 {
+        font-size: 21px;
+    }
+
+    #texts p {
+        font-size: 15px;
+        line-height: 1.45;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    #texts .btn {
+        padding: 9px 14px;
     }
 }
