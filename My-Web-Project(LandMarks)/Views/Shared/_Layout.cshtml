@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" asp-append-version="true" />
     <script src="/js/ViewoptionsDiv.js" asp-append-version="true"></script>
     <script src="/js/CloseHiddenDiv.js" asp-append-version="true"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
 </head>
 
 <body class="hide-vertical-scroll">
@@ -135,7 +138,7 @@
         <i class="fa fa-arrow-up fa-xl"></i>
     </button>
 
-   
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -162,8 +165,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
-          var message = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["ToastMessage"] ?? ""));
-          var type = @Html.Raw(System.Text.Json.JsonSerializer.Serialize((TempData["ToastType"] ?? "info").ToString()!.ToLower()));
+          var message = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(TempData["ToastMessage"] ?? ""))
+          var type = @Html.Raw(System.Text.Json.JsonSerializer.Serialize((TempData["ToastType"] ?? "info").ToString()!.ToLower()))
 
           if (message) {
             var toastEl = document.getElementById('globalToast');

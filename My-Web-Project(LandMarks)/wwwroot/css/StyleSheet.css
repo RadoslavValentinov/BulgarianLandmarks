@@ -30,6 +30,52 @@ nav .navbar {
     margin-bottom: 0px;
 }
 
+.dm-serif-text-regular {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.dm-serif-text-regular-italic {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.titleAndMenu{
+    padding-bottom:10px;
+}
+.titleAndMenu .navbar-brand {
+    font-family: "Boldonse", system-ui;
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: 5px;
+    color: transparent;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: url('../george-ivanov-k7hvivspy8w-unsplash.jpg');
+    background-size: 120%;
+    animation: bg-animation 30s cubic-bezier(0.3,0,0.7,1) infinite;
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+
+
+
 body {
     background: rgb(225,233,233);
     background: radial-gradient(circle, rgba(225,233,233,1) 51%, rgba(212,211,208,0.9327380610447304) 96%);
@@ -1035,7 +1081,7 @@ footer {
 
 @media (min-width: 768px) and (max-width: 1023px) {
     #allTown {
-        grid-template-columns: 260px 1fr; 
+        grid-template-columns: 260px 1fr;
         padding: 16px;
         gap: 16px;
     }
@@ -1045,7 +1091,7 @@ footer {
         border-radius: 8px;
     }
 
-    
+
     #containerTown {
         display: flex;
         flex-direction: row;

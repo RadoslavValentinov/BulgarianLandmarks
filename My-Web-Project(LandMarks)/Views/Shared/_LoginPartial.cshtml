@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using MyWebProject.Infrastructure.Data.Models;
+@inject SignInManager<Users> SignInManager
+@inject UserManager<Users> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        if (User.IsInRole("Administrator"))
+        {
+            <li class="nav-item">
+                <a id="userN" class="nav-link text-dark" asp-area="Administrator" asp-controller="HomeAdmin" asp-action="Index">Аdmin Area</a>
+            </li>
+        }
+
+        <li class="nav-item">
+            <a id="userN" class="nav-link " asp-controller="User" asp-action="ManageUserPage">Hello @User.Identity?.Name!</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="" asp-controller="User" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="log" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a  class="nav-link" asp-area="" asp-controller="User" asp-action="Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link " asp-area="" asp-controller="User" asp-action="Login">Sign In</a>
+        </li>
+    }
+</ul>
