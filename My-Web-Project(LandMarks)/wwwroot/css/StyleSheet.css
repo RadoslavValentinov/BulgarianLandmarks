@@ -42,23 +42,23 @@ nav .navbar {
     font-style: italic;
 }
 
-.titleAndMenu{
-    padding-bottom:10px;
+.titleAndMenu {
+    padding-bottom: 10px;
 }
 
-.titleAndMenu .navbar-brand {
-    font-family: "Boldonse", system-ui;
-    font-weight: 900;
-    font-style: normal;
-    letter-spacing: 5px;
-    color: transparent;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-image: url('../george-ivanov-k7hvivspy8w-unsplash.jpg');
-    background-size: 120%;
-    animation: bg-animation 30s cubic-bezier(0.3,0,0.7,1) infinite;
-}
+    .titleAndMenu .navbar-brand {
+        font-family: "Boldonse", system-ui;
+        font-weight: 900;
+        font-style: normal;
+        letter-spacing: 5px;
+        color: transparent;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-image: url('../george-ivanov-k7hvivspy8w-unsplash.jpg');
+        background-size: 120%;
+        animation: bg-animation 30s cubic-bezier(0.3,0,0.7,1) infinite;
+    }
 
 @keyframes bg-animation {
     0% {
@@ -689,6 +689,8 @@ hr {
 
 /* this position to nested div for all facts*/
 
+/* remove numbur of facts and set clasname only facts.VS code project set css and look html */
+
 #allFacts h1 {
     margin: 0px;
     padding-left: 20px;
@@ -696,105 +698,67 @@ hr {
 }
 
 #allFacts {
-    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 95%;
+    height: auto;
+    background-color: ghostwhite;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    overflow:hidden;
 }
 
-hr {
-    margin: 5px 0px;
-}
-
-#facts {
-    width: 1300px;
-    height: 400px;
-    background-image: url('https://m.netinfo.bg/media/images/49165/49165728/1280-840-plovdiv.jpg');
-    object-fit: cover;
-    opacity: 0.9;
-    margin-bottom: 20px;
-}
-
-    #facts p img {
-        float: right;
-        width: 350px;
-        height: 200px;
-        margin: 10px;
-        opacity: 1;
+    #allFacts .row {
+        margin-bottom: 10px;
     }
 
-    #facts p {
+    #allFacts img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
         position: relative;
-        top: 20px;
-        left: 40px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 18px;
-        margin: 5px;
-        width: 800px;
-        color: white;
-        font-size: 20px;
+        opacity:0.9;
     }
 
-#facts {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    padding: 10px;
-}
-
-#facts2 {
-    width: 1300px;
-    height: 350px;
-    background-image: url('https://pzdnes.com/wp-content/uploads/2024/06/IMG_6543-scaled-1080x500_c.jpg');
-    object-fit: cover;
-    opacity: 0.8;
-    padding-top: 20px;
-}
-
-    #facts2 p img {
-        float: right;
-        width: 400px;
-        height: 200px;
-        opacity: 1;
+    #allFacts p {
+        display: none;
+        width: 750px;
+        height: 280px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: oblique;
+        
     }
 
-    #facts2 p {
-        position: relative;
-        left: 300px;
-        width: 680px;
-        height: 300px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 18px;
+    #allFacts #facts1:hover p {
+        display: block;
         color: whitesmoke;
+        position: absolute;
+        top: 350px;
+        left: 390px;
+        transform: translate(-50%, -50%);
     }
 
-
-
-#facts3 {
-    width: 1300px;
-    height: 450px;
-    background-image: url('https://www.bgwrestling.bg/content/files/2023/08/30/%D0%94%D0%B0%D0%BD_%D0%9A%D0%BE%D0%BB%D0%BE%D0%B23.jpg');
-    object-fit: cover;
-    opacity: 0.8;
-}
-
-    #facts3 p img {
-        float: right;
-        width: 350px;
-        height: 200px;
-        opacity: 1;
-    }
-
-    #facts3 p {
-        position: relative;
-        top: 20px;
-        left: 40px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 18px;
-        width: 800px;
+    #allFacts #facts2:hover p {
+        display: block;
         color: whitesmoke;
+        position: absolute;
+        top: 850px;
+        left: 400px;
+        opacity:1;
+        transform: translate(-50%, -50%);
     }
 
-#facts3 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-}
+    #allFacts #facts3:hover p {
+        display: block;
+        color: whitesmoke;
+        position: absolute;
+        top: 1220px;
+        left: 400px;
+        transform: translate(-50%, -50%);
+    }
+
+
 
 
 
