@@ -4,41 +4,80 @@
 
 
 
+.cont {
+    margin-left: 100px;
+}
+
+.text-lg-center {
+    margin-left: 100px;
+}
+
+.carousel-inner .carousel-item {
+    left: 240px;
+}
+
+    .carousel-inner .carousel-item img {
+        object-fit: cover;
+    }
+
+
+
+
 .descript {
+    width: 80%;
     padding: 10px 0px 10px 0px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
+    text-align: center;
 }
 
-.secOptions p {
-    letter-spacing: 1.2px;
+
+.descript {
+    position: relative;
+    left: 130px;
 }
 
-.descript a {
-    padding-left: 20px;
-    text-decoration: none;
+    .descript a {
+        padding-left: 20px;
+        text-decoration: none;
+        color: dimgrey;
+        font-size: 18px;
+    }
+
+#more {
     color: dimgrey;
-    font-size: 18px;
-}
-
-.secOptions .row h3 {
-    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
-    font-size: 30px;
     font-style: italic;
-    padding-left: 5px;
-    margin-bottom: 10px;
 }
 
-.row{
-    padding-left:0px;
+    #more:hover {
+        color: firebrick;
+    }
+
+
+
+.secOptions {
+    margin: 20px 0px 20px 60px;
 }
 
-div .row{
-    padding-left:0px;
-}
+    .secOptions p {
+        padding: 10px;
+        letter-spacing: 1.2px;
+    }
+
+    .secOptions .row h3 {
+        font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+        font-size: 30px;
+        font-style: italic;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+
+
+
 
 div .rating {
-    display:inline;
+    display: inline;
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
     font-size: 30px;
     font-style: italic;
@@ -46,14 +85,28 @@ div .rating {
     margin-bottom: 10px;
 }
 
-div .btn{
-    background-color:lightsalmon;
-    color:whitesmoke;
+
+
+
+
+#voteBtn {
+    display: inline;
+}
+
+#vote {
+    background-color: lightsalmon;
+    color: whitesmoke;
     margin-bottom: 10px;
     border-radius: 20px;
 }
 
-div .btn:hover{
-    border: 1px solid gray;
-}
+    #vote:hover {
+        border: 1px solid gray;
+    }
 
+.map-section {
+    display: block;
+    width: 80%;
+    position: relative;
+    left: 150px;
+}

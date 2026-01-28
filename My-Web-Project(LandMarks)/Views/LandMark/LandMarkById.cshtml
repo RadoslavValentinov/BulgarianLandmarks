@@ -1,176 +1,89 @@
 ﻿@model LandMarkViewModelAll
 
 @{
-    bool first = true;
+    var first = true;
 }
 
 <head>
     <link rel="stylesheet" href="~/css/All CSS file/LandMarkCustomCSS/LandMarkByIDCustom.css" asp-append-version="true" />
 </head>
 
-<div class="text-lg-center">
-    <h1 style="font-size:50px;"> @Model.Name</h1>
-</div>
-<hr />
-<br />
-@{
-    var pic = Model.Pictures.Where(x => x.LandMarkId == Model.Id).ToList();
-}
+<article id="landmark-@Model.Id" class="cont">
+    <header class="landmark-header text-lg-center">
+        <h1 style="font-size:50px;">@Model.Name</h1>
+    </header>
 
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        @foreach (var sa in pic)
-        {
-            <div class="carousel-item @(first ? "active" : string.Empty)">
+    @{
+        var pic = Model.Pictures.Where(x => x.LandMarkId == Model.Id).ToList();
+    }
 
-                <img class="d-block w-100" style="height:500px" src="@sa.UrlImgAddres" alt="Land mark picture">
+    <section class="carousel-section" aria-label="Изображения на забележителността">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @foreach (var sa in pic)
+                {
+                    <div class="carousel-item @(first ? "active" : string.Empty)">
+                        <figure>
+                            <img style="height:500px; object-fit:cover;" src="@sa.UrlImgAddres" alt="@($"{Model.Name} - изображение")" />
+                            <figcaption class="visually-hidden">Снимка на @Model.Name</figcaption>
+                        </figure>
+                    </div>
+                    { first = false; }
+                }
             </div>
+        </div>
+    </section>
 
-            first = false;
-        }
-    </div>
-    <div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
+    <section id="description" class="descript" aria-labelledby="desc-heading">
+        <h2 id="desc-heading" class="visually-hidden">Описание</h2>
+        <p class="text-black">@Model.Description</p>
+        <p>
+            <a id="more" href="https://www.google.com/search?q=@Uri.EscapeDataString(Model.Name!)" target="_blank" rel="noopener">Може да прочетете още...</a>
+        </p>
+    </section>
 
+    <aside class="secOptions" aria-labelledby="rating-heading">
+        <h3 id="rating-heading" class="visually-hidden">Рейтинг и информация</h3>
 
-<div class="descript">
-    <p class="text-black">@Model.Description</p>
-    <br />
-    <a href="https://www.google.com/search?q=@Model.Name">Може да прочетете още...</a>
-</div>
-
-<div class="secOptions">
-    <div class="row">
         <style>
-            .checked {
-                color: orange;
-            }
+            .checked { color: orange; }
         </style>
-        <div>
-            @if (Model.Rating == 0)
-            {
-                <p class="rating">
 
-                    Рейтинг:
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    :@Model.Rating
+        @{
+            var stars = Model.Rating > 0 ? (int)System.Math.Ceiling((double)(Model.Rating / 2)) : 0;
+        }
+
+        <div class="rating-block">
+            <p class="rating" aria-label="Рейтинг">
+                Рейтинг:
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <span class="fa fa-star @(i <= stars ? "checked" : string.Empty)" aria-hidden="true"></span>
+                }
+                <span class="rating-value">:@Model.Rating</span>
+            </p>
+
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <p id="voteBtn">
+                    <a id="vote" class="btn"  asp-controller="LandMark" asp-action="UpRatting" asp-route-id="@Model.Id">Гласувай</a>
                 </p>
             }
-
-            @if (Model.Rating > 0 && Model.Rating <= 2)
-            {
-                <p class="rating">
-
-                    Рейтинг:
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    :@Model.Rating
-                </p>
-            }
-
-            @if (Model.Rating > 2 && Model.Rating <= 4)
-            {
-                <p class="rating">
-
-                    Рейтинг:
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    :@Model.Rating
-                </p>
-            }
-
-            @if (Model.Rating > 4 && Model.Rating <= 6)
-            {
-                <p class="rating">
-
-                    Рейтинг:
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    :@Model.Rating
-                </p>
-            }
-
-            @if (Model.Rating > 6 && Model.Rating <= 8)
-            {
-                <p class="rating">
-
-                    Рейтинг:
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    :@Model.Rating
-                </p>
-            }
-
-            @if (Model.Rating > 8 && Model.Rating <= 10)
-            {
-                <p class="rating">
-
-                    Рейтинг:
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    :@Model.Rating
-                </p>
-            }
-
-
-            @if (User.Identity!.IsAuthenticated)
-            {
-                <a class="btn" asp-controller="LandMark" asp-action="UpRatting" asp-route-id="@Model.Id">Гласувай</a>
-            }
-
-
         </div>
 
-
-        @if (Model.TownName != null)
+        @if (!string.IsNullOrWhiteSpace(Model.TownName))
         {
-            <br />
-            <br />
-            <br />
             <hr />
-            <h3 class="text-md-start">Град: @Model.TownName</h3>
-            <br />
+            <div class="town-info" aria-label="Град">
+                <h3>Град: <span>@Model.TownName</span></h3>
+            </div>
             <hr />
         }
-    </div>
-</div>
+    </aside>
 
+    <section class="map-section" aria-label="Карта">
+        <div id="map-@Model.Id" style="height:400px; width:100%;" role="application" aria-roledescription="map"></div>
 
-
-
-<div class="row">
-
-
-    <div>
-        <div id="map-@Model.Id" style="height: 400px; width: 100%;"></div>
         <script>
             function initMap() {
                 var location = { lat: @Model.Latitude, lng: @Model.Longitude };
@@ -184,11 +97,9 @@
                 });
             }
         </script>
-    </div>
 
-
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=MY_API_KEY&callback=initMap">
-    </script>
-
-</div>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=MY_API_KEY&callback=initMap">
+        </script>
+    </section>
+</article>
