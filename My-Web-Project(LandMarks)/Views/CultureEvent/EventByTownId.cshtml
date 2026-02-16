@@ -5,18 +5,30 @@
 </head>
 
 
-    <div id="divConntainer" class="container">
-        <img src="@Model.ImageURL" alt="...">
-        <br />
+<div id="divConntainer">
+    
+    <div>
+        <img src="@Model.ImageURL" alt="Event">
+    </div>
+    
+    <br />
+    <div class="descriptA">
+
         <h1>@Model.Name</h1>
-        <br />
-        <hr />
+       
         <p>@Model.Description</p>
-        <br />
+      
+
+    </div>
+    <div class="datatime">
+
         <hr />
         <p>Дата на събитието: @Model.Date</p>
         <p>Час на започване: @Model.Hour</p>
-        <p>Град: @Model.TownName</p>  
+        <p>Град: @Model.TownName</p>
         <hr />
         <p>За заптвания моля да се свържите с нас на посочените телефони или имейли.</p>
+
     </div>
+    
+</div>

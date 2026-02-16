@@ -3,11 +3,29 @@
 }
 
 #divConntainer img {
-    width: 1050px;
+    width: 70%;
     height: 500px;
+    position: relative;
+    left: 270px;
+    top: 50px;
+    margin-bottom: 50px;
 }
 
 #divConntainer {
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.datatime {
+    width:80%;
+    position:relative;
+    left:200px;
+    padding:40px;
+    font-style:italic;
+}
+
+.descriptA {
+    width: 70%;
+    position: relative;
+    left: 270px;
 }
