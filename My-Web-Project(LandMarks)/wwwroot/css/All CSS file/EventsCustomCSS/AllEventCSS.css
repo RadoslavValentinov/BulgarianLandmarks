@@ -13,9 +13,14 @@
     box-shadow: initial 10px 10px 10px initial;
     border-radius: 5px;
     max-width: 280px;
-    height: 410px;
+    height: 375px;
     background-color: whitesmoke;
     padding: 0px;
+}
+
+.row{
+   gap: 10px;
+   margin-left:110px;
 }
 
 .row h4 {

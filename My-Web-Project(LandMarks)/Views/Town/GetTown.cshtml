@@ -9,118 +9,123 @@
 </head>
 
 
-<div class="text-lg-center">
-    <p style="font-size:50px;"> @Model.Name</p>
-    <hr />
-    <br />
-</div>
-@{
-    var pic = Model.Picture.Where(a => a.TownId == Model.Id && a.LandMarkId == null).ToList();
-}
 
+<div class="hero">
 
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner" style="margin-left:150px">
-        @foreach (var sa in pic)
-        {
-            <div class="carousel-item @(first ? "active" : string.Empty)">
-
-                <img class="d-block w-75" style="height:500px"
-                     src="@sa.UrlImgAddres" alt="Town Picture">
-
-            </div>
-
-            first = false;
-        }
-    </div>
-    <div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
-<br />
-
-
-
-
-<div id="descript" class="container">
-    <div class="row">
-        <div id="desc"><p>@Model.Description</p></div>
-        <br />
+    <div class="text-lg-center">
+        <p style="font-size:50px;"> @Model.Name</p>
         <hr />
+        <br />
     </div>
-</div>
-<br />
+    @{
+        var pic = Model.Picture.Where(a => a.TownId == Model.Id && a.LandMarkId == null).ToList();
+    }
 
-@{
-    var pict = Model.Picture.ToList();
-    var land = Model.Landmarks.ToList();
-}
 
-@if (land.Count >= 3)
-{
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" style="margin-left:150px">
+            @foreach (var sa in pic)
+            {
+                <div class="carousel-item @(first ? "active" : string.Empty)">
+
+                    <img class="d-block w-75" style="height:500px"
+                         src="@sa.UrlImgAddres" alt="Town Picture">
+
+                </div>
+
+                first = false;
+            }
+        </div>
+        <div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <br />
+
+
+
+
+    <div id="descript" class="container">
+        <div class="row">
+            <div id="desc"><p>@Model.Description</p></div>
+            <br />
+            <hr />
+        </div>
+    </div>
+    <br />
+
+    @{
+        var pict = Model.Picture.ToList();
+        var land = Model.Landmarks.ToList();
+    }
+
+    @if (land.Count >= 3)
+    {
+        <div class="container">
+            <div class="text-lg-center">
+
+                <p style=" font-size:50px;">Забележителности</p>
+                <hr />
+            </div>
+            <div class="row">
+                @for (int i = 0; i < 3; i++)
+                {
+                    var picture = pict.FirstOrDefault(x => x.LandMarkId == land[i].Id);
+
+                    <div id="cardElement">
+                        <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
+                        <div id="secText">
+                            <h5>@land[i].Name.ToString()</h5>
+                            <hr />
+                            <p>@land[i].Description.Substring(0, 60)...</p>
+                            <a class="btn btn-primary" asp-route-id="@land[i].Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    <br />
+    <hr />
+
+    @{
+        var culEvent = Model.cultural_Events.ToList();
+    }
+
     <div class="container">
         <div class="text-lg-center">
-
-            <p style=" font-size:50px;">Забележителности</p>
+            <p style="font-size:50px;">Културни Събития</p>
             <hr />
         </div>
         <div class="row">
             @for (int i = 0; i < 3; i++)
             {
-                var picture = pict.FirstOrDefault(x => x.LandMarkId == land[i].Id);
-
                 <div id="cardElement">
-                    <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
+                    <img src="@culEvent[i].ImageURL" class="card-img-top" alt="...">
                     <div id="secText">
-                        <h5>@land[i].Name.ToString()</h5>
+                        <h5>@culEvent[i].Name.ToString()</h5>
                         <hr />
-                        <p>@land[i].Description.Substring(0, 60)...</p>
-                        <a class="btn btn-primary" asp-route-id="@land[i].Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
+                        @if (culEvent[i].Description.Length < 50)
+                        {
+                            <p>@culEvent[i].Description.Substring(0, culEvent[i].Description.Length)...</p>
+                        }
+                        else
+                        {
+                            <p>@culEvent[i].Description.Substring(0, 60)...</p>
+                        }
+                        <a id="eventss" class="btn btn-primary" asp-route-id="@culEvent[i].Id" asp-controller="CultureEvent" asp-action="EventByTownId">Научи повече</a>
                     </div>
                 </div>
             }
         </div>
     </div>
-}
-<br />
-<hr />
+    <hr />
 
-@{
-    var culEvent = Model.cultural_Events.ToList();
-}
-
-<div class="container">
-    <div class="text-lg-center">
-        <p style="font-size:50px;">Културни Събития</p>
-        <hr />
-    </div>
-    <div class="row">
-        @for (int i = 0; i < 3; i++)
-        {
-            <div id="cardElement">
-                <img src="@culEvent[i].ImageURL" class="card-img-top" alt="...">
-                <div id="secText">
-                    <h5>@culEvent[i].Name.ToString()</h5>
-                    <hr />
-                    @if (culEvent[i].Description.Length < 50)
-                    {
-                        <p>@culEvent[i].Description.Substring(0,culEvent[i].Description.Length)...</p>
-                    }
-                    else
-                    {
-                        <p>@culEvent[i].Description.Substring(0,60)...</p>
-                    }
-                    <a id="eventss" class="btn btn-primary" asp-route-id="@culEvent[i].Id" asp-controller="CultureEvent" asp-action="EventByTownId">Научи повече</a>
-                </div>
-            </div>
-        }
-    </div>
 </div>
-<hr />

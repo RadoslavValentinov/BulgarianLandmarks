@@ -87,6 +87,7 @@ namespace My_Web_Project_LandMarks_.Controllers
 
 
         // only for test local
+
         //[HttpGet]
         //[AllowAnonymous]
         //public IActionResult ExternalLogin(string provider, string returnUrl = null)
