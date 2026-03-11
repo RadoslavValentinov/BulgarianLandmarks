@@ -14,7 +14,6 @@
 
     <div class="text-lg-center">
         <p style="font-size:50px;"> @Model.Name</p>
-        <hr />
         <br />
     </div>
     @{
@@ -56,7 +55,6 @@
         <div class="row">
             <div id="desc"><p>@Model.Description</p></div>
             <br />
-            <hr />
         </div>
     </div>
     <br />
@@ -72,7 +70,7 @@
             <div class="text-lg-center">
 
                 <p style=" font-size:50px;">Забележителности</p>
-                <hr />
+               
             </div>
             <div class="row">
                 @for (int i = 0; i < 3; i++)
@@ -82,10 +80,10 @@
                     <div id="cardElement">
                         <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
                         <div id="secText">
-                            <h5>@land[i].Name.ToString()</h5>
+                            <h5>@land[i].Name</h5>
                             <hr />
                             <p>@land[i].Description.Substring(0, 60)...</p>
-                            <a class="btn btn-primary" asp-route-id="@land[i].Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
+                            <a id="eventss" asp-route-id="@land[i].Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
                         </div>
                     </div>
                 }
@@ -93,7 +91,6 @@
         </div>
     }
     <br />
-    <hr />
 
     @{
         var culEvent = Model.cultural_Events.ToList();
@@ -102,7 +99,6 @@
     <div class="container">
         <div class="text-lg-center">
             <p style="font-size:50px;">Културни Събития</p>
-            <hr />
         </div>
         <div class="row">
             @for (int i = 0; i < 3; i++)
@@ -110,7 +106,7 @@
                 <div id="cardElement">
                     <img src="@culEvent[i].ImageURL" class="card-img-top" alt="...">
                     <div id="secText">
-                        <h5>@culEvent[i].Name.ToString()</h5>
+                        <h5>@culEvent[i].Name</h5>
                         <hr />
                         @if (culEvent[i].Description.Length < 50)
                         {
@@ -120,12 +116,11 @@
                         {
                             <p>@culEvent[i].Description.Substring(0, 60)...</p>
                         }
-                        <a id="eventss" class="btn btn-primary" asp-route-id="@culEvent[i].Id" asp-controller="CultureEvent" asp-action="EventByTownId">Научи повече</a>
+                        <a id="eventss"  asp-route-id="@culEvent[i].Id" asp-controller="CultureEvent" asp-action="EventByTownId">Научи повече</a>
                     </div>
                 </div>
             }
         </div>
     </div>
-    <hr />
 
 </div>
