@@ -3,6 +3,15 @@
     background: linear-gradient(180deg, rgba(225,233,233,1) 54%, rgba(150,150,149,0.6694327389158788) 98%);
 }
 
+.pb-3{
+    width:110%;
+}
+
+.carousel-inner {
+    margin-left: 60px;
+}
+
+
 #place {
     font-family:Arial, Helvetica, sans-serif;
     letter-spacing: 1px;

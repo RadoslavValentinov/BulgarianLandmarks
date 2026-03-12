@@ -61,7 +61,7 @@
 
     @{
         var pict = Model.Picture.ToList();
-        var land = Model.Landmarks.ToList();
+        var land = Model.Landmarks.OrderBy(s => s.Rating).ToList();
     }
 
     @if (land.Count >= 3)
@@ -80,9 +80,9 @@
                     <div id="cardElement">
                         <img src="@picture?.UrlImgAddres" class="card-img-top" alt="...">
                         <div id="secText">
-                            <h5>@land[i].Name</h5>
+                            <h5>@land[i].Name.ToString()</h5>
                             <hr />
-                            <p>@land[i].Description.Substring(0, 60)...</p>
+                            <p>@land[i].Description.Substring(0, 50)...</p>
                             <a id="eventss" asp-route-id="@land[i].Id" asp-controller="landMark" asp-action="LandMarkById">Научи повече</a>
                         </div>
                     </div>

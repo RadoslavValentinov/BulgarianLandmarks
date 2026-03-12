@@ -22,11 +22,11 @@ h5{
 }
 
 .container{
-    margin-left: 50px;
+    margin-left: 70px;
 }
 .container .row #cardElement {
     width: 350px;
-    height: 390px;
+    height: 400px;
     padding: 0px;
     border: 1px solid gray;
     margin: 10px;
@@ -51,7 +51,7 @@ h5{
 
     #cardElement #secText p {
         padding: 0px;
-        margin: 5px 0px;
+        margin: 0px;
     }
 
 
@@ -64,7 +64,7 @@ h5{
 #eventss {
     position: relative;
     bottom: -60px;
-    padding: 3px 130px;
+    padding: 10px 130px;
     background-color:dodgerblue;
     text-decoration:none;
     color:whitesmoke;
